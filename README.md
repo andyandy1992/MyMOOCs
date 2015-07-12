@@ -15,7 +15,7 @@
 - Completed
  - [Intro to Computer Science](https://www.udacity.com/course/intro-to-computer-science--cs101)
 - Interested in/useful resources:
- - [Intor to Parallel Programming](Artificial Intelligence for Robotics)
+ - [Intro to Parallel Programming](Artificial Intelligence for Robotics)
  - [Artificial Intelligence for Robotics](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
  - [Intro to Artificial Intelligence](https://www.udacity.com/course/intro-to-artificial-intelligence--cs271)
  - [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212)
