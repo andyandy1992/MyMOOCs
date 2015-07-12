@@ -1,0 +1,1329 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+theorems-named
+tabs-within-sections
+theorems-ams-extended
+theorems-sec
+customHeadersFooters
+enumitem
+fixltx2e
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "urlcolor=blue"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\boxbgcolor #ffff7f
+\branch How many Nobel Prizes?
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch Guess is 150
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Introduction to Artificial Intelligence
+\end_layout
+
+\begin_layout Date
+6th September 2012
+\end_layout
+
+\begin_layout Section
+Welcome to AI
+\end_layout
+
+\begin_layout Definition*
+An AI program is called an 
+\series bold
+Intelligent Agent
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Perception Action Cycle:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Perception Action Cycle.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+AI in Finance:
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/AI in Finance.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Terminology: 4 Key Attributes
+\end_layout
+
+\begin_layout Definition*
+An environment in 
+\series bold
+fully observable 
+\series default
+if what your agent can sense at any point of time is completely sufficient
+ to make the optimal decision.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Card games where all the cards are displayed on the table.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition*
+An environment in 
+\series bold
+partially observable 
+\series default
+if an agent is required to memorise previous environment to assist make
+ optimal decisions.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Poker where you cannot see other players hands.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition*
+An environment is 
+\series bold
+deterministic
+\series default
+ if an agents action 
+\emph on
+uniquely 
+\emph default
+determines the outcome.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Chess - no randomness when you move a piece
+\end_layout
+
+\begin_deeper
+\begin_layout Definition*
+An environment is 
+\series bold
+stochastic 
+\series default
+if an agents actions does not uniquely determines the outcome.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Dice games
+\end_layout
+
+\begin_deeper
+\begin_layout Definition*
+An environment is 
+\series bold
+discrete 
+\series default
+if there are only finitely many outcomes.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Chess - only finitely many things you can do.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition*
+An environment is 
+\series bold
+continuous 
+\series default
+if there are infinitely many outcomes.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Darts - there are infinitely many ways to angle the darts and accelerate
+ them.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition*
+An environment is 
+\series bold
+benign 
+\series default
+if the environment does not have an objective of it's own that might contradict
+ your objective.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Weather - completely random, not really out to get you.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition*
+An environment is 
+\series bold
+adversarial
+\series default
+ if the environment does have objectives other than ones own.
+\end_layout
+
+\begin_layout Definition*
+E.g.
+ Chess - your opponents are out to beat you.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+AI as Uncertainty Management
+\end_layout
+
+\begin_layout Abstract
+What to do when you don't know what to do?
+\end_layout
+
+\begin_layout Subsubsection
+Reasons for uncertainty:
+\end_layout
+
+\begin_layout Itemize
+Sensor Limits
+\end_layout
+
+\begin_layout Itemize
+Ignorance
+\end_layout
+
+\begin_layout Itemize
+Laziness
+\end_layout
+
+\begin_layout Itemize
+Adversarial
+\end_layout
+
+\begin_layout Itemize
+Stochastic Environments
+\end_layout
+
+\begin_layout Subsection
+Examples of AI
+\end_layout
+
+\begin_layout Itemize
+Google's translation system
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Machine Learning techniques
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Collect examples of text in 2 different languages
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This is why is translate word for word.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Search for the 
+\emph on
+most probable 
+\emph default
+translation for the given text.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Translating Chinese.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Problem Solving
+\end_layout
+
+\begin_layout Subsection
+Definition of a Problem
+\end_layout
+
+\begin_layout Enumerate
+Initial state: 
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Action(s): 
+\begin_inset Formula $\left(s\right)\mapsto\left\{ a_{i}:a_{i}\mbox{ if the }i\mbox{th action}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Result: 
+\begin_inset Formula $\left(s,a\right)\mapsto s^{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Goal test: 
+\begin_inset Formula $\left(s\right)\mapsto\left\{ \mbox{T,\,\ F}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Path cost: 
+\begin_inset Formula $\left(s\overset{a}{\mapsto}s\overset{a}{\mapsto}s\right)\mapsto n\in\mathbb{N}$
+\end_inset
+
+, implemented by a step cost function: 
+\begin_inset Formula $\left(s,a,s^{1}\right)\mapsto n\in\mathbb{N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Steps 2,3,4 and 5 are functions
+\end_layout
+
+\begin_layout Example*
+.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/Problem solving.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Graph Searches
+\end_layout
+
+\begin_layout Remark*
+A Graph Search is different to a Tree Search since we 
+\series bold
+record the explored 
+\series default
+states (nodes).
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Breath-First Search
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Quotes eld
+\end_inset
+
+ish
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+
+\family typewriter
+\shape up
+frontier = {intial state}
+\end_layout
+
+\begin_layout Algorithm
+
+\family typewriter
+\shape up
+loop:
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\shape up
+if frontier is empty: return F
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\shape up
+path = remove-
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+\shape default
+Shortest Path o/w left-right
+\family typewriter
+\shape up
+
+\begin_inset Quotes erd
+\end_inset
+
+(frontier)
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\shape up
+s = path.end
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\shape up
+if = GOALTEST(s):
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\shape up
+return path
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\shape up
+for a in Actions(s):
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\family typewriter
+\shape up
+add [path + a 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Result (s,a)] to frontier
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Order of Breath first search.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Expand the shortest path first (otherwise left-to right).
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Finds the path with the least number of steps.
+\end_layout
+
+\end_deeper
+\begin_layout Algorithm
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Uniform-Cost Search (Cheapest-First) Search
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Frontier = initial state
+\end_layout
+
+\begin_layout Enumerate
+Add frontier to explored, and add any neighbouring nodes to the frontier.
+\end_layout
+
+\begin_layout Enumerate
+Add the cheapest 
+\series bold
+\shape italic
+total cost path
+\series default
+ in the frontier to explored and add any (unexplored) neighbouring nodes
+ to the frontier.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If the goal has been reached, 
+\series bold
+\shape italic
+don't 
+\series default
+add any neighbours.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Stop when frontier is empty.
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Order of Cheapest first search.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Expand the cheapest 
+\begin_inset Quotes eld
+\end_inset
+
+total cost
+\begin_inset Quotes erd
+\end_inset
+
+ path first.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Finds the path with the cheapest total cost.
+\end_layout
+
+\end_deeper
+\begin_layout Algorithm
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Depth-First Search
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Order of Depth first search.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Expand the longest path first (opposite to Breath-First Search).
+\end_layout
+
+\begin_layout Subsection
+Properties of searches
+\end_layout
+
+\begin_layout Subsubsection
+Storage
+\end_layout
+
+\begin_layout Standard
+(How many nodes are require to be store on each loop)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Storage of searches.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A level 
+\begin_inset Formula $n$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Description
+
+\color red
+Breath-First 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ nodes and storage space required
+\end_layout
+
+\begin_layout Description
+
+\color red
+Cheapest-First 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ nodes and storage space required
+\end_layout
+
+\begin_layout Description
+
+\color green
+Depth-First 
+\begin_inset Formula $n$
+\end_inset
+
+ nodes and storage space required
+\end_layout
+
+\begin_layout Subsubsection
+Completeness
+\end_layout
+
+\begin_layout Standard
+(If there's an answer, it will be found)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Searches - Completeness.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suppose we have an infinite graph and some goal 
+\begin_inset Formula $G$
+\end_inset
+
+ within.
+\end_layout
+
+\begin_layout Description
+
+\color green
+Breath-First 
+\begin_inset Formula $G$
+\end_inset
+
+ will always be found.
+\end_layout
+
+\begin_layout Description
+
+\color green
+Breath-First 
+\begin_inset Formula $G$
+\end_inset
+
+ will always be found.
+\end_layout
+
+\begin_layout Description
+
+\color red
+Depth-First 
+\begin_inset Formula $G$
+\end_inset
+
+ will not always be found
+\end_layout
+
+\begin_layout Subsection
+Improving Cheapest-First Search
+\end_layout
+
+\begin_layout Standard
+We exand if terms of contours when using Uniform-Cost Search.
+\end_layout
+
+\begin_layout Standard
+This search is not very directed at the goal (we expand everywhere) - lengthy
+ for large spaces.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Contours of Uniform-Cost Search.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To improve, we use another algorithm based of the 
+\series bold
+estimate 
+\series default
+of the goal 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Greedy Best-First Search
+\end_layout
+
+\end_inset
+
+ Expand the paths closest to the goal:
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Graphics
+	filename Images/Greedy Best-First Search.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Consider search spaces with barriers though:
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Greedy Best-First Search, barrier.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+As a result to find optimum paths we use another alogrithm called 
+\begin_inset Formula $A^{*}$
+\end_inset
+
+ Search, combining the best parts of Uniform-Cost Search (to find the shortest
+ path) with Greedy-Best First Search.
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $A^{*}$
+\end_inset
+
+ Search
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm
+Expand the path that has a minimum value of the function 
+\begin_inset Formula 
+\[
+f=g+h
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $g\left(\mbox{path}\right)=\mbox{path cost}$
+\end_inset
+
+, 
+\begin_inset Formula $h\left(\mbox{path}\right)=h\left(s\right)=\mbox{estimated distance to the goal}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Graphics
+	filename Images/A-star Search.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Minimising 
+\begin_inset Formula $g$
+\end_inset
+
+ helps us keep the path short.
+\end_layout
+
+\begin_layout Remark*
+Minimising 
+\begin_inset Formula $h$
+\end_inset
+
+ helps us keep focused on finding the goal.
+\end_layout
+
+\begin_layout Remark*
+
+\end_layout
+
+\begin_layout Section
+Probability in AI
+\end_layout
+
+\begin_layout Section
+Probabilistic Inference
+\end_layout
+
+\begin_layout Section
+Machine Learning
+\end_layout
+
+\begin_layout Section
+Unsupervised Learning
+\end_layout
+
+\begin_layout Section
+Representation with Logic
+\end_layout
+
+\begin_layout Section
+Planning
+\end_layout
+
+\begin_layout Section
+Planning under Uncertainty
+\end_layout
+
+\begin_layout Section
+Reinforcement Learning
+\end_layout
+
+\begin_layout Section
+Hidden Markov Models and Filters
+\end_layout
+
+\begin_layout Section
+Markov Decision Process Review
+\end_layout
+
+\begin_layout Section
+Games
+\end_layout
+
+\begin_layout Section
+Games Theory
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1873 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+logicalmkup
+theorems-ams
+theorems-named
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams-extended
+theorems-sec
+customHeadersFooters
+enumitem
+fixltx2e
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "urlcolor=blue"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 2
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\boxbgcolor #ffff7f
+\branch How many Nobel Prizes?
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch Guess is 150
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Machine Learning
+\end_layout
+
+\begin_layout Author
+Andrew Ng
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction to Machine Learning
+\end_layout
+
+\begin_layout Definition
+
+\color blue
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Machine Learning (Arthur Samuel, 1959)
+\end_layout
+
+\end_inset
+
+Field of study that gives computer the ability to learn 
+\series bold
+without 
+\series default
+being explicitly programmed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Remark*
+A computer has a 
+\emph on
+\color green
+patience
+\emph default
+\color inherit
+ to play 10,000 hrs of checkers to become a professional.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Machine learning algorithms
+\end_layout
+
+\begin_layout Description
+
+\color blue
+Supervised
+\begin_inset space ~
+\end_inset
+
+learning infer a relationship (or function) from 
+\emph on
+labelled
+\emph default
+ input/output data.
+ 
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+E1.1 - 1 attribute
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/House price prediction.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/Breast cancer (representation 1).png
+	lyxscale 60
+	scale 1060
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+LEFT: 
+\series bold
+\emph on
+regression
+\series default
+ problem (
+\series bold
+continuous
+\series default
+ valued output)
+\emph default
+: What is the best predictor of house price - Straight or quadratic?
+\begin_inset Newline newline
+\end_inset
+
+RIGHT: 
+\series bold
+\emph on
+classification
+\series default
+ problem (
+\series bold
+discrete
+\series default
+ valued output)
+\emph default
+: What is the likelihood of my friend with a tumour of size 
+\begin_inset Formula $x$
+\end_inset
+
+ having a malignant (bad) of benign (good) cancer?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+E1.2 - 2 attributes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Breast cancer (2 attributes).png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+What is the likelihood of my friend with a tumour of size 
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\series bold
+and
+\series default
+ of age 
+\begin_inset Formula $y$
+\end_inset
+
+ having a malignant (bad) of benign (good) cancer?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Note*
+We can deal with problems that have an infinite number of attributes.
+\end_layout
+
+\begin_layout Description
+
+\color blue
+Unsupervised
+\begin_inset space ~
+\end_inset
+
+learning infer a relationship from 
+\emph on
+unlabelled
+\emph default
+ input/output data.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Unsupervised learning.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Given an 
+\series bold
+unknown
+\series default
+ data set, can you find some structure to the data?
+\begin_inset Newline newline
+\end_inset
+
+
+\color cyan
+E.g.
+ Google News - given a set of new articles, group them into sets of articles
+ about the same story.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+We can derive this structure by 
+\series bold
+\emph on
+clustering
+\series default
+\emph default
+ the data based on relationships among the variables in the data.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+The power of learning algorithms
+\end_layout
+
+\end_inset
+
+ When given two sources of data (e.g.
+ a 
+\emph on
+guy talking 
+\emph default
+at a cocktail party with 
+\emph on
+loud music
+\emph default
+), the 
+\series bold
+Cocktail party problem algorithm
+\series default
+ can extract and separate each source (so you can easily hear what the guy
+ is talking about, and just listen to the music separately).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Algorithm*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+A1.1
+\end_layout
+
+\end_inset
+
+ This algorithm has 
+\emph on
+\bar under
+one line of code
+\emph default
+\bar default
+: (using Octave, similar to MATLAB)
+\end_layout
+
+\begin_layout Algorithm*
+
+\family typewriter
+\color magenta
+[W,s,v] = svd((repmat(sum(x.*x,1), size(x,1), 1).
+ *x) *x');
+\end_layout
+
+\begin_layout Algorithm*
+The key function is 
+\family typewriter
+svd
+\family default
+, built into Octave.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Univariate linear regression (
+\emph on
+Linear regression with one variable
+\emph default
+)
+\end_layout
+
+\begin_layout Subsection
+Model Representation
+\end_layout
+
+\begin_layout Notation*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color blue
+Training (data) sets
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation*
+
+\color blue
+\begin_inset Formula $m:=$
+\end_inset
+
+# training examples, 
+\begin_inset Formula $x:=$
+\end_inset
+
+input variable/features, 
+\begin_inset Formula $y:=$
+\end_inset
+
+output/target variable
+\end_layout
+
+\begin_layout Notation*
+
+\color blue
+\begin_inset Formula $\left(x,y\right):=$
+\end_inset
+
+one training example
+\end_layout
+
+\begin_layout Notation*
+
+\color blue
+\begin_inset Formula $\left(x^{\left(i\right)},y^{\left(i\right)}\right):=i^{th}$
+\end_inset
+
+ training example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Model representation (univariate linear regression).png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+Model representation
+\emph default
+: Hypothesis refers to a map here, not a prediction; 
+\emph on
+
+\begin_inset Formula $x\overset{h}{\mapsto}y=h\left(x\right)$
+\end_inset
+
+.
+ 
+\emph default
+[E.g.
+ 
+\begin_inset Formula $h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x$
+\end_inset
+
+ for a straight line problem.]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cost Function
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Idea: 
+\series default
+Choose 
+\begin_inset Formula $\theta_{0},\theta_{1}$
+\end_inset
+
+ so that 
+\begin_inset Formula $h_{\theta}\left(x\right)$
+\end_inset
+
+ is close to 
+\begin_inset Formula $y$
+\end_inset
+
+ for our training examples 
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+.
+ That is, minimize:
+\begin_inset Formula 
+\[
+\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\overset{_{\mbox{to make the maths easier}}}{\iff}\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\color blue
+The 
+\series bold
+cost 
+\series default
+(
+\series bold
+squared error
+\series default
+)
+\series bold
+ function
+\series default
+ of a training set is 
+\begin_inset Formula 
+\[
+J\left(\theta_{0},\theta_{1}\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
+\]
+
+\end_inset
+
+so we 
+\emph on
+seek
+\emph default
+ 
+\begin_inset Formula $\min J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Cost Function Intuition
+\end_layout
+
+\begin_layout Example*
+
+\color cyan
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+E1.3 - 1 parameter
+\end_layout
+
+\end_inset
+
+ Consider a simplified version of the straight line model, with 
+\begin_inset Formula $\theta_{0}=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+h_{\theta}\left(x\right)=\theta_{1}x\mbox{ and }J\left(\theta_{0},\theta_{1}\right)=J\left(\theta_{1}\right)
+\]
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Cost Function Intuition.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+We get the following lines for:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\theta_{1}=1$
+\end_inset
+
+: 
+\color cyan
+Cyan
+\color inherit
+ line
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\theta_{1}=0.5$
+\end_inset
+
+: 
+\color magenta
+Magenta
+\color inherit
+ line
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\theta_{1}=0$
+\end_inset
+
+: 
+\color blue
+Blue
+\color inherit
+ line
+\begin_inset Newline newline
+\end_inset
+
+Observe 
+\begin_inset Formula $\theta_{1}=1$
+\end_inset
+
+ minimises 
+\begin_inset Formula $J\left(\theta_{1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+E1.4 - 2 parameters
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Bowl Plot.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+3D representation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Contour Plot.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+Contour plot.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Cost Function Intuition (2 parameters) 1.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Cost Function Intuition (2 parameters) 2.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+The contour plot shows the closer the values of 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+ to the minimum, the better the line of best fit is.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+We seek an algorithm that minimises the cost function 
+\begin_inset Formula $J$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Minimising the cost function - Gradient Descent
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Idea: 
+\series default
+You're at the top of a hill and you seek a route to the bottom by always
+ choosing the 
+\emph on
+lowest
+\emph default
+ 
+\emph on
+step
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\shape up
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Algorithm*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+A1.2 - Gradient Descent
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+repeat until convergence {
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+ 
+\shape up
+(simultaneously update 
+\begin_inset Formula $j=0$
+\end_inset
+
+ and 
+\begin_inset Formula $j=1$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+}
+\end_layout
+
+\begin_layout Algorithm*
+
+\shape up
+for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ the 
+\series bold
+learning
+\series default
+ 
+\series bold
+rate
+\series default
+ (step size).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+
+\series bold
+Simultaneously
+\series default
+ 
+\series bold
+update
+\series default
+ means:
+\end_layout
+
+\begin_layout Note*
+
+\family typewriter
+temp0 
+\begin_inset Formula $:=\theta_{0}-\alpha\frac{\partial}{\partial\theta_{0}}J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+; temp1 
+\begin_inset Formula $:=\theta_{1}-\alpha\frac{\partial}{\partial\theta_{1}}J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+\begin_inset Formula $\theta_{0}:=$
+\end_inset
+
+
+\family typewriter
+temp0
+\family default
+; 
+\begin_inset Formula $\theta_{1}:=$
+\end_inset
+
+
+\family typewriter
+temp1
+\family default
+.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Problem
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Inital conditions and finishing position.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+Initial conditions
+\emph default
+ can affect which (local) minimum you arrive at, and this may not necessarily
+ be the global minimum.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Consider 
+\begin_inset Formula $J\left(\theta_{1}\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $\theta_{1}\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+So 
+\begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\frac{d}{d\theta_{1}}J\left(\theta_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Gradient descent - derivative term.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Why the derivative term 
+\begin_inset Formula $\frac{d}{d\theta_{1}}$
+\end_inset
+
+ works.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Gradient descent - the learning rate.png
+	lyxscale 65
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Choosing the learning rate,
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+TOP: if 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is too 
+\emph on
+small
+\emph default
+, gradient descent can be slow.
+\begin_inset Newline newline
+\end_inset
+
+BOTTOM: if 
+\begin_inset Formula $\alpha$
+\end_inset
+
+is too 
+\emph on
+large
+\emph default
+, gradient descent can overshoot the minimum and can fail to converge (even
+ diverge).
+\begin_inset Newline newline
+\end_inset
+
+Observe, if we are at a local minimum, one step of gradient descent does
+ nothing.
+ Also, gradient descent automatically takes smaller steps with time (as
+ we approach the local minimum, the derivative get smaller).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Mixing the Cost Function and Gradient Descent - a first learning algorithm
+ for linear regression
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Cost Function for Gradient Descent.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Recall that a problem with Gradient Descent is that initial conditions can
+ affect the (local) minimum you arrive at; however 
+\emph on
+\color green
+the Cost Function for Gradient Descent is 
+\emph default
+always
+\emph on
+ a bowl shape
+\emph default
+\color inherit
+ (a 
+\series bold
+convex function
+\series default
+), which has 
+\emph on
+\color green
+one global minimum
+\emph default
+\color inherit
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observe
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{\partial}{\partial\theta_{j}}\cdot\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\\
+ & = & \frac{1}{2m}\frac{\partial}{\partial\theta_{j}}\sum_{i=1}^{m}\left(\theta_{0}+\theta_{1}x^{\left(i\right)}-y^{\left(i\right)}\right)^{2}
+\end{eqnarray*}
+
+\end_inset
+
+Also 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial}{\partial\theta_{0}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\\
+\frac{\partial}{\partial\theta_{1}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Algorithm*
+
+\color cyan
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+A1.3 - 
+\begin_inset Quotes eld
+\end_inset
+
+Batch
+\begin_inset Quotes erd
+\end_inset
+
+ Gradient Descent
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+repeat until convergence {
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\begin_inset Formula $\theta_{0}:=\theta_{0}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\right]$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}\right]$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\shape up
+\color magenta
+(simultaneously update 
+\begin_inset Formula $j=0$
+\end_inset
+
+ and 
+\begin_inset Formula $j=1$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Mixing Gradient Descent with the Cost Function.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+This results in a 
+\emph on
+fast approach
+\emph default
+ to the 
+\emph on
+global
+\emph default
+ minimum.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Linear algebra review
+\end_layout
+
+\begin_layout Description
+Linear
+\begin_inset space ~
+\end_inset
+
+algebra Provides the notation and set of things you can do with matrices
+ and vectors.
+\end_layout
+
+\begin_layout Standard
+Given Table 1, 
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+2104 & 5 & 1 & 45\\
+1416 & 3 & 2 & 40\\
+1534 & 3 & 2 & 30\\
+852 & 2 & 1 & 36
+\end{array}\right]\left[\begin{array}{c}
+a\\
+b\\
+c\\
+d
+\end{array}\right]=\left[\begin{array}{c}
+460\\
+232\\
+315\\
+172
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+[I know the linear algebra, so skipped these videos.]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Multivariate linear regression.
+\end_layout
+
+\begin_layout Subsection
+Multiple Features
+\end_layout
+
+\begin_layout Standard
+The more information we have about a data set, the better the predictions
+ will be.
+\end_layout
+
+\begin_layout Notation*
+\begin_inset Formula $n:=$
+\end_inset
+
+number of features,
+\end_layout
+
+\begin_layout Notation*
+\begin_inset Formula $x^{\left(i\right)}:=$
+\end_inset
+
+input (feature) of 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ training example,
+\end_layout
+
+\begin_layout Notation*
+\begin_inset Formula $x_{j}:=$
+\end_inset
+
+value of feature 
+\begin_inset Formula $j$
+\end_inset
+
+ in 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ training example.
+\end_layout
+
+\begin_layout Example*
+Suppose now we have more features of a house on which to estimate the price
+ of it:
+\end_layout
+
+\begin_layout Example*
+\noindent
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Week 2/Multiple features of a house.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Here 
+\begin_inset Formula $n=4$
+\end_inset
+
+, 
+\begin_inset Formula $x^{\left(2\right)}=\left[\begin{array}{c}
+1416\\
+3\\
+2\\
+40
+\end{array}\right]$
+\end_inset
+
+ and so 
+\begin_inset Formula $x_{2}^{\left(2\right)}=3$
+\end_inset
+
+, for instance.
+\begin_inset Newline newline
+\end_inset
+
+So the hypothesis function extends to 
+\begin_inset Formula 
+\begin{eqnarray*}
+h_{\theta}\left(x\right) & = & \theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}+\theta_{3}x_{3}+\theta_{4}x_{4}\\
+ & = & \left[\begin{array}{ccccc}
+\theta_{0} & \theta_{1} & \theta_{2} & \theta_{3} & \theta_{4}\end{array}\right]\left[\begin{array}{c}
+1\\
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}
+\end{array}\right]
+\end{eqnarray*}
+
+\end_inset
+
+for
+\begin_inset Formula $\left[\begin{array}{ccccc}
+\theta_{0} & \theta_{1} & \theta_{2} & \theta_{3} & \theta_{4}\end{array}\right],\:\left[\begin{array}{ccccc}
+x_{0} & x_{1} & x_{2} & x_{3} & x_{4}\end{array}\right]^{T}\in\mathbb{R}^{5}$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $x_{0}=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The hypothesis function for the multiple features is 
+\begin_inset Formula 
+\begin{eqnarray*}
+h_{\theta}\left(x\right) & = & \left[\begin{array}{ccccc}
+\theta_{0} & \theta_{1} & \theta_{2} & \ldots & \theta_{4}\end{array}\right]\left[\begin{array}{c}
+1\\
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{4}
+\end{array}\right]\\
+ & = & \boldsymbol{\theta}^{T}\mathbf{x}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Practical aspects of implementation
+\end_layout
+
+\begin_layout Section
+Octave tutorial
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Logistic regression
+\end_layout
+
+\begin_layout Section
+One-vs-all classification
+\end_layout
+
+\begin_layout Section
+Regularization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Neural Networks.
+ 
+\end_layout
+
+\begin_layout Section
+Practical advice for applying learning algorithms: How to develop, debugging,
+ feature/model design, setting up experiment structure.
+ 
+\end_layout
+
+\begin_layout Section
+Support Vector Machines (SVMs) and the intuition behind them.
+ 
+\end_layout
+
+\begin_layout Section
+Unsupervised learning: clustering and dimensionality reduction.
+\end_layout
+
+\begin_layout Section
+Anomaly detection.
+ 
+\end_layout
+
+\begin_layout Section
+Recommender systems.
+ 
+\end_layout
+
+\begin_layout Section
+Large-scale machine learning.
+\end_layout
+
+\begin_layout Section
+An example of an application of machine learning.
+ 
+\end_layout
+
+\end_body
+\end_document

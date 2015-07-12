@@ -1,0 +1,4116 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+logicalmkup
+theorems-ams
+theorems-named
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-ams-extended
+theorems-sec
+customHeadersFooters
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "urlcolor=blue"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 2
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\boxbgcolor #ffff7f
+\branch How many Nobel Prizes?
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch Guess is 150
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Nand2Tetris - The Elements of Computing Systems
+\end_layout
+
+\begin_layout Author
+Noam Nisan and Shimon Schocken
+\end_layout
+
+\begin_layout Date
+16/09/2013
+\end_layout
+
+\begin_layout Abstract
+The book's software suite:
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Simulators 
+\emph on
+HardSimulator, CPUEmulator, VMEmulator.
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+\emph default
+(
+\size default
+\bar under
+supplied
+\size small
+\bar default
+: build hardware platforms and execute programs)
+\end_layout
+
+\begin_layout Description
+Translators 
+\size small
+\emph on
+Assembler, Jack Compiler.
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+(
+\size default
+\bar under
+I built but also supplied
+\size small
+\bar default
+: translate from high-level to low-level)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/Course theme and structure.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Course theme and structure.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Boolean Logic
+\end_layout
+
+\begin_layout Subsection
+Background
+\end_layout
+
+\begin_layout Subsubsection
+Boolean (Binary) Algebra [p8]
+\end_layout
+
+\begin_layout Description
+Boolean
+\begin_inset space ~
+\end_inset
+
+functions operate on binary inputs, returning binary outputs; use 
+\emph on
+truth tables
+\emph default
+ to represent functions.
+\end_layout
+
+\begin_layout Description
+Boolean
+\begin_inset space ~
+\end_inset
+
+Expressions 
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Notation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Boolean Expression
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x\cdot y=xy$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+ AND y
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x+y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+ OR 
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NOT 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Boolean expressions created from the Boolean operators 
+\begin_inset Quotes eld
+\end_inset
+
+AND
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+OR
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+NOT
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Description
+Canonical
+\begin_inset space ~
+\end_inset
+
+Representation 
+\emph on
+\color magenta
+Every Boolean function can be expressed using one Boolean expression.
+\emph default
+\color inherit
+
+\begin_inset Newline newline
+\end_inset
+
+
+\bar under
+\color green
+Method: 
+\bar default
+\color inherit
+(see E1.1) 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\color green
+Mark every row for which the function has value 1.
+\end_layout
+
+\begin_layout Enumerate
+
+\color green
+AND together the 
+\emph on
+literals
+\emph default
+ (the variable itself or it's negation) for each of these rows.
+\end_layout
+
+\begin_layout Enumerate
+
+\color green
+OR these terms.
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+
+\color magenta
+Every Boolean function can be expressed using three Boolean operators AND,
+ OR, NOT.
+\end_layout
+
+\begin_layout Note*
+The number of Boolean functions that can be defined over 
+\begin_inset Formula $n$
+\end_inset
+
+ binary variable is 
+\begin_inset Formula $2^{2^{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example*
+
+\color cyan
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+E1.1
+\end_layout
+
+\end_inset
+
+ Consider the Boolean Expression 
+\begin_inset Formula $f\left(x,y,z\right)=$
+\end_inset
+
+
+\begin_inset Formula $\left(x+y\right)\cdot\overline{z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example*
+
+\color cyan
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\color cyan
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+\begin_inset Formula $z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+\begin_inset Formula $f\left(x,y,z\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color cyan
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\emph on
+\color cyan
+Canonical Form:
+\emph default
+ 
+\begin_inset Formula $f\left(x,y,z\right)=\overline{x}y\overline{z}+x\overline{y}\overline{z}+xy\overline{z}$
+\end_inset
+
+.
+ Observe can be factored further, yet remains clearer regarding the truth
+ table in this form.
+\end_layout
+
+\begin_layout Remark*
+The NAND function can construct each one of the AND, OR, and NOT operations,
+ and since these three operations can express every Boolean expression it
+ follows:
+\end_layout
+
+\begin_layout Theorem
+
+\color magenta
+Every Boolean function can be constructed from NAND alone.
+\end_layout
+
+\begin_layout Theorem
+
+\color magenta
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\color magenta
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="6cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\color magenta
+Operation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\color magenta
+Construction from NAND
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+AND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+\begin_inset Formula $\mbox{Nand}\left(\mbox{Nand}\left(x,y\right),\mbox{Nand}\left(x,y\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+OR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+\begin_inset Formula $\mbox{Nand}\left(\mbox{Nand}\left(x,x\right),\mbox{Nand}\left(y,y\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+NOT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+\begin_inset Formula $\mbox{Nand}\left(x,x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+NOR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+We've already created NOT and OR.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color magenta
+\begin_inset Formula $\mbox{NOT}\left(\mbox{OR}\left(x,y\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\color magenta
+XOR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Similarly:
+\end_layout
+
+\begin_layout Plain Layout
+
+\color magenta
+\begin_inset Formula $\mbox{OR}\left(\mbox{AND}\left(x,\mbox{NOT}\left(y\right)\right),\mbox{AND}\left(\mbox{NOT}\left(x\right),y\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Gate Logic [p11]
+\end_layout
+
+\begin_layout Description
+Chip/Gate A physical device that implements a Boolean function.
+\begin_inset Newline newline
+\end_inset
+
+If a Boolean function 
+\begin_inset Formula $f$
+\end_inset
+
+ operates on 
+\begin_inset Formula $n$
+\end_inset
+
+ variables and returns 
+\begin_inset Formula $m$
+\end_inset
+
+ binary results, the gate that implements 
+\begin_inset Formula $f$
+\end_inset
+
+ will have 
+\begin_inset Formula $n$
+\end_inset
+
+ input pins and 
+\begin_inset Formula $m$
+\end_inset
+
+ output pins.
+\end_layout
+
+\begin_layout Standard
+
+\color magenta
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/Logic Gate Symbols.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/Gate interface and implementation.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Left: Standard logic gate symbols.
+ Right: 
+\series bold
+WHAT
+\series default
+ a three-way AND gate is doing, and 
+\series bold
+HOW
+\series default
+ it operates.
+ Observe 
+\emph on
+\color green
+the gate interface is unique
+\emph default
+, whilst 
+\emph on
+there exists many different
+\emph default
+ 
+\emph on
+implementations
+\emph default
+\color inherit
+.
+ The art of logic design is: 
+\emph on
+\bar under
+Given a gate specification, find an efficient way to implement it using
+ other gates that were 
+\series bold
+already
+\series default
+ implemented
+\bar default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Actual Hardware Construction [p13]
+\end_layout
+
+\begin_layout Standard
+Gets Messy!
+\end_layout
+
+\begin_layout Subsubsection
+(Virtual) Hardware Description Language, (V)HDL [p14]
+\end_layout
+
+\begin_layout Itemize
+Hardware designers specify the chip's structure by writing an 
+\emph on
+HDL program
+\emph default
+ (c.f.
+ a programming language).
+\end_layout
+
+\begin_layout Itemize
+The designs are then subjected to rigorous testing using a 
+\emph on
+hardware simulator
+\emph default
+ (c.f.
+ a compiler).
+\end_layout
+
+\begin_layout Example*
+
+\color cyan
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+E1.2
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Example*
+
+\color cyan
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\color cyan
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/Designing a XOR gate using HDL.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\color cyan
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+Designing a XOR gate using HDL, with test and output file.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Specification
+\end_layout
+
+\begin_layout Subsubsection
+The NAND Gate [p19]
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mbox{NAND}\left(a,b\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Throughout this course, we use 
+\emph on
+chip API boxes
+\emph default
+ to specify chips:
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/NAND chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+Chip API box 
+\emph default
+for a NAND chip.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Basic Logic Gates [p19]
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.2cm">
+<column alignment="left" valignment="top" width="8cm">
+<column alignment="left" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Gate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Chip API Box
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Circuit Implementations
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NOT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/NOT chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/AND chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/AND Circuit.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+OR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/OR chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/OR Circuit.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+XOR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/XOR chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTIPLEXOR
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTIPLEXOR symbol.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A three-input gate that uses one of the inputs, 
+\emph on
+selection bit
+\emph default
+ to select and output one of the other two inputs, 
+\emph on
+data bits
+\emph default
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTIPLEXOR chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DEMULTIPLEXOR
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/DEMULTIPLEXOR symbol.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The opposite function of a multiplexor: takes a single input and channels
+ it to one of two possible outputs, specified by a selector bit.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/DEMULTIPLEXOR chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Multi-Bit Versions of Basic Gates [p21]
+\end_layout
+
+\begin_layout Itemize
+Computer hardware is typically designed to operate on multi-bit arrays called
+ 
+\emph on
+buses
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+When referring to individual bits in a bus (suppose we are dealing with
+ a 16-bit bus named 
+\family typewriter
+data
+\family default
+), it is common to use the array syntax 
+\family typewriter
+data[0]
+\family default
+, 
+\family typewriter
+data[1]
+\family default
+, ..., 
+\family typewriter
+data[15]
+\family default
+.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color red
+Backwards Conveyor Belt
+\end_layout
+
+\end_inset
+
+ 
+\color red
+Arrays are specified from right-to-left in the HDL used.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.2cm">
+<column alignment="left" valignment="top" width="8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $n$
+\end_inset
+
+-bit Gate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Chip API Box (16-bit gate)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTI-BIT NOT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-BIT NOT chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTI-BIT AND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-BIT AND chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTI-BIT OR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-BIT OR chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTI-BIT MULTIPLEXOR
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-BIT MULTIPLEXOR chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Multi-Way Versions of Basic Gates [p23]
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Idea: 
+\series default
+Evaluating more than 2 inputs.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="3.2cm">
+<column alignment="left" valignment="top" width="8cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Formula $n$
+\end_inset
+
+-way Gate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Chip API Box (8-way gate)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTI-BIT OR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-WAY OR chip API box.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTI-WAY/MULTI-BIT MULTIPLEXOR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+An 
+\begin_inset Formula $m$
+\end_inset
+
+-way, 
+\begin_inset Formula $n$
+\end_inset
+
+-bit multiplexor selects one of 
+\begin_inset Formula $m$
+\end_inset
+
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-bit input buses and outputs it to a single 
+\begin_inset Formula $n$
+\end_inset
+
+-bit output bus.
+ The selection is specified by a set of 
+\begin_inset Formula $k=\log_{2}m$
+\end_inset
+
+ control bits.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-WAY MULTIPLEXOR chip API box.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-WAY MULTIPLEXOR chip API box 2.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTI-WAY/MULTI-BIT DEMULTIPLEXOR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+An 
+\begin_inset Formula $m$
+\end_inset
+
+-way 
+\begin_inset Formula $n$
+\end_inset
+
+-bit demultiplexor channels a single 
+\begin_inset Formula $n$
+\end_inset
+
+-bit input into one of 
+\begin_inset Formula $m$
+\end_inset
+
+ possible 
+\begin_inset Formula $n$
+\end_inset
+
+-bit outputs.
+ The selection is specified by a set of 
+\begin_inset Formula $k$
+\end_inset
+
+ control bits, where 
+\begin_inset Formula $k=\log_{2}m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-WAY DEMULTIPLEXOR chip API box.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/1 Boolean Logic/MULTI-WAY DEMULTIPLEXOR chip API box 2.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementation [p25]
+\end_layout
+
+\begin_layout Description
+Primitive
+\begin_inset space ~
+\end_inset
+
+Gates provide a set of elementary building blocks form which everything
+ else can be built.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+C.f.
+ Axioms in mathematics
+\end_layout
+
+\end_inset
+
+ We use NAND as our basic building block, yet other ones are possible (e.g.
+ NOR, or a combination of AND,OR and NOT); 
+\color green
+just as all theorems in geometry can be founded on different sets of axioms
+\color inherit
+.
+\end_layout
+
+\begin_layout Subsection
+Project [p27]
+\end_layout
+
+\begin_layout Subsection
+Perspective [p26]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Boolean Arithmetic [p29]
+\end_layout
+
+\begin_layout Subsection
+Background [p30]
+\end_layout
+
+\begin_layout Subsubsection
+Binary numbers and addition [p30]
+\end_layout
+
+\begin_layout Standard
+When we press the keyboard keys labelled 
+\series bold
+1
+\series default
+, 
+\series bold
+9
+\series default
+ and 
+\series bold
+Enter
+\series default
+, the equivalent 32-bit binary code (if we are working on a 32-bit machine)
+ 
+\series bold
+00000000000000000000000000010011 
+\series default
+ends up in the register of the computer's memory.
+\end_layout
+
+\begin_layout Description
+LSB
+\begin_inset space ~
+\end_inset
+
+(Least
+\begin_inset space ~
+\end_inset
+
+Significant
+\begin_inset space ~
+\end_inset
+
+Bits) the right-most digits of a binary number.
+\end_layout
+
+\begin_layout Description
+MSB
+\begin_inset space ~
+\end_inset
+
+(Most
+\begin_inset space ~
+\end_inset
+
+Significant
+\begin_inset space ~
+\end_inset
+
+Bits) the left-most digits of a binary number.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/Binary addition.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+Add digit by digit from right to left.
+ 
+\emph default
+Observe, computer hardware for binary addition of 2 
+\begin_inset Formula $n$
+\end_inset
+
+-bit numbers can be built from logic gates designed to calculate the 
+\series bold
+sum of 3 bits
+\series default
+ (pair of bits plus carry bit) - hence the 
+\series bold
+full adder
+\series default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Signed Binary Numbers [p31]
+\end_layout
+
+\begin_layout Standard
+A binary system with 
+\begin_inset Formula $n$
+\end_inset
+
+ digits can generate a set of 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ different bit patterns; hence if we need to represent positive and negative
+ numbers, we spilt these arrangements into 2 equal subsets (one for the
+ positive numbers, the other for the negative numbers).
+\end_layout
+
+\begin_layout Definition
+The 
+\emph on
+2's (or radix) complement method 
+\emph default
+of a number 
+\begin_inset Formula $x$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\overline{x}=\begin{cases}
+2^{n}-x & \mbox{ if }x\neq0\\
+0 & \mbox{ otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+This is equivalent to 
+\emph on
+inverting each digit and adding 1.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+E2.1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/2's complement in a 4-bit binary system.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/Adding negative binary numbers.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+2's complement representation of signed number in a 4-bit binary system.
+ Observe the total number of numbers represent is 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+, with 
+\begin_inset Formula $2^{n-1}$
+\end_inset
+
+ is each subset.
+ Also, the addition of a number an its inverse is 0000 (e.g.
+ 
+\begin_inset Formula $1+\left(-1\right)=0001+1111=\left(1\right)0000$
+\end_inset
+
+, where the leading 1 is omitted because we're working in a 4-bit binary
+ system.
+ This representation of negative numbers makes subtraction very easy - as
+ shown right.
+ We conclude that all basic arithmetic and logical operators can be perform
+ by a single chip (
+\series bold
+ALU
+\series default
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+ALU
+\begin_inset space ~
+\end_inset
+
+(Arithmetic
+\begin_inset space ~
+\end_inset
+
+Logical
+\begin_inset space ~
+\end_inset
+
+Unit) the centrepiece chip or the CPU (which is the centrepiece of a computer)
+ that executes all arithmetic and logical operations.
+\end_layout
+
+\begin_layout Remark*
+All positive number begin with 
+\series bold
+0
+\series default
+, and all negative numbers begin with 
+\series bold
+1
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+Specification [p32]
+\end_layout
+
+\begin_layout Standard
+One such ALU is the 
+\emph on
+adder 
+\emph default
+chip.
+\end_layout
+
+\begin_layout Subsubsection
+Adders
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="6cm">
+<column alignment="center" valignment="top" width="7cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Adder
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Implementation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Half-adder: 
+\emph default
+designed to add 2 bits.
+ Based on the XOR and AND gates
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/Half adder.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Full-adder: 
+\emph default
+designed to add 3 bits.
+ Can be based on half-adder gates.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/Full adder.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Multi-bit Adder: 
+\emph default
+designed to add two 
+\begin_inset Formula $n$
+\end_inset
+
+-bit numbers (
+\begin_inset Formula $n\in\left\{ 16,32,64,...\right\} $
+\end_inset
+
+.
+ Array of full-adder gates.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/Multi-bit Adder.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+16-bit adder
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Hierarchy of three adders.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Incrementer: 
+\emph default
+it is convenient to have a chip dedicated to adding the constant 1 to a
+ given number (e.g.
+ for calculating negative numbers).
+\end_layout
+
+\begin_layout Subsubsection
+The Arithmetic Logic Unit (ALU) [p35]
+\end_layout
+
+\begin_layout Standard
+This subsubsection describes an ALU that will become the centerpiece of
+ our computer platform 
+\emph on
+Hack
+\emph default
+.
+ The Hack ALU computes a fixed set of function 
+\begin_inset Formula $out=f_{i}\left(x,y\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $x,y$
+\end_inset
+
+ are two 16-bit inputs, 
+\begin_inset Formula $out$
+\end_inset
+
+ a 16-bit ouptut and 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ is an arithmetic or logical function selected from a fixed set of eighteen
+ possible functions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/ALU truth table.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The ALU truth table working with 
+\series bold
+16-bit
+\series default
+ inputs/output (so if 
+\begin_inset Formula $zy=1$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+ would zeroed 
+\begin_inset Formula $y=\left(000...00\right)_{2}$
+\end_inset
+
+ and in general 
+\begin_inset Formula $0=\left(000...00\right)_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $1=\left(111...11\right)_{2}$
+\end_inset
+
+; note !=Not, &=And and |=Or (performed 
+\series bold
+bit-wise
+\series default
+).
+ We designed the ALU by defining which functions were desired and worked
+ backwards to figure out how 
+\begin_inset Formula $x,y$
+\end_inset
+
+ and 
+\series bold
+
+\begin_inset Formula $out$
+\end_inset
+
+ 
+\series default
+can be manipulated by binary operations to achieve these results.
+ We have included the 6 control bits, each using a straightforward binary
+ operation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+We instruct the ALU which function to compute by setting six input bits,
+ called 
+\emph on
+control bits
+\emph default
+; hence we have 
+\begin_inset Formula $2^{6}=64$
+\end_inset
+
+ different functions (the function can either be included or not).
+ 18 are of interest to us.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/2 Boolean Arithemtic/ALU Specification.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ALU specification (not particular efficient; we have chose to specify an
+ ALU hardware with limited functionality and implement as many operations
+ as possible in software - operating system).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+
+\color green
+The overall functionally of the hardware/software platform is delivered
+ jointly by the 
+\series bold
+ALU 
+\series default
+and the 
+\series bold
+operating system
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sequential Logic [p41]
+\end_layout
+
+\begin_layout Subsection
+Background [p42]
+\end_layout
+
+\begin_layout Subsubsection
+Sequential VS.
+ Combinational Logic
+\end_layout
+
+\begin_layout Standard
+All the chips discussed and built so far are combinational chips:
+\end_layout
+
+\begin_layout Description
+Combinational
+\begin_inset space ~
+\end_inset
+
+devices operate on data only; compute functions that depend solely on 
+\emph on
+combinations of their values
+\emph default
+.
+ This type of chip cannot store and recall values.
+\end_layout
+
+\begin_layout Description
+Sequential
+\begin_inset space ~
+\end_inset
+
+devices operate on data and a clock signal; can be 
+\emph on
+state-aware
+\emph default
+ and provide storage and synchronisation services.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+The low-level behaviour of sequential gates is 
+\series bold
+tricky
+\series default
+; although
+\end_layout
+
+\begin_layout Theorem
+
+\color magenta
+Every sequential chip can be based upon the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+data flip flop
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\series default
+or 
+\series bold
+DFF 
+\series default
+sequential gate.
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/Sequential vs Combinational.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Memory [p42]
+\end_layout
+
+\begin_layout Standard
+The act of 
+\begin_inset Quotes eld
+\end_inset
+
+remembering something
+\begin_inset Quotes erd
+\end_inset
+
+ is 
+\emph on
+time-dependent
+\emph default
+ (you remember 
+\bar under
+now
+\bar default
+ what has been committed to memory 
+\bar under
+before
+\bar default
+).
+ So for chip to 
+\begin_inset Quotes eld
+\end_inset
+
+remember
+\begin_inset Quotes erd
+\end_inset
+
+, we require s means for representing the progression of time.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Hierarchy of memory chips:
+\end_layout
+
+\begin_layout Itemize
+Flip-flop gates.
+\end_layout
+
+\begin_layout Itemize
+Binary cells.
+\end_layout
+
+\begin_layout Itemize
+Registers.
+\end_layout
+
+\begin_layout Itemize
+RAM.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+The
+\begin_inset space ~
+\end_inset
+
+Clock Most computers have a master clock that delivers a continuous train
+ of alternating signals between two phases labelled 
+\begin_inset Quotes eld
+\end_inset
+
+0
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+1
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The elapsed time between 
+\begin_inset Quotes eld
+\end_inset
+
+0
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+1
+\begin_inset Quotes erd
+\end_inset
+
+ is the 
+\emph on
+cycle
+\emph default
+, and each clock cycle represent on discrete time unit.
+\end_layout
+
+\begin_layout Description
+Flip-Flops We consider a variant of a flip-flop called the 
+\emph on
+data flip-flop
+\emph default
+, whose interface consists of a single-bit data input/output, and a 
+\emph on
+clock
+\emph default
+ (continuously changing) according to the master clock's signal: 
+\begin_inset Formula $out\left(t\right)=in\left(t-1\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $in/out$
+\end_inset
+
+ are the input/output values and 
+\begin_inset Formula $t$
+\end_inset
+
+ is the current clock cycle.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/DFF API.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+API for a 
+\emph on
+data flip-flop
+\emph default
+ gate; c.f.
+ Nand gate regarding primitive nature.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Registers a storage device that can 
+\begin_inset Quotes eld
+\end_inset
+
+remember
+\begin_inset Quotes erd
+\end_inset
+
+ a value over time: 
+\begin_inset Formula $out\left(t\right)=out\left(t-1\right)$
+\end_inset
+
+; note, a DFF can 
+\bar under
+only 
+\bar default
+output its previous input (i.e.
+ 
+\begin_inset Formula $out\left(t\right)=in\left(t-1\right)$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/Bit API.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/16-Bit API.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Top: API for a single-bit register (a 
+\emph on
+\color green
+Bit
+\emph default
+\color inherit
+, or 
+\emph on
+binary cell
+\emph default
+) chip.
+\begin_inset Newline newline
+\end_inset
+
+Bottom: API for a 16-bit register: to 
+\series bold
+read
+\series default
+, we identify the output; to 
+\series bold
+write
+\series default
+, we write a new data value 
+\begin_inset Formula $in=d$
+\end_inset
+
+ into the register and assert (set to 1) the 
+\begin_inset Formula $load$
+\end_inset
+
+ input, and in the next clock cycle the register commits to the new data
+ (outputting 
+\begin_inset Formula $d$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+Represent the clock signal of a sequential chip:
+\end_layout
+
+\begin_layout Notation
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/Notation of clock signal.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/DFF.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/DFF to 1-bit register.png
+	lyxscale 80
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+From a DFF to a single-bit register: to start storing a new value, set 
+\begin_inset Formula $load=1$
+\end_inset
+
+, and keep storing until 
+\begin_inset Formula $load=0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color red
+WARNING:
+\end_layout
+
+\end_inset
+
+
+\color red
+ The following 1-bit register description from a DFF is invalid
+\color inherit
+:
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/DFF invalid.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\color red
+It is not clear how we'll never load new data into this because should we
+ draw input from the 
+\emph on
+in
+\emph default
+ or 
+\emph on
+out 
+\emph default
+wire? More generally, chips design dictates that 
+\emph on
+internal pins must have a fan-in of 1
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Once we have the mechanism for remembering a single bit with time, we construct
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-bit wide registers by forming an array of as many single-bit registers
+ as needed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/Single-bit to multi-bit registers..png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+From single-bit to multi-bit registers.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The 
+\emph on
+width 
+\emph default
+of a register is the number of bits it holds (e.g.
+ 16,32,64, ...).
+\begin_inset Newline newline
+\end_inset
+
+The multi-bit contents of a register are the 
+\emph on
+words
+\emph default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Memories Stacking many register form a 
+\emph on
+Random Access Memory (RAM)
+\emph default
+ unit; this name is derived from the 
+\bar under
+requirement that read/write operations of any randomly chosen word on RAM
+ should be accessed directly
+\bar default
+ (in equal speed, irrespective of it physical location).
+ Hence, a classical RAM device accepts three inputs: 
+\emph on
+data
+\emph default
+,
+\series bold
+ 
+\series default
+\emph on
+address
+\emph default
+, and 
+\emph on
+load
+\emph default
+.
+ 
+\emph on
+Address 
+\emph default
+specifies which RAM register to access in the current time unit.
+ If 
+\begin_inset Formula $load=0$
+\end_inset
+
+ (a read operation) the RAM's 
+\begin_inset Formula $out=value\, of\, selected\, register$
+\end_inset
+
+; otherwise (a write operation, 
+\begin_inset Formula $load=1$
+\end_inset
+
+) the selected memory register commits to the input value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/RAM.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RAM.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The 
+\emph on
+width 
+\emph default
+of RAM of one of its registers (32- or 64-bit wide RAM).
+\begin_inset Newline newline
+\end_inset
+
+The 
+\emph on
+size
+\emph default
+ of RAM is the number of registers in the RAM.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/RAMn API.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+API for16-bits wide RAM with various sizes (RAM8, RAM64, RAM512, RAM4K and
+ RAM16
+\begin_inset Quotes erd
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+Read: 
+\emph default
+to read register number 
+\begin_inset Formula $m$
+\end_inset
+
+, input 
+\begin_inset Formula $address=m$
+\end_inset
+
+ outputting the value of this register (combinational operation independtent
+ of the clock).
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+Write: 
+\emph default
+to write new data 
+\begin_inset Formula $d$
+\end_inset
+
+ to register number 
+\begin_inset Formula $m$
+\end_inset
+
+, input 
+\begin_inset Formula $address=m$
+\end_inset
+
+,
+\begin_inset Formula $in=d$
+\end_inset
+
+ and asser the 
+\begin_inset Formula $load$
+\end_inset
+
+ input.
+ In the next clock cycle, the selected register commits the new value 
+\begin_inset Formula $d$
+\end_inset
+
+, as well as the RAM outputting this.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Counters a sequential chip whose state is 
+\begin_inset Formula $c\in\mathbb{Z}$
+\end_inset
+
+ (typically 1) that increments every time unit, effecting 
+\begin_inset Formula $out\left(t\right)=out\left(t-1\right)+c$
+\end_inset
+
+.
+ Use for tasks that require such a measure.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/Counter API.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+API for a counter chip; similar to register with two extra inputs:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $inc=1\Rightarrow$
+\end_inset
+
+increment the counter's state every clock cycle, outputting the result.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $reset=1\Rightarrow$
+\end_inset
+
+reset counter to 0.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Specification [p47]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Hierarchy of sequential chips:
+\end_layout
+
+\begin_layout Itemize
+Data Flip-flops (DFFs).
+\end_layout
+
+\begin_layout Itemize
+Registers (based on DFFs).
+\end_layout
+
+\begin_layout Itemize
+Memory banks (based on registers).
+\end_layout
+
+\begin_layout Itemize
+Coutner chips (based on registers).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementation [p50]
+\end_layout
+
+\begin_layout Subsection
+Perspective [p52]
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Images/3 Sequential Logic/Memory banks by recursive ascent.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Construction of memory banks by recursive ascent.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Machine Language [p57]
+\end_layout
+
+\end_body
+\end_document

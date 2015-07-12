@@ -1,0 +1,528 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-ams-extended
+theorems-sec
+theorems-named
+fixltx2e
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+
+\lang british
+Introduction to Machine Learning
+\end_layout
+
+\begin_layout Definition
+
+\color blue
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\lang british
+Machine Learning (Arthur Samuel, 1959)
+\end_layout
+
+\end_inset
+
+Field of study that gives computer the ability to learn 
+\series bold
+without 
+\series default
+being explicitly programmed.
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Remark*
+
+\lang british
+A computer has a 
+\emph on
+\color green
+patience
+\emph default
+\color inherit
+ to play 10,000 hrs of checkers to become a professional.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang british
+Machine learning algorithms
+\end_layout
+
+\begin_layout Description
+
+\color blue
+\lang british
+Supervised
+\begin_inset space ~
+\end_inset
+
+learning infer a relationship (or function) from 
+\emph on
+labelled
+\emph default
+ input/output data.
+ 
+\end_layout
+
+\begin_layout Example*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+E1.1 - 1 attribute
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/House price prediction.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Breast cancer (representation 1).png
+	lyxscale 60
+	scale 1060
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+LEFT: 
+\series bold
+\emph on
+regression
+\series default
+ problem (
+\series bold
+continuous
+\series default
+ valued output)
+\emph default
+: What is the best predictor of house price - Straight or quadratic?
+\begin_inset Newline newline
+\end_inset
+
+RIGHT: 
+\series bold
+\emph on
+classification
+\series default
+ problem (
+\series bold
+discrete
+\series default
+ valued output)
+\emph default
+: What is the likelihood of my friend with a tumour of size 
+\begin_inset Formula $x$
+\end_inset
+
+ having a malignant (bad) of benign (good) cancer?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Example*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+E1.2 - 2 attributes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Breast cancer (2 attributes).png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+What is the likelihood of my friend with a tumour of size 
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\series bold
+and
+\series default
+ of age 
+\begin_inset Formula $y$
+\end_inset
+
+ having a malignant (bad) of benign (good) cancer?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Note*
+
+\lang british
+We can deal with problems that have an infinite number of attributes.
+\end_layout
+
+\begin_layout Description
+
+\color blue
+\lang british
+Unsupervised
+\begin_inset space ~
+\end_inset
+
+learning infer a relationship from 
+\emph on
+unlabelled
+\emph default
+ input/output data.
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Unsupervised learning.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang british
+Given an 
+\series bold
+unknown
+\series default
+ data set, can you find some structure to the data?
+\begin_inset Newline newline
+\end_inset
+
+
+\color cyan
+E.g.
+ Google News - given a set of new articles, group them into sets of articles
+ about the same story.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\lang british
+We can derive this structure by 
+\series bold
+\emph on
+clustering
+\series default
+\emph default
+ the data based on relationships among the variables in the data.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\lang british
+The power of learning algorithms
+\end_layout
+
+\end_inset
+
+ When given two sources of data (e.g.
+ a 
+\emph on
+guy talking 
+\emph default
+at a cocktail party with 
+\emph on
+loud music
+\emph default
+), the 
+\series bold
+Cocktail party problem algorithm
+\series default
+ can extract and separate each source (so you can easily hear what the guy
+ is talking about, and just listen to the music separately).
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Algorithm*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\lang british
+A1.1
+\end_layout
+
+\end_inset
+
+ This algorithm has 
+\emph on
+\bar under
+one line of code
+\emph default
+\bar default
+: (using Octave, similar to MATLAB)
+\end_layout
+
+\begin_layout Algorithm*
+
+\family typewriter
+\color magenta
+\lang british
+[W,s,v] = svd((repmat(sum(x.*x,1), size(x,1), 1).
+ *x) *x');
+\end_layout
+
+\begin_layout Algorithm*
+
+\lang british
+The key function is 
+\family typewriter
+svd
+\family default
+, built into Octave.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

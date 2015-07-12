@@ -1,0 +1,7618 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+theorems-named
+theorems-ams-extended
+theorems-sec
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+How to build a search engine
+\end_layout
+
+\begin_layout Date
+4th September 2012
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+How to get started: your first program
+\end_layout
+
+\begin_layout Subsection
+Introducing the Web Crawler
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+web
+\series default
+ 
+\series bold
+crawler
+\series default
+ is a 
+\bar under
+program
+\bar default
+ that 
+\bar under
+collects
+\bar default
+ 
+\bar under
+content
+\bar default
+ from the web.
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+The Process that a web crawler follows:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Start
+\emph default
+ from 
+\emph on
+one
+\emph default
+ 
+\emph on
+preselected
+\emph default
+ page (the "
+\series bold
+seed
+\series default
+" page).
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Extract
+\emph default
+ 
+\emph on
+all
+\emph default
+ 
+\emph on
+links
+\emph default
+ on page
+\emph on
+, 
+\emph default
+and 
+\emph on
+follow
+\emph default
+ each 
+\emph on
+link
+\emph default
+ to find 
+\emph on
+new pages
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Extract all
+\emph default
+ 
+\emph on
+links
+\emph default
+ from 
+\emph on
+all
+\emph default
+ 
+\emph on
+new
+\emph default
+ 
+\emph on
+pages
+\emph default
+, and 
+\emph on
+follow
+\emph default
+ 
+\emph on
+links
+\emph default
+ to find new pages.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Repeat Step 3 
+\emph default
+as long as there are 
+\bar under
+new pages to find
+\bar default
+, or until 
+\bar under
+it is stopped
+\bar default
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/WebCrawler.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Programming
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Programming
+\series default
+ is the core of computer science.
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+computer
+\series default
+ is a machine that can execute a program.
+\end_layout
+
+\begin_layout Definition
+With the right program, a computer can do any mechanical computation you
+ can imagine.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+A 
+\series bold
+program
+\series default
+ describes a very precise sequence of steps.
+\end_layout
+
+\begin_layout Definition
+Since the computer is just a machine, the program must give the steps in
+ a way that can be 
+\emph on
+executed mechanically
+\emph default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+A 
+\series bold
+programming
+\series default
+ 
+\series bold
+language
+\series default
+ is a language designed for producing computer programs.
+\end_layout
+
+\begin_layout Definition
+A good programming language makes it easy for humans to read and write programs
+ that can be executed by a computer.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Remark*
+We will be using 
+\series bold
+Python
+\series default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Getting Started with Python Programming
+\end_layout
+
+\begin_layout Subsection
+Would You Rather (use natural language)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Disadvantages
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Ambiguous
+\series default
+ - people interpret phrases in different ways.
+ Computer need exact statements in order to function accurately.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Verbose 
+\series default
+(Using more words than needed) - to say something with the level of precision
+ needed for a computer to be able to follow it mechanically would require
+ an awful lot of writing.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Grammar
+\end_layout
+
+\begin_layout Itemize
+Compared to a natural language, programming languages adhere to a strict
+ grammatical structure.
+\end_layout
+
+\begin_layout Itemize
+In English, even if a phrase is written or spoken incorrectly, it can still
+ be understood with the help of context or other cues (body language, tone).
+\end_layout
+
+\begin_layout Itemize
+When programming language grammar is not followed the interpreter will return
+ a 
+\bar under
+SyntaxError
+\bar default
+ message.
+ 
+\end_layout
+
+\begin_layout Subsection
+Backus-Naur Form (
+\emph on
+1950s by John Backus IBM)
+\end_layout
+
+\begin_layout Itemize
+The purpose of Backus-Naur Form is to describe a programming language in
+ a simple and concise manner.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Structure
+\bar default
+:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+<Non-Terminal> → replacement
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+replacement
+\series default
+ can be any 
+\bar under
+sequence of zero
+\bar default
+ or more 
+\bar under
+non-terminals
+\bar default
+ or 
+\bar under
+terminals
+\bar default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Terminals
+\series default
+ never appear on the left side of a rule.
+ Once you get to a terminal there is nothing else you can replace it with.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Sentence following Replacement Rules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Example - Sentence following Replacement Rules.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sentence → 
+\emph on
+Subject Verb Object
+\end_layout
+
+\begin_layout Standard
+→ 
+\emph on
+Noun Verb Object
+\end_layout
+
+\begin_layout Standard
+→ I Verb 
+\emph on
+Object
+\end_layout
+
+\begin_layout Standard
+→ I Like 
+\emph on
+Object
+\end_layout
+
+\begin_layout Standard
+→ I Like 
+\emph on
+Noun
+\end_layout
+
+\begin_layout Standard
+→ I Like 
+\emph on
+Python
+\end_layout
+
+\begin_layout Remark*
+Replacement grammar is 
+\emph on
+important
+\emph default
+ as we describe an 
+\bar under
+infinitely large language
+\bar default
+ with a 
+\bar under
+small 
+\series bold
+set
+\series default
+ of precise rules
+\bar default
+.
+\end_layout
+
+\begin_layout Subsection
+Python Expressions
+\end_layout
+
+\begin_layout Definition
+An 
+\series bold
+expression
+\series default
+ is something that has a 
+\bar under
+value
+\bar default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+A rule of the Python grammar for making expressions:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Expression → Expression Operator Expression
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\emph on
+Expression
+\emph default
+ non-terminal (LHS) can be replaced by an 
+\emph on
+Expression
+\emph default
+, followed by an 
+\emph on
+Operator
+\emph default
+, followed by another 
+\emph on
+Expression
+\emph default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+E.g.
+ 1 + 1 is an 
+\emph on
+Expression
+\emph default
+ 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+This 
+\series bold
+rule
+\series default
+ that has 
+\emph on
+Expression
+\emph default
+ on both left and right side looks circular.
+ However, we also have other rules for 
+\emph on
+Expression
+\emph default
+ that do not include 
+\emph on
+Expression
+\emph default
+ on the RHS.
+\end_layout
+
+\begin_layout Itemize
+This is an example of a 
+\series bold
+recursive
+\series default
+ 
+\series bold
+definition
+\series default
+.
+\end_layout
+
+\begin_layout Subsubsection
+Recursive definitions:
+\end_layout
+
+\begin_layout Standard
+To make a good recursive definition you need at least two rules: 
+\end_layout
+
+\begin_layout Enumerate
+A rule that 
+\series bold
+defines
+\series default
+ 
+\series bold
+something
+\series default
+ in 
+\series bold
+terms
+\series default
+ of 
+\series bold
+itself
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Expression → Expression Operator Expression 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+A rule that 
+\series bold
+defines
+\series default
+ 
+\series bold
+that
+\series default
+ 
+\series bold
+thing
+\series default
+ in 
+\series bold
+terms
+\series default
+ of 
+\series bold
+something
+\series default
+ else that we already know.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Expression → Number
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+These allow us to 
+\series bold
+define
+\series default
+ 
+\series bold
+infinitely
+\series default
+ 
+\series bold
+many
+\series default
+ 
+\series bold
+things
+\series default
+ using a 
+\series bold
+few
+\series default
+ 
+\series bold
+simple
+\series default
+ 
+\series bold
+rules 
+\series default
+- a very powerful idea in computer science.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Python grammar rules for arithmetic expressions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Expression → Expression Operator Expression
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Expression → Number
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Operator
+\emph default
+ → +
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Operator
+\emph default
+ → *
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Number
+\emph default
+ → 0, 1, ...
+ 
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Derivation using this grammar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Expression
+\emph default
+ → 
+\emph on
+Expression
+\emph default
+ 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\end_layout
+
+\begin_layout Standard
+→ 
+\emph on
+Expression
+\emph default
+ + 
+\emph on
+Expression
+\end_layout
+
+\begin_layout Standard
+→ 
+\emph on
+Expression
+\emph default
+ + 
+\emph on
+Number
+\end_layout
+
+\begin_layout Standard
+→ 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 
+\emph on
+Expression
+\emph default
+ 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 
+\emph on
+Number
+\emph default
+ 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 * 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 * 
+\emph on
+Expression
+\emph default
+ 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 * 
+\emph on
+Number
+\emph default
+ 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 * 3 
+\emph on
+Operator
+\emph default
+ 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 * 3 * 
+\emph on
+Expression
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 * 3 * 
+\emph on
+Number
+\emph default
+ + 1
+\end_layout
+
+\begin_layout Standard
+→ 2 * 3 * 3 + 1
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Another Rule
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Expression → (Expression)
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+1,3,5 are valid Python expressions, 2,4 do not follow the rules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+3
+\end_layout
+
+\begin_layout Enumerate
+((3)
+\end_layout
+
+\begin_layout Enumerate
+(1 * (2 * (3 * 4)))
+\end_layout
+
+\begin_layout Enumerate
++ 3 3
+\end_layout
+
+\begin_layout Enumerate
+(((7))) 
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+processor
+\series default
+ (or CPU
+\series bold
+)is
+\series default
+ the part of the computer that carries out the steps specified in a computer
+ program.
+\end_layout
+
+\begin_layout Subsection
+Admiral Grace Hopper (1906-1992)
+\end_layout
+
+\begin_layout Itemize
+Grace Hopper was a pioneer in computing who was known for walking around
+ with nano-sticks.
+\end_layout
+
+\begin_layout Itemize
+Nano-sticks are pieces of wire that are the length light travels in a nanosecond
+, about 30 cm.
+\end_layout
+
+\begin_layout Itemize
+Hopper wrote one of the first programming languages, COBOL, which was for
+ a long time the world's most widely used programming language.
+ Hopper built the first compiler.
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+compiler
+\series default
+ is a program that takes as 
+\bar under
+input
+\bar default
+ a 
+\bar under
+program
+\bar default
+ in a programming language 
+\bar under
+easy
+\bar default
+ for 
+\bar under
+humans
+\bar default
+ to 
+\bar under
+write
+\bar default
+ and 
+\bar under
+outputs
+\bar default
+ a 
+\bar under
+program
+\bar default
+ in another language that is 
+\bar under
+easier
+\bar default
+ for 
+\bar under
+computers
+\bar default
+ to 
+\bar under
+execute
+\bar default
+.
+\end_layout
+
+\begin_layout Remark*
+The difference between a compiler and an interpreter like Python is that
+ a compiler does all the work at once and runs a new program, whereas, the
+ interpreter converts the source code one step at a time as the program
+ runs.
+\end_layout
+
+\begin_layout Itemize
+When Grace Hopper started building the first compiler, most people did not
+ believe it was possible for a computer program to produce other computer
+ programs: "Nobody believed that I had a running compiler and nobody would
+ touch it.
+ They told me computers could only do arithmetic." 
+\end_layout
+
+\begin_layout Subsection
+Variables
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+variable
+\series default
+ is a name refers to a value.
+ 
+\end_layout
+
+\begin_layout Definition
+To introduce a new variable, we use an assignment statement:
+\end_layout
+
+\begin_layout Definition
+
+\emph on
+Name = Expression
+\end_layout
+
+\begin_layout Notation
+We use the 
+\series bold
+hash
+\series default
+ 
+\series bold
+mark
+\series default
+ (#) to introduce a 
+\bar under
+comment
+\bar default
+.
+\end_layout
+
+\begin_layout Subsection
+Variables Can Vary
+\end_layout
+
+\begin_layout Subsection
+Strings
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+string
+\series default
+ is a sequence of characters surrounded by quotes, either 
+\emph on
+single
+\emph default
+ or 
+\emph on
+double
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+'I am a string!'
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The only requirement is that the string must 
+\series bold
+start
+\series default
+ and 
+\series bold
+end
+\series default
+ with the 
+\series bold
+same kind of quote
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+"I prefer double quotes!"
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+This allows you to 
+\series bold
+include quotes inside of quotes
+\series default
+ as a character in the string.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+"I'm happy I started with a double quote!" 
+\end_layout
+
+\begin_layout Subsection
+August Ada King, Countess of Lovelace, 1815-1852
+\end_layout
+
+\begin_layout Standard
+Arguably the world's first computer programmer, she worked with Charles
+ Baggage to design the first programmable machine.
+\end_layout
+
+\begin_layout Subsubsection
+Strings and Numbers
+\end_layout
+
+\begin_layout Notation
+With string, + means 
+\series bold
+concatenation
+\series default
+.
+\end_layout
+
+\begin_layout Notation
+<
+\emph on
+string
+\emph default
+> + <
+\emph on
+string
+\emph default
+> → outputs the concatenation of the two strings 
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+You can multiply strings and integers! E.g.
+ to return 12 exclamation points! 
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+print '!' * 12 
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+!!!!!!!!!!!!
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Indexing Strings
+\end_layout
+
+\begin_layout Definition
+Selecting sub-sequences from a string, it is called 
+\series bold
+indexing
+\series default
+.
+\end_layout
+
+\begin_layout Notation
+Square brackets [] specifies which part of the string you want to select.
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+<string>[<expression>]
+\end_layout
+
+\begin_layout Remark*
+Like JavaScript, we start from the 
+\begin_inset Formula $0th$
+\end_inset
+
+ position.
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+'udacity'[0]
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+'u'
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+'udacity'[1 + 1]
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+'a'
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+name = 'Dave'
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+name[0]
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+'D'
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+print name[-1]
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+'e'
+\end_layout
+
+\begin_layout Subsection
+Selecting Sub-Sequences
+\end_layout
+
+\begin_layout Standard
+You can select a 
+\series bold
+sub-sequence
+\series default
+ of a string by designating a 
+\emph on
+starting
+\emph default
+ position and 
+\emph on
+end
+\emph default
+ position.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<string>[<expression>] → a one-character string
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<string>[<start expression>:<stop expression>] →
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+word = 'assume'
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print word[4:6]
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+'me'
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print word[4:]
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+'me'
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print word[:2]
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+'as'
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print word[:]
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+'assume'
+\end_layout
+
+\begin_layout Subsection
+Finding Strings in Strings
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+find
+\series default
+ method operates on strings, with the output of find being the 
+\emph on
+position
+\emph default
+ of the 
+\emph on
+first letter 
+\emph default
+of the string where the specified sub-string is found.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<search string>.find(<target string>)
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Remark*
+If the target string is not found anywhere in the search string, then the
+ output will be 
+\family typewriter
+-1
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+pythagoras = 'There is geometry in the humming of the strings, there is
+ music in the spacing of the spheres.
+ '
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+print pythagoras.find('string')
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+40
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+print pythagoras[40:]
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+'strings, there is music in the spacing of the spheres.'
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+print pythagoras.find('T')
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+0
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+print pythagoras.find('sphere')
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+86
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+print pythagoras[86:]
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+spheres.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+print pythagoras.find('algebra')
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+-1
+\end_layout
+
+\begin_layout Subsection
+Find with Numbers (from the position of the number)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<search string>.find(<target string>, <number>)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The number input is the 
+\series bold
+position
+\series default
+ in the 
+\series bold
+search
+\series default
+ string where find will 
+\series bold
+start
+\series default
+ looking for the target string.
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+danton = "De l'audace, encore de l'audace, toujours de l'audace." 
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print danton.find('audace')
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+5
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print danton.find('audace', 0)
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+5
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print danton.find('audace', 5)
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+5
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print danton.find('audace', 6)
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+25
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print danton.find('audace', 25}
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+25
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+print danton.find('audace', 48)
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+-1
+\end_layout
+
+\begin_layout Subsection
+Extracting Links
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+web
+\series default
+ 
+\series bold
+page
+\series default
+ is really just a 
+\emph on
+long string of characters
+\emph default
+.
+ ('View Page Source')
+\end_layout
+
+\begin_layout Note*
+Your browser renders the web page in a way that looks more attractive than
+ just the string of characters.
+ 
+\end_layout
+
+\begin_layout Remark*
+For our 
+\series bold
+web
+\series default
+ 
+\series bold
+crawler
+\series default
+, the important thing is to find the links to other web pages in the page.
+\end_layout
+
+\begin_layout Remark*
+We find those links by looking for the anchor tags that match this structure:
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+<a href="<url>"> 
+\end_layout
+
+\begin_layout Itemize
+To build our crawler, for each web page we want to find 
+\series bold
+all
+\series default
+ the link target URLs on the page.
+\end_layout
+
+\begin_layout Itemize
+We want to 
+\series bold
+keep track of them
+\series default
+ and 
+\series bold
+follow them to find more content 
+\series default
+on the web.
+\end_layout
+
+\begin_layout Section
+How to repeat.
+ Finding all the links on a page
+\end_layout
+
+\begin_layout Subsection
+Introduction
+\end_layout
+
+\begin_layout Standard
+In order to extract all of the links (the aim of this Unit), you need to
+ know these 2 key concepts:
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Procedures
+\series default
+ - a 
+\bar under
+method
+\bar default
+ to
+\bar under
+ package code
+\bar default
+ so it can be 
+\bar under
+reused
+\bar default
+ with 
+\bar under
+different
+\bar default
+ 
+\bar under
+inputs
+\bar default
+.
+ (Appear similar to functions, see below why we call them procedures.)
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+
+\series bold
+Control
+\series default
+ - a 
+\bar under
+method
+\bar default
+ to have the computer 
+\bar under
+execute
+\bar default
+ 
+\bar under
+different
+\bar default
+ 
+\bar under
+instructions
+\bar default
+ 
+\bar under
+depending
+\bar default
+ on the 
+\bar under
+data
+\bar default
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+\begin_inset Quotes eld
+\end_inset
+
+Different inputs, different behaviours.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Procedures.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Motivating Procedures
+\end_layout
+
+\begin_layout Standard
+In order to extract all links, copying and pasting the code over and over
+ may work:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Motivating Procedures.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here the code will print out the next 2 links on the web page.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Disadvantages
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Tedious
+\series default
+ - the reason for computers is to avoid having to do tedious, mechanical
+ work!
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Inefficient - 
+\series default
+some pages only have a 
+\series bold
+few
+\series default
+ 
+\series bold
+links
+\series default
+ while other pages have 
+\series bold
+more
+\series default
+ 
+\series bold
+links
+\series default
+ 
+\series bold
+than
+\series default
+ 
+\series bold
+the
+\series default
+ 
+\series bold
+number
+\series default
+ 
+\series bold
+of
+\series default
+ 
+\series bold
+repetitions
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+Introducing Procedures
+\end_layout
+
+\begin_layout Example*
+The + operator is a (built-in) procedure where the inputs are two numbers
+ and the output is the sum of those two numbers.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Python Grammar for Procedures
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Python Grammar for writing a procedure.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+def
+\family default
+ - 
+\begin_inset Quotes eld
+\end_inset
+
+define
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+<name>
+\family default
+ is the name of a procedure.
+ 
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+<parameters> 
+\family default
+are the 
+\series bold
+inputs
+\series default
+ to the procedure: a list of (
+\series bold
+none
+\series default
+, 
+\begin_inset Quotes eld
+\end_inset
+
+an empty set of closed parentheses: ()
+\begin_inset Quotes erd
+\end_inset
+
+, or) 
+\series bold
+more names
+\series default
+ 
+\series bold
+separated
+\series default
+ 
+\series bold
+by
+\series default
+ 
+\series bold
+\bar under
+commas
+\series default
+\bar default
+: 
+\family typewriter
+<name>
+\family default
+, 
+\family typewriter
+<name>
+\family default
+,...
+\end_layout
+
+\begin_layout Remark*
+When naming parameter, it is more beneficial to use descriptive names that
+ remind you of what they mean.
+ (Here we have replaced 
+\family typewriter
+page
+\family default
+ with 
+\family typewriter
+s
+\family default
+ because it can be used for any string.)
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/get_next_target 1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+A : (
+\series bold
+colon
+\series default
+) ends the definition header (as above).
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+<block>
+\family default
+ - the body of the procedure is a 
+\family typewriter
+<block>
+\family default
+, which is the code that implements the procedure.
+\end_layout
+
+\begin_layout Notation
+The block is 
+\series bold
+indented
+\series default
+ inside the definition.
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+Proper
+\series default
+ 
+\series bold
+indentation
+\series default
+ 
+\series bold
+tells
+\series default
+ the 
+\series bold
+interpreter
+\series default
+ when it has 
+\series bold
+reached
+\series default
+ the 
+\series bold
+end
+\series default
+ of the procedure definition - IMPORTANT IN PYTHON.
+\end_layout
+
+\begin_layout Subsection
+Return Statement
+\end_layout
+
+\begin_layout Standard
+To finish the procedure, we need to 
+\series bold
+produce
+\series default
+ the 
+\series bold
+outputs
+\series default
+ - 
+\family typewriter
+return
+\family default
+.
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+return <expression>, <expression>, ...
+ 
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+return
+\series default
+ statement can have 
+\emph on
+any
+\emph default
+ 
+\emph on
+number
+\emph default
+ of 
+\emph on
+expressions
+\emph default
+, of which are the 
+\emph on
+outputs
+\emph default
+ of the procedure.
+\end_layout
+
+\begin_layout Remark*
+No expressions at all means no output.
+ This can be useful as you can harness a procedure for their 
+\series bold
+side-effects
+\series default
+.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Side-effects 
+\series default
+are 
+\emph on
+visible
+\emph default
+, such as the 
+\emph on
+printing
+\emph default
+ done by a 
+\emph on
+print
+\emph default
+ statement, but are NOT the outputs of the procedure.
+\end_layout
+
+\begin_layout Subsection
+Using Procedures
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+<procedure>(<input>,<input>, …)
+\end_layout
+
+\begin_layout Remark*
+There are other forms (recall the 
+\family typewriter
+.find()
+\family default
+ one; we learn about these later).
+\end_layout
+
+\begin_layout Example*
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+rest_of_string procedure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/rest_of_string procedure.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To use, we pass in one input, corresponding to the parameter s:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Using rest_of_string procedure.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Summary*
+Many people call procedures in Python "functions." Refer to them as procedures
+ because they are quite different from mathematical functions.
+ The main differences are:
+\end_layout
+
+\begin_layout Itemize
+A 
+\emph on
+mathematical
+\emph default
+ function always produces the 
+\emph on
+same output given the same inputs
+\emph default
+ - NOT necessarily the case for a Python procedure, which can produce different
+ outputs for the same inputs depending on other state (we will see examples
+ in Unit 3).
+\end_layout
+
+\begin_layout Itemize
+A mathematical function 
+\emph on
+only
+\emph default
+ maps inputs to outputs.
+ A Python procedure can also 
+\emph on
+produce side-effects,
+\emph default
+ like printing.
+ 
+\end_layout
+
+\begin_layout Itemize
+A mathematical function is a 
+\emph on
+pure
+\emph default
+ 
+\emph on
+abstraction
+\emph default
+ that has no associated cost.
+ The cost of executing a Python procedure depends on 
+\emph on
+how
+\emph default
+ it is 
+\emph on
+implemented
+\emph default
+.
+ (We will discuss how computer scientists think about the cost of procedures
+ in Unit 5.)
+\end_layout
+
+\begin_layout Subsection
+Equality Comparisons
+\end_layout
+
+\begin_layout Subsubsection
+Comparison Operators
+\end_layout
+
+\begin_layout Standard
+Python provides several operators for making comparisons:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Formula $<$
+\end_inset
+
+
+\family default
+ less than
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $>$
+\end_inset
+
+ greater than
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Formula $\leq$
+\end_inset
+
+
+\family default
+ less than or equal to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $==$
+\end_inset
+
+ equal to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $!=$
+\end_inset
+
+ not equal to 
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+<number> <operator> <number> 
+\end_layout
+
+\begin_layout Standard
+The output of a comparison is a 
+\series bold
+Boolean
+\series default
+: 
+\series bold
+True
+\series default
+ or 
+\series bold
+False
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+If Statements
+\end_layout
+
+\begin_layout Notation
+An 
+\family typewriter
+if
+\family default
+ statement provides a way to control what code executes based on the result
+ of a test expression.
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/if statements.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Similar to procedures, the end of the 
+\family typewriter
+if
+\family default
+ statement block is determined by the 
+\emph on
+indentation
+\emph default
+.
+\end_layout
+
+\begin_layout Remark*
+(Recall the 
+\family typewriter
+block
+\family default
+ only runs 
+\family typewriter
+if True
+\family default
+.)
+\end_layout
+
+\begin_layout Subsection
+Is Friend: Else Expressions
+\end_layout
+
+\begin_layout Standard
+The trivial consequence.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/ifthenelse.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Or Expressions
+\end_layout
+
+\begin_layout Notation
+An 
+\family typewriter
+or
+\family default
+ expression gives the logical or (disjunction) of two operands.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+<Expression> or <Expression>
+\end_layout
+
+\begin_layout Remark*
+If the first expression evaluates to True, the value is True and the second
+ expression is 
+\emph on
+not evaluated
+\emph default
+.
+\end_layout
+
+\begin_layout Remark*
+If the value of the first expression evaluates to False, the value is the
+ value of the second expression.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/or with error.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Alan Turing
+\end_layout
+
+\begin_layout Standard
+What a legend!
+\end_layout
+
+\begin_layout Standard
+He showed that 
+\end_layout
+
+\begin_layout Quote
+\begin_inset Quotes eld
+\end_inset
+
+Every possible computer program can be made from:
+\end_layout
+
+\begin_layout Quote
+1) Variables
+\end_layout
+
+\begin_layout Quote
+2) Arithmetic
+\end_layout
+
+\begin_layout Quote
+3) Procedures
+\end_layout
+
+\begin_layout Quote
+4) 
+\family typewriter
+if
+\family default
+ statements
+\end_layout
+
+\begin_layout Subsection
+While Loops
+\end_layout
+
+\begin_layout Standard
+Same form as MATLAB
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/while loop.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Factorial
+\end_layout
+
+\begin_layout Standard
+The number of ways to order blocks.
+\end_layout
+
+\begin_layout Subsection
+Break
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+Break 
+\family default
+gives us a way to break out of a loop, even if the test condition is 
+\family typewriter
+True
+\family default
+.
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/break.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Multiple Assignment
+\end_layout
+
+\begin_layout Definition
+Assigning multiple values on the left side of an assignment statement is
+ called 
+\series bold
+multiple assignment
+\series default
+.
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+<name1>, <name2>, … = <expression1>, <expression2>, … 
+\family default
+with name1 matching expression1, name2 matching expression2 ...
+\end_layout
+
+\begin_layout Example*
+get_next_target(page):
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/get_next_target 2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+In order to run the code successfully, we are required to state two output
+ arguments (like MATLAB).
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/Using get_next_target 2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+No Links
+\end_layout
+
+\begin_layout Standard
+We need to modify to ensure valid execution for all scenarios.
+ (This has taken the form of the quiz.
+ A standard 
+\family typewriter
+if
+\family default
+ statement does the trick.)
+\end_layout
+
+\begin_layout Subsection
+Print All Links
+\end_layout
+
+\begin_layout Standard
+We modify our 
+\family typewriter
+get_next_target
+\family default
+ code to print all links until a value of 
+\family typewriter
+url = None
+\family default
+ is returned.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Print All Links.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+How to manage data.
+ Crawling the web
+\end_layout
+
+\begin_layout Subsection
+Data: Learning to Crawl
+\end_layout
+
+\begin_layout Subsection
+Introduction
+\end_layout
+
+\begin_layout Standard
+The aim for this unit is to learn about 
+\series bold
+structured data
+\series default
+.
+ We initially look at 
+\series bold
+lists
+\series default
+, which are more powerful than 
+\series bold
+strings 
+\series default
+(which are a type of structured data as you can break it down into its character
+s and operate on sub-sequences) as they can:
+\end_layout
+
+\begin_layout Itemize
+the elements can be 
+\series bold
+anything
+\series default
+ compared to a string (where all elements must be characters).
+\end_layout
+
+\begin_layout Subsection
+Nested Lists
+\end_layout
+
+\begin_layout Standard
+Lists within lists.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Nested Lists.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Using nested lists.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mutation (a contrast to MATLAB = value semantics)
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Mutation
+\series default
+ means 
+\emph on
+changing
+\emph default
+ the value of an object.
+\end_layout
+
+\begin_layout Remark*
+
+\emph on
+Lists
+\emph default
+ 
+\emph on
+support
+\emph default
+ 
+\emph on
+mutation
+\emph default
+.
+ This is the second main difference between strings and lists.
+\end_layout
+
+\begin_layout Note*
+Strings 
+\emph on
+appear 
+\emph default
+to be able to mutate, however it really is just creating a new string.
+\end_layout
+
+\begin_layout Subsection
+Aliasing
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Aliasing and James Bond.png
+	lyxscale 65
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Aliasing
+\series default
+ - when there are two (or more) names that refer to the 
+\emph on
+same
+\emph default
+ 
+\emph on
+object.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Graphics
+	filename Images/Python example of Alaising.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Quotes eld
+\end_inset
+
+Modifying one modifies both - DIFFERENT TO MATLAB!
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+List Operations
+\end_layout
+
+\begin_layout Notation
+
+\series bold
+Append
+\series default
+ - a method that adds a new element to the 
+\emph on
+end of a list 
+\emph default
+- mutation not creation.
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/append syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+
+\series bold
+Concatenation
+\series default
+ - The + operator can be used with lists -mutation not creation.
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/concatenation list syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+
+\series bold
+Length
+\series default
+ - The 
+\family typewriter
+len
+\family default
+ operator can be used to find out the length of an object.
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/len operation syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Remark*
+Not just for lists; includes strings and others.
+\end_layout
+
+\begin_layout Subsection
+How Computers Store Data
+\end_layout
+
+\begin_layout Standard
+In order to store data you need two things:
+\end_layout
+
+\begin_layout Enumerate
+Something that preserves state, and
+\end_layout
+
+\begin_layout Enumerate
+A way to read its state.
+ 
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+bit
+\series default
+ is the fundamental unit of information.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+Data that is stored directly in the 
+\emph on
+processor
+\emph default
+, which is called the 
+\series bold
+register
+\series default
+, is stored like a switch (as a bit), which makes it very fast to change
+ and read its state.
+\end_layout
+
+\begin_layout Remark*
+Like a light bulb, when you turn the power off, you lose the state.
+ This means that all the data stored in registers is lost when the computer
+ is turned off.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+DRAM
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/DRAM and buckets.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The difference between buckets and light bulbs is that buckets leak a little,
+ and water evaporates from the bucket.
+ If you want to store data using a bucket, it will not last forever.
+ Eventually, when all the water evaporates you will be unable to tell the
+ difference between a zero and a one.
+ 
+\end_layout
+
+\begin_layout Remark*
+Computers solve this problem using the digital abstraction.
+ There are 
+\series bold
+infinitely
+\series default
+ 
+\series bold
+many
+\series default
+ 
+\series bold
+different
+\series default
+ 
+\series bold
+amount
+\series default
+ of water that could be in the bucket, but they are 
+\series bold
+all
+\series default
+ 
+\series bold
+mapped
+\series default
+ to 
+\series bold
+either
+\series default
+ a 
+\series bold
+0
+\series default
+ or a 
+\series bold
+1
+\series default
+ value.
+ This means 
+\series bold
+it is oka
+\series default
+y if some water evaporates, as long as it does not drop below the threshold
+ for representing a 1.
+\end_layout
+
+\begin_layout Definition
+In computers, the buckets are holding 
+\emph on
+electrons
+\emph default
+ instead of water, and we call them 
+\series bold
+capacitors
+\series default
+.
+\end_layout
+
+\begin_layout Definition
+The memory in your computer that works this way is called 
+\series bold
+DRAM
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/DRAM memory.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+One byte
+\series default
+ is
+\series bold
+ 8 bits
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+A 
+\series bold
+gigabyte
+\series default
+ is 
+\begin_inset Formula $2^{30}$
+\end_inset
+
+ bytes.
+\end_layout
+
+\begin_layout Notation
+
+\series bold
+Exponentiation 
+\series default
+is denoted by ** (two asterisks) 
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/Exponentiation syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+Thus, the DRAM shown is like having 
+\begin_inset Formula $2^{30}\times2^{8}=17$
+\end_inset
+
+ billion buckets, each one can store one bit.
+\end_layout
+
+\begin_layout Subsubsection
+Memory
+\end_layout
+
+\begin_layout Standard
+There are many different types of memory.
+\end_layout
+
+\begin_layout Standard
+What distinguishes different types of memory is
+\end_layout
+
+\begin_layout Itemize
+the time it takes to 
+\series bold
+retrieve
+\series default
+ 
+\series bold
+a value
+\series default
+ (this is called 
+\series bold
+latency
+\series default
+),
+\end_layout
+
+\begin_layout Itemize
+the 
+\series bold
+cost per bit
+\series default
+, and
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+how
+\series default
+ 
+\series bold
+long
+\series default
+ it 
+\series bold
+retains
+\series default
+ its 
+\series bold
+state
+\series default
+ 
+\series bold
+without
+\series default
+ 
+\series bold
+power
+\series default
+.
+\end_layout
+
+\begin_layout Example*
+For DRAM, the 
+\emph on
+latency
+\emph default
+ is about 
+\emph on
+12 nanoseconds.
+\end_layout
+
+\begin_layout Subsection
+Memory Hierarchy
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Memory Hierarchy.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Since the costs per bit get pretty low, we introduce a new money unit: one
+ nano-dollar (n$) is one billionth of a US dollar, and truly not worth the
+ paper on which it is printed!
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Nanodollars.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hard Drives
+\end_layout
+
+\begin_layout Itemize
+Much 
+\series bold
+slower
+\series default
+ at storing data (in comparison to DRAM), since it involves spinning a physical
+ disk and moving a read head - you have to wait for the disk to spin and
+ reach the read-head (and move the read-head if necessary - isn't in the
+ right place).
+ 
+\end_layout
+
+\begin_layout Itemize
+Much 
+\series bold
+more
+\series default
+ data can be stored at much lower cost (1TB in comparison to 2GB).
+ 
+\end_layout
+
+\begin_layout Itemize
+Data 
+\series bold
+persists
+\series default
+.
+ The data is not lost even when the power is 
+\emph on
+turned
+\emph default
+ 
+\emph on
+off
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Loops on Lists
+\end_layout
+
+\begin_layout Standard
+Since lists are collections of things, it is very useful to be able to go
+ through a list and do something with every element.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Loops on lists.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+For Loops
+\end_layout
+
+\begin_layout Standard
+A more convenient way to loop through the elements of a 
+\series bold
+list
+\series default
+ (or 
+\series bold
+string
+\series default
+): the 
+\family typewriter
+for 
+\family default
+loop.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/for loop syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+e
+\family default
+ is assigned to each list value.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/Example - for loop.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we know what elements are in the list of a list, we can assign each a
+ name:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Example - for loop with lists within lists.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+range(<start>, <stop>).
+\end_layout
+
+\begin_layout Remark*
+This can be useful for creating for loops.
+ (For example when creating a hash table:
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+table = []
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+\series bold
+for
+\series default
+ unused 
+\series bold
+in
+\series default
+ range(0, nbuckets)
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+table.
+\series bold
+append
+\series default
+([])
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+\series bold
+return
+\series default
+ table
+\end_layout
+
+\begin_layout Subsection
+Index
+\end_layout
+
+\begin_layout Notation
+The 
+\family typewriter
+index
+\family default
+ method is used on a 
+\family typewriter
+list 
+\family default
+by passing in a value, and the output is the 
+\series bold
+first
+\series default
+ 
+\series bold
+position
+\series default
+ where that value sits in the list; otherwise an error is produce if the
+ list does not contain any occurrences of the value
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/index syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+This is different from the 
+\family typewriter
+find
+\family default
+ method for strings which we used in Unit 1, that returns a -1 when the
+ target string is not found.
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+in
+\family default
+ (outside a 
+\family typewriter
+for
+\family default
+ loop) - tests if the element is anywhere in the list.
+ 
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/in syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+in
+\family default
+ (outside 
+\family typewriter
+for
+\family default
+ loop)
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/Example - in.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+We can also use 
+\family typewriter
+not in:
+\end_layout
+
+\begin_layout Notation
+\begin_inset Graphics
+	filename Images/not in syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pop
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+pop
+\family default
+ mutates a list by 
+\series bold
+removing
+\series default
+ its 
+\series bold
+last
+\series default
+ 
+\series bold
+element
+\series default
+ and returns the value of the element that was removed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/pop syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+pop
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/Example - pop.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Collecting Links
+\end_layout
+
+\begin_layout Itemize
+Start by finding all the links on the seed page, but instead of just printing
+ them like you did in Unit 2, you need to 
+\series bold
+store them in a list
+\series default
+ so you can use them to keep going.
+\end_layout
+
+\begin_layout Itemize
+Go through all the links in that list to continue our crawl, and keep going
+ as long as there are more pages to crawl.
+\end_layout
+
+\begin_layout Subsection
+Get All Links
+\end_layout
+
+\begin_layout Itemize
+Instead of printing out the URL each time we find one, we want to 
+\series bold
+collect
+\series default
+ 
+\series bold
+the
+\series default
+ 
+\series bold
+URLs
+\series default
+ so we may use them to keep crawling and find new pages.
+\end_layout
+
+\begin_layout Itemize
+To do this, we 
+\series bold
+create a list
+\series default
+ of all of the links we find.
+ We change the 
+\family typewriter
+print_all_links 
+\family default
+procedure into 
+\family typewriter
+get_all_links 
+\family default
+so that we can use the output, which will be a list of links.
+\end_layout
+
+\begin_layout Subsection
+Links
+\end_layout
+
+\begin_layout Standard
+We work with the test page at 
+\bar under
+http://www.udacity.com/cs101x/index.html
+\bar default
+.
+\end_layout
+
+\begin_layout Standard
+Here is how 
+\family typewriter
+get_all_links
+\family default
+ should behave:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Example - get_all_links.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finishing the Web Crawler
+\end_layout
+
+\begin_layout Itemize
+The web crawler has to find links on a seed page, make them into a list
+ and then follow those links to new pages where there may be more links,
+ which you want your web crawler to follow.
+\end_layout
+
+\begin_layout Itemize
+In order to do this the web crawler 
+\series bold
+needs to keep track of all the pages
+\series default
+.
+ Use the variable 
+\family typewriter
+tocrawl
+\family default
+ as a list of pages left to crawl.
+ Use the variable 
+\family typewriter
+crawled
+\family default
+ to 
+\series bold
+store the list of pages crawled
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+Crawling Process
+\end_layout
+
+\begin_layout Subsubsection
+First Attempt
+\end_layout
+
+\begin_layout Standard
+Here is the pseudo-code for the Crawling Process:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Crawling process - first attempt.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+This can never return for some sites that have 
+\begin_inset Quotes eld
+\end_inset
+
+circular links
+\begin_inset Quotes erd
+\end_inset
+
+ (for example, our test site).
+\end_layout
+
+\begin_layout Subsection
+Conclusion
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/CrawlWeb 1.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/CrawlWeb 2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Building an Index (just like a book)
+\end_layout
+
+\begin_layout Subsection
+CS101: Building a Search Engine
+\end_layout
+
+\begin_layout Subsection
+Introduction
+\end_layout
+
+\begin_layout Standard
+In unit 4 you are going to learn:
+\end_layout
+
+\begin_layout Itemize
+how to finish the code for your search engine and how to 
+\series bold
+respond
+\series default
+ to a 
+\series bold
+query
+\series default
+ when someone wants the given web pages that correspond to a 
+\series bold
+given
+\series default
+ 
+\series bold
+keyword
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+about 
+\series bold
+how
+\series default
+ 
+\series bold
+networks
+\series default
+ and the 
+\series bold
+world
+\series default
+ 
+\series bold
+wide
+\series default
+ 
+\series bold
+web
+\series default
+ 
+\series bold
+work
+\series default
+ to understand more about how you can build up your search index.
+\end_layout
+
+\begin_layout Subsection
+Add to Index
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Add to Index prodcedure.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lookup Procedure
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Lookup procedure.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Building the Web Index
+\end_layout
+
+\begin_layout Standard
+To build your web index, you want to find a way to 
+\series bold
+separate all the words
+\series default
+ 
+\series bold
+on
+\series default
+ 
+\series bold
+a web page
+\series default
+ - Python has a built-in operation:
+\end_layout
+
+\begin_layout Notation
+
+\series bold
+Split
+\series default
+ - when you invoke the split operation 
+\series bold
+on a string 
+\series default
+the 
+\series bold
+output
+\series default
+ is a 
+\series bold
+list
+\series default
+ of the 
+\series bold
+words
+\series default
+ in the 
+\series bold
+string
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/split syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+Using Split
+\end_layout
+
+\begin_layout Example*
+
+\series bold
+\begin_inset Graphics
+	filename Images/Using Split.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Not perfect - notice the words with the commas.
+\end_layout
+
+\begin_layout Notation
+
+\series bold
+Triple
+\series default
+ 
+\series bold
+quotes
+\series default
+ (""") - allows you to define 
+\emph on
+one
+\emph default
+ 
+\emph on
+string
+\emph default
+ 
+\emph on
+over
+\emph default
+ 
+\emph on
+several
+\emph default
+ 
+\emph on
+lines
+\end_layout
+
+\begin_layout Subsubsection
+add_page_to_index
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/add_page_to_index.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finishing The Web Crawler
+\end_layout
+
+\begin_layout Standard
+Recall the crawl_web code (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Conclusion"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+We now adapt the code so that you can use the information found on the pages
+ crawled:
+\end_layout
+
+\begin_layout Itemize
+First, we 
+\series bold
+add
+\series default
+ the 
+\series bold
+variable
+\series default
+ 
+\series bold
+index
+\series default
+, to 
+\series bold
+keep
+\series default
+ 
+\series bold
+track
+\series default
+ of the 
+\series bold
+content
+\series default
+ on the 
+\series bold
+pages
+\series default
+ along with their associated 
+\series bold
+urls
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+Since you are really 
+\series bold
+interested
+\series default
+ 
+\series bold
+in
+\series default
+ the 
+\series bold
+index
+\series default
+, this is what we will 
+\series bold
+return
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Finishing the web-crawler.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Startup
+\end_layout
+
+\begin_layout Standard
+A catchy name is key - Google, duckduckgo!.
+\end_layout
+
+\begin_layout Standard
+We now have a functioning web crawler!
+\end_layout
+
+\begin_layout Subsection
+The Internet
+\end_layout
+
+\begin_layout Standard
+We havee been using the 
+\family typewriter
+get_page function 
+\family default
+where you 
+\series bold
+pass in a url
+\series default
+ and it 
+\series bold
+passes out the content of the page:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/get_page_function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+To read page on the WWW, we need to 
+\series bold
+import
+\series default
+ from the Python library a function 
+\family typewriter
+urllib.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+The try and except work just like try and catch in MATLAB.
+\end_layout
+
+\end_deeper
+\begin_layout Notation
+
+\family typewriter
+.read()
+\family default
+ - 
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+
+\family typewriter
+.urlopen()
+\family default
+ - 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Networks
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+Internet
+\series default
+ is a 
+\series bold
+particular
+\series default
+ 
+\series bold
+type
+\series default
+ of 
+\series bold
+network
+\series default
+.
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+network
+\series default
+ is a 
+\emph on
+group
+\emph default
+ of 
+\emph on
+entities
+\emph default
+ that 
+\emph on
+can
+\emph default
+ 
+\emph on
+communicate
+\emph default
+, even though they are
+\emph on
+ 
+\bar under
+not directly 
+\emph default
+connected
+\bar default
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Graphics
+	filename Images/Networks.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Smoke Signals
+\end_layout
+
+\begin_layout Standard
+The idea for networks have been around for over 3000 years - Greeks to ware
+ when the Trojans are coming.
+\end_layout
+
+\begin_layout Subsubsection
+Making a Network
+\end_layout
+
+\begin_layout Enumerate
+Method to encode and interpret messages.
+\end_layout
+
+\begin_layout Enumerate
+Method to route messages.
+\end_layout
+
+\begin_layout Enumerate
+Rules for deciding who gets to use resources.
+\end_layout
+
+\begin_layout Subsection
+Latency (measuring networks)
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Latency
+\series default
+ is the 
+\emph on
+time
+\emph default
+ it takes a message to get from the source to the destination - measured
+ in seconds/milliseconds.
+\end_layout
+
+\begin_layout Remark*
+If you care about your 
+\series bold
+ping
+\series default
+ in online games, it’s latency that matters.
+\end_layout
+
+\begin_layout Subsection
+Bandwidth (measuring networks)
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Bandwidth
+\series default
+ is the 
+\emph on
+amount
+\emph default
+ of 
+\emph on
+information
+\emph default
+ that can be 
+\emph on
+transmitted per unit of time
+\emph default
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+The rate at which information is transferred
+\emph default
+.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Measured in units of 
+\emph on
+information/time
+\emph default
+, such as 
+\series bold
+bits per second
+\series default
+ - often measured in Mbps.
+\end_layout
+
+\begin_layout Subsection
+Bits
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+bit
+\series default
+ is the smallest unit of information.
+\end_layout
+
+\begin_layout Remark*
+When asking yes-no (bit=on/off) questions, it is often better off asking
+ a question that has an answer 
+\series bold
+\bar under
+equally
+\series default
+\bar default
+ 
+\series bold
+\bar under
+likely
+\series default
+\bar default
+ to be “Yes” as it is to be “No”
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Anything that is 
+\series bold
+discrete,
+\series default
+ (e.g.strings, lists, webpages...), can be converted into a number, and thus
+ a bit and that number can then be transmitted.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Once bits can be sent, anything can be sent.
+ The 
+\series bold
+number of bits
+\series default
+ 
+\series bold
+needed
+\series default
+ is a 
+\series bold
+measure
+\series default
+ of the 
+\series bold
+amount
+\series default
+ 
+\series bold
+of
+\series default
+ 
+\series bold
+information
+\series default
+ that can be sent - 
+\series bold
+bandwidth.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+What Is Your Bandwidth
+\end_layout
+
+\begin_layout Standard
+The common tests for testing bandwidth will try sending messages to figure
+ out your bandwidth and depends on your location.
+\end_layout
+
+\begin_layout Remark*
+10/07/2012 = Home Computer = 2.982 Mbps.
+\end_layout
+
+\begin_layout Subsection
+Traceroute(Mac)/Tracert(Windows)
+\end_layout
+
+\begin_layout Standard
+You can learn a lot about the Internet by 
+\series bold
+measuring
+\series default
+ 
+\series bold
+\bar under
+latency
+\series default
+\bar default
+ 
+\series bold
+to
+\series default
+ 
+\series bold
+different
+\series default
+ 
+\series bold
+destinations
+\series default
+.
+\end_layout
+
+\begin_layout Example*
+For the map of Greece, there were hops on the way from Rhodes to Sparta:
+\end_layout
+
+\begin_layout Example*
+Rhodes ->Naox -> Melos ->Sparta
+\end_layout
+
+\begin_layout Standard
+Working with the command prompt and using an application called 
+\family typewriter
+traceroute
+\family default
+, the 
+\series bold
+hops
+\series default
+ on the 
+\series bold
+Internet
+\series default
+ can be 
+\series bold
+seen
+\series default
+ between the 
+\series bold
+machine
+\series default
+ it is run on and the destination.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Tracert.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Summary*
+
+\series bold
+Tracert
+\series default
+ is 
+\emph on
+sending
+\emph default
+ 
+\emph on
+packets
+\emph default
+ 
+\emph on
+across
+\emph default
+ the 
+\emph on
+network
+\emph default
+ 
+\emph on
+looking
+\emph default
+ at all the 
+\emph on
+intermediate
+\emph default
+ 
+\emph on
+hops
+\emph default
+ to figure out the route it takes to get a packet from the current location
+ to www.udacity.com.
+ It returns the roundtrip (there and back) distance.
+ 
+\end_layout
+
+\begin_layout Summary*
+Here it took 8 hops, taking roughly 
+\begin_inset Formula $44ms$
+\end_inset
+
+ (does three tests - 
+\begin_inset Formula $44ms,38ms,45ms$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Summary*
+The first hop shows the 
+\series bold
+ip 192.168.1.254
+\series default
+.
+
+\series bold
+ 
+\series default
+This is an 
+\series bold
+Internet address that refers to your router
+\series default
+.
+ You will always start there.
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+packet
+\series default
+ is a piece of information sent over the Internet.
+\end_layout
+
+\begin_layout Definition
+It contains a 
+\emph on
+header
+\emph default
+ and a 
+\emph on
+message
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Header
+\series default
+ - contains information about, among other things, the 
+\emph on
+packet source
+\emph default
+, 
+\emph on
+destination
+\emph default
+ and its “
+\emph on
+hop
+\emph default
+ 
+\emph on
+limit
+\emph default
+”.
+ Hop limit is the 
+\emph on
+amount of hops
+\emph default
+ the packet is allowed to go through - so that a packet 
+\emph on
+can not get stuck in an infinite loop
+\emph default
+, jumping back and forth between the same places.
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+hop
+\series default
+ 
+\series bold
+limit
+\series default
+ is used in tracert to send packets out different distances on the route
+ to the destination.
+ The hop limit is 
+\emph on
+only 1 byte long, which is 8 bits
+\emph default
+ - the amount of information which can be encoded by 8 bits is 
+\begin_inset Formula $2^{8}=256$
+\end_inset
+
+, so the maximum number of hops is 255 (since it goes from 0 to 255 inclusive.)
+ This puts a 
+\emph on
+maximum distanc
+\emph default
+e a packet can travel on the Internet at 255 hops.
+ Fortunately, everywhere on the Internet is 
+\emph on
+connected by far fewer hops
+\emph default
+ than that! 
+\end_layout
+
+\begin_layout Remark*
+The 
+\series bold
+three asterisks (*)
+\series default
+ at the bottom of a 
+\family typewriter
+tracert
+\family default
+ application's output indicate the packet is
+\series bold
+ not actually getting to the final destination
+\series default
+ because there is 
+\series bold
+no response 
+\series default
+from the web server at 
+\begin_inset Quotes eld
+\end_inset
+
+MIT
+\begin_inset Quotes erd
+\end_inset
+
+ - we may also need to change the time lapse.
+ 
+\end_layout
+
+\begin_layout Subsection
+Making a Network
+\end_layout
+
+\begin_layout Standard
+Recall the 3 requirements for making a network:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+1) Method to encode and interpret messages.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Internet: message → bits → electrons/photons
+\end_layout
+
+\begin_layout Standard
+Any message can be encoded in bits and these can be encoded on a wire.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+2) Method to route messages.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Internet: 
+\bar under
+routers
+\bar default
+ figure out next hops
+\end_layout
+
+\begin_layout Standard
+For all the routers along the path, a 
+\series bold
+message comes in
+\series default
+ and the 
+\series bold
+router
+\series default
+ 
+\series bold
+has
+\series default
+ 
+\series bold
+to
+\series default
+ 
+\series bold
+decide
+\series default
+ where to send it on.
+\end_layout
+
+\begin_layout Standard
+Maybe the router has a table saying where to send it next.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+3) Rules for deciding who gets to use resources.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Internet: 
+\bar under
+best effort service
+\end_layout
+
+\begin_layout Standard
+Unlike with the Greeks, there are
+\bar under
+ no real rules
+\bar default
+ on the Internet for who gets resources - it's a 
+\series bold
+wild west
+\series default
+ where everywhere along the network gets to 
+\bar under
+decide on its own what rules to apply
+\bar default
+.
+\end_layout
+
+\begin_layout Standard
+If 2 messages are sent by a router at the same time, the router decides
+ which one to send on.
+ This means 
+\series bold
+packages might get dropped
+\series default
+.
+ There is 
+\series bold
+no guarantee 
+\series default
+that a package will reach its destination on the Internet.
+\end_layout
+
+\begin_layout Subsection
+Protocols
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+protocol
+\series default
+ is a 
+\emph on
+set of rules
+\emph default
+, that people agree to, which determines how two entities can talk to each
+ other.
+\end_layout
+
+\begin_layout Definition
+For the web, the protocol gives rules about 
+\series bold
+how a client 
+\series default
+and a 
+\series bold
+server talk 
+\series default
+to each other.
+\end_layout
+
+\begin_layout Definition
+The 
+\series bold
+client
+\series default
+ is the 
+\series bold
+web
+\series default
+ 
+\series bold
+browser
+\series default
+ and the 
+\series bold
+server
+\series default
+ is the 
+\series bold
+web
+\series default
+ 
+\series bold
+server
+\series default
+.
+\end_layout
+
+\begin_layout Example*
+The protocol used on the 
+\series bold
+web
+\series default
+ is called 
+\series bold
+Hypertext Transfer Protocol
+\series default
+ which is abbreviated as HTTP.
+ 
+\end_layout
+
+\begin_layout Example*
+Almost all urls used start with http.
+ That indicates that the 
+\series bold
+protocol to be used
+\series default
+ to talk to the server is this Hypertext Transfer Protocol.
+\end_layout
+
+\begin_layout Example*
+HTTP is a simple protocol and only has two main messages:
+\end_layout
+
+\begin_layout Example*
+1) GET.
+ The client can send a message to the server which says GET followed by
+ the name of the object you want to get, GET <object>.
+ That’s all the client does.
+ Recall the python code for get_page:
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/get_page_function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+2) The server receives it - The 
+\series bold
+server runs some code on it
+\series default
+, 
+\series bold
+finds the file
+\series default
+ that was requested, perhaps runs some more code, and then 
+\series bold
+sends
+\series default
+ 
+\series bold
+back
+\series default
+ a 
+\series bold
+response
+\series default
+ with the 
+\series bold
+contents
+\series default
+ of the requested <object>.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/HTTP.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+If you 
+\series bold
+click
+\series default
+ on a 
+\series bold
+link
+\series default
+, your 
+\series bold
+web
+\series default
+ 
+\series bold
+browser
+\series default
+ 
+\series bold
+works
+\series default
+ 
+\series bold
+out
+\series default
+ 
+\series bold
+which
+\series default
+ 
+\series bold
+url
+\series default
+ you are requesting and 
+\series bold
+sends
+\series default
+ a 
+\series bold
+GET
+\series default
+ 
+\series bold
+message
+\series default
+ 
+\series bold
+to
+\series default
+ the 
+\series bold
+correct
+\series default
+ 
+\series bold
+web
+\series default
+ 
+\series bold
+server
+\series default
+ 
+\series bold
+specified
+\series default
+ 
+\series bold
+by
+\series default
+ that 
+\series bold
+url
+\series default
+.
+ When it gets a response, it processes and then renders it.
+\end_layout
+
+\begin_layout Subsection
+Conclusion
+\end_layout
+
+\begin_layout Standard
+A web browser, when requesting data over the Internet, the process involves:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sending
+\series default
+ 
+\series bold
+messages
+\series default
+ across the Internet and receiving responses which are text.
+ That text is processed by a browser, or even by the web crawler you’ve
+ programmed.
+\end_layout
+
+\begin_layout Section
+How Programs Run - Making things fast
+\end_layout
+
+\begin_layout Subsection
+Introduction
+\end_layout
+
+\begin_layout Itemize
+With a 
+\series bold
+large
+\series default
+ 
+\series bold
+index
+\series default
+ and 
+\series bold
+lots
+\series default
+ of 
+\series bold
+queries
+\series default
+, the previous method will be 
+\series bold
+too
+\series default
+ 
+\series bold
+slow
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+A typical search engine should respond in 
+\series bold
+under a second
+\series default
+ and often much faster.
+\end_layout
+
+\begin_layout Itemize
+In this unit you will learn 
+\series bold
+\emph on
+how to make your search index much faster
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Making Things Fast
+\end_layout
+
+\begin_layout Itemize
+What it 
+\series bold
+costs
+\series default
+ to evaluate an execution is a very important - a fundamental problem in
+ computer science (some spend their whole careers working on this.
+\end_layout
+
+\begin_layout Definition
+Measuring what a algorithm cost to execute is called 
+\series bold
+algorithm
+\series default
+ 
+\series bold
+analysis
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+An 
+\series bold
+algorithm
+\series default
+ is a procedure that 
+\emph on
+always
+\emph default
+ 
+\emph on
+finishes
+\emph default
+ and 
+\emph on
+produces
+\emph default
+ the 
+\emph on
+correct
+\emph default
+ 
+\emph on
+result
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+We've already seen that it 
+\series bold
+isn't
+\series default
+ an 
+\series bold
+easy
+\series default
+ problem to 
+\series bold
+determine
+\series default
+ if an algorithm always finishes - mathematical analysis come in here.
+\end_layout
+
+\begin_layout Subsection
+What is Cost?
+\end_layout
+
+\begin_layout Standard
+Suppose algorithms 
+\family typewriter
+Algo 1 
+\family default
+and 
+\family typewriter
+Algo 2 
+\family default
+both solve the same problem.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Inputs → Algo 1 → Output
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Inputs → Algo 2 → Output
+\end_layout
+
+\begin_layout Remark*
+For some 
+\family typewriter
+inputs
+\family default
+, 
+\family typewriter
+Algo 1 
+\family default
+is cheaper than 
+\family typewriter
+Algo 2
+\family default
+, but for others, 
+\family typewriter
+Algo 2 
+\family default
+might be cheaper.
+\end_layout
+
+\begin_layout Remark*
+We don't want to have to work this out for every input because then you
+ might as well run it for every input.
+\end_layout
+
+\begin_layout Remark*
+You want to 
+\series bold
+be able to predict the cost
+\series default
+ for 
+\series bold
+every
+\series default
+ input without having to run every input.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Computer scientists primarily talk about 
+\series bold
+cost
+\series default
+ in terms of 
+\series bold
+input
+\series default
+ 
+\series bold
+size
+\series default
+ - as it is usually the main factor that determines the speed of the algorithm
+\end_layout
+
+\begin_layout Remark*
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+Cost is measured in terms of 
+\series bold
+how 
+\bar under
+time
+\bar default
+ increases with input size
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+If a certain amount of 
+\series bold
+\bar under
+memory
+\series default
+\bar default
+ is needed to execute an algorithm, you have an indication of the size and
+ cost of computer required to run the program.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Stopwatch
+\end_layout
+
+\begin_layout Algorithm
+The procedure, 
+\family typewriter
+time_execution
+\family default
+, is a way to 
+\series bold
+evaluate
+\series default
+ 
+\series bold
+how
+\series default
+ 
+\series bold
+long
+\series default
+ it takes for some code to execute.
+ 
+\end_layout
+
+\begin_layout Algorithm
+We use the built-in 
+\family typewriter
+time.clock 
+\family default
+in the time library.
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Graphics
+	filename Images/time_execution.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The result is in seconds.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Running the timing through the web interpreter won't be accurate.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+This doesn't tell you very much for short, fast executions.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Spin Loop
+\end_layout
+
+\begin_layout Algorithm*
+spin_loop(n)
+\end_layout
+
+\begin_layout Algorithm*
+\begin_inset Graphics
+	filename Images/spin_loop.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+It's 
+\series bold
+important
+\series default
+ to notice that the 
+\series bold
+time
+\series default
+ 
+\series bold
+changes
+\series default
+ 
+\series bold
+depending
+\series default
+ 
+\series bold
+on
+\series default
+ the 
+\series bold
+input
+\series default
+.
+\end_layout
+
+\begin_layout Subsection
+Predicting Run Time (Quiz)
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+For 
+\family typewriter
+spin_loop
+\family default
+: Running Time is 
+\series bold
+\bar under
+linear 
+\series default
+\bar default
+in the magnitude of n.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Make Big Index 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Idea
+\series default
+\bar default
+ - here we are creating a big index to test the speed of out 
+\family typewriter
+lookup
+\family default
+ code.
+\end_layout
+
+\begin_layout Algorithm*
+
+\family typewriter
+make_big_index(size)
+\family default
+
+\begin_inset Graphics
+	filename Images/make_big_index.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm*
+with 
+\family typewriter
+make_string
+\family default
+ representing:
+\end_layout
+
+\begin_layout Algorithm*
+\begin_inset Graphics
+	filename Images/make_string.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm*
+which produces:
+\end_layout
+
+\begin_layout Algorithm*
+\begin_inset Graphics
+	filename Images/using make_big_index.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When running 
+\family typewriter
+lookup(index, 
+\begin_inset Quotes eld
+\end_inset
+
+udacity
+\begin_inset Quotes erd
+\end_inset
+
+)
+\family default
+, we establish a linear running time again.
+\end_layout
+
+\begin_layout Remark*
+Timings vary for many reasons:
+\end_layout
+
+\begin_layout Remark*
+1) Lots of other things run on the computer - so a program does not have
+ total control over the processor.
+\end_layout
+
+\begin_layout Remark*
+2) Where things are in memory, it can take a longer or shorter time to retrieve.
+ 
+\end_layout
+
+\begin_layout Subsection
+Worst Case
+\end_layout
+
+\begin_layout Itemize
+Usually, when analysing programs it's the 
+\series bold
+worst-case
+\series default
+ 
+\series bold
+execution
+\series default
+ 
+\series bold
+time
+\series default
+ that is 
+\series bold
+important
+\series default
+.
+\end_layout
+
+\begin_layout Definition
+The 
+\series bold
+worst-case
+\series default
+ execution time is the time it takes for the case where the input for a
+ given size takes the 
+\emph on
+longest to run
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Definition
+E.g.
+ For lookup, it's when the keyword is the 
+\emph on
+last
+\emph default
+ 
+\emph on
+entry
+\emph default
+ in the index, or
+\emph on
+ not in
+\emph default
+ the index at all.
+ 
+\end_layout
+
+\begin_layout Subsection
+Making Lookup Faster
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+lookup
+\family default
+ is slow because it has to go through the whole of the for loop.
+ When we look in a index of a book, the index is sorted alphabetically,
+ and so is much quicker to search for a keyword.
+\end_layout
+
+\begin_layout Standard
+If a word isn't where it belongs, it isn't in the index.
+\end_layout
+
+\begin_layout Algorithm
+Given a keyword, the 
+\series bold
+hash function
+\series default
+ will tell you 
+\bar under
+where to look 
+\bar default
+in the index.
+\end_layout
+
+\begin_layout Algorithm
+It 
+\bar under
+maps
+\bar default
+ the 
+\bar under
+keyword
+\bar default
+ 
+\bar under
+to
+\bar default
+ a 
+\bar under
+number
+\bar default
+ which is the 
+\bar under
+position
+\bar default
+ in the index where you should look for the keyword.
+\end_layout
+
+\begin_layout Algorithm
+This means you 
+\bar under
+don't have to start 
+\bar default
+at the beginning and look all the way through the index to find the keyword
+ you are looking for.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\shape italic
+\emph on
+\bar under
+Hash Table 
+\series default
+\emph default
+\bar default
+- 
+\emph on
+very useful 
+\series bold
+data
+\series default
+ 
+\series bold
+structure
+\series default
+ - so useful that it's built into Python; a type called the 
+\series bold
+dictionary
+\series default
+.
+ It provides this functionality.
+ At the end of this unit, you'll modify your search engine code to use the
+ Python dictionary.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Hash Table.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+Not the best method
+\series default
+ - the best it could do is to speed up the look up by a 
+\emph on
+factor of 26
+\emph default
+ (as there are 26 buckets, so each list would be 26 times smaller if all
+ the buckets were the 
+\emph on
+same
+\emph default
+ 
+\emph on
+size
+\emph default
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+
+\series bold
+Not great for English
+\series default
+ - there are 
+\emph on
+many
+\emph default
+ 
+\emph on
+more
+\emph default
+ words beginning with S or T than there are beginning with X or Q, so the
+\emph on
+ buckets are very different sizes
+\emph default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+If you have 
+\emph on
+millions
+\emph default
+ of keywords it would not fast enough.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Summary*
+There are 2 problems to fix:
+\end_layout
+
+\begin_layout Summary*
+1) Make a function depending on the 
+\series bold
+whole
+\series default
+ word
+\end_layout
+
+\begin_layout Summary*
+2) Make the function 
+\series bold
+distribute
+\series default
+ the keywords 
+\series bold
+evenly
+\series default
+ between the buckets.
+\end_layout
+
+\begin_layout Subsection
+Hash Function (Our's to understand) 
+\end_layout
+
+\begin_layout Standard
+In creating our own hash function, we nee to be able to convert numbers
+ in letter and visa versa:
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+ord 
+\family default
+and 
+\family typewriter
+chr
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/ord and chr.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+This numbers are based on ASCII character encoding.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+
+\family typewriter
+chr
+\family default
+ and 
+\family typewriter
+ord
+\family default
+ are inverse to one another:
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Inverse property of ord and chr.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Modulus Operator
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+modulus
+\series default
+ 
+\series bold
+operator
+\series default
+ (
+\family typewriter
+%
+\family default
+) will be the tool used to change whatever values are calculated for strings
+ into the range 0 to 
+\begin_inset Formula $b-1$
+\end_inset
+
+ (where 
+\begin_inset Formula $b$
+\end_inset
+
+ is the number of buckets).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/modulus operator.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bad Hash
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+hash
+\series default
+ 
+\series bold
+function
+\series default
+ takes 2 inputs, the 
+\emph on
+keyword
+\emph default
+ and the 
+\emph on
+number of buckets 
+\emph default
+and outputs a 
+\begin_inset Formula $n\in\left\{ 0,1,2,...,b-1\right\} $
+\end_inset
+
+ which gives you the position where that string belongs.
+\end_layout
+
+\begin_layout Example*
+Bad has function:
+\end_layout
+
+\begin_layout Example*
+\begin_inset Graphics
+	filename Images/Bad hash function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Bad as:
+\end_layout
+
+\begin_layout Remark*
+1) It produces an error for one input keyword - (the empty string 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Remark*
+2) If the keywords are distributed like words in English, some buckets will
+ get too many words.
+ 
+\end_layout
+
+\begin_layout Remark*
+3) If the number of buckets is large, some buckets will not get any keywords.
+\end_layout
+
+\begin_layout Subsection
+Better Hash Function 
+\end_layout
+
+\begin_layout Standard
+You are going to want to look at 
+\series bold
+more
+\series default
+ 
+\series bold
+than
+\series default
+ 
+\series bold
+just
+\series default
+ 
+\series bold
+one
+\series default
+ 
+\series bold
+letter
+\series default
+ of the keyword - now we compute 
+\begin_inset Formula $n\in\left\{ 0,1,..,b-1\right\} $
+\end_inset
+
+ based on all the letters to decide their bucket.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Better Has Function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Testing Hash Functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Testing our new improved hash function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Graphs comparing bad_hash and better_hash.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we 
+\series bold
+increase
+\series default
+ the 
+\series bold
+number
+\series default
+ of 
+\series bold
+buckets
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Testing Better Has function - increased no. of buckets.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The time it take to index using a hash table depends on 
+\emph on
+the number of keywords per bucket 
+\begin_inset Formula $\approx\frac{k}{b}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementing Hash Tables
+\end_layout
+
+\begin_layout Standard
+The data structure for our hash table follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Data structrue for Hash Table.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see this is true by seeing the more visual representation of the
+ hash table.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Visual representation of a Hash Table using buckets.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Empty Hash Table
+\end_layout
+
+\begin_layout Standard
+It's a good idea to create an empty hash table so Python knows what it's
+ working with.
+ More importantly we require it as then we can successfully add elements
+ to it:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Creating an empty hash table.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/make_hashtable.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finding Buckets 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/hashtable_get_bucket.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operations on Hash Table 
+\end_layout
+
+\begin_layout Standard
+You wish to 
+\series bold
+lookup (read) 
+\series default
+and 
+\series bold
+add (write)
+\series default
+, (depend on first being able to find the right bucket):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/hashtable_add.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/hashtable_lookup.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To prevent duplication we use 
+\family typewriter
+hashtable_update:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/hashtable_update.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dictionaries (using the built-in hash function - 
+\bar under
+dictionary
+\bar default
+ 
+\bar under
+type
+\bar default
+)
+\end_layout
+
+\begin_layout Itemize
+Created using curly brackets { }, and consists of 
+\series bold
+key:value
+\series default
+ pairs.
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+keys
+\series default
+ can be any 
+\series bold
+\emph on
+immutable
+\series default
+\emph default
+ 
+\series bold
+\emph on
+type
+\series default
+\emph default
+, and the 
+\series bold
+values
+\series default
+ can be of 
+\series bold
+\emph on
+any
+\series default
+\emph default
+ 
+\series bold
+\emph on
+type
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dictionaries
+\series default
+ are also 
+\series bold
+\emph on
+mutable
+\series default
+\emph default
+ and its 
+\series bold
+key:value
+\series default
+ pairs are updated like in our update function for hash tables.
+ 
+\end_layout
+
+\begin_layout Subsection
+Using Dictionaries 
+\end_layout
+
+\begin_layout Example*
+Using the dictionary type:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Exampe - dictionaries.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+No order 
+\series default
+- as in the hash table, the order depends on the order of buckets (the hash
+ function).
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Printing dictionaries returns the values:
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/print dictionary.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Unlike our hash table, printing elements not in a dictionary returns an
+ error as opposed to the value 
+\family typewriter
+None
+\family default
+.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/dictionaries return Errors.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+To prevent this error, you can check if a key is in the dictionary using
+ 
+\family typewriter
+in
+\family default
+, just like with lists - returns 
+\family typewriter
+True
+\family default
+ or 
+\family typewriter
+Fals
+\family default
+e.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Using in with dictionaries.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Recall dictionaries are mutable - can add and change easily:
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Mutability of dictionaries.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Changing within dictionaries.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Final elements dictionary.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+A Noble Gas 
+\end_layout
+
+\begin_layout Note*
+Values don't have to be numbers or strings - they can be anything.
+\end_layout
+
+\begin_layout Note*
+They can even be 
+\series bold
+other dictionaries
+\series default
+.
+ The next example will have atomic symbols as keys with associated values
+ which are dictionaries.
+\end_layout
+
+\begin_layout Note*
+\begin_inset Graphics
+	filename Images/dictionaries within dictionaries.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+\begin_inset Graphics
+	filename Images/dictionaries within dictionaries 2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Modifying the Search Engine 
+\end_layout
+
+\begin_layout Standard
+Modifying the search engine code from the previous unit to use dictionary
+ indexes instead of list indexes has the advantage of doing lookups in 
+\series bold
+constant
+\series default
+ 
+\series bold
+time
+\series default
+ (as long as we increase the number of buckets as we increase the list of
+ keywords) rather than linear time.
+\end_layout
+
+\begin_layout Subsection
+Changing Lookup (to work with dictionaries)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Changing lookup (to work with dictionaries).png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Conclusion
+\end_layout
+
+\begin_layout Standard
+We now have a search engine that can respond to queries quickly, no matter
+ how large the index gets.
+ You did so by replacing the list data structure with a hash table, which
+ can respond to a query in a time that does not increase even if the index
+ increases.
+\end_layout
+
+\begin_layout Section
+How to Have Infinite Power
+\end_layout
+
+\begin_layout Subsection
+Infinite Power
+\end_layout
+
+\begin_layout Standard
+We introduce 
+\series bold
+recursive
+\series default
+ 
+\series bold
+definitions
+\series default
+, a method for increasing your page ranking – being able to find the best
+ page to respond to the query.
+\end_layout
+
+\begin_layout Subsection
+Long Words
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+There's no such things as the longest word in the English dictionary - I
+ can always make a bigger one.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+Word 
+\series default
+is something that has a meaning.
+\end_layout
+
+\begin_layout Subsection
+Counter 
+\end_layout
+
+\begin_layout Standard
+There is a rule in English that says that for a word, you can make a new
+ word by adding 
+\series bold
+counter
+\series default
+ in front of the old one.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Word\longrightarrow counter-Word
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The meaning counter-word is something that goes against, or is counter to
+ the original word.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+This provides a method to create an infinitely long word.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Formula 
+\begin{gather*}
+intelligence\\
+counter-intelligence\\
+counter-counter-intelligence\\
+counter-counter-counter-intelligence\\
+add\, infintum\\
+Q.E.D
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Recursive Definitions
+\end_layout
+
+\begin_layout Standard
+A recursive definition has 2 parts:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Base
+\series default
+ 
+\series bold
+case
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+A 
+\emph on
+starting
+\emph default
+ point and is 
+\emph on
+not
+\emph default
+ defined in terms of itself.
+\end_layout
+
+\begin_layout Enumerate
+Usually the 
+\emph on
+smallest
+\emph default
+ or 
+\emph on
+simplest
+\emph default
+ input - already know how to define.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Recursive case
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Defined in terms of itself, but 
+\emph on
+not
+\emph default
+ itself exactly.
+\end_layout
+
+\begin_layout Enumerate
+Defined in terms of a 
+\emph on
+smaller version 
+\emph default
+of itself, as 
+\emph on
+progress
+\emph default
+ is 
+\emph on
+made
+\emph default
+ 
+\emph on
+towards
+\emph default
+ the 
+\emph on
+base
+\emph default
+ case.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Ancestors (example of recursion)
+\end_layout
+
+\begin_layout Standard
+Your parents are your ancestors, but they are not your only ancestors.
+ Your parents have parents – your grandparents, who are also your ancestors.
+ Your grandparents also have parents who are your ancestors too, and so
+ on.
+ 
+\end_layout
+
+\begin_layout Subsection
+Recursive Procedures 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Recusion - factorial.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+There are 
+\begin_inset Formula $n$
+\end_inset
+
+ ways to pick the first item, and then there are 
+\begin_inset Formula $n-1$
+\end_inset
+
+ items remaining.
+\end_layout
+
+\begin_layout Remark*
+There are 
+\begin_inset Formula $factorial(n-1)$
+\end_inset
+
+ ways to arrange these 
+\begin_inset Formula $n-1$
+\end_inset
+
+ items.
+\end_layout
+
+\begin_layout Subsection
+Palindromes 
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+palindrome
+\series default
+ is a string that 
+\emph on
+reads
+\emph default
+ the 
+\emph on
+same
+\emph default
+ 
+\emph on
+way
+\emph default
+ 
+\emph on
+forwards
+\emph default
+ and 
+\emph on
+backwards
+\emph default
+.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+stanley yelnats
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+a
+\begin_inset Quotes erd
+\end_inset
+
+ etc.
+\end_layout
+
+\begin_layout Algorithm*
+is_palindrome(s)
+\end_layout
+
+\begin_layout Algorithm*
+\begin_inset Graphics
+	filename Images/is_palindrome.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Recursive v.
+ Iterative
+\end_layout
+
+\begin_layout Remark*
+Any procedure that you write recursively can also be written iteratively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/iter_palindrome.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+This recursive version makes a
+\series bold
+ new string 
+\series default
+every time you make a recursive call.
+\end_layout
+
+\begin_layout Remark*
+This step is pretty expensive.
+\end_layout
+
+\begin_layout Note*
+
+\series bold
+Recursive
+\series default
+ 
+\series bold
+calls
+\series default
+ themselves are 
+\series bold
+fairly
+\series default
+ 
+\series bold
+expensive
+\series default
+.
+\end_layout
+
+\begin_layout Note*
+There are languages which make recursive calls really cheap - Python is
+ not one of them; thus for large inputs, defining procedures iteratively
+ are generally more efficient.
+\end_layout
+
+\begin_layout Subsection
+Bunnies 
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+Fibonacci Numbers
+\series default
+ are one of the most interesting things in mathematics.
+\end_layout
+
+\begin_layout Remark*
+Once you know about them you will start to see them all over the place,
+ both in nature and design.
+\end_layout
+
+\begin_layout Abstract
+The name comes from Leonardo da Pisa, who is also known as Fibonacci.
+ In 1202 he published a book called, Liber Abaci.
+ The root, abaci, is the same for the word abacus, the calculating machine.
+ Liber Abaci is loosely translated as the "book of calculation." The book
+ introduced Indian mathematics to the West, particularly, Arabic numerals.
+ Arabic numerals soon replaced the Roman numeral system, which had been
+ widely used.
+ In his book, Fibonacci showed how much easier it is to do calculations
+ using numbers in the decimal system where the position of the number indicates
+ its value.
+ He showed this by introducing problems and using calculation to solve them.
+\end_layout
+
+\begin_layout Algorithm*
+Identifying a Fibonacci Number:
+\end_layout
+
+\begin_layout Algorithm*
+\begin_inset Graphics
+	filename Images/FibRec.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Divide and Be Conquered 
+\end_layout
+
+\begin_layout Remark*
+The previous algorithm is inefficent.
+ Computing
+\family typewriter
+ fibonacci(36)
+\family default
+ (number of rabbits in 3 years) makes Python time out.
+\end_layout
+
+\begin_layout Remark*
+Why?
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Why fibbonaci is inefficient.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+Lots of redundant computations
+\series default
+ take place (notice a pattern?):
+\end_layout
+
+\begin_layout Remark*
+We need to evaluate 
+\family typewriter
+fibonacci(32)
+\family default
+ 5 times.
+ 
+\end_layout
+
+\begin_layout Remark*
+We need to evaluate 
+\family typewriter
+fibonacci(33) 
+\family default
+3 times.
+\end_layout
+
+\begin_layout Remark*
+We need to evaluate 
+\family typewriter
+fibonacci(34) 
+\family default
+2 times.
+ 
+\end_layout
+
+\begin_layout Remark*
+We need to evaluate 
+\family typewriter
+fibonacci(35) 
+\family default
+1 time.
+ 
+\end_layout
+
+\begin_layout Remark*
+We need to evaluate 
+\family typewriter
+fibonacci(36) 
+\family default
+1 time.
+\end_layout
+
+\begin_layout Subsubsection
+Faster Fibonacci
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Faster Fibonacci.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Ranking Web Pages
+\end_layout
+
+\begin_layout Standard
+A good search engine ranks the pages so that the one at the front of the
+ list is the one the user most likely wants.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+Popularity - 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Measuring popularity.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider a typical group of friends in middle school.
+ One way to decide popularity is to look at 
+\series bold
+friendship links
+\series default
+.
+ Friendship links are go in one direction.
+ Just because Bob is friends with Alice does not mean Alice is friends with
+ Bob.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the diagram above:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+popularity(Charlie) = 3
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+popularity(Alice) = 3
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+popularity(Bob) = 1
+\end_layout
+
+\begin_layout Subsubsection
+
+\bar under
+Popularity - 2
+\end_layout
+
+\begin_layout Standard
+It’s no good to have lots of friends with no friends (geeks), you have to
+ have friends who are popular.
+ Popularity is about having l
+\series bold
+ots of friends who have lots of friends
+\series default
+.
+ So:
+\begin_inset Formula 
+\begin{equation}
+popularity\left(p\right)=\sum_{f\in friends(p)}popularity\left(f\right)\label{eq:6.1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Circular Definitions 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:6.1"
+
+\end_inset
+
+ is not well-defined recursively - we have no base case.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Circluar definitions.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Relaxation
+\end_layout
+
+\begin_layout Standard
+There is no sensible base case that provides a good recursive definition.
+ Instead, an algorithm called the 
+\series bold
+relaxation
+\series default
+ 
+\series bold
+algorithm
+\series default
+ can be used.
+\end_layout
+
+\begin_layout Algorithm
+
+\series bold
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Relaxation algorithm
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm
+
+\series bold
+Start
+\series default
+ with a 
+\series bold
+guess
+\series default
+ and then loop where you do something to 
+\series bold
+improve
+\series default
+ the 
+\series bold
+guess
+\series default
+.
+\end_layout
+
+\begin_layout Algorithm
+Each time you go through the loop, the 
+\series bold
+guess is
+\series default
+ 
+\series bold
+refined
+\series default
+.
+\end_layout
+
+\begin_layout Algorithm
+At 
+\series bold
+some
+\series default
+ 
+\series bold
+point
+\series default
+ you’ll stop and take that to be the result you want.
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Graphics
+	filename Images/Relaxation algortihm.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+This procedure requires an extra parameters:
+\end_layout
+
+\begin_layout Note*
+\begin_inset Graphics
+	filename Images/popularity syntax.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+Base
+\series default
+ 
+\series bold
+case
+\series default
+ - the popularity for 
+\emph on
+everyone
+\emph default
+ at time 0 to 1.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Formula $popularity\left(0,p\right)=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+Recursive
+\series default
+ 
+\series bold
+step
+\series default
+ - for 
+\begin_inset Formula $t>0$
+\end_inset
+
+, the popularity of each of their friends at the 
+\emph on
+previous time step
+\emph default
+, 
+\begin_inset Formula $t-1$
+\end_inset
+
+ is summed.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Formula $popularity\left(t,p\right)=\sum_{f\in friends(p)}popularity\left(t-1,p\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/popularity code.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Page Rank
+\end_layout
+
+\begin_layout Summary*
+Links on the web are analogous to friendships
+\end_layout
+
+\begin_layout Summary*
+\begin_inset Graphics
+	filename Images/Links analogous to friendships.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+This model is a 
+\series bold
+random
+\series default
+ web surfer who 
+\series bold
+starts
+\series default
+ at a 
+\series bold
+random
+\series default
+ 
+\series bold
+page
+\series default
+ and then 
+\series bold
+follows
+\series default
+ the 
+\series bold
+links
+\series default
+ at 
+\series bold
+random
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+popularity
+\series default
+ of a 
+\series bold
+page
+\series default
+ is the 
+\series bold
+probability
+\series default
+ that the 
+\series bold
+random
+\series default
+ surfer 
+\series bold
+reaches
+\series default
+ that 
+\series bold
+page
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Graphics
+	filename Images/The web surfer.png
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The rank function is defined recursively over time:
+\begin_inset Formula 
+\begin{gather*}
+rank\left(<timestep>,<page>\right)\longrightarrow value\\
+\mbox{Base case: }rank\left(0,url\right)\longrightarrow1\\
+rank\left(t,url\right)\longrightarrow\sum_{p\in inlinks\left[url\right]}\frac{rank\left(t-1,p\right)}{outlinks\left[p\right]}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The rank 
+\series bold
+contributed
+\series default
+ by each page is 
+\series bold
+inversely
+\series default
+ 
+\series bold
+weighted
+\series default
+ by the 
+\series bold
+number
+\series default
+ of 
+\series bold
+outlinks
+\series default
+ from that page.
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Quotes eld
+\end_inset
+
+So we 
+\series bold
+divide
+\series default
+ each rank in the sum by the number of outlinks from that page.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Graphics
+	filename Images/Rank contribution.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Altavista"
+
+\end_inset
+
+Altavista - (a more popular search engine in 1988)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pages with no links have a rank of 0
+\series default
+, which makes it very hard to start a new page (also we will be dividing
+ by 0 is the recursive step above).
+ So, instead each page will have some starting rank greater than 0.
+ 
+\end_layout
+
+\begin_layout Itemize
+The model represents the 
+\series bold
+probability
+\series default
+ that a random surfer reached a given page - the ranks should be a 
+\series bold
+probability
+\series default
+ 
+\series bold
+distribution
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The sum of ranks for all pages will sum up to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+So at time 0, instead of 1, the rank is 
+\begin_inset Formula $\frac{1}{N}$
+\end_inset
+
+ for each page, where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of pages.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A 
+\series bold
+\bar under
+damping
+\series default
+ 
+\series bold
+constant
+\series default
+ 
+\bar default
+is used to 
+\series bold
+diminish
+\series default
+ the 
+\series bold
+raw
+\series default
+ 
+\series bold
+values
+\series default
+ of the ranking algorithm.
+ In the model, this represents the probability that a page was reached via
+ following a link.
+ Set the damping constant, 
+\begin_inset Formula $d$
+\end_inset
+
+, to 0.8 for now.
+ 
+\end_layout
+
+\begin_layout Itemize
+At time 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\series bold
+add
+\series default
+ 
+\begin_inset Formula $\frac{\left(1-d\right)}{N}$
+\end_inset
+
+ to 
+\series bold
+each
+\series default
+ 
+\series bold
+rank
+\series default
+ that will represent the probability that the page was not reached via following
+ a link.
+ Multiply the first term, the sum, by 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ This will make the ranks a probability distribution at any given time step.
+\begin_inset Formula 
+\[
+rank\left(t,url\right)\longrightarrow d\sum_{p\in inlinks\left[url\right]}\frac{rank\left(t-1,p\right)}{outlinks\left[p\right]}+\frac{1-d}{N}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Urank 
+\end_layout
+
+\begin_layout Standard
+Since 
+\series bold
+PageRank is a registered trademark of Google
+\series default
+, the algorithm will be called 
+\series bold
+URank
+\series default
+ instead.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+URank
+\series default
+ needs to 
+\series bold
+keep
+\series default
+ 
+\series bold
+track
+\series default
+ of 
+\series bold
+which
+\series default
+ 
+\series bold
+pages
+\series default
+ 
+\series bold
+link
+\series default
+ 
+\series bold
+to
+\series default
+ 
+\series bold
+which
+\series default
+ 
+\series bold
+pages
+\end_layout
+
+\begin_layout Itemize
+The data structure we use is a 
+\series bold
+directed
+\series default
+ 
+\series bold
+graph
+\series default
+.
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+directed
+\series default
+ 
+\series bold
+graph
+\series default
+ is a data structure where nodes are linked to other nodes, and the links
+ only go one way.
+\end_layout
+
+\begin_layout Definition
+\begin_inset Graphics
+	filename Images/Directed Graph.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\family typewriter
+crawl_web
+\family default
+ will now produce a graph in addition to an 
+\family typewriter
+index
+\family default
+, where the 
+\family typewriter
+graph
+\family default
+ gives a mapping from each page to all the pages it links to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/CrawlWeb 3.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Computing Page Rank
+\end_layout
+
+\begin_layout Standard
+The output of 
+\family typewriter
+compute_ranks 
+\family default
+is a dictionary mapping each URL to its rank, which is a number.
+ 
+\end_layout
+
+\begin_layout Subsection
+Formal Calculations 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/PageRank function.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Since the ranks should 
+\series bold
+not
+\series default
+ 
+\series bold
+depend
+\series default
+ on the 
+\series bold
+order
+\series default
+ that the 
+\series bold
+pages
+\series default
+ were examined by the algorithm, you need to 
+\series bold
+keep track of the ranks at the last time step
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+We keep 2 separate dictionaries, 
+\family typewriter
+ranks
+\family default
+ and 
+\family typewriter
+newranks
+\family default
+, where 
+\family typewriter
+newranks
+\family default
+ is the working space for each time step (and 
+\family typewriter
+ranks
+\family default
+ is the ranks at time 
+\begin_inset Formula $t-1$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Computer Ranks
+\end_layout
+
+\begin_layout Standard
+See subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Altavista"
+
+\end_inset
+
+ for our description for what we want from our PageRank:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/computer_ranks.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Testing our 
+\family typewriter
+compute_ranks
+\family default
+ code:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Using computer_ranks.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Comparing our results to what is expected:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Graph for compute_ranks.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+The kathleen.html page is more popular than the nickel.html page.
+\end_layout
+
+\begin_layout Remark*
+Even though the nickel page has 
+\series bold
+more links
+\series default
+ (more friends), the kathleen page is linked to more popular pages.
+\end_layout
+
+\begin_layout Subsection
+Search Engine
+\end_layout
+
+\begin_layout Standard
+We are done!
+\end_layout
+
+\end_body
+\end_document

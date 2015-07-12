@@ -1,0 +1,962 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+theorems-named
+tabs-within-sections
+theorems-ams-extended
+theorems-sec
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+CS121 - Design of Computer programs
+\end_layout
+
+\begin_layout Date
+5th September 2012
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Winning Poker Hands
+\end_layout
+
+\begin_layout Subsection
+Outlining the Problem 
+\end_layout
+
+\begin_layout Standard
+Writing a poker program is an example of a general process with 3 steps:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Understand
+\series default
+,
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Specify
+\series default
+ and
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Design
+\series default
+.
+\end_layout
+
+\begin_layout Subsubsection
+Step 1: Understand
+\end_layout
+
+\begin_layout Itemize
+Start with a 
+\emph on
+vague
+\emph default
+ 
+\emph on
+understanding
+\emph default
+ that you 
+\emph on
+refine
+\emph default
+ into a 
+\emph on
+problem
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+We create an 
+\emph on
+inventory
+\emph default
+ of the concepts you are dealing with.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+E.g.
+ for poker, we have the notion of a “hand,” which is five cards.
+ Each card has a “rank” and a “suit.”
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Another concept to identify is the “hand rank,” which takes a hand and 
+\series bold
+maps
+\series default
+ to details about the hand (2 pair, 3 of a kind etc.).
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Step 2: Specify 
+\end_layout
+
+\begin_layout Itemize
+Specify how this problem can be made 
+\emph on
+amenable
+\emph default
+ to being 
+\emph on
+coded
+\emph default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+The program we are trying to specify is called 
+\emph on
+poker
+\emph default
+ and it takes a
+\emph on
+ list of hands as input
+\emph default
+ and 
+\emph on
+outputs the best hand.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Rules dictate which hands beat which, that is, how each hand ranks 
+\emph on
+relative
+\emph default
+ to one another.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We use 3 concepts that make up the hand rank: 
+\begin_inset Formula $n$
+\end_inset
+
+-kind, straight and flush.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Now we know about the 
+\emph on
+types of data 
+\emph default
+we are dealing with: hands, cards, ranks and suits.
+\end_layout
+
+\begin_layout Itemize
+We also know about the 
+\emph on
+functions
+\emph default
+ for them: 
+\begin_inset Formula $n$
+\end_inset
+
+-kind, straight, flush; from here we can move on to step 3, the design phase.
+\end_layout
+
+\begin_layout Subsubsection
+Step 3: Design working code
+\end_layout
+
+\begin_layout Itemize
+That's what this course is all about!
+\end_layout
+
+\begin_layout Subsubsection
+Testing
+\end_layout
+
+\begin_layout Standard
+When designing programs, they should always come with testing programs.
+\end_layout
+
+\begin_layout Standard
+These allow future modifications to be made safely and ensure we can confirm
+ the specification has been met.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Testing code.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+assert 
+\family default
+- if a statement is true, the code continues to run and otherwise produces
+ and error.
+\end_layout
+
+\begin_layout Remark*
+It is important to test the extreme values - e.g.
+ no people playing, 1 person, 100 players, also the full-house vs.
+ full-house (as above).
+\end_layout
+
+\begin_layout Note*
+To test the case for 100 players we can use 
+\family typewriter
+100*[fh]
+\family default
+ notation for repeat.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\bar under
+A Slight Aside
+\end_layout
+
+\begin_layout Notation
+A 
+\series bold
+tuple 
+\series default
+is similar to a list with slightly different operations.
+ Created using parentheses:
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+hand = (7,9,3) 
+\family default
+where 
+\begin_inset Formula $rank=7\Rightarrow4\mbox{ of a kind, }card=9\Rightarrow9\mbox{ of a suit, and }3$
+\end_inset
+
+ is left over.
+\end_layout
+
+\begin_layout Remark*
+When comparing 
+\emph on
+strings 
+\emph default
+(e.g.
+ 
+\family typewriter
+'hello' > 'help')
+\family default
+ a nd 
+\emph on
+tuples
+\emph default
+ we compare them 
+\emph on
+lexicographically 
+\emph default
+(letter by letter until one differs)
+\emph on
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Wild West Poker
+\end_layout
+
+\begin_layout Standard
+Suppose we work with the ranking table:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/Ranking cards table.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+"Straight flush, Jack high!"
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(8,11)
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Four aces and a queen kicker?
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(7,14,12)
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Full house, eights over kings?
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(6,8,13) 
+\family default
+I don't think we need to state the king (can't have to full-houses with
+ three 8's?)
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Flush, 10-8!
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(5,[10,8,7,5,3]) 
+\family default
+it is possible to have a tie, so must state all the cards.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Straight, Jack high!
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(4,11)
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Three sevens!
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(3,7,[7,7,7,5,2])
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Two pairs, Jacks and threes
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(2,11,3,[13,11,11,3,3])
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Pair of twos, Jack high
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(1,2,[11,6,3,2,2])
+\end_layout
+
+\begin_layout Example*
+\begin_inset Quotes eld
+\end_inset
+
+Got nothing
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+=(0, 7, 5, 4, 3, 2)
+\end_layout
+
+\begin_layout Subsection
+Back to Hand Rank
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/hand_rank code.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Here we use 
+\family typewriter
+kind()
+\family default
+ to return a 
+\series bold
+boolean
+\series default
+ or a 
+\series bold
+number
+\series default
+ - we can do this in Python, other language such as Java, we can not (we
+ use other methods to achieve this process).
+\end_layout
+
+\begin_layout Notation
+For lists, 
+\family typewriter
+.sort() 
+\family default
+will sort a list, largest to smallest.
+ Alternatively:
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+ranks.sort(reverse=True) 
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+
+\family typewriter
+.index(n)
+\family default
+ - similar to 
+\family typewriter
+.find()
+\family default
+, however index returns the index for that entry in the string/list.
+\end_layout
+
+\begin_layout Notation
+E.g.
+ 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+--23456789TJQKA
+\begin_inset Quotes erd
+\end_inset
+
+.index(card)
+\family default
+ would return the the correct value for the card.
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Alternative 
+\family typewriter
+for-loops
+\end_layout
+
+\end_inset
+
+ to create a list in one simple step:
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+suit = [s for r,s in [6C, 8S, 9D, TH, TD]]
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+
+\family typewriter
+set()
+\family default
+ - creates a set out of a list (the key here is ONLY distinct elements are
+ within sets).
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\family typewriter
+if
+\family default
+ and 
+\family typewriter
+return
+\end_layout
+
+\end_inset
+
+ to simplify a return statement given a condition we can use:
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+return 
+\family default
+<what you want to return>
+\family typewriter
+ if (
+\family default
+condition is True
+\family typewriter
+)
+\end_layout
+
+\begin_layout Notation
+E.g.
+ 
+\family typewriter
+return [5,4,3,2,1] if (ranks == [14,5,4,3,2])
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Example*
+To identify is a flush exists:
+\end_layout
+
+\begin_layout Example*
+
+\family typewriter
+len(set(suits)) == 1
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+.count(r) 
+\family default
+- counts how many time 
+\family typewriter
+r 
+\family default
+appears in a list:
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+ranks.count(r)
+\end_layout
+
+\begin_deeper
+\begin_layout Notation
+
+\family typewriter
+lambda x:f(x) 
+\family default
+- we can define procedures as functions; however a much simpler way is using
+ the lambda notation:
+\end_layout
+
+\begin_layout Notation
+E.g.
+ 
+\family typewriter
+g = lambda x:x**2
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+print g(8)
+\end_layout
+
+\begin_layout Notation
+
+\family typewriter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+64
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Deal
+\end_layout
+
+\begin_layout Remark*
+We use the library:
+\end_layout
+
+\begin_layout Remark*
+
+\family typewriter
+import random
+\end_layout
+
+\begin_layout Subsubsection
+
+\family typewriter
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Subsubsection
+List Comprehensions
+\end_layout
+
+\begin_layout Plain Layout
+Instead of writing the tedious code of:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/Bad list comprehension.png
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Using list comprehensions we can write this in one line of code:
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset Graphics
+	filename Images/Good (using) list comprehension.png
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+We can use a conditional within these:
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+ta_data = [[
+\begin_inset Quotes eld
+\end_inset
+
+Andy
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+USA
+\begin_inset Quotes erd
+\end_inset
+
+], [
+\begin_inset Quotes eld
+\end_inset
+
+Sarah
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+England
+\begin_inset Quotes erd
+\end_inset
+
+]]
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+con_li_comp = [name+
+\begin_inset Quotes eld
+\end_inset
+
+: 
+\begin_inset Quotes erd
+\end_inset
+
++country 
+\series bold
+for
+\series default
+ name, country 
+\series bold
+in 
+\series default
+ta_data 
+\series bold
+if 
+\series default
+country != 
+\begin_inset Quotes eld
+\end_inset
+
+USA
+\begin_inset Quotes erd
+\end_inset
+
+]
+\family default
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Dimensions of Programming
+\end_layout
+
+\begin_layout Subsection
+Refactoring 
+\end_layout
+
+\begin_layout Subsection
+Summary 
+\end_layout
+
+\begin_layout Subsection
+Bonus - Shuffling
+\end_layout
+
+\begin_layout Subsection
+Complete Code For Poker Problem
+\end_layout
+
+\begin_layout Subsection
+Complete Code For Homeworks (Warning: Refer this only after submitting homework)
+\end_layout
+
+\end_body
+\end_document

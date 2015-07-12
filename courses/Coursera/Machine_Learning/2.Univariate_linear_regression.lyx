@@ -1,0 +1,1321 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-ams-extended
+theorems-sec
+theorems-named
+fixltx2e
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang british
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang british
+Univariate linear regression (
+\emph on
+Linear regression with one variable
+\emph default
+)
+\end_layout
+
+\begin_layout Subsection
+
+\lang british
+Model Representation
+\end_layout
+
+\begin_layout Notation*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color blue
+\lang british
+Training (data) sets
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation*
+
+\color blue
+\lang british
+\begin_inset Formula $m:=$
+\end_inset
+
+# training examples, 
+\begin_inset Formula $x:=$
+\end_inset
+
+input variable/features, 
+\begin_inset Formula $y:=$
+\end_inset
+
+output/target variable
+\end_layout
+
+\begin_layout Notation*
+
+\color blue
+\lang british
+\begin_inset Formula $\left(x,y\right):=$
+\end_inset
+
+one training example
+\end_layout
+
+\begin_layout Notation*
+
+\color blue
+\lang british
+\begin_inset Formula $\left(x^{\left(i\right)},y^{\left(i\right)}\right):=i^{th}$
+\end_inset
+
+ training example
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Model representation (univariate linear regression).png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+\lang british
+Model representation
+\emph default
+: Hypothesis refers to a map here, not a prediction; 
+\emph on
+
+\begin_inset Formula $x\overset{h}{\mapsto}y=h\left(x\right)$
+\end_inset
+
+.
+ 
+\emph default
+[E.g.
+ 
+\begin_inset Formula $h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x$
+\end_inset
+
+ for a straight line problem.]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang british
+Cost Function
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang british
+Idea: 
+\series default
+Choose 
+\begin_inset Formula $\theta_{0},\theta_{1}$
+\end_inset
+
+ so that 
+\begin_inset Formula $h_{\theta}\left(x\right)$
+\end_inset
+
+ is close to 
+\begin_inset Formula $y$
+\end_inset
+
+ for our training examples 
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+.
+ That is, minimize:
+\begin_inset Formula 
+\[
+\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\overset{_{\mbox{to make the maths easier}}}{\iff}\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\color blue
+\lang british
+The 
+\series bold
+cost 
+\series default
+(
+\series bold
+squared error
+\series default
+)
+\series bold
+ function
+\series default
+ of a training set is 
+\begin_inset Formula 
+\[
+J\left(\theta_{0},\theta_{1}\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
+\]
+
+\end_inset
+
+so we 
+\emph on
+seek
+\emph default
+ 
+\begin_inset Formula $\min J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang british
+Cost Function Intuition
+\end_layout
+
+\begin_layout Example*
+
+\color cyan
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+E1.3 - 1 parameter
+\end_layout
+
+\end_inset
+
+ Consider a simplified version of the straight line model, with 
+\begin_inset Formula $\theta_{0}=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+h_{\theta}\left(x\right)=\theta_{1}x\mbox{ and }J\left(\theta_{0},\theta_{1}\right)=J\left(\theta_{1}\right)
+\]
+
+\end_inset
+
+
+\color inherit
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang british
+We get the following lines for:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\theta_{1}=1$
+\end_inset
+
+: 
+\color cyan
+Cyan
+\color inherit
+ line
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\theta_{1}=0.5$
+\end_inset
+
+: 
+\color magenta
+Magenta
+\color inherit
+ line
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\theta_{1}=0$
+\end_inset
+
+: 
+\color blue
+Blue
+\color inherit
+ line
+\begin_inset Newline newline
+\end_inset
+
+Observe 
+\begin_inset Formula $\theta_{1}=1$
+\end_inset
+
+ minimises 
+\begin_inset Formula $J\left(\theta_{1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Example*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+E1.4 - 2 parameters
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Bowl Plot.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+3D representation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Contour Plot.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+Contour plot.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition (2 parameters) 1.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition (2 parameters) 2.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color cyan
+\lang british
+The contour plot shows the closer the values of 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+ to the minimum, the better the line of best fit is.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+
+\lang british
+We seek an algorithm that minimises the cost function 
+\begin_inset Formula $J$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang british
+Minimising the cost function - Gradient Descent
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang british
+Idea: 
+\series default
+You're at the top of a hill and you seek a route to the bottom by always
+ choosing the 
+\emph on
+lowest
+\emph default
+ 
+\emph on
+step
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\shape up
+\lang british
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Algorithm*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\lang british
+A1.2 - Gradient Descent
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\lang british
+repeat until convergence {
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\lang british
+\begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+ 
+\shape up
+(simultaneously update 
+\begin_inset Formula $j=0$
+\end_inset
+
+ and 
+\begin_inset Formula $j=1$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\lang british
+}
+\end_layout
+
+\begin_layout Algorithm*
+
+\shape up
+\lang british
+for 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ the 
+\series bold
+learning
+\series default
+ 
+\series bold
+rate
+\series default
+ (step size).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+
+\series bold
+\lang british
+Simultaneously
+\series default
+ 
+\series bold
+update
+\series default
+ means:
+\end_layout
+
+\begin_layout Note*
+
+\family typewriter
+\lang british
+temp0 
+\begin_inset Formula $:=\theta_{0}-\alpha\frac{\partial}{\partial\theta_{0}}J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+; temp1 
+\begin_inset Formula $:=\theta_{1}-\alpha\frac{\partial}{\partial\theta_{1}}J\left(\theta_{0},\theta_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+
+\lang british
+\begin_inset Formula $\theta_{0}:=$
+\end_inset
+
+
+\family typewriter
+temp0
+\family default
+; 
+\begin_inset Formula $\theta_{1}:=$
+\end_inset
+
+
+\family typewriter
+temp1
+\family default
+.
+\end_layout
+
+\begin_layout Remark*
+
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\lang british
+Problem
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Remark*
+
+\lang british
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Inital conditions and finishing position.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+\lang british
+Initial conditions
+\emph default
+ can affect which (local) minimum you arrive at, and this may not necessarily
+ be the global minimum.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+
+\lang british
+Consider 
+\begin_inset Formula $J\left(\theta_{1}\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $\theta_{1}\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+
+\lang british
+So 
+\begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\frac{d}{d\theta_{1}}J\left(\theta_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Gradient descent - derivative term.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+\lang british
+Why the derivative term 
+\begin_inset Formula $\frac{d}{d\theta_{1}}$
+\end_inset
+
+ works.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Gradient descent - the learning rate.png
+	lyxscale 65
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+\lang british
+Choosing the learning rate,
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+TOP: if 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is too 
+\emph on
+small
+\emph default
+, gradient descent can be slow.
+\begin_inset Newline newline
+\end_inset
+
+BOTTOM: if 
+\begin_inset Formula $\alpha$
+\end_inset
+
+is too 
+\emph on
+large
+\emph default
+, gradient descent can overshoot the minimum and can fail to converge (even
+ diverge).
+\begin_inset Newline newline
+\end_inset
+
+Observe, if we are at a local minimum, one step of gradient descent does
+ nothing.
+ Also, gradient descent automatically takes smaller steps with time (as
+ we approach the local minimum, the derivative get smaller).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+
+\lang british
+Mixing the Cost Function and Gradient Descent - a first learning algorithm
+ for linear regression
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function for Gradient Descent.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang british
+Recall that a problem with Gradient Descent is that initial conditions can
+ affect the (local) minimum you arrive at; however 
+\emph on
+\color green
+the Cost Function for Gradient Descent is 
+\emph default
+always
+\emph on
+ a bowl shape
+\emph default
+\color inherit
+ (a 
+\series bold
+convex function
+\series default
+), which has 
+\emph on
+\color green
+one global minimum
+\emph default
+\color inherit
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+Observe
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{\partial}{\partial\theta_{j}}\cdot\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\\
+ & = & \frac{1}{2m}\frac{\partial}{\partial\theta_{j}}\sum_{i=1}^{m}\left(\theta_{0}+\theta_{1}x^{\left(i\right)}-y^{\left(i\right)}\right)^{2}
+\end{eqnarray*}
+
+\end_inset
+
+Also 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial}{\partial\theta_{0}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\\
+\frac{\partial}{\partial\theta_{1}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+Hence
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Algorithm*
+
+\color cyan
+\lang british
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\lang british
+A1.3 - 
+\begin_inset Quotes eld
+\end_inset
+
+Batch
+\begin_inset Quotes erd
+\end_inset
+
+ Gradient Descent
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\lang british
+repeat until convergence {
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\lang british
+\begin_inset Formula $\theta_{0}:=\theta_{0}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\right]$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\lang british
+\begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}\right]$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Algorithm*
+
+\shape up
+\color magenta
+\lang british
+(simultaneously update 
+\begin_inset Formula $j=0$
+\end_inset
+
+ and 
+\begin_inset Formula $j=1$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Algorithm*
+
+\color magenta
+\lang british
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Mixing Gradient Descent with the Cost Function.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\lang british
+This results in a 
+\emph on
+fast approach
+\emph default
+ to the 
+\emph on
+global
+\emph default
+ minimum.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang british
+Linear algebra review
+\end_layout
+
+\begin_layout Description
+
+\lang british
+Linear
+\begin_inset space ~
+\end_inset
+
+algebra Provides the notation and set of things you can do with matrices
+ and vectors.
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+Given Table 1, 
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccc}
+2104 & 5 & 1 & 45\\
+1416 & 3 & 2 & 40\\
+1534 & 3 & 2 & 30\\
+852 & 2 & 1 & 36
+\end{array}\right]\left[\begin{array}{c}
+a\\
+b\\
+c\\
+d
+\end{array}\right]=\left[\begin{array}{c}
+460\\
+232\\
+315\\
+172
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+[I know the linear algebra, so skipped these videos.]
+\end_layout
+
+\end_body
+\end_document
