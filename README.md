@@ -1,5 +1,5 @@
 # Coursera
-- Doing:
+- In progress:
  - [Machine Learning](https://www.coursera.org/learn/machine-learning)
  - [Neural Networks for Machine Learning](https://www.coursera.org/course/neuralnets)
 - Completed
