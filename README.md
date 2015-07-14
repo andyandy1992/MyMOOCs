@@ -1,34 +1,35 @@
-# Coursera
+#Remarks:
+- Notes are generally written with LyX, and compiled into PDF Documents. 
+- I have created a [github page](http://andyandy1992.github.io/MyMOOCs/) for easier viewing/navigation of my PDF notes.
+
+# Courses
+##Coursera
 - In progress:
  - [Machine Learning](https://www.coursera.org/learn/machine-learning)
  - [Neural Networks for Machine Learning](https://www.coursera.org/course/neuralnets)
-- Completed
- - [Introduction to Mathematical Thinking]()
 - Future:
- - [Introduction to Data Science](https://www.coursera.org/course/datasci)
+ - [Digital Signal Processing](https://www.coursera.org/course/dsp)
+ - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
 - Interested in/useful resources:
+ - [Medical Neuroscience](https://www.coursera.org/course/medicalneuro)
+ - [Natural Language Processing](https://www.coursera.org/course/nlangp)
+ - [Introduction to Data Science](https://www.coursera.org/course/datasci)
  - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics)
  - [Introduction to Logic](https://www.coursera.org/course/intrologic)
 
-
-# Udacity
-- Completed
+## Udacity
+- Completed;
  - [Intro to Computer Science](https://www.udacity.com/course/intro-to-computer-science--cs101)
-- Interested in/useful resources:
- - [Intro to Parallel Programming](Artificial Intelligence for Robotics)
+- Future:                        
+ - [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
  - [Artificial Intelligence for Robotics](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
- - [Intro to Artificial Intelligence](https://www.udacity.com/course/intro-to-artificial-intelligence--cs271)
- - [Design of Computer Programs](https://www.udacity.com/course/design-of-computer-programs--cs212)
 
-#edX
+##edX
 - Interested in/useful resources:
  - [Quantum Mechanics and Quantum Computation](https://www.edx.org/course/quantum-mechanics-quantum-computation-uc-berkeleyx-cs-191x)
 
-#Other
+##Other
 - [From NAND to Tetris: Building a Modern Computer From First Principles](http://www.nand2tetris.org/)
-
-#Remarks:
-- Notes are generally written with LyX.
 
 #License
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License.][by-sa].

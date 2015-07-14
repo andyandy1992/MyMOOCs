@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="build_tree.json" basedir="../" default="job">
+
+	<!-- Use ant contrib -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml" />
+
+	<!-- ======================================================================== -->
+	<!-- Source Properties -->
+	<property name="content.root" value="courses" />
+	<property name="end.location" value="web/json/toc.json" />
+
+	
+	<!-- Import Helper Script -->
+	<import file="./build.json_helpers_v1.0.xml" />
+
+	<!-- The main build targets -->
+	<target name="job" depends="setup,build,tidy" />
+
+	<target name="setup" depends="delete.tree.json,create.tree.json" />
+	<target name="build" depends="build.base" />
+	<target name="tidy" depends="copy.to.correct.location,delete.temp.file" />
+
+</project>

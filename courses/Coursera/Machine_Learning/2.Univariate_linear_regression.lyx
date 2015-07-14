@@ -5,12 +5,9 @@
 \textclass article
 \use_default_options true
 \begin_modules
-theorems-ams
-theorems-ams-extended
-theorems-sec
-theorems-named
-fixltx2e
-enumitem
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -36,7 +33,7 @@ enumitem
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -60,6 +57,13 @@ enumitem
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -98,11 +102,16 @@ setcounter{section}{1}
 \begin_layout Section
 
 \lang british
-Univariate linear regression (
-\emph on
-Linear regression with one variable
-\emph default
-)
+Univariate linear regression
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -131,7 +140,6 @@ Training (data) sets
 
 \begin_layout Notation*
 
-\color blue
 \lang british
 \begin_inset Formula $m:=$
 \end_inset
@@ -149,7 +157,6 @@ output/target variable
 
 \begin_layout Notation*
 
-\color blue
 \lang british
 \begin_inset Formula $\left(x,y\right):=$
 \end_inset
@@ -159,7 +166,6 @@ one training example
 
 \begin_layout Notation*
 
-\color blue
 \lang british
 \begin_inset Formula $\left(x^{\left(i\right)},y^{\left(i\right)}\right):=i^{th}$
 \end_inset
@@ -270,7 +276,6 @@ Choose
 
 \begin_layout Definition
 
-\color blue
 \lang british
 The 
 \series bold
@@ -311,7 +316,6 @@ Cost Function Intuition
 
 \begin_layout Example*
 
-\color cyan
 \lang british
 \begin_inset Argument 1
 status open
@@ -337,8 +341,6 @@ h_{\theta}\left(x\right)=\theta_{1}x\mbox{ and }J\left(\theta_{0},\theta_{1}\rig
 
 \end_inset
 
-
-\color inherit
 
 \begin_inset Float figure
 wide false
@@ -643,7 +645,6 @@ step
 
 \begin_layout Standard
 
-\shape up
 \lang british
 \begin_inset Box Boxed
 position "t"
@@ -677,14 +678,12 @@ A1.2 - Gradient Descent
 
 \begin_layout Algorithm*
 
-\color magenta
 \lang british
 repeat until convergence {
 \end_layout
 
 \begin_layout Algorithm*
 
-\color magenta
 \lang british
 \begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)$
 \end_inset
@@ -704,7 +703,6 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
-\color magenta
 \lang british
 }
 \end_layout
@@ -1132,7 +1130,6 @@ status open
 
 \begin_layout Algorithm*
 
-\color cyan
 \lang british
 \begin_inset Argument 1
 status open
@@ -1158,14 +1155,12 @@ Batch
 
 \begin_layout Algorithm*
 
-\color magenta
 \lang british
 repeat until convergence {
 \end_layout
 
 \begin_layout Algorithm*
 
-\color magenta
 \lang british
 \begin_inset Formula $\theta_{0}:=\theta_{0}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\right]$
 \end_inset
@@ -1175,7 +1170,6 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
-\color magenta
 \lang british
 \begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}\right]$
 \end_inset
@@ -1186,7 +1180,6 @@ repeat until convergence {
 \begin_layout Algorithm*
 
 \shape up
-\color magenta
 \lang british
 (simultaneously update 
 \begin_inset Formula $j=0$
@@ -1201,7 +1194,6 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
-\color magenta
 \lang british
 }
 \end_layout

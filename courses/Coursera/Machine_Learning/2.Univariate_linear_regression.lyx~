@@ -5,20 +5,12 @@
 \textclass article
 \use_default_options true
 \begin_modules
-logicalmkup
-theorems-ams
-theorems-named
-eqs-within-sections
-figs-within-sections
-tabs-within-sections
-theorems-ams-extended
-theorems-sec
-customHeadersFooters
-enumitem
-fixltx2e
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
 \end_modules
 \maintain_unincluded_children false
-\language british
+\language english
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -33,26 +25,15 @@ fixltx2e
 \font_sf_scale 100
 \font_tt_scale 100
 \graphics default
-\default_output_format default
+\default_output_format pdf2
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement H
 \paperfontsize default
 \spacing single
-\use_hyperref true
-\pdf_bookmarks false
-\pdf_bookmarksnumbered true
-\pdf_bookmarksopen false
-\pdf_bookmarksopenlevel 1
-\pdf_breaklinks false
-\pdf_pdfborder true
-\pdf_colorlinks false
-\pdf_backref false
-\pdf_pdfusetitle true
-\pdf_quoted_options "urlcolor=blue"
-\papersize a4paper
-\use_geometry true
+\use_hyperref false
+\papersize default
+\use_geometry false
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -61,7 +42,7 @@ fixltx2e
 \use_package mathtools 1
 \use_package mhchem 1
 \use_package stackrel 1
-\use_package stmaryrd 2
+\use_package stmaryrd 1
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
@@ -71,40 +52,22 @@ fixltx2e
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 0
-\boxbgcolor #ffff7f
-\branch How many Nobel Prizes?
-\selected 1
-\filename_suffix 0
-\color #faf0e6
-\end_branch
-\branch Guess is 150
-\selected 0
-\filename_suffix 0
-\color #faf0e6
-\end_branch
+\use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 2cm
-\topmargin 2cm
-\rightmargin 2cm
-\bottommargin 2cm
-\headheight 1cm
-\headsep 1cm
-\footskip 1cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation skip
-\defskip smallskip
+\paragraph_separation indent
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
-\papersides 2
-\paperpagestyle fancy
+\papersides 1
+\paperpagestyle default
 \tracking_changes false
 \output_changes false
-\html_math_output 0
+\html_math_output 3
 \html_css_as_file 0
 \html_be_strict false
 \end_header
@@ -112,6 +75,8 @@ fixltx2e
 \begin_body
 
 \begin_layout Standard
+
+\lang british
 \begin_inset ERT
 status open
 
@@ -128,24 +93,45 @@ setcounter{section}{1}
 \end_layout
 
 \begin_layout Section
-Univariate linear regression (
-\emph on
-Linear regression with one variable
-\emph default
-)
+
+\lang british
+Univariate linear regression
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
+
+\lang british
 Model Representation
 \end_layout
 
 \begin_layout Notation*
+
+\lang british
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
 
 \color blue
+\lang british
 Training (data) sets
 \end_layout
 
@@ -156,7 +142,7 @@ Training (data) sets
 
 \begin_layout Notation*
 
-\color blue
+\lang british
 \begin_inset Formula $m:=$
 \end_inset
 
@@ -173,7 +159,7 @@ output/target variable
 
 \begin_layout Notation*
 
-\color blue
+\lang british
 \begin_inset Formula $\left(x,y\right):=$
 \end_inset
 
@@ -182,7 +168,7 @@ one training example
 
 \begin_layout Notation*
 
-\color blue
+\lang british
 \begin_inset Formula $\left(x^{\left(i\right)},y^{\left(i\right)}\right):=i^{th}$
 \end_inset
 
@@ -190,6 +176,8 @@ one training example
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -198,8 +186,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Model representation (univariate linear regression).png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Model representation (univariate linear regression).png
 	lyxscale 60
 	scale 60
 
@@ -209,11 +199,14 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
 \emph on
+\lang british
 Model representation
 \emph default
 : Hypothesis refers to a map here, not a prediction; 
@@ -244,12 +237,15 @@ Model representation
 \end_layout
 
 \begin_layout Subsection
+
+\lang british
 Cost Function
 \end_layout
 
 \begin_layout Standard
 
 \series bold
+\lang british
 Idea: 
 \series default
 Choose 
@@ -282,7 +278,7 @@ Choose
 
 \begin_layout Definition
 
-\color blue
+\lang british
 The 
 \series bold
 cost 
@@ -315,18 +311,21 @@ seek
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang british
 Cost Function Intuition
 \end_layout
 
 \begin_layout Example*
 
-\color cyan
+\lang british
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
 
 \color cyan
+\lang british
 E1.3 - 1 parameter
 \end_layout
 
@@ -345,8 +344,6 @@ h_{\theta}\left(x\right)=\theta_{1}x\mbox{ and }J\left(\theta_{0},\theta_{1}\rig
 \end_inset
 
 
-\color inherit
-
 \begin_inset Float figure
 wide false
 sideways false
@@ -355,8 +352,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Cost Function Intuition.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition.png
 	lyxscale 60
 	scale 60
 
@@ -366,9 +365,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang british
 We get the following lines for:
 \begin_inset Newline newline
 \end_inset
@@ -425,10 +428,6 @@ Observe
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -436,12 +435,15 @@ Observe
 
 \begin_deeper
 \begin_layout Example*
+
+\lang british
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
 
 \color cyan
+\lang british
 E1.4 - 2 parameters
 \end_layout
 
@@ -451,6 +453,8 @@ E1.4 - 2 parameters
 \end_layout
 
 \begin_layout Example*
+
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -459,8 +463,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Bowl Plot.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Bowl Plot.png
 	lyxscale 60
 	scale 60
 
@@ -470,11 +476,14 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
 \color cyan
+\lang british
 3D representation.
 \end_layout
 
@@ -483,16 +492,14 @@ status open
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Example*
+
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -501,8 +508,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Contour Plot.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Contour Plot.png
 	lyxscale 60
 	scale 60
 
@@ -512,20 +521,19 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
 \color cyan
+\lang british
 Contour plot.
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -535,6 +543,8 @@ Contour plot.
 \end_layout
 
 \begin_layout Example*
+
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -543,8 +553,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Cost Function Intuition (2 parameters) 1.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition (2 parameters) 1.png
 	lyxscale 70
 	scale 70
 
@@ -556,8 +568,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Cost Function Intuition (2 parameters) 2.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition (2 parameters) 2.png
 	lyxscale 70
 	scale 70
 
@@ -567,11 +581,14 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
 \color cyan
+\lang british
 The contour plot shows the closer the values of 
 \begin_inset Formula $\theta_{0}$
 \end_inset
@@ -588,10 +605,6 @@ The contour plot shows the closer the values of
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -599,6 +612,8 @@ The contour plot shows the closer the values of
 
 \end_deeper
 \begin_layout Remark*
+
+\lang british
 We seek an algorithm that minimises the cost function 
 \begin_inset Formula $J$
 \end_inset
@@ -607,12 +622,15 @@ We seek an algorithm that minimises the cost function
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang british
 Minimising the cost function - Gradient Descent
 \end_layout
 
 \begin_layout Standard
 
 \series bold
+\lang british
 Idea: 
 \series default
 You're at the top of a hill and you seek a route to the bottom by always
@@ -629,7 +647,7 @@ step
 
 \begin_layout Standard
 
-\shape up
+\lang british
 \begin_inset Box Boxed
 position "t"
 hor_pos "c"
@@ -644,10 +662,14 @@ height_special "totalheight"
 status open
 
 \begin_layout Algorithm*
+
+\lang british
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
+
+\lang british
 A1.2 - Gradient Descent
 \end_layout
 
@@ -658,13 +680,13 @@ A1.2 - Gradient Descent
 
 \begin_layout Algorithm*
 
-\color magenta
+\lang british
 repeat until convergence {
 \end_layout
 
 \begin_layout Algorithm*
 
-\color magenta
+\lang british
 \begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)$
 \end_inset
 
@@ -683,13 +705,14 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
-\color magenta
+\lang british
 }
 \end_layout
 
 \begin_layout Algorithm*
 
 \shape up
+\lang british
 for 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -713,6 +736,7 @@ rate
 \begin_layout Note*
 
 \series bold
+\lang british
 Simultaneously
 \series default
  
@@ -725,6 +749,7 @@ update
 \begin_layout Note*
 
 \family typewriter
+\lang british
 temp0 
 \begin_inset Formula $:=\theta_{0}-\alpha\frac{\partial}{\partial\theta_{0}}J\left(\theta_{0},\theta_{1}\right)$
 \end_inset
@@ -737,6 +762,8 @@ temp0
 \end_layout
 
 \begin_layout Note*
+
+\lang british
 \begin_inset Formula $\theta_{0}:=$
 \end_inset
 
@@ -756,12 +783,15 @@ temp1
 \end_layout
 
 \begin_layout Remark*
+
+\lang british
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
 
 \series bold
+\lang british
 Problem
 \end_layout
 
@@ -771,6 +801,8 @@ Problem
 \end_layout
 
 \begin_layout Remark*
+
+\lang british
 \begin_inset Wrap figure
 lines 0
 placement o
@@ -781,8 +813,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Inital conditions and finishing position.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Inital conditions and finishing position.png
 	lyxscale 60
 	scale 60
 
@@ -792,11 +826,14 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
 \emph on
+\lang british
 Initial conditions
 \emph default
  can affect which (local) minimum you arrive at, and this may not necessarily
@@ -808,10 +845,6 @@ Initial conditions
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -819,6 +852,8 @@ Initial conditions
 
 \begin_deeper
 \begin_layout Remark*
+
+\lang british
 Consider 
 \begin_inset Formula $J\left(\theta_{1}\right)$
 \end_inset
@@ -831,6 +866,8 @@ Consider
 \end_layout
 
 \begin_layout Remark*
+
+\lang british
 So 
 \begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\frac{d}{d\theta_{1}}J\left(\theta_{1}\right)$
 \end_inset
@@ -841,6 +878,7 @@ So
 \begin_layout Remark*
 
 \series bold
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -849,8 +887,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Gradient descent - derivative term.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Gradient descent - derivative term.png
 	lyxscale 60
 	scale 60
 
@@ -862,11 +902,13 @@ status open
 \begin_layout Plain Layout
 
 \series bold
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
 \series bold
+\lang british
 Why the derivative term 
 \begin_inset Formula $\frac{d}{d\theta_{1}}$
 \end_inset
@@ -879,16 +921,14 @@ Why the derivative term
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Remark*
+
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -897,8 +937,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Gradient descent - the learning rate.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Gradient descent - the learning rate.png
 	lyxscale 65
 	scale 65
 
@@ -908,11 +950,14 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
 \series bold
+\lang british
 Choosing the learning rate,
 \begin_inset Formula $\alpha$
 \end_inset
@@ -966,11 +1011,15 @@ Observe, if we are at a local minimum, one step of gradient descent does
 
 \end_deeper
 \begin_layout Subsubsection
+
+\lang british
 Mixing the Cost Function and Gradient Descent - a first learning algorithm
  for linear regression
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 \begin_inset Wrap figure
 lines 0
 placement o
@@ -981,8 +1030,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Cost Function for Gradient Descent.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function for Gradient Descent.png
 	lyxscale 60
 	scale 60
 
@@ -992,9 +1043,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang british
 Recall that a problem with Gradient Descent is that initial conditions can
  affect the (local) minimum you arrive at; however 
 \emph on
@@ -1024,16 +1079,14 @@ one global minimum
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 Observe
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -1056,10 +1109,14 @@ Also
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 Hence
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 \begin_inset Box Boxed
 position "t"
 hor_pos "c"
@@ -1075,11 +1132,13 @@ status open
 
 \begin_layout Algorithm*
 
-\color cyan
+\lang british
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
+
+\lang british
 A1.3 - 
 \begin_inset Quotes eld
 \end_inset
@@ -1098,13 +1157,13 @@ Batch
 
 \begin_layout Algorithm*
 
-\color magenta
+\lang british
 repeat until convergence {
 \end_layout
 
 \begin_layout Algorithm*
 
-\color magenta
+\lang british
 \begin_inset Formula $\theta_{0}:=\theta_{0}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\right]$
 \end_inset
 
@@ -1113,7 +1172,7 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
-\color magenta
+\lang british
 \begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}\right]$
 \end_inset
 
@@ -1123,7 +1182,7 @@ repeat until convergence {
 \begin_layout Algorithm*
 
 \shape up
-\color magenta
+\lang british
 (simultaneously update 
 \begin_inset Formula $j=0$
 \end_inset
@@ -1137,7 +1196,7 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
-\color magenta
+\lang british
 }
 \end_layout
 
@@ -1149,6 +1208,8 @@ repeat until convergence {
 \begin_layout Standard
 \noindent
 \align center
+
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -1157,8 +1218,10 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
-	filename Images/Mixing Gradient Descent with the Cost Function.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Mixing Gradient Descent with the Cost Function.png
 	lyxscale 60
 	scale 60
 
@@ -1168,9 +1231,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang british
 This results in a 
 \emph on
 fast approach
@@ -1193,10 +1260,14 @@ global
 \end_layout
 
 \begin_layout Section
+
+\lang british
 Linear algebra review
 \end_layout
 
 \begin_layout Description
+
+\lang british
 Linear
 \begin_inset space ~
 \end_inset
@@ -1206,6 +1277,8 @@ algebra Provides the notation and set of things you can do with matrices
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 Given Table 1, 
 \begin_inset Formula 
 \[
@@ -1233,6 +1306,8 @@ d
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 [I know the linear algebra, so skipped these videos.]
 \end_layout
 

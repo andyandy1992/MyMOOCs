@@ -5,12 +5,9 @@
 \textclass article
 \use_default_options true
 \begin_modules
-theorems-ams
-theorems-ams-extended
-theorems-sec
-theorems-named
-fixltx2e
-enumitem
+theorems-ams-bytype
+theorems-ams-extended-bytype
+theorems-sec-bytype
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -32,11 +29,12 @@ enumitem
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -60,6 +58,13 @@ enumitem
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -83,9 +88,17 @@ enumitem
 Introduction to Machine Learning
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Definition
 
-\color blue
 \lang british
 \begin_inset Argument 1
 status open
@@ -98,11 +111,19 @@ Machine Learning (Arthur Samuel, 1959)
 
 \end_inset
 
+ 
+\begin_inset Quotes eld
+\end_inset
+
 Field of study that gives computer the ability to learn 
 \series bold
 without 
 \series default
 being explicitly programmed.
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -124,13 +145,8 @@ status open
 \begin_layout Remark*
 
 \lang british
-A computer has a 
-\emph on
-\color green
-patience
-\emph default
-\color inherit
- to play 10,000 hrs of checkers to become a professional.
+Samuel wrote a computer program that played 10,000 games of checkers against
+ itself - one of the world's first self-learning program.
 \end_layout
 
 \end_inset
@@ -144,44 +160,40 @@ patience
 Machine learning algorithms
 \end_layout
 
-\begin_layout Description
+\begin_layout Subsubsection
 
-\color blue
 \lang british
-Supervised
+Supervised Learning
+\end_layout
+
+\begin_layout Definition
+
+\lang british
+In 
+\series bold
+supervised
 \begin_inset space ~
 \end_inset
 
-learning infer a relationship (or function) from 
-\emph on
-labelled
-\emph default
- input/output data.
- 
+learning 
+\series default
+we teach the computer how to solve some problem, and then let it use its
+ new found knowledge to solve similar problems.
 \end_layout
 
 \begin_layout Example*
 
-\lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\color cyan
-\lang british
-E1.1 - 1 attribute
-\end_layout
-
-\end_inset
-
-
+\series bold
+\emph on
+Regression vs.
+ classification
 \end_layout
 
 \begin_layout Example*
 
 \lang british
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -192,17 +204,24 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/House price prediction.png
+	filename Images/Chapter1/House price prediction.png
 	lyxscale 60
 	scale 60
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Breast cancer (representation 1).png
+	filename Images/Chapter1/Breast cancer (representation 1).png
 	lyxscale 60
-	scale 1060
+	scale 60
 
 \end_inset
 
@@ -216,9 +235,8 @@ status open
 
 \begin_layout Plain Layout
 
-\color cyan
 \lang british
-LEFT: 
+TOP: 
 \series bold
 \emph on
 regression
@@ -229,11 +247,11 @@ continuous
 \series default
  valued output)
 \emph default
-: What is the best predictor of house price - Straight or quadratic?
+: What is the best predictor of house price - straight or quadratic?
 \begin_inset Newline newline
 \end_inset
 
-RIGHT: 
+BOTTOM: 
 \series bold
 \emph on
 classification
@@ -248,7 +266,7 @@ discrete
 \begin_inset Formula $x$
 \end_inset
 
- having a malignant (bad) of benign (good) cancer?
+ having a malignant or benign cancer?
 \end_layout
 
 \end_inset
@@ -261,23 +279,32 @@ discrete
 
 \end_layout
 
-\begin_deeper
-\begin_layout Example*
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
 
-\lang british
-\begin_inset Argument 1
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\color cyan
-\lang british
-E1.2 - 2 attributes
+New Page for formatting
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Example*
+
+\series bold
+\emph on
+\lang british
+Classification under multiple attributes
 \end_layout
 
 \begin_layout Example*
@@ -294,7 +321,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Breast cancer (2 attributes).png
+	filename Images/Chapter1/Breast cancer (2 attributes).png
 	lyxscale 60
 	scale 60
 
@@ -310,7 +337,6 @@ status open
 
 \begin_layout Plain Layout
 
-\color cyan
 \lang british
 What is the likelihood of my friend with a tumour of size 
 \begin_inset Formula $x$
@@ -324,7 +350,7 @@ and
 \begin_inset Formula $y$
 \end_inset
 
- having a malignant (bad) of benign (good) cancer?
+ having a malignant of benign cancer?
 \end_layout
 
 \end_inset
@@ -337,26 +363,40 @@ and
 
 \end_layout
 
-\end_deeper
 \begin_layout Note*
 
 \lang british
-We can deal with problems that have an infinite number of attributes.
+We can deal with problems that have an infinite number of attributes (see
+ support vector machine in chapter).
 \end_layout
 
-\begin_layout Description
+\begin_layout Subsubsection
 
-\color blue
 \lang british
-Unsupervised
-\begin_inset space ~
-\end_inset
+Unsupervised Learning
+\end_layout
 
-learning infer a relationship from 
+\begin_layout Definition
+
+\lang british
+In 
+\series bold
+unsupervised 
+\series default
+learning, we let the computer determine its own structure and patterns in
+ the data.
+\end_layout
+
+\begin_layout Example
+
+\series bold
 \emph on
-unlabelled
+\lang british
+Clustering (
 \emph default
- input/output data.
+relationships among the variables in the data
+\emph on
+)
 \end_layout
 
 \begin_layout Standard
@@ -373,7 +413,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Unsupervised learning.png
+	filename Images/Chapter1/Unsupervised learning.png
 	lyxscale 60
 	scale 60
 
@@ -394,15 +434,8 @@ Given an
 \series bold
 unknown
 \series default
- data set, can you find some structure to the data?
-\begin_inset Newline newline
-\end_inset
-
-
-\color cyan
-E.g.
- Google News - given a set of new articles, group them into sets of articles
- about the same story.
+ data set, can you find some structure to the data? E.g.
+ Google News - given a set of new articles, group them into cohesive groups.
 \end_layout
 
 \end_inset
@@ -415,114 +448,5 @@ E.g.
 
 \end_layout
 
-\begin_layout Remark*
-
-\lang british
-We can derive this structure by 
-\series bold
-\emph on
-clustering
-\series default
-\emph default
- the data based on relationships among the variables in the data.
-\end_layout
-
-\begin_deeper
-\begin_layout Remark*
-
-\lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\lang british
-The power of learning algorithms
-\end_layout
-
-\end_inset
-
- When given two sources of data (e.g.
- a 
-\emph on
-guy talking 
-\emph default
-at a cocktail party with 
-\emph on
-loud music
-\emph default
-), the 
-\series bold
-Cocktail party problem algorithm
-\series default
- can extract and separate each source (so you can easily hear what the guy
- is talking about, and just listen to the music separately).
-\end_layout
-
-\begin_layout Standard
-
-\lang british
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-status open
-
-\begin_layout Algorithm*
-
-\lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\lang british
-A1.1
-\end_layout
-
-\end_inset
-
- This algorithm has 
-\emph on
-\bar under
-one line of code
-\emph default
-\bar default
-: (using Octave, similar to MATLAB)
-\end_layout
-
-\begin_layout Algorithm*
-
-\family typewriter
-\color magenta
-\lang british
-[W,s,v] = svd((repmat(sum(x.*x,1), size(x,1), 1).
- *x) *x');
-\end_layout
-
-\begin_layout Algorithm*
-
-\lang british
-The key function is 
-\family typewriter
-svd
-\family default
-, built into Octave.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \end_body
 \end_document

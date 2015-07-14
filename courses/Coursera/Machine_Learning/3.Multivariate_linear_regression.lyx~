@@ -5,19 +5,12 @@
 \textclass article
 \use_default_options true
 \begin_modules
-logicalmkup
-theorems-ams
-theorems-named
-eqs-within-sections
-figs-within-sections
-tabs-within-sections
-theorems-ams-extended
-theorems-sec
-customHeadersFooters
-enumitem
+theorems-ams-bytype
+theorems-ams-extended-bytype
+theorems-sec-bytype
 \end_modules
 \maintain_unincluded_children false
-\language british
+\language english
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -32,26 +25,15 @@ enumitem
 \font_sf_scale 100
 \font_tt_scale 100
 \graphics default
-\default_output_format default
+\default_output_format pdf2
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement H
 \paperfontsize default
 \spacing single
-\use_hyperref true
-\pdf_bookmarks false
-\pdf_bookmarksnumbered true
-\pdf_bookmarksopen false
-\pdf_bookmarksopenlevel 1
-\pdf_breaklinks false
-\pdf_pdfborder true
-\pdf_colorlinks false
-\pdf_backref false
-\pdf_pdfusetitle true
-\pdf_quoted_options "urlcolor=blue"
-\papersize a4paper
-\use_geometry true
+\use_hyperref false
+\papersize default
+\use_geometry false
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -60,7 +42,7 @@ enumitem
 \use_package mathtools 1
 \use_package mhchem 1
 \use_package stackrel 1
-\use_package stmaryrd 2
+\use_package stmaryrd 1
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
@@ -70,40 +52,22 @@ enumitem
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 0
-\boxbgcolor #ffff7f
-\branch How many Nobel Prizes?
-\selected 1
-\filename_suffix 0
-\color #faf0e6
-\end_branch
-\branch Guess is 150
-\selected 0
-\filename_suffix 0
-\color #faf0e6
-\end_branch
+\use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 2cm
-\topmargin 2cm
-\rightmargin 2cm
-\bottommargin 2cm
-\headheight 1cm
-\headsep 1cm
-\footskip 1cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation skip
-\defskip smallskip
+\paragraph_separation indent
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
-\papersides 2
-\paperpagestyle fancy
+\papersides 1
+\paperpagestyle default
 \tracking_changes false
 \output_changes false
-\html_math_output 0
+\html_math_output 3
 \html_css_as_file 0
 \html_be_strict false
 \end_header
@@ -111,6 +75,8 @@ enumitem
 \begin_body
 
 \begin_layout Standard
+
+\lang british
 \begin_inset ERT
 status open
 
@@ -127,19 +93,45 @@ setcounter{section}{2}
 \end_layout
 
 \begin_layout Section
+
+\lang british
 Multivariate linear regression
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
+
+\lang british
 Multiple Features
 \end_layout
 
 \begin_layout Standard
+
+\lang british
 The more information we have about a data set, the better the predictions
  will be.
 \end_layout
 
 \begin_layout Notation*
+
+\lang british
 \begin_inset Formula $n:=$
 \end_inset
 
@@ -147,6 +139,8 @@ number of features,
 \end_layout
 
 \begin_layout Notation*
+
+\lang british
 \begin_inset Formula $x^{\left(i\right)}:=$
 \end_inset
 
@@ -158,6 +152,8 @@ input (feature) of
 \end_layout
 
 \begin_layout Notation*
+
+\lang british
 \begin_inset Formula $x_{j}:=$
 \end_inset
 
@@ -173,12 +169,16 @@ value of feature
 \end_layout
 
 \begin_layout Example*
+
+\lang british
 Suppose now we have more features of a house on which to estimate the price
  of it:
 \end_layout
 
 \begin_layout Example*
 \noindent
+
+\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -187,6 +187,8 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
+
+\lang british
 \begin_inset Graphics
 	filename Images/Week 2/Multiple features of a house.png
 	lyxscale 80
@@ -198,9 +200,13 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\lang british
 Here 
 \begin_inset Formula $n=4$
 \end_inset
@@ -223,22 +229,17 @@ Here
 \end_inset
 
 So the hypothesis function extends to 
-\begin_inset Formula 
-\begin{eqnarray*}
-h_{\theta}\left(x\right) & = & \theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}+\theta_{3}x_{3}+\theta_{4}x_{4}\\
- & = & \left[\begin{array}{ccccc}
+\begin_inset Formula $h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}+\theta_{3}x_{3}+\theta_{4}x_{4}=\left[\begin{array}{ccccc}
 \theta_{0} & \theta_{1} & \theta_{2} & \theta_{3} & \theta_{4}\end{array}\right]\left[\begin{array}{c}
 1\\
 x_{1}\\
 x_{2}\\
 x_{3}\\
 x_{4}
-\end{array}\right]
-\end{eqnarray*}
-
+\end{array}\right]$
 \end_inset
 
-for
+ for
 \begin_inset Formula $\left[\begin{array}{ccccc}
 \theta_{0} & \theta_{1} & \theta_{2} & \theta_{3} & \theta_{4}\end{array}\right],\:\left[\begin{array}{ccccc}
 x_{0} & x_{1} & x_{2} & x_{3} & x_{4}\end{array}\right]^{T}\in\mathbb{R}^{5}$
@@ -263,6 +264,8 @@ x_{0} & x_{1} & x_{2} & x_{3} & x_{4}\end{array}\right]^{T}\in\mathbb{R}^{5}$
 \end_layout
 
 \begin_layout Remark*
+
+\lang british
 The hypothesis function for the multiple features is 
 \begin_inset Formula 
 \begin{eqnarray*}
