@@ -1,17 +1,20 @@
 [
 {"id":"FOLDER", "label":"Coursera", "inode":true, "open":true, "icon":"folder", "branch": [
-{"id":"FOLDER", "label":"Introduction to Logic", "inode":true, "open":false, "icon":"folder", "branch": [
-{"id":"courses/Coursera/Introduction_to_Logic/0.Outline.pdf", "label":"0.Outline", "inode":false, "icon":"file"},
-{"id":"courses/Coursera/Introduction_to_Logic/1.Introduction.pdf", "label":"1.Introduction", "inode":false, "icon":"file"},
-{"id":"courses/Coursera/Introduction_to_Logic/2.Propositional_Logic.pdf", "label":"2.Propositional Logic", "inode":false, "icon":"file"},
-{"id":"courses/Coursera/Introduction_to_Logic/3.Relational_Logic.pdf", "label":"3.Relational Logic", "inode":false, "icon":"file"},
-{"id":"courses/Coursera/Introduction_to_Logic/4.Epistemic_Logic.pdf", "label":"4.Epistemic Logic", "inode":false, "icon":"file"},
+{"id":"FOLDER", "label":"Introduction to Logic(Partial)", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/Coursera/Introduction_to_Logic(Partial)/0.Outline.pdf", "label":"0.Outline", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Introduction_to_Logic(Partial)/1.Introduction.pdf", "label":"1.Introduction", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Introduction_to_Logic(Partial)/2.Propositional_Logic.pdf", "label":"2.Propositional Logic", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Introduction_to_Logic(Partial)/3.Relational_Logic.pdf", "label":"3.Relational Logic", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Introduction_to_Logic(Partial)/4.Epistemic_Logic.pdf", "label":"4.Epistemic Logic", "inode":false, "icon":"file"},
 {"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder"}
 ]
 },
 
 {"id":"FOLDER", "label":"Machine Learning", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/Coursera/Machine_Learning/1.Introduction_to_Machine_Learning.pdf", "label":"1.Introduction to Machine Learning", "inode":false, "icon":"file"},
 {"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Chapter1", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Chapter2", "inode":true, "open":false, "icon":"folder"},
 {"id":"FOLDER", "label":"Week 2", "inode":true, "open":false, "icon":"folder"}
 ]
 }
@@ -243,6 +246,16 @@
 {"id":"courses/Udacity/Intro_to_Computer_Science/Full_Notes.pdf", "label":"Full Notes", "inode":false, "icon":"file"},
 {"id":"courses/Udacity/Intro_to_Computer_Science/Intro_to_Computer_Science.certificate.pdf", "label":"Intro to Computer Science.certificate", "inode":false, "icon":"file"},
 {"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder"}
+]
+}
+
+]
+},
+
+{"id":"FOLDER", "label":"edX", "inode":true, "open":true, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Quantum Mechanics and Quantum Computation(Partial)", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/edX/Quantum_Mechanics_and_Quantum_Computation(Partial)/1.Qubits.pdf", "label":"1.Qubits", "inode":false, "icon":"file"},
+{"id":"courses/edX/Quantum_Mechanics_and_Quantum_Computation(Partial)/2.Two-Qubits.pdf", "label":"2.Two-Qubits", "inode":false, "icon":"file"}
 ]
 }
 
