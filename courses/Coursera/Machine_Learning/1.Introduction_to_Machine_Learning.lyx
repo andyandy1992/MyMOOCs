@@ -10,7 +10,7 @@ theorems-ams-extended-bytype
 theorems-sec-bytype
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language british
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -83,8 +83,6 @@ theorems-sec-bytype
 \begin_body
 
 \begin_layout Section
-
-\lang british
 Introduction to Machine Learning
 \end_layout
 
@@ -98,14 +96,10 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Definition
-
-\lang british
 \begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-\lang british
 Machine Learning (Arthur Samuel, 1959)
 \end_layout
 
@@ -127,8 +121,6 @@ being explicitly programmed.
 \end_layout
 
 \begin_layout Standard
-
-\lang british
 \begin_inset Box Shadowbox
 position "t"
 hor_pos "c"
@@ -143,8 +135,6 @@ height_special "totalheight"
 status open
 
 \begin_layout Remark*
-
-\lang british
 Samuel wrote a computer program that played 10,000 games of checkers against
  itself - one of the world's first self-learning program.
 \end_layout
@@ -155,20 +145,14 @@ Samuel wrote a computer program that played 10,000 games of checkers against
 \end_layout
 
 \begin_layout Subsection
-
-\lang british
 Machine learning algorithms
 \end_layout
 
 \begin_layout Subsubsection
-
-\lang british
 Supervised Learning
 \end_layout
 
 \begin_layout Definition
-
-\lang british
 In 
 \series bold
 supervised
@@ -190,8 +174,6 @@ Regression vs.
 \end_layout
 
 \begin_layout Example*
-
-\lang british
 \begin_inset Float figure
 placement H
 wide false
@@ -201,8 +183,6 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
-
-\lang british
 \begin_inset Graphics
 	filename Images/Chapter1/House price prediction.png
 	lyxscale 60
@@ -216,8 +196,6 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
-
-\lang british
 \begin_inset Graphics
 	filename Images/Chapter1/Breast cancer (representation 1).png
 	lyxscale 60
@@ -229,13 +207,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang british
 TOP: 
 \series bold
 \emph on
@@ -243,9 +217,12 @@ regression
 \series default
  problem (
 \series bold
-continuous
+continuous valued 
+\bar under
+output
 \series default
- valued output)
+\bar default
+)
 \emph default
 : What is the best predictor of house price - straight or quadratic?
 \begin_inset Newline newline
@@ -258,9 +235,12 @@ classification
 \series default
  problem (
 \series bold
-discrete
+discrete valued 
+\bar under
+output
 \series default
- valued output)
+\bar default
+)
 \emph default
 : What is the likelihood of my friend with a tumour of size 
 \begin_inset Formula $x$
@@ -303,13 +283,10 @@ New Page for formatting
 
 \series bold
 \emph on
-\lang british
 Classification under multiple attributes
 \end_layout
 
 \begin_layout Example*
-
-\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -318,8 +295,6 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
-
-\lang british
 \begin_inset Graphics
 	filename Images/Chapter1/Breast cancer (2 attributes).png
 	lyxscale 60
@@ -331,13 +306,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang british
 What is the likelihood of my friend with a tumour of size 
 \begin_inset Formula $x$
 \end_inset
@@ -364,21 +335,15 @@ and
 \end_layout
 
 \begin_layout Note*
-
-\lang british
 We can deal with problems that have an infinite number of attributes (see
  support vector machine in chapter).
 \end_layout
 
 \begin_layout Subsubsection
-
-\lang british
 Unsupervised Learning
 \end_layout
 
 \begin_layout Definition
-
-\lang british
 In 
 \series bold
 unsupervised 
@@ -391,7 +356,6 @@ learning, we let the computer determine its own structure and patterns in
 
 \series bold
 \emph on
-\lang british
 Clustering (
 \emph default
 relationships among the variables in the data
@@ -400,8 +364,6 @@ relationships among the variables in the data
 \end_layout
 
 \begin_layout Standard
-
-\lang british
 \begin_inset Float figure
 wide false
 sideways false
@@ -410,8 +372,6 @@ status open
 \begin_layout Plain Layout
 \noindent
 \align center
-
-\lang british
 \begin_inset Graphics
 	filename Images/Chapter1/Unsupervised learning.png
 	lyxscale 60
@@ -423,13 +383,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang british
 Given an 
 \series bold
 unknown
@@ -440,6 +396,112 @@ unknown
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+LEARNING = REPRESENTATION + EVALUATION + OPTIMISATION
+\series default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Information obtained from 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are literally thousands of machine learning algorithms available,
+ and hundreds more are published each year.
+ The key to not getting lost in this huge space is to realise that it consists
+ of combinations of just three components:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\size small
+Representation: 
+\series default
+\size default
+The model must be represented in some formal language that the computer
+ can handle.
+ In particular, how should we represent the inputs (or features) to be used,
+ as well as the mapping from features to predicted output.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Evaluation:
+\series default
+ An evaluation function is needed to distinguish good mapping from inputs
+ to outputs.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Optimisation:
+\series default
+ what learner best maps the inputs to the target output (i.e.
+ which parameters minimises the cost function).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/Chapter1/3ComponentsLearners.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Common examples of each of the 3 components of learning algorithms.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 

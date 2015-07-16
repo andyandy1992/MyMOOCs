@@ -29,6 +29,7 @@ theorems-ams-extended-bytype
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -117,25 +118,13 @@ LatexCommand tableofcontents
 \begin_layout Subsection
 
 \lang british
-Model Representation
+Representation
 \end_layout
 
 \begin_layout Notation*
-
+For 
 \lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\color blue
-\lang british
-Training (data) sets
-\end_layout
-
-\end_inset
-
-
+univariate linear regression, we have
 \end_layout
 
 \begin_layout Notation*
@@ -148,11 +137,11 @@ Training (data) sets
 \begin_inset Formula $x:=$
 \end_inset
 
-input variable/features, 
+input variable (or features), 
 \begin_inset Formula $y:=$
 \end_inset
 
-output/target variable
+output (or target) variable
 \end_layout
 
 \begin_layout Notation*
@@ -187,7 +176,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Model representation (univariate linear regression).png
+	filename Images/Chapter2/Model representation (univariate linear regression).png
 	lyxscale 60
 	scale 60
 
@@ -205,23 +194,38 @@ status open
 
 \emph on
 \lang british
-Model representation
+Representation
 \emph default
-: Hypothesis refers to a map here, not a prediction; 
+:
 \emph on
-
-\begin_inset Formula $x\overset{h}{\mapsto}y=h\left(x\right)$
-\end_inset
-
-.
  
 \emph default
-[E.g.
- 
+In univariate linear regression, our 
+\series bold
+hypothesis function
+\series default
+ has the general form 
 \begin_inset Formula $h_{\theta}\left(x\right)=\theta_{0}+\theta_{1}x$
 \end_inset
 
- for a straight line problem.]
+ .
+ We determine the values for the parameters 
+\begin_inset Formula $\theta_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+ by running our 
+\series bold
+training set 
+\series default
+on a 
+\series bold
+learning algorithm
+\series default
+.
 \end_layout
 
 \end_inset
@@ -237,7 +241,7 @@ Model representation
 \begin_layout Subsection
 
 \lang british
-Cost Function
+Evaluation: Cost Function
 \end_layout
 
 \begin_layout Standard
@@ -245,6 +249,10 @@ Cost Function
 \series bold
 \lang british
 Idea: 
+\series default
+We use a cost function for learning the parameters:
+\series bold
+ 
 \series default
 Choose 
 \begin_inset Formula $\theta_{0},\theta_{1}$
@@ -258,20 +266,41 @@ Choose
 \begin_inset Formula $y$
 \end_inset
 
- for our training examples 
-\begin_inset Formula $\left(x,y\right)$
-\end_inset
-
-.
- That is, minimize:
+ for our training set.
+ That is, minimise:
 \begin_inset Formula 
 \[
-\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\overset{_{\mbox{to make the maths easier}}}{\iff}\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
+\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\iff\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Note*
+
+\lang british
+\begin_inset Formula $\frac{1}{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}$
+\end_inset
+
+ is equal to the means of the squares of the residual, 
+\begin_inset Formula $\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+
+\lang british
+The mean is halved as a convenience of the gradient descent computation
+ (as the derivative term of the square function will cancel out with the
+ 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Definition
@@ -297,15 +326,25 @@ J\left(\theta_{0},\theta_{1}\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\l
 
 \end_inset
 
-so we 
-\emph on
-seek
-\emph default
- 
-\begin_inset Formula $\min J\left(\theta_{0},\theta_{1}\right)$
+
+\end_layout
+
+\begin_layout Definition
+
+\lang british
+We seek
+\begin_inset Formula $\min_{h_{\theta}}J\left(\theta_{0},\theta_{1}\right)\iff\min_{\theta_{0},\theta_{1}}J\left(\theta_{0},\theta_{1}\right)$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Note*
+The cost function uses 
+\emph on
+all
+\emph default
+ the data in the training set.
 \end_layout
 
 \begin_layout Subsubsection
@@ -316,20 +355,23 @@ Cost Function Intuition
 
 \begin_layout Example*
 
+\series bold
+\emph on
+Case 
+\series default
+\emph default
 \lang british
-\begin_inset Argument 1
-status open
 
-\begin_layout Plain Layout
-
-\color cyan
-\lang british
-E1.3 - 1 parameter
-\end_layout
-
+\begin_inset Formula $\theta_{0}=0$
 \end_inset
 
- Consider a simplified version of the straight line model, with 
+
+\end_layout
+
+\begin_layout Example*
+
+\lang british
+Consider a simplified version of the straight line model, with 
 \begin_inset Formula $\theta_{0}=0$
 \end_inset
 
@@ -353,7 +395,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition.png
+	filename Images/Chapter2/Cost Function Intuition.png
 	lyxscale 60
 	scale 60
 
@@ -434,20 +476,9 @@ Observe
 \begin_deeper
 \begin_layout Example*
 
-\lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\color cyan
-\lang british
-E1.4 - 2 parameters
-\end_layout
-
-\end_inset
-
-
+\series bold
+\emph on
+More complicated case
 \end_layout
 
 \begin_layout Example*
@@ -464,7 +495,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Bowl Plot.png
+	filename Images/Chapter2/Bowl Plot.png
 	lyxscale 60
 	scale 60
 
@@ -480,7 +511,6 @@ status open
 
 \begin_layout Plain Layout
 
-\color cyan
 \lang british
 3D representation.
 \end_layout
@@ -509,7 +539,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Contour Plot.png
+	filename Images/Chapter2/Contour Plot.png
 	lyxscale 60
 	scale 60
 
@@ -525,7 +555,6 @@ status open
 
 \begin_layout Plain Layout
 
-\color cyan
 \lang british
 Contour plot.
 \end_layout
@@ -554,7 +583,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition (2 parameters) 1.png
+	filename Images/Chapter2/Cost Function Intuition (2 parameters) 1.png
 	lyxscale 70
 	scale 70
 
@@ -569,7 +598,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function Intuition (2 parameters) 2.png
+	filename Images/Chapter2/Cost Function Intuition (2 parameters) 2.png
 	lyxscale 70
 	scale 70
 
@@ -585,9 +614,8 @@ status open
 
 \begin_layout Plain Layout
 
-\color cyan
 \lang british
-The contour plot shows the closer the values of 
+The closer the values of 
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
@@ -595,7 +623,7 @@ The contour plot shows the closer the values of
 \begin_inset Formula $\theta_{1}$
 \end_inset
 
- to the minimum, the better the line of best fit is.
+ to the minimum (in the contour plot), the better the line of best fit is.
 \end_layout
 
 \end_inset
@@ -612,17 +640,17 @@ The contour plot shows the closer the values of
 \begin_layout Remark*
 
 \lang british
-We seek an algorithm that minimises the cost function 
+We seek an algorithm that efficiently minimises the cost function 
 \begin_inset Formula $J$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 
 \lang british
-Minimising the cost function - Gradient Descent
+Optimisation: Gradient Descent
 \end_layout
 
 \begin_layout Standard
@@ -631,8 +659,11 @@ Minimising the cost function - Gradient Descent
 \lang british
 Idea: 
 \series default
-You're at the top of a hill and you seek a route to the bottom by always
- choosing the 
+You're at the top of a hill and you seek a route to the bottom by 
+\emph on
+always choosing the
+\emph default
+ 
 \emph on
 lowest
 \emph default
@@ -661,19 +692,9 @@ status open
 
 \begin_layout Algorithm*
 
+\series bold
 \lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\lang british
-A1.2 - Gradient Descent
-\end_layout
-
-\end_inset
-
- 
+Gradient Descent 
 \end_layout
 
 \begin_layout Algorithm*
@@ -684,6 +705,7 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
+\emph on
 \lang british
 \begin_inset Formula $\theta_{j}:=\theta_{j}-\alpha\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)$
 \end_inset
@@ -703,6 +725,7 @@ repeat until convergence {
 
 \begin_layout Algorithm*
 
+\emph on
 \lang british
 }
 \end_layout
@@ -710,6 +733,7 @@ repeat until convergence {
 \begin_layout Algorithm*
 
 \shape up
+\emph on
 \lang british
 for 
 \begin_inset Formula $\alpha$
@@ -781,21 +805,10 @@ temp1
 \end_layout
 
 \begin_layout Remark*
-
-\lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\lang british
-Problem
-\end_layout
-
+\begin_inset Formula $\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right)$
 \end_inset
 
- 
+ is equal to the slope of the tangent.
 \end_layout
 
 \begin_layout Remark*
@@ -814,7 +827,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Inital conditions and finishing position.png
+	filename Images/Chapter2/Inital conditions and finishing position.png
 	lyxscale 60
 	scale 60
 
@@ -888,7 +901,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Gradient descent - derivative term.png
+	filename Images/Chapter2/Gradient descent - derivative term.png
 	lyxscale 60
 	scale 60
 
@@ -938,7 +951,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Gradient descent - the learning rate.png
+	filename Images/Chapter2/Gradient descent - the learning rate.png
 	lyxscale 65
 	scale 65
 
@@ -1031,7 +1044,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Cost Function for Gradient Descent.png
+	filename Images/Chapter2/Cost Function for Gradient Descent.png
 	lyxscale 60
 	scale 60
 
@@ -1219,7 +1232,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/Coursera/Machine_Learning/Images/Mixing Gradient Descent with the Cost Function.png
+	filename Images/Chapter2/Mixing Gradient Descent with the Cost Function.png
 	lyxscale 60
 	scale 60
 

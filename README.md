@@ -1,6 +1,7 @@
 #Remarks:
-- Notes are generally written with LyX, and compiled into PDF Documents. 
+- Notes are generally written with [LyX](http://www.lyx.org/), and compiled into PDF Documents. 
 - I have created a [github page](http://andyandy1992.github.io/MyMOOCs/) for easier viewing/navigation of my PDF notes.
+- Although the structure of my notes follow the course structure, additional notes have been added as I read books/papers about the topics - these are usually indicated by footnotes, referencing the sources I obtained such information from.
 
 # Courses
 ##Coursera
