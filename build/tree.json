@@ -11,14 +11,28 @@
 },
 
 {"id":"FOLDER", "label":"Machine Learning", "inode":true, "open":false, "icon":"folder", "branch": [
-{"id":"courses/Coursera/Machine_Learning/1.Introduction_to_Machine_Learning.pdf", "label":"1.Introduction to Machine Learning", "inode":false, "icon":"file"},
 {"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Week1", "inode":true, "open":false, "icon":"folder", "branch": [
 {"id":"FOLDER", "label":"Chapter1", "inode":true, "open":false, "icon":"folder"},
-{"id":"FOLDER", "label":"Chapter2", "inode":true, "open":false, "icon":"folder"},
-{"id":"FOLDER", "label":"Week 2", "inode":true, "open":false, "icon":"folder"}
+{"id":"FOLDER", "label":"Chapter2", "inode":true, "open":false, "icon":"folder"}
+]
+},
+
+{"id":"FOLDER", "label":"Week2", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Chapter1", "inode":true, "open":false, "icon":"folder"}
 ]
 }
 
+]
+},
+
+{"id":"FOLDER", "label":"Week1", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/Coursera/Machine_Learning/Week1/1.Introduction_to_Machine_Learning.pdf", "label":"1.Introduction to Machine Learning", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Machine_Learning/Week1/2.Univariate_linear_regression.pdf", "label":"2.Univariate linear regression", "inode":false, "icon":"file"}
+]
+},
+
+{"id":"FOLDER", "label":"Week2", "inode":true, "open":false, "icon":"folder"}
 ]
 },
 

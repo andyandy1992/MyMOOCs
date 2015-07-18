@@ -184,7 +184,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename Images/Chapter1/House price prediction.png
+	filename ../Images/Week1/Chapter1/House price prediction.png
 	lyxscale 60
 	scale 60
 
@@ -197,7 +197,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename Images/Chapter1/Breast cancer (representation 1).png
+	filename ../Images/Week1/Chapter1/Breast cancer (representation 1).png
 	lyxscale 60
 	scale 60
 
@@ -296,7 +296,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename Images/Chapter1/Breast cancer (2 attributes).png
+	filename ../Images/Week1/Chapter1/Breast cancer (2 attributes).png
 	lyxscale 60
 	scale 60
 
@@ -373,7 +373,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename Images/Chapter1/Unsupervised learning.png
+	filename ../Images/Week1/Chapter1/Unsupervised learning.png
 	lyxscale 60
 	scale 60
 
@@ -480,7 +480,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Images/Chapter1/3ComponentsLearners.png
+	filename ../Images/Week1/Chapter1/3ComponentsLearners.png
 	lyxscale 40
 	scale 40
 

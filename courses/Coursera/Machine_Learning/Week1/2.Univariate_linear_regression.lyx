@@ -118,7 +118,7 @@ LatexCommand tableofcontents
 \begin_layout Subsection
 
 \lang british
-Representation
+Representation: Single Features
 \end_layout
 
 \begin_layout Notation*
@@ -176,7 +176,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Model representation (univariate linear regression).png
+	filename ../Images/Week1/Chapter2/Model representation (univariate linear regression).png
 	lyxscale 60
 	scale 60
 
@@ -241,7 +241,7 @@ learning algorithm
 \begin_layout Subsection
 
 \lang british
-Evaluation: Cost Function
+Evaluation: Cost Function for univariate linear regression
 \end_layout
 
 \begin_layout Standard
@@ -300,7 +300,19 @@ The mean is halved as a convenience of the gradient descent computation
 \begin_inset Formula $\frac{1}{2}$
 \end_inset
 
-).
+; note also that dividing by a constant 
+\begin_inset Formula $\frac{1}{2m}$
+\end_inset
+
+ is a linear operator, and so it does not effect which parameters 
+\begin_inset Quotes eld
+\end_inset
+
+score
+\begin_inset Quotes erd
+\end_inset
+
+ best).
 \end_layout
 
 \begin_layout Definition
@@ -316,7 +328,7 @@ squared error
 \series default
 )
 \series bold
- function
+ function for univariate linear regression
 \series default
  of a training set is 
 \begin_inset Formula 
@@ -332,7 +344,7 @@ J\left(\theta_{0},\theta_{1}\right)=\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\l
 \begin_layout Definition
 
 \lang british
-We seek
+We seek 
 \begin_inset Formula $\min_{h_{\theta}}J\left(\theta_{0},\theta_{1}\right)\iff\min_{\theta_{0},\theta_{1}}J\left(\theta_{0},\theta_{1}\right)$
 \end_inset
 
@@ -395,7 +407,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Cost Function Intuition.png
+	filename ../Images/Week1/Chapter2/Cost Function Intuition.png
 	lyxscale 60
 	scale 60
 
@@ -478,7 +490,7 @@ Observe
 
 \series bold
 \emph on
-More complicated case
+More general case
 \end_layout
 
 \begin_layout Example*
@@ -495,9 +507,17 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Bowl Plot.png
+	filename ../Images/Week1/Chapter2/Bowl Plot.png
 	lyxscale 60
-	scale 60
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Images/Week1/Chapter2/Contour Plot.png
+	lyxscale 60
+	scale 50
 
 \end_inset
 
@@ -512,7 +532,7 @@ status open
 \begin_layout Plain Layout
 
 \lang british
-3D representation.
+3D representation and it's contour plot.
 \end_layout
 
 \end_inset
@@ -539,51 +559,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Contour Plot.png
-	lyxscale 60
-	scale 60
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\lang british
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\lang british
-Contour plot.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example*
-
-\lang british
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-
-\lang british
-\begin_inset Graphics
-	filename Images/Chapter2/Cost Function Intuition (2 parameters) 1.png
+	filename ../Images/Week1/Chapter2/Cost Function Intuition (2 parameters) 1.png
 	lyxscale 70
 	scale 70
 
@@ -598,7 +574,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Cost Function Intuition (2 parameters) 2.png
+	filename ../Images/Week1/Chapter2/Cost Function Intuition (2 parameters) 2.png
 	lyxscale 70
 	scale 70
 
@@ -650,7 +626,7 @@ We seek an algorithm that efficiently minimises the cost function
 \begin_layout Subsection
 
 \lang british
-Optimisation: Gradient Descent
+Optimisation: Gradient Descent univariate linear regression
 \end_layout
 
 \begin_layout Standard
@@ -690,20 +666,20 @@ height "1in"
 height_special "totalheight"
 status open
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \series bold
 \lang british
 Gradient Descent 
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \lang british
 repeat until convergence {
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \emph on
 \lang british
@@ -723,14 +699,14 @@ repeat until convergence {
 )
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \emph on
 \lang british
 }
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \shape up
 \emph on
@@ -739,7 +715,7 @@ for
 \begin_inset Formula $\alpha$
 \end_inset
 
- the 
+ some (positive) 
 \series bold
 learning
 \series default
@@ -747,7 +723,12 @@ learning
 \series bold
 rate
 \series default
- (step size).
+ (aka.
+ step size) and some initial guess for 
+\begin_inset Formula $\theta_{0},\theta_{1}$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -811,14 +792,21 @@ temp1
  is equal to the slope of the tangent.
 \end_layout
 
+\begin_deeper
+\begin_layout Remark*
+
+\series bold
+\emph on
+\lang british
+WARNING using gradient descent
+\end_layout
+
 \begin_layout Remark*
 
 \lang british
-\begin_inset Wrap figure
-lines 0
-placement o
-overhang 0col%
-width "50col%"
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
@@ -827,7 +815,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Inital conditions and finishing position.png
+	filename ../Images/Week1/Chapter2/ProblemsWithGradientDecent.png
 	lyxscale 60
 	scale 60
 
@@ -843,12 +831,11 @@ status open
 
 \begin_layout Plain Layout
 
-\emph on
 \lang british
-Initial conditions
-\emph default
- can affect which (local) minimum you arrive at, and this may not necessarily
- be the global minimum.
+Where you start (your initial guess) can affect which (local) minimum you
+ arrive at, and this may not necessarily be the global minimum.
+ Observe if we are at a local minimum, one step of gradient descent does
+ nothing.
 \end_layout
 
 \end_inset
@@ -861,11 +848,15 @@ Initial conditions
 
 \end_layout
 
-\begin_deeper
-\begin_layout Remark*
+\end_deeper
+\begin_layout Subsubsection
+Intuition behind gradient descent
+\end_layout
+
+\begin_layout Standard
 
 \lang british
-Consider 
+Consider a 1D case: 
 \begin_inset Formula $J\left(\theta_{1}\right)$
 \end_inset
 
@@ -873,22 +864,16 @@ Consider
 \begin_inset Formula $\theta_{1}\in\mathbb{R}$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Remark*
-
-\lang british
-So 
+, so 
 \begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\frac{d}{d\theta_{1}}J\left(\theta_{1}\right)$
 \end_inset
 
-
+.
+ Thus
 \end_layout
 
-\begin_layout Remark*
+\begin_layout Standard
 
-\series bold
 \lang british
 \begin_inset Float figure
 wide false
@@ -901,7 +886,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Gradient descent - derivative term.png
+	filename ../Images/Week1/Chapter2/Gradient descent - derivative term.png
 	lyxscale 60
 	scale 60
 
@@ -912,19 +897,21 @@ status open
 
 \begin_layout Plain Layout
 
-\series bold
 \lang british
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
-\series bold
 \lang british
-Why the derivative term 
-\begin_inset Formula $\frac{d}{d\theta_{1}}$
+Note, the derivative term always has the correct sign for sending us in
+ the correct direction (towards the minimum).
+ Also note, gradient descent automatically takes smaller steps with time
+ (as we approach the local minimum, the derivative get smaller), so there
+ is no need to decrease 
+\begin_inset Formula $\alpha$
 \end_inset
 
- works.
+ over time.
 \end_layout
 
 \end_inset
@@ -935,6 +922,20 @@ Why the derivative term
 \end_inset
 
 
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+\emph on
+\lang british
+Choosing a sensible learning rate,
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\emph default
+.
 \end_layout
 
 \begin_layout Remark*
@@ -951,7 +952,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Gradient descent - the learning rate.png
+	filename ../Images/Week1/Chapter2/Gradient descent - the learning rate.png
 	lyxscale 65
 	scale 65
 
@@ -967,18 +968,7 @@ status open
 
 \begin_layout Plain Layout
 
-\series bold
 \lang british
-Choosing the learning rate,
-\begin_inset Formula $\alpha$
-\end_inset
-
-.
-\series default
-
-\begin_inset Newline newline
-\end_inset
-
 TOP: if 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -995,19 +985,12 @@ BOTTOM: if
 \begin_inset Formula $\alpha$
 \end_inset
 
-is too 
+ is too 
 \emph on
 large
 \emph default
-, gradient descent can overshoot the minimum and can fail to converge (even
- diverge).
-\begin_inset Newline newline
-\end_inset
-
-Observe, if we are at a local minimum, one step of gradient descent does
- nothing.
- Also, gradient descent automatically takes smaller steps with time (as
- we approach the local minimum, the derivative get smaller).
+, gradient descent can overshoot the minimum and can fail to converge (and
+ can even diverge).
 \end_layout
 
 \end_inset
@@ -1020,11 +1003,10 @@ Observe, if we are at a local minimum, one step of gradient descent does
 
 \end_layout
 
-\end_deeper
 \begin_layout Subsubsection
 
 \lang british
-Mixing the Cost Function and Gradient Descent - a first learning algorithm
+Applying the cost function for gradient descent - a first learning algorithm
  for linear regression
 \end_layout
 
@@ -1044,9 +1026,9 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Cost Function for Gradient Descent.png
+	filename ../Images/Week1/Chapter2/Cost Function for Gradient Descent.png
 	lyxscale 60
-	scale 60
+	scale 55
 
 \end_inset
 
@@ -1061,11 +1043,11 @@ status open
 \begin_layout Plain Layout
 
 \lang british
-Recall that a problem with Gradient Descent is that initial conditions can
- affect the (local) minimum you arrive at; however 
+Recall that a problem with general gradient descent is that initial conditions
+ can affect the (local) minimum you arrive at; however 
 \emph on
 \color green
-the Cost Function for Gradient Descent is 
+the Cost Function for gradient descent is 
 \emph default
 always
 \emph on
@@ -1098,20 +1080,20 @@ one global minimum
 \begin_layout Standard
 
 \lang british
-Observe
+Observe by linearity of the derivative,
 \begin_inset Formula 
 \begin{eqnarray*}
-\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{\partial}{\partial\theta_{j}}\cdot\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\\
+\frac{\partial}{\partial\theta_{j}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{\partial}{\partial\theta_{j}}\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}\\
  & = & \frac{1}{2m}\frac{\partial}{\partial\theta_{j}}\sum_{i=1}^{m}\left(\theta_{0}+\theta_{1}x^{\left(i\right)}-y^{\left(i\right)}\right)^{2}
 \end{eqnarray*}
 
 \end_inset
 
-Also 
+Also by the chain rule, we have 
 \begin_inset Formula 
 \begin{eqnarray*}
 \frac{\partial}{\partial\theta_{0}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\\
-\frac{\partial}{\partial\theta_{1}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}
+\frac{\partial}{\partial\theta_{1}}J\left(\theta_{0},\theta_{1}\right) & = & \frac{1}{m}\sum_{i=1}^{m}x^{\left(i\right)}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -1141,58 +1123,43 @@ height "1in"
 height_special "totalheight"
 status open
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
+\series bold
 \lang british
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-\lang british
-A1.3 - 
-\begin_inset Quotes eld
-\end_inset
-
-Batch
-\begin_inset Quotes erd
-\end_inset
-
- Gradient Descent
-\end_layout
-
-\end_inset
-
+Batch Gradient Descent
+\series default
  
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \lang british
 repeat until convergence {
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \lang british
 \begin_inset Formula $\theta_{0}:=\theta_{0}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\right]$
 \end_inset
 
- 
+
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \lang british
-\begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\cdot x^{\left(i\right)}\right]$
+\begin_inset Formula $\theta_{1}:=\theta_{1}-\alpha\left[\frac{1}{m}\sum_{i=1}^{m}x^{\left(i\right)}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)\right]$
 \end_inset
 
- 
+
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
 \shape up
+\emph on
 \lang british
 (simultaneously update 
 \begin_inset Formula $j=0$
@@ -1205,8 +1172,9 @@ repeat until convergence {
 )
 \end_layout
 
-\begin_layout Algorithm*
+\begin_layout Algorithm
 
+\emph on
 \lang british
 }
 \end_layout
@@ -1232,7 +1200,7 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename Images/Chapter2/Mixing Gradient Descent with the Cost Function.png
+	filename ../Images/Week1/Chapter2/Mixing Gradient Descent with the Cost Function.png
 	lyxscale 60
 	scale 60
 
@@ -1270,56 +1238,27 @@ global
 
 \end_layout
 
-\begin_layout Section
-
-\lang british
-Linear algebra review
-\end_layout
-
-\begin_layout Description
-
-\lang british
-Linear
-\begin_inset space ~
+\begin_layout Remark*
+The 
+\begin_inset Quotes eld
 \end_inset
 
-algebra Provides the notation and set of things you can do with matrices
- and vectors.
-\end_layout
-
-\begin_layout Standard
-
-\lang british
-Given Table 1, 
-\begin_inset Formula 
-\[
-\left[\begin{array}{cccc}
-2104 & 5 & 1 & 45\\
-1416 & 3 & 2 & 40\\
-1534 & 3 & 2 & 30\\
-852 & 2 & 1 & 36
-\end{array}\right]\left[\begin{array}{c}
-a\\
-b\\
-c\\
-d
-\end{array}\right]=\left[\begin{array}{c}
-460\\
-232\\
-315\\
-172
-\end{array}\right]
-\]
-
+Batch
+\begin_inset Quotes erd
 \end_inset
 
+ refers to the fact that over each step we look at all the training data
+ (each step compute over 
+\begin_inset Formula $m$
+\end_inset
 
-\end_layout
+ training examples).
+ Some non-batch versions exist, which look at small data subsets (to use
+ when 
+\begin_inset Formula $m$
+\end_inset
 
-\begin_layout Standard
-
-\lang british
-[I know the linear algebra, so skipped these videos.]
+ is too large).
 \end_layout
 
 \end_body
