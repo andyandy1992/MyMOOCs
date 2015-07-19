@@ -626,7 +626,7 @@ We seek an algorithm that efficiently minimises the cost function
 \begin_layout Subsection
 
 \lang british
-Optimisation: Gradient Descent
+Optimisation: Gradient Descent univariate linear regression
 \end_layout
 
 \begin_layout Standard

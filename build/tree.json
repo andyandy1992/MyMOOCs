@@ -32,7 +32,11 @@
 ]
 },
 
-{"id":"FOLDER", "label":"Week2", "inode":true, "open":false, "icon":"folder"}
+{"id":"FOLDER", "label":"Week2", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/Coursera/Machine_Learning/Week2/3.Multivariate_linear_regression.pdf", "label":"3.Multivariate linear regression", "inode":false, "icon":"file"}
+]
+}
+
 ]
 },
 
