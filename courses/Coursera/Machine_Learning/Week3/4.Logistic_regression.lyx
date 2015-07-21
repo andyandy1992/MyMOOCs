@@ -111,7 +111,7 @@ status open
 
 
 \backslash
-setcounter{section}{1}
+setcounter{section}{3}
 \end_layout
 
 \end_inset
@@ -120,12 +120,10 @@ setcounter{section}{1}
 \end_layout
 
 \begin_layout Section
-Practical aspects of implementation
+Logistic regression
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -142,33 +140,11 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Section
-Octave tutorial
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Logistic regression
-\end_layout
-
-\begin_layout Section
 One-vs-all classification
 \end_layout
 
 \begin_layout Section
 Regularization
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section

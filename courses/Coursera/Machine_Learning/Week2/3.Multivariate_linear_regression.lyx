@@ -91,6 +91,22 @@ theorems-sec-bytype
 
 \begin_body
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Multivariate linear regression
 \end_layout
