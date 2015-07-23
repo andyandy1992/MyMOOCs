@@ -33,9 +33,13 @@
 - [From NAND to Tetris: Building a Modern Computer From First Principles](http://www.nand2tetris.org/)
 
 #License
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License.][by-sa].
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.][by-nc-sa].
 
-[![Creative Commons License][by-sa-img]][by-sa]
+[![Creative Commons License][by-nc-sa-img]][by-nc-sa]
+
+#Contact Me
+I welcome comments, suggestions, and corrections! Feel free to suggest changes directly in the [github repo](https://github.com/andyandy1992/MyMOOCs) or you can send me a message (see my links below).
+
 
 #Follow me on
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
@@ -83,5 +87,5 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
 
-[by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[by-sa-img]: http://licensebuttons.net/l/by-sa/4.0/88x31.png
+[by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[by-nc-sa-img]: http://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
