@@ -1,0 +1,283 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+A typical neural network for solving the MNIST database
+\end_layout
+
+\begin_layout Abstract
+The MNIST database (Mixed National Institute of Standards and Technology
+ database) is a large database of handwritten digits that is commonly used
+ for training various image processing systems.
+ The database contains 60,000 training images and 10,000 testing images.
+ There have been a number of scientific papers on attempts to achieve the
+ lowest error rate; one paper, using a hierarchical system of convolutional
+ neural networks, manages to get an error rate on the MNIST database of
+ 
+\begin_inset Formula $0.23\,\%$
+\end_inset
+
+ (in a paper by the original creators of the database, they used a support
+ vector machine to get an error rate of 
+\begin_inset Formula $0.8\%$
+\end_inset
+
+).
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Details from 
+\begin_inset CommandInset href
+LatexCommand href
+name "Wikipedia"
+target "https://en.wikipedia.org/wiki/MNIST_database"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A typical neural network to solve the MNIST task might have
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+784 inputs
+\emph default
+ 
+\series default
+(pixels) connected to 
+\series bold
+\emph on
+1,000 neurons
+\series default
+\emph default
+, which are in turn connected to 
+\series bold
+\emph on
+10 output targets 
+\series default
+\emph default
+(one for each digit).
+\end_layout
+
+\begin_layout Itemize
+Each layer is
+\emph on
+ fully connected
+\emph default
+ to the layer above (so each input pixel has a set of 
+\series bold
+\emph on
+weights
+\series default
+\emph default
+ that is connected to every neuron in the layer above).
+\end_layout
+
+\begin_layout Standard
+This architecture can do quite well on handwritten digit recognition, but
+ is orders of magnitude smaller than the human brain.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture1/Chapter2/typical-nn.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A graphical representation of the network described above, where 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ are the inputs, 
+\begin_inset Formula $h_{j}$
+\end_inset
+
+ are the hidden neurons and 
+\begin_inset Formula $y_{k}$
+\end_inset
+
+ are the output class variables.
+ The arrows represent the weights; the first layer connects 
+\begin_inset Formula $784$
+\end_inset
+
+ pixels to 
+\begin_inset Formula $1,000$
+\end_inset
+
+ hidden neurons (units) using 
+\begin_inset Formula $784\times1,000=784,000$
+\end_inset
+
+ weights (typically represented as a 
+\begin_inset Formula $784\times1,000$
+\end_inset
+
+ matrix).
+ The next layer connects 
+\begin_inset Formula $1,000$
+\end_inset
+
+ hidden units to 
+\begin_inset Formula $10$
+\end_inset
+
+ output labels using 
+\begin_inset Formula $10\times1,000=10,000$
+\end_inset
+
+ weights; thus this network has a total of 
+\begin_inset Formula $10,000+784,000=794,000$
+\end_inset
+
+ weights.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

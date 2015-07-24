@@ -8,6 +8,9 @@
 theorems-ams-bytype
 theorems-sec-bytype
 theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
 \end_modules
 \maintain_unincluded_children false
 \language english
@@ -124,6 +127,26 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Abstract
+In this chapter, we describe one of the first and most simple supervised
+ learning algorithms, 
+\lang british
+univariate linear regression
+\lang english
+.
+ We outline this using the general framework of learning algorithms discussed
+ at the end of the 
+\begin_inset CommandInset href
+LatexCommand href
+name "chapter 1"
+target "http://andyandy1992.github.io/MyMOOCs/courses/Coursera/Machine_Learning/Week1/1.Introduction_to_Machine_Learning.pdf"
+
+\end_inset
+
+ (LEARNING = REPRESENTATION + EVALUATION + OPTIMISATION).
+ In particular, we described the intuition behind each stage of learning,
+\end_layout
+
 \begin_layout Subsection
 
 \lang british
@@ -186,8 +209,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Model representation (univariate linear regression).png
-	lyxscale 60
-	scale 60
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -417,8 +440,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Cost Function Intuition.png
-	lyxscale 60
-	scale 60
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -517,16 +540,16 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Bowl Plot.png
-	lyxscale 60
-	scale 50
+	lyxscale 40
+	scale 40
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Contour Plot.png
-	lyxscale 60
-	scale 50
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -569,8 +592,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Cost Function Intuition (2 parameters) 1.png
-	lyxscale 70
-	scale 70
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -584,8 +607,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Cost Function Intuition (2 parameters) 2.png
-	lyxscale 70
-	scale 70
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -825,8 +848,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/ProblemsWithGradientDecent.png
-	lyxscale 60
-	scale 60
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -896,8 +919,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Gradient descent - derivative term.png
-	lyxscale 60
-	scale 60
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -961,9 +984,17 @@ status open
 
 \lang british
 \begin_inset Graphics
-	filename ../Images/Week1/Chapter2/Gradient descent - the learning rate.png
-	lyxscale 65
-	scale 65
+	filename ../Images/Week1/Chapter2/Gradient descent - the learning rate1.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week1/Chapter2/Gradient descent - the learning rate2.png
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -978,7 +1009,7 @@ status open
 \begin_layout Plain Layout
 
 \lang british
-TOP: if 
+LEFT: if 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -990,7 +1021,7 @@ small
 \begin_inset Newline newline
 \end_inset
 
-BOTTOM: if 
+RIGHT: if 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -1020,13 +1051,13 @@ Applying the cost function for gradient descent - a first learning algorithm
 \end_layout
 
 \begin_layout Standard
+\noindent
+\align center
 
 \lang british
-\begin_inset Wrap figure
-lines 0
-placement o
-overhang 0col%
-width "50col%"
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
@@ -1036,8 +1067,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Cost Function for Gradient Descent.png
-	lyxscale 60
-	scale 55
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -1210,8 +1241,8 @@ status open
 \lang british
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter2/Mixing Gradient Descent with the Cost Function.png
-	lyxscale 60
-	scale 60
+	lyxscale 40
+	scale 40
 
 \end_inset
 

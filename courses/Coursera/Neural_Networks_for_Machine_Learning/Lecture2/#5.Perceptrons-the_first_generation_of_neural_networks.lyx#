@@ -1,0 +1,3231 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Perceptrons - the first generation neural networks
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Perceptrons were popularised by Frank Rosenblatt in the early 1960's, who
+ appeared to have a 
+\begin_inset Quotes eld
+\end_inset
+
+very powerful learning algorithm
+\begin_inset Quotes erd
+\end_inset
+
+ (see section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:5.2.2"
+
+\end_inset
+
+) and grand claims were made for what they could learn to do.
+ Unfortunately, his data was often bias.
+ For example, he claimed that this algorithm could distinguish between tanks
+ and trucks after processing many learning examples.
+ What was not realised was that all the pictures of the trucks were taking
+ on a cloudy day, whilst the pictures of tanks were taken on a clear sunny
+ day, and all the perceptron was doing was measuring the total intensity
+ of all the pixels.
+ Likewise, Minsky and Papert in 1968 published a book called 
+\begin_inset Quotes eld
+\end_inset
+
+Perceptrons
+\begin_inset Quotes erd
+\end_inset
+
+ that analysed that they could do and show their limitations.
+ Many people thought these limitations applied to all neural networks (even
+ though Minsky and Papert knew the book did not answer this).
+\end_layout
+
+\begin_layout Abstract
+In this chapter we describe the Perceptron, its learning procedure and the
+ limitations of using perceptrons.
+\end_layout
+
+\begin_layout Subsection
+The standard paradigm for statistical pattern recognition:
+\end_layout
+
+\begin_layout Enumerate
+Convert the raw input vector into a vector of feature activations.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Quotes eld
+\end_inset
+
+We use handwritten programs based on commonsense to define the features
+ (so this part of the system does not learn).
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\emph on
+Learn
+\emph default
+ how to weight each of the feature activations to get a single scalar quantity.
+\end_layout
+
+\begin_layout Enumerate
+If this quantity is above some threshold, decide that the input vector is
+ a positive example of the target class.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture2/Chapter5/standard-perceptron-architecture.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A perceptron is a particular example of a statistical pattern recognition
+ system.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+How to learn biases using the same rule as we use for learning weights
+\end_layout
+
+\begin_layout Standard
+For perceptrons we use binary threshold neurons (recall ) as our decision
+ units (training binary output neurons as classifiers).
+ A threshold is equivalent to having a negative bias; that is, 
+\begin_inset Formula $y=\mathbb{I}_{\left[\sum_{i}x_{i}w_{i}\geq\theta\right]}\iff y=\mathbb{I}_{\left[z\geq0\right]}$
+\end_inset
+
+ where 
+\begin_inset Formula $b=-\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture2/Chapter5/biases-as-weights.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Biases as weights
+\series default
+: We can avoid having to figure out a separate learning rule for the bias
+ by using this trick - a bias is 
+\emph on
+exactly equivalent 
+\emph default
+to a weight on an extra input line that always has an activity of 1.
+ We can now learn a bias as if it were a weight.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:5.2.2"
+
+\end_inset
+
+The perceptron convergence procedure
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Deal with threshold: 
+\series default
+Add an extra component with value 1 to each input vector (i.e.
+ 
+\begin_inset Formula $\mathbf{x}=\left(\mathbf{x},1\right)$
+\end_inset
+
+).
+ The bias weight on this component is minus the threshold (so we can forget
+ the threshold, i.e.
+ 
+\begin_inset Formula $\mathbf{w}=\left(\mathbf{w},b\right)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Pick training cases using any policy that ensures that every training case
+ will keep getting picked.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If the output unit is correct, leave its weight alone.
+\end_layout
+
+\begin_layout Enumerate
+If the output unit is incorrectly outputs a 0, add the input vector to the
+ weight vector.
+\end_layout
+
+\begin_layout Enumerate
+If the output unit is incorrectly outputs a 1, subtract the input vector
+ from the weight vector.
+\end_layout
+
+\end_deeper
+\begin_layout Remark
+The set of candidate hypotheses considered in perceptron learning is the
+ set of all possible real-valued weight vectors 
+\begin_inset Formula $H=\left\{ \mathbf{w}:\mathbf{w}\in\mathbb{R}^{n}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark
+This is 
+\series bold
+\emph on
+\bar under
+guaranteed
+\series default
+\emph default
+\bar default
+ to find a set of weights that gets the right answer for every training
+ case...
+\color red
+IF ANY SUCH SET EXISTS! 
+\color inherit
+Unfortunately for many interesting problems, 
+\emph on
+\bar under
+no such set of weights exist
+\emph default
+\bar default
+; this depends very much on what features you use.
+ So for many problems, the difficult bit is deciding what features to use.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+A geometrical view of perceptrons learning
+\end_layout
+
+\begin_layout Remark
+We are going to start thinking about hyperplanes in high-demensional spaces;
+ this is difficult.
+ To deal with say, hyperplanes in a 14-dimensional space, visualise a 3-D
+ space and say 
+\begin_inset Quotes eld
+\end_inset
+
+14
+\begin_inset Quotes erd
+\end_inset
+
+ to yourself very loudly (everyone does it).
+\end_layout
+
+\begin_layout Note
+Going from 13-D to 14-D creates as much extra complexity as going from 2-D
+ to 3-D.
+\end_layout
+
+\begin_layout Definition
+The 
+\series bold
+weight-space
+\series default
+ has 1-D per weight.
+ A 
+\emph on
+point
+\emph default
+ in the space represents a particular setting of all the 
+\emph on
+weights
+\emph default
+.
+ Assuming that we have eliminated the threshold, each 
+\emph on
+training case
+\emph default
+ can be represented as a 
+\emph on
+hyperplane
+\emph default
+ through the origin.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/weight-space-1.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+An input vector with correct answer=1:
+\series default
+ Each training case defines a plane (black line) - the plane goes through
+ the origin and is perpendicular to the 
+\color blue
+input vector (blue arrow)
+\color inherit
+.
+ For each training case, the weights must lie on 
+\emph on
+one
+\emph default
+ side of this hyperplane to get the 
+\emph on
+answer correct
+\emph default
+; on one side of the plane the output is wrong because the 
+\emph on
+scalar product
+\emph default
+ of the weight vector with the input vector,
+\emph on
+ 
+\emph default
+
+\begin_inset Formula $z=\sum_{i}x_{i}w_{i}=\left\Vert \mathbf{x}\right\Vert \left\Vert \mathbf{w}\right\Vert \cos\theta$
+\end_inset
+
+, has the wrong sign (it should be positive so that 
+\begin_inset Formula $z\geq0\Rightarrow y=\mathbb{I}_{\left[z\geq0\right]}=1$
+\end_inset
+
+, so that the angle should be less than 
+\begin_inset Formula $90^{\circ}$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+We can think of the inputs as partitioning the space into two halves - weights
+ lying in one half will get the answer correct while on the other half they
+ will give the incorrect answer (which half is determined by the output
+ class).
+ That is, the inputs will 
+\emph on
+constrain 
+\emph default
+the set of weights that give the correct classification results.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/weight-space-0.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+An input vector with correct answer=0:
+\series default
+ This time for each training case, the weights must lie on 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+other
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ side of the hyperplane to get the 
+\emph on
+answer correct
+\emph default
+, because we want the 
+\emph on
+scalar product
+\emph default
+ of the weight vector with the input vector,
+\emph on
+ 
+\emph default
+
+\begin_inset Formula $z=\sum_{i}x_{i}w_{i}=\left\Vert \mathbf{x}\right\Vert \left\Vert \mathbf{w}\right\Vert \cos\theta$
+\end_inset
+
+ to be less than 0 (so 
+\begin_inset Formula $y=\mathbb{I}_{\left[z\geq0\right]}=0$
+\end_inset
+
+); that is the angle should be greater than 
+\begin_inset Formula $90^{\circ}$
+\end_inset
+
+, so the sign is negative.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If there are any weight vectors that get the right answer for all cases,
+ they lie in a hyper-cone with its apex at the origin.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/weight-space-cone.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+The Cone of Feasible Solutions:
+\series default
+ To get all training cases right, we need to find a point on the right side
+ of all the planes - 
+\emph on
+inside the cone of feasible solution
+\emph default
+.
+ Of course there 
+\emph on
+may not exist
+\emph default
+ such a cone - it may be that there are no weight vectors that get the right
+ answer for all the training cases (but if there does exist such, it'll
+ be inside the cone).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+
+\series bold
+The problem is convex: 
+\series default
+If we find 2 good weight vectors (that lie in the cone for all training
+ cases), the average of them is also a good weight vector.
+ In general machine learning problems, if you can find a 
+\emph on
+convex 
+\emph default
+problem it makes life a lot easier.
+\end_layout
+
+\begin_layout Subsection
+Why the learning procedure works
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Generously feasible
+\series default
+ weight vectors are vectors that lie withing the feasible region by a
+\emph on
+ margin
+\emph default
+ at least as great as the length of the input vector.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Images/why-learning-procedure-works.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm-5.1"
+
+\end_inset
+
+Every time the perceptron makes a mistake, the squared distance to all of
+ generously feasible weight vectors is always decreased by at least the
+ squared length of the input (or update) vector.
+\end_layout
+
+\begin_layout Proof
+
+\emph on
+(Sketch)
+\end_layout
+
+\begin_layout Proof
+Each time the perceptron makes a mistake, the current weight vector moves
+ to decrease its squared distance from every generously feasible weight
+ vector by at least the squared length of the current input vector.
+ Assuming none of the input vectors are infinitesimally small, this means
+ that after a finite number of mistakes, the weight vector must lie in the
+ feasible region (IF THIS REGION EXISTS), to stop it making mistakes.
+\end_layout
+
+\begin_layout Note
+The weight vector need not lie in the generously feasible region.
+\end_layout
+
+\begin_layout Subsection
+What perceptron can't do
+\end_layout
+
+\begin_layout Standard
+If you are allowed to choose the features by hand and if you use enough
+ features, you can make a perceptron do almost almost anything.
+\end_layout
+
+\begin_layout Standard
+Binary threshold output units cannot accomplish all task either.
+ For example, consider the task of establishing if two single bit features
+ are the same:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Positive Cases (same)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Negative Cases (different)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(1,1\right)\Rightarrow1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,1\right)\Rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,0\right)\Rightarrow1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(1,0\right)\Rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The 4 input-output pairs give 4 inequalities that are impossible to satisfy:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+1\cdot w_{1}+1\cdot w_{2}\geq\theta\\
+0\cdot w_{1}+0\cdot w_{2}\geq\theta\\
+0\cdot w_{1}+1\cdot w_{2}<\theta\\
+1\cdot w_{1}+0\cdot w_{2}<\theta
+\end{array}\right\} \Rightarrow\begin{array}{c}
+w_{1}+w_{2}\geq\theta\\
+w_{1}+w_{2}<2\theta
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/no-hyperplane.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+This set of training examples is not 
+\series bold
+linearly separable 
+\series default
+(cannot be correctly classified by any straight line) - namely, the Boolean
+ function XOR canon represented by perceptrons.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Minsky and Papert proved that the above learning procedure converges within
+ a finite number of iterations, 
+\emph on
+provided the training examples are linearly separable
+\emph default
+.
+ If the data are not linearly separable, convergence is not assured.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Minsky and Papert's 
+\begin_inset Quotes eld
+\end_inset
+
+Group Invariance Theorem
+\begin_inset Quotes erd
+\end_inset
+
+ says that the part of a Perceptron that learns cannot learn to recognise
+ patterns that have undergone transformations that form a group (such has
+ translations with 
+\series bold
+wrap-around
+\series default
+).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+To deal with such transformations, a Perceptron needs to use multiple feature
+ units (so the tricky part of pattern recognition must be solved by the
+ hand-coded feature detectors, not the learning procedure).
+\end_layout
+
+\begin_layout Remark
+This illustrates that for neural networks to be powerful, we need them to
+ be able to learn the feature detectors (it's not enough to just learn the
+ weights of feature detectors) - hence second generation NNs.
+\end_layout
+
+\begin_layout Section
+Second Generation NNs
+\end_layout
+
+\begin_layout Subsection
+Learning the weights of a linear neuron
+\end_layout
+
+\begin_layout Standard
+Learning algorithm of a linear neuron.
+ C.f.
+ the learning algorithm for a perceptron:
+\end_layout
+
+\begin_layout Description
+Perceptron Weights are always getting closer to a good set of weights.
+\end_layout
+
+\begin_layout Description
+Linear
+\begin_inset space ~
+\end_inset
+
+Neuron
+\begin_inset space ~
+\end_inset
+
+(aka.
+\begin_inset space ~
+\end_inset
+
+linear
+\begin_inset space ~
+\end_inset
+
+filters) The outputs are are always getting closer to the target output.
+ (The simplest example is a linear neuron with a squared error measure.)
+\end_layout
+
+\begin_layout Subsubsection
+Why the perceptron learning procedure cannot be generalised to hidden layers
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm-5.1"
+
+\end_inset
+
+ cannot be extended to more complex networks in which the average of two
+ good solutions may be a bad solution.
+ So 
+\begin_inset Quotes eld
+\end_inset
+
+multi-layer
+\begin_inset Quotes erd
+\end_inset
+
+ neural networks do not use the perceptron learning procedure.
+\end_layout
+
+\begin_layout Subsubsection
+Why the learning procedure for linear neurons make progress
+\end_layout
+
+\begin_layout Notation
+The linear neuron has a real-valued output which is a weighted sum of its
+ inputs (including the bias as a weight with input value 1):
+\begin_inset Formula 
+\[
+y=\mathbf{w}^{T}\mathbf{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The aim of learning is to minimise the error summed over all training cases.
+ The error is the squared difference between the desired output and the
+ actual output.
+\end_layout
+
+\begin_layout Definition
+The 
+\series bold
+residual error 
+\series default
+is 
+\begin_inset Formula $t-y$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+The 
+\series bold
+delta-rule
+\series default
+ (aka.
+ 
+\series bold
+LMS
+\series default
+,
+\series bold
+ Least-Mean-Square
+\series default
+) for learning with linear neurons is 
+\begin_inset Formula 
+\[
+\Delta w_{i}=\varepsilon x_{i}\left(t-y\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\varepsilon:=$
+\end_inset
+
+learning rate, some positive constant to moderate the degree to which weights
+ are changed at each step (can be chosen to make the calculations easier).
+ It is usually set to some small value, e.g.
+ 0.1, and sometime made to decay as the number of weight-tuning iterations
+ increases.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+So the learning procedure for linear neurons involves updating the weights
+ according to the delta-rule (iteratively).
+\end_layout
+
+\begin_layout Remark
+The delta-rule converges only asymptotically, but converges regardless of
+ whether the training data are linearly separable.
+ The perceptron train rule converges after a finite number of iterations
+ to a hypothesis that perfectly classifies the training data, 
+\emph on
+provided 
+\emph default
+the training examples are linearly separable.
+\end_layout
+
+\begin_layout Subsection
+The error surface weights of a linear neuron
+\end_layout
+
+\begin_layout Subsubsection
+Measure for training error
+\end_layout
+
+\begin_layout Standard
+Although there are many ways to define this error, one common measure (that
+ will see turn out especially convenient) is
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left(\mathbf{w}\right) & = & \frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^{2}\\
+\therefore\nabla E\left(\mathbf{w}\right) & = & \left[\frac{\partial E}{\partial w_{0}},\frac{\partial E}{\partial w_{1}},...,\frac{\partial E}{\partial w_{n}}\right]
+\end{eqnarray*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial E}{\partial w_{i}} & = & \frac{\partial}{\partial w_{i}}\left[\frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^{2}\right]\\
+ & = & \frac{1}{2}2\sum_{d\in D}\left(t_{d}-y_{d}\right)\frac{\partial}{\partial w_{i}}\left[\left(t_{d}-y_{d}\right)\right]\\
+ & = & \sum_{d\in D}\left(t_{d}-y_{d}\right)\frac{\partial}{\partial w_{i}}\left[\left(t_{d}-x_{d}\cdot w\right)\right]\\
+ & = & \sum_{d\in D}\left(t_{d}-y_{d}\right)\left(-\left(x_{d}\right)_{i}\right)
+\end{eqnarray*}
+
+\end_inset
+
+We characterise 
+\begin_inset Formula $E$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+ because the linear unit output 
+\begin_inset Formula $y$
+\end_inset
+
+ depends on this weight vector.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/quadratic-bowl-learning-linear-neurons.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/hypothesis-space-GD.png
+	lyxscale 10
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The error surface lies in a space with a horizontal axis for each weight,
+ and one vertical axis for the error.
+ For a linear neuron with a squared error, it is a quadratic bowl (i.e.
+ vertical cross-sections are parabolas, whilst horizontal cross-sections
+ are ellipses).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+WARNING: For multi-layer, non-linear nets the error surface is much more
+ complicated.
+\end_layout
+
+\begin_layout Subsubsection
+Online learning vs.
+ batch learning
+\end_layout
+
+\begin_layout Description
+Online
+\begin_inset space ~
+\end_inset
+
+Learning 
+\end_layout
+
+\begin_layout Description
+Batch
+\begin_inset space ~
+\end_inset
+
+Learning
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/online-vs-batch-learning.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Batch (aka.
+ offline) learning (left) will yield a much more stable descent (namely
+ steepest descent) to a local minimum since each update is performed based
+ on all training cases; 
+\begin_inset Formula $\mathbf{w}\rightarrow\mathbf{w}+\Delta\mathbf{w}$
+\end_inset
+
+, where 
+\begin_inset Formula $\Delta\mathbf{w}=-\eta\nabla E\left(\mathbf{w}\right)$
+\end_inset
+
+ for the step size 
+\begin_inset Formula $\eta$
+\end_inset
+
+ (note the negative size as we are decreasing to a minimum).
+ For online learning (right), we change the weights according to each specific
+ training case - from the initial red dot, we move in a direction perpendicular
+ to the constraint from training case 1, then we move in a direction perpendicul
+ar to the constraint from training case 2.
+ This means that the two algorithms visit different sets of points during
+ adaptation.
+ However, they both converge to the same minimum.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Why learning can be slow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/elongated-ellipse.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:6.3"
+
+\end_inset
+
+If the ellipse is very elongated, the direction of steepest descent is almost
+ perpendicular to the direction towards the minimum; the red gradient vector
+ has a large component along the short axis of the ellipse, and a small
+ component along the long axis of the ellipse (just the opposite to what
+ we want).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Learning the weights of a logistic output neuron
+\end_layout
+
+\begin_layout Standard
+Extending the learning rule for linear neurons to nonlinear multi-layer
+ neurons, we need to:
+\end_layout
+
+\begin_layout Enumerate
+Extend the learning rule to a
+\emph on
+ single nonlinear 
+\emph default
+neuron (we'll use logistic neurons, though any nonlinear neuron can be used).
+\end_layout
+
+\begin_layout Subsubsection
+The derivatives of a logistic neuron
+\end_layout
+
+\begin_layout Standard
+Recall the 
+\emph on
+logit
+\emph default
+, 
+\begin_inset Formula $z=b+\sum_{i}x_{i}w_{i}$
+\end_inset
+
+ and the output 
+\begin_inset Formula $y=\frac{1}{1+e^{-z}}$
+\end_inset
+
+.
+ Therefore (
+\begin_inset Quotes eld
+\end_inset
+
+the last equation is not obvious, but I confirmed it with the maths
+\begin_inset Quotes erd
+\end_inset
+
+) 
+\begin_inset Formula 
+\[
+\frac{\partial z}{\partial w_{i}}=x_{i},\ \frac{\partial z}{\partial x_{i}}=w_{i},\ \frac{dy}{dz}=y\left(1-y\right)
+\]
+
+\end_inset
+
+Hence the learning rule for a logistic neuron is (using the chain rule for
+ 
+\begin_inset Formula $\frac{\partial y}{\partial w_{i}}=\frac{\partial z}{\partial w_{i}}\frac{\partial y}{\partial z}=x_{i}y\left(1-y\right)$
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial E}{\partial w_{i}} & = & \sum_{n}\frac{\partial y_{n}}{\partial w_{i}}\frac{\partial E}{\partial y_{n}}\\
+ & = & -\sum_{n}{\color{green}\left(x_{n}\right)_{i}}{\color{red}y_{n}\left(1-y_{n}\right)}{\color{green}\left(t_{n}-y_{n}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+Note the delta-rule is the same as the green terms; the extra term defines
+ the slope of the logistic.
+\end_layout
+
+\begin_layout Subsection
+The backpropagation algorithm (1980s)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+If you come up with a way to measure error of the network, backprop tells
+ you how to change the weights to most efficiently minimise that error (error
+ gradient in technical terms).
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How to learn multiple layers of features.
+ Networks without hidden units are very limited in the input-output mappings
+ they can model.
+ Adding a layer of hand-coded features (as in a perceptron) makes them much
+ more powerful, but the hard bit is designing the features.
+ We would like to find good features without requiring insight into the
+ task or repeated trial and error - we need to automate the loop of designing
+ features for a particular task and seeing how well they work.
+\end_layout
+
+\begin_layout Subsubsection
+How to learn the weights of hidden units
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\bar under
+Learning by randomly perturbing weights (c.f.
+ evolution)
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+Randomly perturb one weight, and see if it improves performance - if so,
+ save the change.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is a form of reinforcement learning.
+ This is 
+\bar under
+very inefficient
+\bar default
+.
+ We need to do multiple forward passes on a representative set of training
+ cases just to change one weight.
+ Backpropagation is much better.
+ Towards the end of learning, large weight perturbations will nearly always
+ make things worse, because the weights need to have the right relative
+ values.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Learning by randomly perturbing all weights in parallel and correlate the
+ performance gain with the weight changes,
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Not any better: we need lots of trials on each training case to 
+\begin_inset Quotes eld
+\end_inset
+
+see
+\begin_inset Quotes erd
+\end_inset
+
+ the effect of changing one weight through the noise created by all the
+ changes to other weights.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\emph on
+Learning by randomly perturbing the activities of the hidden units.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Once we know how we want a hidden activity to change on a given training
+ case, we can compute how to change the weights.
+\end_layout
+
+\begin_layout Enumerate
+There are fewer activities than weights, but backpropagation still wins
+ by a factor of the number of neurons.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+The idea behind backpropagation
+\end_layout
+
+\begin_layout Standard
+We don't know what the hidden units ought to do (hence the name 
+\begin_inset Quotes eld
+\end_inset
+
+hidden
+\begin_inset Quotes erd
+\end_inset
+
+), but we can compute how fast the error changed as we change a hidden activity.
+ Instead of using desired activities to train the hidden units, we use error
+ derivatives w.r.t.
+ hidden activities.
+ Each hidden activity can affect many output units and can therefore have
+ many separate effects on the error.
+ These effects must be combined.
+\end_layout
+
+\begin_layout Standard
+We can compute error derivatives for all the hidden units efficiently at
+ the same time.
+ Once we have the error derivatives for the hidden activities, its easy
+ to get the error derivatives foe the weights going into a hidden unit.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/backpropagation-single-case.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Sketch of the backpropagation algorithm on a single case
+\series default
+:
+\begin_inset Newline newline
+\end_inset
+
+1.
+ Convert the error between actual output and target output into an error
+ derivative (e.g.
+ using usual error 
+\begin_inset Formula $E=\frac{1}{2}\sum_{j\in\mbox{output}}\left(t_{j}-y_{j}\right)^{2}\Rightarrow\frac{\partial E}{\partial y_{j}}=-\left(t_{j}-y_{j}\right)$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+2.
+ Then compute error derivatives in each hidden layer from error derivatives
+ in the layer above.
+\begin_inset Newline newline
+\end_inset
+
+3.
+ Then use error derivatives w.r.t.
+ activities to get error derivatives w.r.t.
+ the incoming weights.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/backpropagating-algorithm.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Backpropagating 
+\begin_inset Formula $\frac{dE}{dy}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Using the derivatives computed by backpropagation
+\end_layout
+
+\begin_layout Standard
+Figuring out how to obtain the error derivatives for all the weights in
+ a multilayer network is the key to being able to learn efficient neural
+ networks.
+ The backprogation algorithm is an efficient way of computing the error
+ derivative 
+\begin_inset Formula $\frac{dE}{dw}$
+\end_inset
+
+ for every weight on a single training case.
+ To get a fully specified learning procedure, we still need to make a lot
+ of other decisions:
+\end_layout
+
+\begin_layout Itemize
+How to prevent the network from over-fitting very badly if we use a large
+ network?
+\end_layout
+
+\begin_layout Itemize
+How to use the error derivatives found by backpropagation:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\emph on
+Optimisation issues (more detail at section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Optimisation-issues"
+
+\end_inset
+
+): 
+\emph default
+How do we use the error derivative on individual cases to discover a good
+ set of weights?
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Generalisation issues (more detail at section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Generalisation-issues"
+
+\end_inset
+
+):
+\emph default
+ How do we ensure that the learned weights work well for cases we did not
+ see during training?
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Over-fitting: The downside of using powerful models
+\end_layout
+
+\begin_layout Standard
+The training data contains information about the 
+\emph on
+regularities 
+\emph default
+in the mapping from input to output, but it also contains two types of noise:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Unreliable target values.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Sampling error: 
+\emph default
+there will be accidental regularities just because of the particular training
+ cases that chosen; e.g.
+ if a teacher explains what polygons are by showing a square and a rectangle,
+ you'll not know that polygons do not only have 4 sides, right angles etc.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+For any finite set of examples, there'll be accidental regularities.
+\begin_inset Quotes erd
+\end_inset
+
+ When fitting models, there's no way it can tell the difference between
+ an accidental regularity that's just there because of the particular sample
+ we chose, and real regularities that'll generalise properly to new cases.
+\end_layout
+
+\begin_layout Itemize
+So if the model is very flexible, it can model the sampling error really
+ well - this is a disaster!
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/overfitting.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+An example of over-fitting:
+\series default
+ Which model should we use? 
+\color red
+The complicated model fits the data better, but it's not economical.
+ 
+\color inherit
+A model is convincing when it fits a 
+\emph on
+lot of data 
+\emph default
+surprisingly well.
+ (It is not surprising that a complicated model can fit a small amount of
+ data well, as above.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Reducing over-fitting
+\end_layout
+
+\begin_layout Standard
+A large number of different methods have been developed (see lecture 7 ,
+ section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Generalisation-issues"
+
+\end_inset
+
+ for more explanation):
+\end_layout
+
+\begin_layout Description
+Weight-decay Keep the model simple by keeping the weights as small as possible
+ (or even zero).
+\end_layout
+
+\begin_layout Description
+Weight-sharing Insist many of the weights have exactly the same values as
+ each other.
+\end_layout
+
+\begin_layout Description
+Early
+\begin_inset space ~
+\end_inset
+
+stopping Create 
+\begin_inset Quotes eld
+\end_inset
+
+fake
+\begin_inset Quotes erd
+\end_inset
+
+ test sets - every so often, look at what's happening on the fake test set
+ (stop learning if fake test sets gets worse)
+\end_layout
+
+\begin_layout Description
+Model
+\begin_inset space ~
+\end_inset
+
+averaging Train on not so different NNs, and average them together in hope
+ that it reduces the errors you're making.
+\end_layout
+
+\begin_layout Description
+Bayesian
+\begin_inset space ~
+\end_inset
+
+fitting Fancy form of model averaging.
+\end_layout
+
+\begin_layout Description
+Dropout Make models more robust by randomly emitting hidden units upon learning.
+\end_layout
+
+\begin_layout Description
+Generative
+\begin_inset space ~
+\end_inset
+
+pre-training Complicated (see end of course).
+\end_layout
+
+\begin_layout Subsubsection
+Optimisation issues in using the weight derivatives
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+How often to update the weights?
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+Online
+\bar default
+ - after each training case.
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+Full Batch
+\bar default
+ - (
+\begin_inset Quotes eld
+\end_inset
+
+more sensible
+\begin_inset Quotes erd
+\end_inset
+
+) after a full sweep through the training data.
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+Mini-Batch
+\bar default
+ - (
+\begin_inset Quotes eld
+\end_inset
+
+typically done when train big NNs on big data sets
+\begin_inset Quotes erd
+\end_inset
+
+) after a small sample of training cases.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+How much to update?
+\end_layout
+
+\begin_layout Itemize
+Use a fixed learning rate?
+\end_layout
+
+\begin_layout Itemize
+Adapt the global learning rate? 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If the error keeps going up and down (oscillating) then we'll reduce the
+ learning rate, whilst if we're making steady progress, we'll increase the
+ learning rate.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Adapt the learning rate on each connection separately?
+\end_layout
+
+\begin_layout Itemize
+Don't use steepest descent at all?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+As we saw in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:6.3"
+
+\end_inset
+
+, steepest descent doesn't always converge quickly to the minimum.
+\end_layout
+
+\end_deeper
+\begin_layout Part
+Learning to predict the next word
+\end_layout
+
+\begin_layout Standard
+We now use the backpropagation algorithm to learn a feature representation
+ of the meaning of the word.
+ It illustrates the idea about how you can take some relational information,
+ and use the back propagation algorithm to turn relational information into
+ feature vectors that capture the meaning of words
+\end_layout
+
+\begin_layout Section
+A simple example of relational information
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/family-tree.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+We'd like to train a NN to understand the information in a family tree.
+ Both these family trees of English and Italian people has pretty much the
+ same structure - when it tries to learn both sets of facts, the neural
+ net is going to be able to take advantage of that analogy.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Another way to express the same information
+\end_layout
+
+\begin_layout Standard
+We could make a set of propositions using the 12 relationships:
+\end_layout
+
+\begin_layout Itemize
+son, daughter, nephew, niece, father, mother, uncle, aunt
+\end_layout
+
+\begin_layout Itemize
+brother, sister, husband, wife
+\end_layout
+
+\begin_layout Standard
+Using these, we can write down triples such that the last statement follows
+ from the previous two; e.g.
+ 
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+\mbox{colin has-father james}\\
+\mbox{colin has-mother victoria}
+\end{array}\right\} \Rightarrow\mbox{james has-wife victoria}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+A relational learning task
+\end_layout
+
+\begin_layout Standard
+The obvious way to express the regularities is as symbolic rules:
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+x\mbox{ has-mother }y\\
+y\mbox{ has-husband }z
+\end{array}\right\} \Rightarrow x\mbox{ has-father }z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Find the symbolic rules involves a difficult search through a very large
+ discrete space of possibilities.
+\end_layout
+
+\begin_layout Itemize
+Can a neural network capture the same knowledge by searching through a continuou
+s space of weights?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/NN-family-tree.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+The structure of the neural net:
+\series default
+ The architecture of this NN was designed by hand - Hinton decided how many
+ layers it should have and where to put bottle necks to force it to learn
+ interesting representations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because there are 24 possible people, the block at the bottom of the diagram
+ that says 
+\emph on
+local encoding of person 1
+\emph default
+, has 24 neurons, and exactly one of those will be turned on for each training
+ case.
+ The local encoding for the people is created using a sparse 24-D vector
+ with all component 0 except one; e.g.
+ 
+\begin_inset Formula $Colin=\left(1,0,...,0\right),\ Charlotte=\left(0,1,0...,0\right)$
+\end_inset
+
+,...
+ Likewise there are 12 relationships, and exactly one of the relationship
+ units will be turned on.
+\end_layout
+
+\begin_layout Standard
+For a relationship that has a unique answer, we would like one of the 24
+ people at the top to turn on, to represent the answer.
+\end_layout
+
+\begin_layout Remark
+
+\series bold
+Important remark to prevent sampling error.
+
+\series default
+ By using a representation in which exactly one of the neurons is on, we
+ don't accidentally give the network any similarities between people.
+ All pairs of people are equally dissimilar
+\end_layout
+
+\begin_layout Remark
+Now in the next layer of the network, we've taken the local encoding of
+ person one, and we've connected it to a small set of neurons, actually
+ six neurons for this.
+ And because there are 24 people, it can't possibly dedicate one neuron
+ to each person.
+ It has to re-represent the people as patterns of activity over those 6
+ neurons.
+ And what we're hoping is that when it learns these propositions, the way
+ in which thing encodes a person, in that distributive panel activities
+ will reveal structuring the task, or structuring the domain.
+ So what we're going to do is we're going to train it up on 112 of these
+ propositions.
+ And we go through the 112 propositions many times, Slowly changing the
+ weights as we go using back propagation.
+ After training we're gonna look at the 6 units in that layer that says
+ distributed encoding of person 1 to see what they are doing.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/distributed-encoding-of-person-1.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Here are those six units as the big grey blocks after learning.
+ The 24 people (blobs) are laid out with the 12 English people in a row
+ along the top and the 12 Italian people in a row underneath.
+ The blobs tell you the 
+\emph on
+incoming
+\emph default
+ weights for one of the hidden units in that layer.
+ The size represent the size of the weight, and the colour represent whether
+ the weight is positive (white) or negative (black).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What does this tell us?
+\end_layout
+
+\begin_layout Itemize
+If you look at the big grey block on the top right, you'll see an interesting
+ structure to the weights - the weights along the top that come from English
+ people are all positive, whilst the weights along the bottom are all negative.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+That means this unit tells you whether the input person is English or Italian
+ - we never gave it that information explicitly.
+\end_layout
+
+\begin_layout Itemize
+This is useful information to have - if the input person is English, the
+ output person is always English.
+\end_layout
+
+\begin_layout Itemize
+Just knowing that someone's English allows you to predict one bit of information
+ about the output, 
+\emph on
+halving 
+\emph default
+the number of possibilities.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If you look at the middle right grey block, this neuron represents what
+ generation somebody is.
+ It has 
+\emph on
+big positive
+\emph default
+ weights to the 
+\emph on
+oldest
+\emph default
+ generation, 
+\emph on
+big negative
+\emph default
+ weight to the 
+\emph on
+youngest
+\emph default
+ generation, and 
+\emph on
+intermediate
+\emph default
+ weights which are 
+\emph on
+roughly zero 
+\emph default
+to the intermediate generation (a three-value feature); indeed:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+4 big positive weights at the beginning.
+ Those correspond to Christopher and Andrew with our Italian equivalents.
+ 
+\end_layout
+
+\begin_layout Itemize
+2 big negative weights, that correspond to Collin, or his Italian equivalent.
+ 
+\end_layout
+
+\begin_layout Itemize
+4 more big positive weights, corresponding to Penelope or Christine, or
+ their Italian equivalents.
+\end_layout
+
+\begin_layout Itemize
+And right at the end, there's two big negative weights, corresponding to
+ Charlotte, or her Italian equivalent.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If you look at the bottom-left grey block, this unit has learned to represent
+ which branch of the family tree someone is in:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Looking at the top row negative weights, it has a negative weight to Andrew,
+ James, Charles, Christine and Jennifer and now if you look at the English
+ family tree you'll see Andrew, James, Charles, Christine, and Jennifer
+ are all in the right hand branch of the family tree.
+\end_layout
+
+\begin_layout Itemize
+Again, that's a very useful feature to have for predicting the output person,
+ because if you know it's a close family relationship, you expect the output
+ to be in the same branch of the family tree as the input.
+\end_layout
+
+\end_deeper
+\begin_layout Remark
+So the networks in the bottleneck have learned to represent features of
+ people that are useful for predicting the answer.
+ And notice, we 
+\series bold
+\emph on
+didn't tell it anything about what features to use
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Remark
+We never mentioned things like nationality, branch, family tree or generation.
+ It figured out that those are good features for expressing the regularity
+ in this domain.
+\end_layout
+
+\begin_layout Standard
+Those features are only useful if the other bottlenecks, the one for relationshi
+ps, and the one near the top of the network before the output person, use
+ similar representations, and the central layer is able to say how the features
+ of the input person and the features of the relationship predict the features
+ of the output person.
+ For example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+\mbox{input person generation 3}\\
+\mbox{relationship requires output person to be one generation up}
+\end{array}\right\} \Rightarrow\mbox{output person is a genration 2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note
+To capture that rule, you have to extract appropriate features at the first
+ hiddesummn layer, and the last hidden layer of the network.
+ And you have to make the units in the middle, relate those features correctly.
+\end_layout
+
+\begin_layout Subsubsection
+Another way to see that the network works,
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Train it on all but a few of the triples and see if it can complete those
+ triples correctly.
+ So does it generalise?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+So there's 112 triples, and I trained it on 108 of them and tested it on
+ the remaining 4, I did that several times and it got either 2 or 3 of those
+ right.
+ That's not so bad for a 24 way choice, so it's true it makes mistakes,
+ but it didn't have much training data, there's not enough triples in this
+ domain to really nail down the regularities very well.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Scaling up
+\end_layout
+
+\begin_layout Standard
+We've shown in this toy example that backpropagation can learn interesting
+ features.
+ Ee have much bigger computers and databases of millions of relational facts,
+ many of which of the form (
+\begin_inset Formula $A$
+\end_inset
+
+ 
+\begin_inset Formula $R$
+\end_inset
+
+ 
+\begin_inset Formula $B$
+\end_inset
+
+), 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $A$
+\end_inset
+
+ has relationship 
+\begin_inset Formula $R$
+\end_inset
+
+ to 
+\begin_inset Formula $B$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We could train a net to discover feature vector representations of 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+, that allow it to predict the feature vector representation of 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ If we did that, it would be a very good way of 
+\emph on
+cleaning 
+\emph default
+a database (find very unlikely triples).
+\end_layout
+
+\begin_layout Standard
+It wouldn't necessarily be able to make perfect predictions, but it could
+ find things in the database that it thought were highly implausible.
+ So if the database contained information, like, for example, Bach was born
+ in 1902, it could probably realise that was wrong, because Bach's a much
+ older kind of person, and everything else he's related to is much older
+ than 1902.
+\end_layout
+
+\begin_layout Remark
+Instead of actually using the first two terms to predict the third term,
+ we could use the whole set of terms, and predict the probability that the
+ fact is correct.
+\end_layout
+
+\begin_layout Remark
+To train a net to do that, we'd need examples of a whole bunch of correct
+ facts, and we'd ask it to give a high output.
+ We'd also need a good source of incorrect facts, and we'd ask it to give
+ a low output when we're told it was something that was false.
+\end_layout
+
+\begin_layout Section
+The softmax output function
+\end_layout
+
+\begin_layout Subsection
+Problems with squared error
+\end_layout
+
+\begin_layout Itemize
+If the target output is 1 and the actual output is 0.00000001, there's almost
+ no gradient for a logistic unit to fix up the error.
+ (It's way out on a plateau where the slope is almost exactly horizontal,
+ so it will take a very, very long time to change its weights, even though
+ it's making almost as big an error as it's possible to make.)
+\end_layout
+
+\begin_layout Itemize
+Also, if we're trying to assign probabilities to mutually exclusive class
+ labels, the output must sum to 1.
+ We ought to tell the network that information, (we shouldn't deprive it
+ of the knowledge that these are mutually exclusive answers).
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Is there a way of telling it that these are mutually exclusive by using
+ an appropriate cost function?
+\end_layout
+
+\begin_layout Standard
+What we need to do is force the outputs of the neural net to represent a
+ probability distribution across discrete alternatives, if that's what we
+ plan to use them for.
+\end_layout
+
+\begin_layout Subsection
+Softmax
+\end_layout
+
+\begin_layout Standard
+It's a kind of soft continuous version of the maximum function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/softmax.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A softmax group works by receiving some total input they've accumulated
+ from the layer below - namely 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ for the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ unit, and that's called the logit.
+ Thus they give an output 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ that doesn't just depend on their own 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+, it depends on the 
+\begin_inset Formula $z$
+\end_inset
+
+'s accumulated by their rivals as well.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particular,
+\begin_inset Formula 
+\[
+y_{i}=\frac{e^{z_{i}}}{\sum_{j\in\mbox{softmax group}}e^{z_{j}}}\Rightarrow\frac{\partial y_{i}}{\partial z_{i}}=y_{i}\left(1-y_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+The bottom line, 
+\begin_inset Formula $\sum_{j\in\mbox{group}}e^{z_{j}}$
+\end_inset
+
+ is the sum of the top line over all possibilities - so must equal 1.
+ Hence the sum of all the 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+'s must come to one, and the the 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+'s have to lie between 0 and 1 (since all strictly positive).
+ So we've forced the 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ to represent a probability distribution over 
+\emph on
+mutually exclusive alternatives
+\emph default
+ just by using the softmax equation.
+\end_layout
+
+\begin_layout Subsection
+Cross-entropy: the right cost function to use with softmax
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+If we're using a soft max group for the outputs, what's the right cost function?
+ 
+\end_layout
+
+\begin_layout Definition
+The 
+\series bold
+cross entropy
+\series default
+ 
+\series bold
+cost function 
+\series default
+is 
+\begin_inset Formula 
+\[
+C=-\sum_{j}t_{j}\log\left(y_{j}\right)\Rightarrow\frac{dC}{dz_{i}}=\sum_{j}\frac{\partial C}{\partial y_{j}}\frac{\partial y_{j}}{\partial z_{i}}=y_{i}-t_{i}
+\]
+
+\end_inset
+
+That is, we want to maximise the log probability of getting the answer right
+ - when one of the target values is a 1 and the remaining ones are 0, then
+ we simply sum of all possible answers putting 0 in front of all the wrong
+ answers, putting 1 in front of the right answer.
+\end_layout
+
+\begin_layout Remark
+The cross entropy cost function has a nice derivative that doesn't suffer
+ from the 
+\begin_inset Quotes eld
+\end_inset
+
+plateau problem; it has a nice property that it has a very big gradient
+ when the target value is 1 and the output is almost zero (i.e.
+ dividing by 0).
+\end_layout
+
+\begin_layout Remark
+So 
+\begin_inset Formula $C$
+\end_inset
+
+ has a
+\emph on
+ very steep derivative
+\emph default
+ when the answer is 
+\emph on
+very wrong
+\emph default
+.
+ In particular, steepness of 
+\begin_inset Formula $\frac{dC}{dy}$
+\end_inset
+
+ exactly balances the the flatness of 
+\begin_inset Formula $\frac{dy}{dz}$
+\end_inset
+
+.
+ Using the chain rule, the derivative is how fast the cost function changes
+ as you change the output of the unit times how fast the output of the unit
+ changes as you change 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ (notice we need to add up across all the 
+\begin_inset Formula $j$
+\end_inset
+
+, because when you change the 
+\begin_inset Formula $i$
+\end_inset
+
+, the output of all the different units changes).
+ The result is just the actual output minus the target output - you can
+ see that when the actual target outputs are very different, that has a
+ slope of 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ The slope is never bigger than 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ But the slope never gets small until the two things are pretty much the
+ same.
+\end_layout
+
+\begin_layout Remark
+In other words, you're getting pretty much the correct answer.
+\end_layout
+
+\begin_layout Section
+Neuro-probabilistic language models
+\end_layout
+
+\begin_layout Subsection
+A basic problem in speech recognition
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+A practical use for feature vectors that represent words.
+\end_layout
+
+\begin_layout Standard
+In speech recognition systems, having a good idea of what somebody might
+ say next is very helpful in recognising the sounds they make.
+ We cannot identify phonemes (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+lack
+\begin_inset Quotes erd
+\end_inset
+
+ instead of 
+\begin_inset Quotes eld
+\end_inset
+
+back
+\begin_inset Quotes erd
+\end_inset
+
+) perfectly in noisy speech.
+ The acoustic input is often ambiguous; there are several different words
+ that fit the acoustic signal equally well.
+\end_layout
+
+\begin_layout Standard
+People use the 
+\emph on
+\bar under
+understand of the meaning of the utterance
+\emph default
+\bar default
+ to hear the right words:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+We do this unconsciously when we wreck a nice beach.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Speech recognisers have to know which words are likely to come next and
+ which are not.
+\end_layout
+
+\begin_layout Subsection
+The standard 
+\begin_inset Quotes eld
+\end_inset
+
+trigram
+\begin_inset Quotes erd
+\end_inset
+
+ method
+\end_layout
+
+\begin_layout Enumerate
+Take a huge amount of text and you count the frequencies of all triples
+ of words.
+\end_layout
+
+\begin_layout Enumerate
+Then use these frequencies to make bets on the relative probabilities of
+ the next word given the previous two words.
+ 
+\end_layout
+
+\begin_layout Example
+Suppose we've heard the words 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ We look at the counts that we have in our huge body of text to establish
+ the relative probability that the third word will be 
+\begin_inset Formula $C$
+\end_inset
+
+ versus the third word will be 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ This is given by the ratio of the two counts, 
+\begin_inset Formula $A-B-C$
+\end_inset
+
+ and 
+\begin_inset Formula $A-B-D$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{\mathbb{P}\left[w_{3}=C\mid w_{2}=b,w_{1}=a\right]}{\mathbb{P}\left[w_{3}=D\mid w_{2}=b,w_{1}=a\right]}=\frac{\mbox{count}\left(ABC\right)}{\mbox{count}\left(ABD\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Problems with the trigram method
+\end_layout
+
+\begin_layout Itemize
+We can't use a much bigger context because there are 
+\emph on
+\bar under
+too many many possibilities
+\emph default
+\bar default
+ to store and the counts would be mostly zero.
+ Even for two word contexts there's many contexts that you will never have
+ heard.
+ (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+dinosaur pizza
+\begin_inset Quotes erd
+\end_inset
+
+, is probably a string of two words that you've never heard before).
+ For cases like that, we have to 
+\begin_inset Quotes eld
+\end_inset
+
+back-off
+\begin_inset Quotes erd
+\end_inset
+
+ to 
+\emph on
+individual words
+\emph default
+ (digrams).
+ So after dinosaur pizza, you predict the next word by just seeing what's
+ likely to come after the word pizza (because you've never heard dinosaur
+ pizza before).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+WARNING
+\series default
+: The probability is 
+\emph on
+\bar under
+not zero
+\emph default
+\bar default
+ because the count is zero and you have not seen an example before.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+It fails to use a lot of obvious information that will help you predict
+ the next word.
+ E.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+The cat got squashed in the garden on Friday
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This should help us predict words in the sentence 
+\begin_inset Quotes eld
+\end_inset
+
+The dog got flattened in the yard on Monday.
+\begin_inset Quotes erd
+\end_inset
+
+ In particular, the trigram model 
+\emph on
+\bar under
+does not understand the similarities
+\emph default
+\bar default
+ between 
+\begin_inset Quotes eld
+\end_inset
+
+cat/dog
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+squashed/flattened
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+garden/yard
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Friday/Monday
+\begin_inset Quotes erd
+\end_inset
+
+.
+ So it can't use past experience with one of those words to help it with
+ the other one.
+\end_layout
+
+\begin_layout Standard
+To overcome this limitation, we need to convert words into a 
+\emph on
+\bar under
+vector of semantic and syntactic features
+\emph default
+\bar default
+, and use the 
+\emph on
+\bar under
+features of previous words to predict the features of the next word
+\emph default
+\bar default
+.
+ Using a feature representation, allows us to use much bigger context, that
+ contains many more words.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/Bengio's-nn.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Bengio's NN for predicting the next word: 
+\series default
+We can think of putting in the index of a word at the bottom as a set of
+ neurons of which just one is on.
+ The weight from that on neuron will determine the pattern of activity in
+ the next hidden layer - the distributed representation of the word (it's
+ feature vector).
+ This is equivalent to saying do a table look-up.
+ You then have a stored feature vector for each word, and with learning
+ you modify that feature vector, which is exactly equivalent to modifying
+ the weights coming from a single active-input unit.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After getting distributed representations of a few previous words (we've
+ only shown 2 here but you would typically use e.g.
+ 5), we can then use those distributed representations to predict via huge
+ softmax what the probabilities are for all the various words that might
+ come next.
+\end_layout
+
+\begin_layout Standard
+One extra refinement that makes it work better is to use 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+skip-lag
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ connections that go straight from the input words to the output words (because
+ the individual input words are individually quite informative about what
+ the output word might be).
+\end_layout
+
+\begin_layout Remark
+Bengio's model was actually slightly worse than Trigram's at predicting
+ the next word, but it was in the same ballpark, and if you combined it
+ with Trigram's it improved things.
+ Since then these language models that use feature vectors for words have
+ been improved considerably, and they're now considerably better than trigram
+ models.
+\end_layout
+
+\begin_layout Subsection
+A problem with having 100,000 output words
+\end_layout
+
+\begin_layout Standard
+Because typically in these language models the plural of a word is a different
+ word from the singular, and the various different tenses of a verb are
+ different words from other tenses, each unit in the last hidden layer of
+ the net might have to have 100,000 outgoing weights.
+ Unless we have a huge number of training cases (Google), we could start
+ over-fitting.
+\end_layout
+
+\begin_layout Standard
+We could try and make the last hidden layer small, so we don't need too
+ many weights.
+ But then we have the problem that we have to get the 100,000 probabilities
+ of the various words that might come next, fairly accurately right.
+ In particular, it's not just the big probabilities we need - a 
+\emph on
+very large number of words 
+\emph default
+will have small probabilities that are often relevant.
+\end_layout
+
+\begin_layout Subsubsection
+Is there a better way to deal with such a large number of outputs?
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+How to avoid requiring 100,000 different output units in the softmax, if
+ we want to get probabilities for a 100,000 different words.
+\end_layout
+
+\begin_layout Standard
+Method I:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/serial-architecture.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+A serial architecture: 
+\series default
+Put in the context words as before, but now also put in a 
+\emph on
+candidate for the next word
+\emph default
+ in the same way as the context words.
+ Then, we go forward through the net and what we 
+\emph on
+\bar under
+output is a score
+\emph default
+\bar default
+ for how good that candidate word is, in that context.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+\begin_inset Quotes eld
+\end_inset
+
+ON https://class.coursera.org/neuralnets-2012-001/lecture/51
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Using the error derivatives found by backpropagation
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Optimisation-issues"
+
+\end_inset
+
+Optimisation Issues (Lecture 6)
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Generalisation-issues"
+
+\end_inset
+
+Generalisation Issues (Lecture 7)
+\end_layout
+
+\end_body
+\end_document

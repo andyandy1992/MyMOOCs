@@ -8,6 +8,9 @@
 theorems-ams-bytype
 theorems-ams-extended-bytype
 theorems-sec-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
 \end_modules
 \maintain_unincluded_children false
 \language british
@@ -104,48 +107,94 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Definition
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Machine Learning (Arthur Samuel, 1959)
-\end_layout
-
-\end_inset
-
- 
+\begin_layout Abstract
+In 1959, Arthur Samuel, whom created one of the world's first self-learning
+ program, define machine learning as the 
 \begin_inset Quotes eld
 \end_inset
 
 Field of study that gives computer the ability to learn 
-\series bold
-without 
-\series default
-being explicitly programmed.
+\emph on
+without
+\emph default
+ being explicitly programmed
 \begin_inset Quotes erd
+\end_inset
+
+.
+ In this chapter, we introduce the four
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The Coursera machine learning only discusses 
+\emph on
+supervised 
+\emph default
+and 
+\emph on
+unsupervised 
+\emph default
+learning, but I have included brief details on semi-supervised and reinforcement
+ learning for completeness.
+\end_layout
+
+\end_inset
+
+ main forms of machine learning algorithms.
+ We also outline the general ingredients for any form of machine learning
+ algorithm:
+\series bold
+ 
+\series default
+LEARNING = REPRESENTATION + EVALUATION + OPTIMISATION
+\end_layout
+
+\begin_layout Abstract
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Week1/Chapter1/HumanLearnedEngineering.png
+	lyxscale 20
+	scale 20
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Box Shadowbox
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-status open
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Week1/Chapter1/MachineLearnedEngineering.png
+	lyxscale 20
+	scale 20
 
-\begin_layout Remark*
-Samuel wrote a computer program that played 10,000 games of checkers against
- itself - one of the world's first self-learning program.
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Explicitly programming the process (top) vs.
+ machine learned engineering (bottom).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -172,8 +221,92 @@ learning
 \series default
 we teach the computer how to solve some problem, and then let it use its
  new found knowledge to solve similar problems.
+ In particular, we choose a 
+\emph on
+model,
+\emph default
+ 
+\begin_inset Formula $f$
+\end_inset
+
+, to map input, 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+, to the 
+\emph on
+predicted 
+\emph default
+output, 
+\begin_inset Formula $y=f\left(\mathbf{x}:\boldsymbol{\theta}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\boldsymbol{\theta}:=$
+\end_inset
+
+set of parameters.
+ We then adjust the parameters, 
+\begin_inset Formula $\boldsymbol{\theta}$
+\end_inset
+
+, to reduce the difference between 
+\begin_inset Formula $y$
+\end_inset
+
+ and the 
+\emph on
+target
+\emph default
+ output, 
+\begin_inset Formula $t$
+\end_inset
+
+.
 \end_layout
 
+\begin_layout Remark*
+There are two types of supervised learning:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Regression
+\series default
+ The target output is a 
+\emph on
+real number or a vector of real numbers
+\emph default
+, and the aim is to 
+\emph on
+get as
+\emph default
+ 
+\emph on
+close as you can
+\emph default
+ 
+\emph on
+to this target
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Classification
+\series default
+ The target output is a 
+\emph on
+(discrete) class label
+\emph default
+.
+\end_layout
+
+\end_deeper
 \begin_layout Example*
 
 \series bold
@@ -194,21 +327,16 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter1/House price prediction.png
-	lyxscale 60
-	scale 60
+	lyxscale 40
+	scale 40
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\align center
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter1/Breast cancer (representation 1).png
-	lyxscale 60
-	scale 60
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -219,7 +347,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TOP: 
+Left: 
 \series bold
 \emph on
 regression
@@ -237,7 +365,7 @@ output
 \begin_inset Newline newline
 \end_inset
 
-BOTTOM: 
+Right: 
 \series bold
 \emph on
 classification
@@ -268,26 +396,7 @@ output
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-New Page for formatting
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\begin_deeper
 \begin_layout Example*
 
 \series bold
@@ -343,6 +452,7 @@ and
 
 \end_layout
 
+\end_deeper
 \begin_layout Note*
 We can deal with problems that have an infinite number of attributes (see
  support vector machine in chapter).
@@ -383,8 +493,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter1/Unsupervised learning.png
-	lyxscale 60
-	scale 60
+	lyxscale 40
+	scale 40
 
 \end_inset
 
@@ -413,6 +523,153 @@ unknown
 
 \end_layout
 
+\begin_layout Subsubsection
+Semi-supervised Learning
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Semi-supervised 
+\series default
+learning is a mixture of supervised and unsupervised learning, where we
+ typically have only a small amount of labelled data, and a large amount
+ of unlabelled data.
+\end_layout
+
+\begin_layout Subsubsection
+Reinforcement Learning (aka.
+ trial and error learning)
+\end_layout
+
+\begin_layout Definition
+In 
+\series bold
+reinforcement learning
+\series default
+, an agent learns from the consequences of its actions on some environment,
+ and selects its actions on basis of its past experiences to maximise some
+ numerical reward.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Week1/Chapter1/ReinforcementLearning.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Reinforcement learning (RL) is learning by interacting with an environment
+ to maximise some reward.
+ An agent using the state of the system (which is identifies using observations)
+ and the reward at time 
+\begin_inset Formula $t$
+\end_inset
+
+, to choose some action at time 
+\begin_inset Formula $t$
+\end_inset
+
+, which in turn updates the state of the environment and the reward value,
+ at time 
+\begin_inset Formula $t+1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The environment is typically 
+\begin_inset Quotes eld
+\end_inset
+
+noisy
+\begin_inset Quotes erd
+\end_inset
+
+ - you never have full information about what is going on.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+This type of learning is typically seen in biology (c.f.
+ evolution - in humans it is the 
+\begin_inset CommandInset href
+LatexCommand href
+name "dopamine"
+target "https://en.wikipedia.org/wiki/Dopamine"
+
+\end_inset
+
+ system in our brains that implements reinforcement learning
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://youtu.be/rbsqaJwpu6A?t=7m35s
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+The agent choose its actions using a balance of exploration (of uncharted
+ territory
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Recall the paper regarding maximises entropy
+\end_layout
+
+\end_inset
+
+) and exploitation (of current knowledge); randomly selecting actions, without
+ reference to an estimated probability distribution, is known to give rise
+ to very poor performance.
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Subsection
 
 \series bold
@@ -490,8 +747,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../Images/Week1/Chapter1/3ComponentsLearners.png
-	lyxscale 40
-	scale 40
+	lyxscale 30
+	scale 30
 
 \end_inset
 

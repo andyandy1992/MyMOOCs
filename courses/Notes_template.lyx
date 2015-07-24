@@ -36,17 +36,16 @@ tabs-within-sections
 \paperfontsize default
 \spacing single
 \use_hyperref true
-\pdf_bookmarks false
-\pdf_bookmarksnumbered true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
 \pdf_bookmarksopen false
 \pdf_bookmarksopenlevel 1
 \pdf_breaklinks false
-\pdf_pdfborder true
+\pdf_pdfborder false
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
-\pdf_quoted_options "urlcolor=blue"
-\papersize a4paper
+\papersize default
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -56,7 +55,7 @@ tabs-within-sections
 \use_package mathtools 1
 \use_package mhchem 1
 \use_package stackrel 1
-\use_package stmaryrd 2
+\use_package stmaryrd 1
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
@@ -66,18 +65,7 @@ tabs-within-sections
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 0
-\boxbgcolor #ffff7f
-\branch How many Nobel Prizes?
-\selected 1
-\filename_suffix 0
-\color #faf0e6
-\end_branch
-\branch Guess is 150
-\selected 0
-\filename_suffix 0
-\color #faf0e6
-\end_branch
+\use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
@@ -91,8 +79,8 @@ tabs-within-sections
 \footskip 1cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation skip
-\defskip smallskip
+\paragraph_separation indent
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -114,7 +102,7 @@ status open
 
 
 \backslash
-setcounter{section}{3}
+setcounter{section}{2}
 \end_layout
 
 \end_inset
@@ -123,7 +111,7 @@ setcounter{section}{3}
 \end_layout
 
 \begin_layout Section
-Logistic regression
+Title
 \end_layout
 
 \begin_layout Standard
@@ -136,61 +124,15 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Abstract
-Information about this section
+Information about the chapter
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
+\begin_layout Subsection
+Subsection
 \end_layout
 
-\begin_layout Section
-One-vs-all classification
-\end_layout
-
-\begin_layout Section
-Regularization
-\end_layout
-
-\begin_layout Section
-Neural Networks.
- 
-\end_layout
-
-\begin_layout Section
-Practical advice for applying learning algorithms: How to develop, debugging,
- feature/model design, setting up experiment structure.
- 
-\end_layout
-
-\begin_layout Section
-Support Vector Machines (SVMs) and the intuition behind them.
- 
-\end_layout
-
-\begin_layout Section
-Unsupervised learning: clustering and dimensionality reduction.
-\end_layout
-
-\begin_layout Section
-Anomaly detection.
- 
-\end_layout
-
-\begin_layout Section
-Recommender systems.
- 
-\end_layout
-
-\begin_layout Section
-Large-scale machine learning.
-\end_layout
-
-\begin_layout Section
-An example of an application of machine learning.
- 
+\begin_layout Subsubsection
+Subsubsection
 \end_layout
 
 \end_body

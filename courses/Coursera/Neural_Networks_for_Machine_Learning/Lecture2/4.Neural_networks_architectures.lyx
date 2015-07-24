@@ -1,0 +1,405 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Neural Networks Architectures
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+There exist many types of architectures used in neural networks; that is
+ the ways in which the neurons are connected.
+ Here we describe a few of the more popular architectures.
+\end_layout
+
+\begin_layout Subsection
+Feed-forward neural networks 
+\end_layout
+
+\begin_layout Standard
+These are the commonest type of neural network in practical applications.
+\end_layout
+
+\begin_layout Itemize
+They compute a series of transformations that change the similarities between
+ cases.
+\end_layout
+
+\begin_layout Itemize
+Each unit in one layer is connected to 
+\emph on
+every
+\emph default
+ unit on the next layer.
+ 
+\end_layout
+
+\begin_layout Itemize
+Each layer get a new representation of the input - in order to achieve this,
+ the activities of the neurons in each layer are a 
+\emph on
+non-linear
+\emph default
+ function of the activities in the layer below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture2/Chapter4/feed-forward-nn.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A feed-forward network with one hidden layer.
+ The first layer is the input, and the last layer is the output.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+If there is more than one hidden layer, we call them 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+\bar under
+deep
+\emph default
+\bar default
+
+\begin_inset Quotes erd
+\end_inset
+
+ neural networks.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+Examples include:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+convolutional neural networks (typically used in image classification).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+Recurrent neural networks (RNNs)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture2/Chapter4/recurrent-nn.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+RNNs
+\series default
+: They have directed cycles in their connection graph (i.e.
+ you can sometimes get back to where you started by following the arrows).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+RNNs with multiple hidden layers are just a special case that has some of
+ the hidden-to-hidden connections missing.
+\end_layout
+
+\begin_deeper
+\begin_layout Remark*
+These are much 
+\emph on
+more powerful
+\emph default
+ and 
+\emph on
+more biologically realistic
+\emph default
+; indeed, there is a lot of interest at present in finding efficient ways
+ of training recurrent nets as they can have complicated dynamics that makes
+ them very difficult to train.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+RNNs for modelling sequences
+\end_layout
+
+\begin_layout Itemize
+RNNs are a very natural way to model sequential data (e.g.
+ good for time series).
+\end_layout
+
+\begin_layout Itemize
+RNNs are equivalent to very deep nets with one hidden layer per time slice
+ (except they use the same weights at every time slice, and they get input
+ at every time slice).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Neural_Networks_for_Machine_Learning/Images/Lecture2/Chapter4/recurrent-nn-for-modelling-sequences.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+They have the ability to remember information in their hidden state for
+ a long time (but its very hard to train them to use this potential).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Symmetrically connected neural networks 
+\end_layout
+
+\begin_layout Standard
+These are similar to RNNs, except the connections between units (or neurons)
+ are symmetrical - that is they have the same weight in both directions.
+ 
+\end_layout
+
+\begin_layout Itemize
+John Hopfield (and others) realised that symmetric networks are much easier
+ to analyse than recurrent networks.
+\end_layout
+
+\begin_layout Itemize
+They are also more restricted in what they can do, because they obey an
+ 
+\emph on
+energy function
+\emph default
+ (for example, they cannot model cycles).
+\end_layout
+
+\begin_layout Definition
+Symmetrically connected nets 
+\emph on
+without
+\emph default
+ hidden units are called 
+\series bold
+Hopfield nets
+\series default
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+Symmetrically connected networks 
+\emph on
+with
+\emph default
+ hidden units asre called 
+\series bold
+Boltzmann machines
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+Boltzmann machines are much more powerful models than Hopfield nets, but
+ are less powerful than RNNs, and have a beautifully simple learning algorithm
+ (these will be study later in the course).
+\end_layout
+
+\end_body
+\end_document
