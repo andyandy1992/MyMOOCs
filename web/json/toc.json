@@ -19,10 +19,11 @@
 },
 
 {"id":"FOLDER", "label":"Week2", "inode":true, "open":false, "icon":"folder", "branch": [
-{"id":"FOLDER", "label":"Chapter1", "inode":true, "open":false, "icon":"folder"}
+{"id":"FOLDER", "label":"Chapter3", "inode":true, "open":false, "icon":"folder"}
 ]
-}
+},
 
+{"id":"FOLDER", "label":"Week3", "inode":true, "open":false, "icon":"folder"}
 ]
 },
 
@@ -35,13 +36,46 @@
 {"id":"FOLDER", "label":"Week2", "inode":true, "open":false, "icon":"folder", "branch": [
 {"id":"courses/Coursera/Machine_Learning/Week2/3.Multivariate_linear_regression.pdf", "label":"3.Multivariate linear regression", "inode":false, "icon":"file"}
 ]
-}
+},
 
+{"id":"FOLDER", "label":"Week3", "inode":true, "open":false, "icon":"folder"}
 ]
 },
 
 {"id":"FOLDER", "label":"Neural Networks for Machine Learning", "inode":true, "open":false, "icon":"folder", "branch": [
-{"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder"}
+{"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Lecture1", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Chapter1", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Chapter2", "inode":true, "open":false, "icon":"folder"}
+]
+},
+
+{"id":"FOLDER", "label":"Lecture2", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Chapter4", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Chapter5", "inode":true, "open":false, "icon":"folder"}
+]
+},
+
+{"id":"FOLDER", "label":"Lecture3", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lecture4", "inode":true, "open":false, "icon":"folder"}
+]
+},
+
+{"id":"FOLDER", "label":"Lecture1", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture1/1.Basic_of_biological_neural_computation.pdf", "label":"1.Basic of biological neural computation", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture1/2.A_typical_neural_network_for_solving_the_MNIST_database.pdf", "label":"2.A typical neural network for solving the MNIST database", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture1/3.Types_of_learning_algorithms.pdf", "label":"3.Types of learning algorithms", "inode":false, "icon":"file"}
+]
+},
+
+{"id":"FOLDER", "label":"Lecture2", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture2/4.Neural_networks_architectures.pdf", "label":"4.Neural networks architectures", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture2/5.Perceptrons-the_first_generation_of_neural_networks.pdf", "label":"5.Perceptrons-the first generation of neural networks", "inode":false, "icon":"file"}
+]
+},
+
+{"id":"FOLDER", "label":"Lecture3", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lecture4", "inode":true, "open":false, "icon":"folder"}
 ]
 }
 
