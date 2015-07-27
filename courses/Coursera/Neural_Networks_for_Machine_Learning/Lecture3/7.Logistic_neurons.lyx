@@ -1,0 +1,239 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{6}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Logistic neurons
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+To extending the learning rule for linear neurons to nonlinear multi-layer
+ neurons, we need to extend we need to first extend the learning rule to
+ a
+\emph on
+ single nonlinear 
+\emph default
+neuron (we'll use logistic neurons, though any nonlinear neuron can be used).
+\end_layout
+
+\begin_layout Abstract
+(C.f this to 
+\begin_inset CommandInset href
+LatexCommand href
+name "chapter 4 of my logistic regression notes"
+target "http://andyandy1992.github.io/MyMOOCs/courses/Coursera/Machine_Learning/Week4/4.Logistic_regression.pdf"
+
+\end_inset
+
+ from the Machine Learning course)
+\end_layout
+
+\begin_layout Subsection
+Learning the weights of a logistic output neuron
+\end_layout
+
+\begin_layout Subsubsection
+The derivatives of a logistic neuron
+\end_layout
+
+\begin_layout Standard
+Recall the 
+\emph on
+logit
+\emph default
+, 
+\begin_inset Formula $z=b+\sum_{i}x_{i}w_{i}$
+\end_inset
+
+ and the sigmoid neuron 
+\begin_inset Formula $y=\frac{1}{1+e^{-z}}$
+\end_inset
+
+ (a special case of the logistic function).
+ Therefore 
+\begin_inset Formula 
+\[
+\frac{\partial z}{\partial w_{i}}=x_{i},\ \frac{\partial z}{\partial x_{i}}=w_{i},\ \frac{dy}{dz}=y\left(1-y\right)
+\]
+
+\end_inset
+
+Hence the learning rule for a logistic neuron is (using the chain rule for
+ 
+\begin_inset Formula $\frac{\partial y}{\partial w_{i}}=\frac{\partial z}{\partial w_{i}}\frac{\partial y}{\partial z}=x_{i}y\left(1-y\right)$
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial E}{\partial w_{i}} & = & \sum_{n}\frac{\partial y_{n}}{\partial w_{i}}\frac{\partial E}{\partial y_{n}}\\
+ & = & -\sum_{n}{\color{green}\left(x_{n}\right)_{i}}{\color{red}y_{n}\left(1-y_{n}\right)}{\color{green}\left(t_{n}-y_{n}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note the delta-rule is the same as the green terms; the extra term defines
+ the slope of the logistic.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture3/Chapter7/sigmoid-neurons.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sigmoid neurons are non-linear, yet give a real-valued output that is a
+ smooth and bounded function of their total input, and they also have nice
+ derivatives - this makes learning easy.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

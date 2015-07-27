@@ -1,0 +1,644 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{8}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Learning to predict the next word
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+We now use the backpropagation algorithm to learn a feature representation
+ of the meaning of the word.
+ It illustrates the idea about how you can take some relational information,
+ and use the back propagation algorithm to turn relational information into
+ feature vectors that capture the meaning of words
+\end_layout
+
+\begin_layout Section
+A simple example of relational information
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/family-tree.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+We'd like to train a NN to understand the information in a family tree.
+ Both these family trees of English and Italian people has pretty much the
+ same structure - when it tries to learn both sets of facts, the neural
+ net is going to be able to take advantage of that analogy.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Another way to express the same information
+\end_layout
+
+\begin_layout Standard
+We could make a set of propositions using the 12 relationships:
+\end_layout
+
+\begin_layout Itemize
+son, daughter, nephew, niece, father, mother, uncle, aunt
+\end_layout
+
+\begin_layout Itemize
+brother, sister, husband, wife
+\end_layout
+
+\begin_layout Standard
+Using these, we can write down triples such that the last statement follows
+ from the previous two; e.g.
+ 
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+\mbox{colin has-father james}\\
+\mbox{colin has-mother victoria}
+\end{array}\right\} \Rightarrow\mbox{james has-wife victoria}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+A relational learning task
+\end_layout
+
+\begin_layout Standard
+The obvious way to express the regularities is as symbolic rules:
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+x\mbox{ has-mother }y\\
+y\mbox{ has-husband }z
+\end{array}\right\} \Rightarrow x\mbox{ has-father }z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Find the symbolic rules involves a difficult search through a very large
+ discrete space of possibilities.
+\end_layout
+
+\begin_layout Itemize
+Can a neural network capture the same knowledge by searching through a continuou
+s space of weights?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/NN-family-tree.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+The structure of the neural net:
+\series default
+ The architecture of this NN was designed by hand - Hinton decided how many
+ layers it should have and where to put bottle necks to force it to learn
+ interesting representations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because there are 24 possible people, the block at the bottom of the diagram
+ that says 
+\emph on
+local encoding of person 1
+\emph default
+, has 24 neurons, and exactly one of those will be turned on for each training
+ case.
+ The local encoding for the people is created using a sparse 24-D vector
+ with all component 0 except one; e.g.
+ 
+\begin_inset Formula $Colin=\left(1,0,...,0\right),\ Charlotte=\left(0,1,0...,0\right)$
+\end_inset
+
+,...
+ Likewise there are 12 relationships, and exactly one of the relationship
+ units will be turned on.
+\end_layout
+
+\begin_layout Standard
+For a relationship that has a unique answer, we would like one of the 24
+ people at the top to turn on, to represent the answer.
+\end_layout
+
+\begin_layout Remark
+
+\series bold
+Important remark to prevent sampling error.
+
+\series default
+ By using a representation in which exactly one of the neurons is on, we
+ don't accidentally give the network any similarities between people.
+ All pairs of people are equally dissimilar
+\end_layout
+
+\begin_layout Remark
+Now in the next layer of the network, we've taken the local encoding of
+ person one, and we've connected it to a small set of neurons, actually
+ six neurons for this.
+ And because there are 24 people, it can't possibly dedicate one neuron
+ to each person.
+ It has to re-represent the people as patterns of activity over those 6
+ neurons.
+ And what we're hoping is that when it learns these propositions, the way
+ in which thing encodes a person, in that distributive panel activities
+ will reveal structuring the task, or structuring the domain.
+ So what we're going to do is we're going to train it up on 112 of these
+ propositions.
+ And we go through the 112 propositions many times, Slowly changing the
+ weights as we go using back propagation.
+ After training we're gonna look at the 6 units in that layer that says
+ distributed encoding of person 1 to see what they are doing.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/distributed-encoding-of-person-1.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Here are those six units as the big grey blocks after learning.
+ The 24 people (blobs) are laid out with the 12 English people in a row
+ along the top and the 12 Italian people in a row underneath.
+ The blobs tell you the 
+\emph on
+incoming
+\emph default
+ weights for one of the hidden units in that layer.
+ The size represent the size of the weight, and the colour represent whether
+ the weight is positive (white) or negative (black).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What does this tell us?
+\end_layout
+
+\begin_layout Itemize
+If you look at the big grey block on the top right, you'll see an interesting
+ structure to the weights - the weights along the top that come from English
+ people are all positive, whilst the weights along the bottom are all negative.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+That means this unit tells you whether the input person is English or Italian
+ - we never gave it that information explicitly.
+\end_layout
+
+\begin_layout Itemize
+This is useful information to have - if the input person is English, the
+ output person is always English.
+\end_layout
+
+\begin_layout Itemize
+Just knowing that someone's English allows you to predict one bit of information
+ about the output, 
+\emph on
+halving 
+\emph default
+the number of possibilities.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If you look at the middle right grey block, this neuron represents what
+ generation somebody is.
+ It has 
+\emph on
+big positive
+\emph default
+ weights to the 
+\emph on
+oldest
+\emph default
+ generation, 
+\emph on
+big negative
+\emph default
+ weight to the 
+\emph on
+youngest
+\emph default
+ generation, and 
+\emph on
+intermediate
+\emph default
+ weights which are 
+\emph on
+roughly zero 
+\emph default
+to the intermediate generation (a three-value feature); indeed:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+4 big positive weights at the beginning.
+ Those correspond to Christopher and Andrew with our Italian equivalents.
+ 
+\end_layout
+
+\begin_layout Itemize
+2 big negative weights, that correspond to Collin, or his Italian equivalent.
+ 
+\end_layout
+
+\begin_layout Itemize
+4 more big positive weights, corresponding to Penelope or Christine, or
+ their Italian equivalents.
+\end_layout
+
+\begin_layout Itemize
+And right at the end, there's two big negative weights, corresponding to
+ Charlotte, or her Italian equivalent.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+If you look at the bottom-left grey block, this unit has learned to represent
+ which branch of the family tree someone is in:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Looking at the top row negative weights, it has a negative weight to Andrew,
+ James, Charles, Christine and Jennifer and now if you look at the English
+ family tree you'll see Andrew, James, Charles, Christine, and Jennifer
+ are all in the right hand branch of the family tree.
+\end_layout
+
+\begin_layout Itemize
+Again, that's a very useful feature to have for predicting the output person,
+ because if you know it's a close family relationship, you expect the output
+ to be in the same branch of the family tree as the input.
+\end_layout
+
+\end_deeper
+\begin_layout Remark
+So the networks in the bottleneck have learned to represent features of
+ people that are useful for predicting the answer.
+ And notice, we 
+\series bold
+\emph on
+didn't tell it anything about what features to use
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Remark
+We never mentioned things like nationality, branch, family tree or generation.
+ It figured out that those are good features for expressing the regularity
+ in this domain.
+\end_layout
+
+\begin_layout Standard
+Those features are only useful if the other bottlenecks, the one for relationshi
+ps, and the one near the top of the network before the output person, use
+ similar representations, and the central layer is able to say how the features
+ of the input person and the features of the relationship predict the features
+ of the output person.
+ For example:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+\mbox{input person generation 3}\\
+\mbox{relationship requires output person to be one generation up}
+\end{array}\right\} \Rightarrow\mbox{output person is a genration 2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note
+To capture that rule, you have to extract appropriate features at the first
+ hiddesummn layer, and the last hidden layer of the network.
+ And you have to make the units in the middle, relate those features correctly.
+\end_layout
+
+\begin_layout Subsubsection
+Another way to see that the network works,
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Train it on all but a few of the triples and see if it can complete those
+ triples correctly.
+ So does it generalise?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+So there's 112 triples, and I trained it on 108 of them and tested it on
+ the remaining 4, I did that several times and it got either 2 or 3 of those
+ right.
+ That's not so bad for a 24 way choice, so it's true it makes mistakes,
+ but it didn't have much training data, there's not enough triples in this
+ domain to really nail down the regularities very well.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Scaling up
+\end_layout
+
+\begin_layout Standard
+We've shown in this toy example that backpropagation can learn interesting
+ features.
+ Ee have much bigger computers and databases of millions of relational facts,
+ many of which of the form (
+\begin_inset Formula $A$
+\end_inset
+
+ 
+\begin_inset Formula $R$
+\end_inset
+
+ 
+\begin_inset Formula $B$
+\end_inset
+
+), 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $A$
+\end_inset
+
+ has relationship 
+\begin_inset Formula $R$
+\end_inset
+
+ to 
+\begin_inset Formula $B$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We could train a net to discover feature vector representations of 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+, that allow it to predict the feature vector representation of 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ If we did that, it would be a very good way of 
+\emph on
+cleaning 
+\emph default
+a database (find very unlikely triples).
+\end_layout
+
+\begin_layout Standard
+It wouldn't necessarily be able to make perfect predictions, but it could
+ find things in the database that it thought were highly implausible.
+ So if the database contained information, like, for example, Bach was born
+ in 1902, it could probably realise that was wrong, because Bach's a much
+ older kind of person, and everything else he's related to is much older
+ than 1902.
+\end_layout
+
+\begin_layout Remark
+Instead of actually using the first two terms to predict the third term,
+ we could use the whole set of terms, and predict the probability that the
+ fact is correct.
+\end_layout
+
+\begin_layout Remark
+To train a net to do that, we'd need examples of a whole bunch of correct
+ facts, and we'd ask it to give a high output.
+ We'd also need a good source of incorrect facts, and we'd ask it to give
+ a low output when we're told it was something that was false.
+\end_layout
+
+\end_body
+\end_document

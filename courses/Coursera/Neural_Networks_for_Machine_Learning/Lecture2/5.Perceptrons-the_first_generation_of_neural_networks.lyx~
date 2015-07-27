@@ -1088,10 +1088,16 @@ linearly separable
 
 \begin_layout Remark*
 A perceptron can implement a NAND gate (see the useful reference in the
- abstract), and the NAND gate is universal for computation (that is, we
- can build any computation up out of NAND gates).
- Since NAND gates are universal for computation, it follows that perceptrons
- are also universal for computation.
+ abstract for example)
+\end_layout
+
+\begin_layout Remark*
+The NAND example shows that we can use perceptrons to compute simple logical
+ functions.
+ In fact, we can use networks of perceptrons to compute any logical function
+ at all.
+ The reason is that the NAND gate is universal for computation, that is,
+ we can build any computation up out of NAND gates.
 \end_layout
 
 \begin_layout Itemize

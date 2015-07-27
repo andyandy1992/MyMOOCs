@@ -1,0 +1,599 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{10}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Neuro-probabilistic language models
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+We 
+\end_layout
+
+\begin_layout Subsection
+A basic problem in speech recognition
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+A practical use for feature vectors that represent words.
+\end_layout
+
+\begin_layout Standard
+In speech recognition systems, having a good idea of what somebody might
+ say next is very helpful in recognising the sounds they make.
+ We cannot identify phonemes (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+lack
+\begin_inset Quotes erd
+\end_inset
+
+ instead of 
+\begin_inset Quotes eld
+\end_inset
+
+back
+\begin_inset Quotes erd
+\end_inset
+
+) perfectly in noisy speech.
+ The acoustic input is often ambiguous; there are several different words
+ that fit the acoustic signal equally well.
+\end_layout
+
+\begin_layout Standard
+People use the 
+\emph on
+\bar under
+understand of the meaning of the utterance
+\emph default
+\bar default
+ to hear the right words:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+We do this unconsciously when we wreck a nice beach.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Speech recognisers have to know which words are likely to come next and
+ which are not.
+\end_layout
+
+\begin_layout Subsection
+The standard 
+\begin_inset Quotes eld
+\end_inset
+
+trigram
+\begin_inset Quotes erd
+\end_inset
+
+ method
+\end_layout
+
+\begin_layout Enumerate
+Take a huge amount of text and you count the frequencies of all triples
+ of words.
+\end_layout
+
+\begin_layout Enumerate
+Then use these frequencies to make bets on the relative probabilities of
+ the next word given the previous two words.
+ 
+\end_layout
+
+\begin_layout Example
+Suppose we've heard the words 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ We look at the counts that we have in our huge body of text to establish
+ the relative probability that the third word will be 
+\begin_inset Formula $C$
+\end_inset
+
+ versus the third word will be 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ This is given by the ratio of the two counts, 
+\begin_inset Formula $A-B-C$
+\end_inset
+
+ and 
+\begin_inset Formula $A-B-D$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{\mathbb{P}\left[w_{3}=C\mid w_{2}=b,w_{1}=a\right]}{\mathbb{P}\left[w_{3}=D\mid w_{2}=b,w_{1}=a\right]}=\frac{\mbox{count}\left(ABC\right)}{\mbox{count}\left(ABD\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Problems with the trigram method
+\end_layout
+
+\begin_layout Itemize
+We can't use a much bigger context because there are 
+\emph on
+\bar under
+too many many possibilities
+\emph default
+\bar default
+ to store and the counts would be mostly zero.
+ Even for two word contexts there's many contexts that you will never have
+ heard.
+ (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+dinosaur pizza
+\begin_inset Quotes erd
+\end_inset
+
+, is probably a string of two words that you've never heard before).
+ For cases like that, we have to 
+\begin_inset Quotes eld
+\end_inset
+
+back-off
+\begin_inset Quotes erd
+\end_inset
+
+ to 
+\emph on
+individual words
+\emph default
+ (digrams).
+ So after dinosaur pizza, you predict the next word by just seeing what's
+ likely to come after the word pizza (because you've never heard dinosaur
+ pizza before).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+WARNING
+\series default
+: The probability is 
+\emph on
+\bar under
+not zero
+\emph default
+\bar default
+ because the count is zero and you have not seen an example before.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+It fails to use a lot of obvious information that will help you predict
+ the next word.
+ E.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+The cat got squashed in the garden on Friday
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This should help us predict words in the sentence 
+\begin_inset Quotes eld
+\end_inset
+
+The dog got flattened in the yard on Monday.
+\begin_inset Quotes erd
+\end_inset
+
+ In particular, the trigram model 
+\emph on
+\bar under
+does not understand the similarities
+\emph default
+\bar default
+ between 
+\begin_inset Quotes eld
+\end_inset
+
+cat/dog
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+squashed/flattened
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+garden/yard
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Friday/Monday
+\begin_inset Quotes erd
+\end_inset
+
+.
+ So it can't use past experience with one of those words to help it with
+ the other one.
+\end_layout
+
+\begin_layout Standard
+To overcome this limitation, we need to convert words into a 
+\emph on
+\bar under
+vector of semantic and syntactic features
+\emph default
+\bar default
+, and use the 
+\emph on
+\bar under
+features of previous words to predict the features of the next word
+\emph default
+\bar default
+.
+ Using a feature representation, allows us to use much bigger context, that
+ contains many more words.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/Bengio's-nn.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Bengio's NN for predicting the next word: 
+\series default
+We can think of putting in the index of a word at the bottom as a set of
+ neurons of which just one is on.
+ The weight from that on neuron will determine the pattern of activity in
+ the next hidden layer - the distributed representation of the word (it's
+ feature vector).
+ This is equivalent to saying do a table look-up.
+ You then have a stored feature vector for each word, and with learning
+ you modify that feature vector, which is exactly equivalent to modifying
+ the weights coming from a single active-input unit.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After getting distributed representations of a few previous words (we've
+ only shown 2 here but you would typically use e.g.
+ 5), we can then use those distributed representations to predict via huge
+ softmax what the probabilities are for all the various words that might
+ come next.
+\end_layout
+
+\begin_layout Standard
+One extra refinement that makes it work better is to use 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+skip-lag
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ connections that go straight from the input words to the output words (because
+ the individual input words are individually quite informative about what
+ the output word might be).
+\end_layout
+
+\begin_layout Remark
+Bengio's model was actually slightly worse than Trigram's at predicting
+ the next word, but it was in the same ballpark, and if you combined it
+ with Trigram's it improved things.
+ Since then these language models that use feature vectors for words have
+ been improved considerably, and they're now considerably better than trigram
+ models.
+\end_layout
+
+\begin_layout Subsection
+A problem with having 100,000 output words
+\end_layout
+
+\begin_layout Standard
+Because typically in these language models the plural of a word is a different
+ word from the singular, and the various different tenses of a verb are
+ different words from other tenses, each unit in the last hidden layer of
+ the net might have to have 100,000 outgoing weights.
+ Unless we have a huge number of training cases (Google), we could start
+ over-fitting.
+\end_layout
+
+\begin_layout Standard
+We could try and make the last hidden layer small, so we don't need too
+ many weights.
+ But then we have the problem that we have to get the 100,000 probabilities
+ of the various words that might come next, fairly accurately right.
+ In particular, it's not just the big probabilities we need - a 
+\emph on
+very large number of words 
+\emph default
+will have small probabilities that are often relevant.
+\end_layout
+
+\begin_layout Subsubsection
+Is there a better way to deal with such a large number of outputs?
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+How to avoid requiring 100,000 different output units in the softmax, if
+ we want to get probabilities for a 100,000 different words.
+\end_layout
+
+\begin_layout Standard
+Method I:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/serial-architecture.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+A serial architecture: 
+\series default
+Put in the context words as before, but now also put in a 
+\emph on
+candidate for the next word
+\emph default
+ in the same way as the context words.
+ Then, we go forward through the net and what we 
+\emph on
+\bar under
+output is a score
+\emph default
+\bar default
+ for how good that candidate word is, in that context.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+\begin_inset Quotes eld
+\end_inset
+
+ON https://class.coursera.org/neuralnets-2012-001/lecture/51
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Optimisation-issues"
+
+\end_inset
+
+Optimisation Issues (Lecture 6)
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Generalisation-issues"
+
+\end_inset
+
+Generalisation Issues (Lecture 7)
+\end_layout
+
+\end_body
+\end_document

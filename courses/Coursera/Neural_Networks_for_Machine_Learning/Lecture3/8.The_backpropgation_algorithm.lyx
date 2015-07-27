@@ -102,7 +102,7 @@ status open
 
 
 \backslash
-setcounter{section}{5}
+setcounter{section}{7}
 \end_layout
 
 \end_inset
@@ -111,7 +111,7 @@ setcounter{section}{5}
 \end_layout
 
 \begin_layout Section
-Second Generation NNs
+The backpropagation algorithm
 \end_layout
 
 \begin_layout Standard
@@ -124,543 +124,77 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Abstract
-Psns.
-\end_layout
-
-\begin_layout Section
-Second Generation NNs
-\end_layout
-
-\begin_layout Subsection
-Learning the weights of a linear neuron
-\end_layout
-
-\begin_layout Standard
-Learning algorithm of a linear neuron.
- C.f.
- the learning algorithm for a perceptron:
-\end_layout
-
-\begin_layout Description
-Perceptron Weights are always getting closer to a good set of weights.
-\end_layout
-
-\begin_layout Description
-Linear
-\begin_inset space ~
-\end_inset
-
-Neuron
-\begin_inset space ~
-\end_inset
-
-(aka.
-\begin_inset space ~
-\end_inset
-
-linear
-\begin_inset space ~
-\end_inset
-
-filters) The outputs are are always getting closer to the target output.
- (The simplest example is a linear neuron with a squared error measure.)
-\end_layout
-
-\begin_layout Subsubsection
-Why the perceptron learning procedure cannot be generalised to hidden layers
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm-5.1"
-
-\end_inset
-
- cannot be extended to more complex networks in which the average of two
- good solutions may be a bad solution.
- So 
-\begin_inset Quotes eld
-\end_inset
-
-multi-layer
-\begin_inset Quotes erd
-\end_inset
-
- neural networks do not use the perceptron learning procedure.
-\end_layout
-
-\begin_layout Subsubsection
-Why the learning procedure for linear neurons make progress
-\end_layout
-
-\begin_layout Notation
-The linear neuron has a real-valued output which is a weighted sum of its
- inputs (including the bias as a weight with input value 1):
-\begin_inset Formula 
-\[
-y=\mathbf{w}^{T}\mathbf{x}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The aim of learning is to minimise the error summed over all training cases.
- The error is the squared difference between the desired output and the
- actual output.
-\end_layout
-
-\begin_layout Definition
-The 
-\series bold
-residual error 
-\series default
-is 
-\begin_inset Formula $t-y$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Definition
-The 
-\series bold
-delta-rule
-\series default
- (aka.
- 
-\series bold
-LMS
-\series default
-,
-\series bold
- Least-Mean-Square
-\series default
-) for learning with linear neurons is 
-\begin_inset Formula 
-\[
-\Delta w_{i}=\varepsilon x_{i}\left(t-y\right)
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $\varepsilon:=$
-\end_inset
-
-learning rate, some positive constant to moderate the degree to which weights
- are changed at each step (can be chosen to make the calculations easier).
- It is usually set to some small value, e.g.
- 0.1, and sometime made to decay as the number of weight-tuning iterations
- increases.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-So the learning procedure for linear neurons involves updating the weights
- according to the delta-rule (iteratively).
-\end_layout
-
-\begin_layout Remark
-The delta-rule converges only asymptotically, but converges regardless of
- whether the training data are linearly separable.
- The perceptron train rule converges after a finite number of iterations
- to a hypothesis that perfectly classifies the training data, 
-\emph on
-provided 
-\emph default
-the training examples are linearly separable.
-\end_layout
-
-\begin_layout Subsection
-The error surface weights of a linear neuron
-\end_layout
-
-\begin_layout Subsubsection
-Measure for training error
-\end_layout
-
-\begin_layout Standard
-Although there are many ways to define this error, one common measure (that
- will see turn out especially convenient) is
-\begin_inset Formula 
-\begin{eqnarray*}
-E\left(\mathbf{w}\right) & = & \frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^{2}\\
-\therefore\nabla E\left(\mathbf{w}\right) & = & \left[\frac{\partial E}{\partial w_{0}},\frac{\partial E}{\partial w_{1}},...,\frac{\partial E}{\partial w_{n}}\right]
-\end{eqnarray*}
-
-\end_inset
-
-where
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{\partial E}{\partial w_{i}} & = & \frac{\partial}{\partial w_{i}}\left[\frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^{2}\right]\\
- & = & \frac{1}{2}2\sum_{d\in D}\left(t_{d}-y_{d}\right)\frac{\partial}{\partial w_{i}}\left[\left(t_{d}-y_{d}\right)\right]\\
- & = & \sum_{d\in D}\left(t_{d}-y_{d}\right)\frac{\partial}{\partial w_{i}}\left[\left(t_{d}-x_{d}\cdot w\right)\right]\\
- & = & \sum_{d\in D}\left(t_{d}-y_{d}\right)\left(-\left(x_{d}\right)_{i}\right)
-\end{eqnarray*}
-
-\end_inset
-
-We characterise 
-\begin_inset Formula $E$
-\end_inset
-
- as a function of 
-\begin_inset Formula $\mathbf{w}$
-\end_inset
-
- because the linear unit output 
-\begin_inset Formula $y$
-\end_inset
-
- depends on this weight vector.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/quadratic-bowl-learning-linear-neurons.png
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Images/hypothesis-space-GD.png
-	lyxscale 10
-	scale 10
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-The error surface lies in a space with a horizontal axis for each weight,
- and one vertical axis for the error.
- For a linear neuron with a squared error, it is a quadratic bowl (i.e.
- vertical cross-sections are parabolas, whilst horizontal cross-sections
- are ellipses).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Remark
-WARNING: For multi-layer, non-linear nets the error surface is much more
- complicated.
-\end_layout
-
-\begin_layout Subsubsection
-Online learning vs.
- batch learning
-\end_layout
-
-\begin_layout Description
-Online
-\begin_inset space ~
-\end_inset
-
-Learning 
-\end_layout
-
-\begin_layout Description
-Batch
-\begin_inset space ~
-\end_inset
-
-Learning
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/online-vs-batch-learning.png
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Batch (aka.
- offline) learning (left) will yield a much more stable descent (namely
- steepest descent) to a local minimum since each update is performed based
- on all training cases; 
-\begin_inset Formula $\mathbf{w}\rightarrow\mathbf{w}+\Delta\mathbf{w}$
-\end_inset
-
-, where 
-\begin_inset Formula $\Delta\mathbf{w}=-\eta\nabla E\left(\mathbf{w}\right)$
-\end_inset
-
- for the step size 
-\begin_inset Formula $\eta$
-\end_inset
-
- (note the negative size as we are decreasing to a minimum).
- For online learning (right), we change the weights according to each specific
- training case - from the initial red dot, we move in a direction perpendicular
- to the constraint from training case 1, then we move in a direction perpendicul
-ar to the constraint from training case 2.
- This means that the two algorithms visit different sets of points during
- adaptation.
- However, they both converge to the same minimum.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Why learning can be slow
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/elongated-ellipse.png
-	lyxscale 30
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:6.3"
-
-\end_inset
-
-If the ellipse is very elongated, the direction of steepest descent is almost
- perpendicular to the direction towards the minimum; the red gradient vector
- has a large component along the short axis of the ellipse, and a small
- component along the long axis of the ellipse (just the opposite to what
- we want).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Learning the weights of a logistic output neuron
-\end_layout
-
-\begin_layout Standard
-Extending the learning rule for linear neurons to nonlinear multi-layer
- neurons, we need to:
-\end_layout
-
-\begin_layout Enumerate
-Extend the learning rule to a
-\emph on
- single nonlinear 
-\emph default
-neuron (we'll use logistic neurons, though any nonlinear neuron can be used).
-\end_layout
-
-\begin_layout Subsubsection
-The derivatives of a logistic neuron
-\end_layout
-
-\begin_layout Standard
-Recall the 
-\emph on
-logit
-\emph default
-, 
-\begin_inset Formula $z=b+\sum_{i}x_{i}w_{i}$
-\end_inset
-
- and the output 
-\begin_inset Formula $y=\frac{1}{1+e^{-z}}$
-\end_inset
-
-.
- Therefore (
-\begin_inset Quotes eld
-\end_inset
-
-the last equation is not obvious, but I confirmed it with the maths
-\begin_inset Quotes erd
-\end_inset
-
-) 
-\begin_inset Formula 
-\[
-\frac{\partial z}{\partial w_{i}}=x_{i},\ \frac{\partial z}{\partial x_{i}}=w_{i},\ \frac{dy}{dz}=y\left(1-y\right)
-\]
-
-\end_inset
-
-Hence the learning rule for a logistic neuron is (using the chain rule for
- 
-\begin_inset Formula $\frac{\partial y}{\partial w_{i}}=\frac{\partial z}{\partial w_{i}}\frac{\partial y}{\partial z}=x_{i}y\left(1-y\right)$
-\end_inset
-
-) 
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{\partial E}{\partial w_{i}} & = & \sum_{n}\frac{\partial y_{n}}{\partial w_{i}}\frac{\partial E}{\partial y_{n}}\\
- & = & -\sum_{n}{\color{green}\left(x_{n}\right)_{i}}{\color{red}y_{n}\left(1-y_{n}\right)}{\color{green}\left(t_{n}-y_{n}\right)}
-\end{eqnarray*}
-
-\end_inset
-
-Note the delta-rule is the same as the green terms; the extra term defines
- the slope of the logistic.
-\end_layout
-
-\begin_layout Subsection
-The backpropagation algorithm (1980s)
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
-If you come up with a way to measure error of the network, backprop tells
- you how to change the weights to most efficiently minimise that error (error
- gradient in technical terms).
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-How to learn multiple layers of features.
+Th backpropagation algorithm developed during the 1980s led to an explosion
+ of interest in neural networks.
+ It allows us to learn multiple layers of features.
  Networks without hidden units are very limited in the input-output mappings
  they can model.
  Adding a layer of hand-coded features (as in a perceptron) makes them much
  more powerful, but the hard bit is designing the features.
- We would like to find good features without requiring insight into the
- task or repeated trial and error - we need to automate the loop of designing
- features for a particular task and seeing how well they work.
+ To find good features without requiring insight into the task or repeated
+ trial and error, we use this as an automate the process of designing features
+ for a particular task, and seeing how well they work.
+ In partiuclar, if you come up with a way to measure error of a network,
+ backpropagation tells you how to change the weights to most efficiently
+ minimise that error (or the error gradient in technical terms).
 \end_layout
 
-\begin_layout Subsubsection
-How to learn the weights of hidden units
+\begin_layout Abstract
+This chapter first describes very obvious algorithms that do not work nearly
+ as well, but is something that many people think of when it comes to building
+ system that learn.
+ Now that we know how to learn the weights of the logistic units, we then
+ return to the central issue, which is how to learn the weights of hidden
+ units (they are called hidden units because nobody is telling us what their
+ states ought to be).
 \end_layout
 
-\begin_layout Standard
-
-\emph on
-\bar under
-Learning by randomly perturbing weights (c.f.
+\begin_layout Subsection
+Inefficient methods: learning by randomly perturbing weights (c.f.
  evolution)
 \end_layout
 
 \begin_layout Standard
+Consider the following methods (based on intuition/those who understand
+ evolution); these are forms of reinforcement learning.
+\end_layout
 
-\emph on
-\begin_inset Quotes eld
-\end_inset
-
+\begin_layout Subsubsection
 Randomly perturb one weight, and see if it improves performance - if so,
  save the change.
-\begin_inset Quotes erd
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-This is a form of reinforcement learning.
- This is 
+This is 
 \bar under
 very inefficient
 \bar default
-.
- We need to do multiple forward passes on a representative set of training
+ (backpropagation is much better):
+\end_layout
+
+\begin_layout Itemize
+We need to do multiple forward passes on a representative set of training
  cases just to change one weight.
- Backpropagation is much better.
- Towards the end of learning, large weight perturbations will nearly always
+ 
+\end_layout
+
+\begin_layout Itemize
+Towards the end of learning, large weight perturbations will nearly always
  make things worse, because the weights need to have the right relative
  values.
 \end_layout
 
-\begin_layout Enumerate
-
-\emph on
-Learning by randomly perturbing all weights in parallel and correlate the
- performance gain with the weight changes,
+\begin_layout Subsubsection
+Learning by randomly perturbing all weights in parallel, and correlate the
+ performance gain with the weight changes
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-Not any better: we need lots of trials on each training case to 
+\begin_layout Standard
+This is not any better:
+\end_layout
+
+\begin_layout Itemize
+We need lots of trials on each training case to 
 \begin_inset Quotes eld
 \end_inset
 
@@ -672,31 +206,26 @@ see
  changes to other weights.
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-
-\emph on
+\begin_layout Subsubsection
 Learning by randomly perturbing the activities of the hidden units.
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
+\begin_layout Standard
 Once we know how we want a hidden activity to change on a given training
- case, we can compute how to change the weights.
+ case, we can compute how to change the weights:
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 There are fewer activities than weights, but backpropagation still wins
  by a factor of the number of neurons.
 \end_layout
 
-\end_deeper
-\begin_layout Subsubsection
+\begin_layout Subsection
 The idea behind backpropagation
 \end_layout
 
-\begin_layout Standard
-We don't know what the hidden units ought to do (hence the name 
+\begin_layout Itemize
+We do not know what the hidden units ought to do (hence the name 
 \begin_inset Quotes eld
 \end_inset
 
@@ -704,22 +233,30 @@ hidden
 \begin_inset Quotes erd
 \end_inset
 
-), but we can compute how fast the error changed as we change a hidden activity.
- Instead of using desired activities to train the hidden units, we use error
+), but we can compute how fast the error changes as we change a hidden activity.
+\end_layout
+
+\begin_layout Itemize
+Instead of using desired activities to train the hidden units, we use error
  derivatives w.r.t.
  hidden activities.
- Each hidden activity can affect many output units and can therefore have
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Each hidden activity can affect many output units and can therefore have
  many separate effects on the error.
  These effects must be combined.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 We can compute error derivatives for all the hidden units efficiently at
  the same time.
  Once we have the error derivatives for the hidden activities, its easy
- to get the error derivatives foe the weights going into a hidden unit.
+ to get the error derivatives for the weights going into a hidden unit.
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -728,10 +265,24 @@ status open
 
 \begin_layout Plain Layout
 \align center
+Step 2.
 \begin_inset Graphics
-	filename Images/backpropagation-single-case.png
-	lyxscale 50
-	scale 50
+	filename ../Images/Lecture3/Chapter8/backpropagation-single-case.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+Step 3.
+\begin_inset Graphics
+	filename ../Images/Lecture3/Chapter8/backpropagating-algorithm.png
+	lyxscale 20
+	scale 20
 
 \end_inset
 
@@ -762,56 +313,15 @@ Sketch of the backpropagation algorithm on a single case
 \end_inset
 
 2.
- Then compute error derivatives in each hidden layer from error derivatives
- in the layer above.
+ Compute error derivatives in each hidden layer from error derivatives in
+ the layer above.
 \begin_inset Newline newline
 \end_inset
 
 3.
- Then use error derivatives w.r.t.
+ Use these error derivatives w.r.t.
  activities to get error derivatives w.r.t.
  the incoming weights.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Images/backpropagating-algorithm.png
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\series bold
-Backpropagating 
-\begin_inset Formula $\frac{dE}{dy}$
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -943,9 +453,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Images/overfitting.png
-	lyxscale 50
-	scale 50
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Neural_Networks_for_Machine_Learning/Images/Lecture3/Chapter8/overfitting.png
+	lyxscale 20
+	scale 20
 
 \end_inset
 

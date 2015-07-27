@@ -1,0 +1,529 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{5}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Linear neurons - a second generation neural network
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+This chapter introduces the learning algorithm for a linear neuron.
+ This is quite like the learning algorithm for a perceptron, but it achieves
+ something different; 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The perception convergence procedure works by ensuring that when we change
+ the weights, we get closer to a good set of weights.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This type of guarantee cannot be extended to more complex networks; 
+\emph on
+so 
+\begin_inset Quotes eld
+\end_inset
+
+multi-layer
+\begin_inset Quotes erd
+\end_inset
+
+ neural networks do not use perceptron learning
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+In a linear neuron, the outputs are always getting closer to the target
+ outputs.
+\end_layout
+
+\end_deeper
+\begin_layout Abstract
+(C.f this to 
+\begin_inset CommandInset href
+LatexCommand href
+name "chapter 3 of my linear regression notes"
+target "http://andyandy1992.github.io/MyMOOCs/courses/Coursera/Machine_Learning/Week2/3.Multivariate_linear_regression.pdf"
+
+\end_inset
+
+ from the Machine Learning course.)
+\end_layout
+
+\begin_layout Subsection
+Learning the weights of a linear neuron (aka.
+ linear filters)
+\end_layout
+
+\begin_layout Standard
+The aim of learning with linear neurons is to minimise the error summed
+ over all training cases.
+ The error is the squared difference between the desired output and the
+ actual output.
+\end_layout
+
+\begin_layout Notation
+The 
+\series bold
+linear neuron
+\series default
+ has a real-valued output which is a weighted sum of its inputs (including
+ the bias as a weight with input value 
+\begin_inset Formula $1$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+y=\mathbf{w}^{T}\mathbf{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+We could find 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+ analytically (i.e.
+ 
+\begin_inset Formula $A\mathbf{x}=\mathbf{b}$
+\end_inset
+
+), however we want to develop an iterative method that can be generalised
+ to multi-layer, non-linear neural networks.
+\end_layout
+
+\begin_layout Definition
+The 
+\series bold
+residual error 
+\series default
+is 
+\begin_inset Formula $t-y$
+\end_inset
+
+ (i.e.
+ the difference between the target output and the actual output).
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+The 
+\series bold
+delta-rule
+\series default
+ (aka.
+ 
+\series bold
+LMS
+\series default
+,
+\series bold
+ Least-Mean-Square
+\series default
+) for learning the weights of linear neurons is 
+\begin_inset Formula 
+\[
+\Delta w_{i}=\varepsilon x_{i}\left(t-y\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\varepsilon:=$
+\end_inset
+
+learning rate, some positive constant to moderate the degree to which weights
+ are changed at each step (can be chosen to make the calculations easier).
+ It is usually set to some small value, e.g.
+ 0.1, and sometimes made to decay as the number of weight-tuning iterations
+ increases.
+\end_layout
+
+\end_deeper
+\begin_layout Note*
+By making the learning rate small enough we can get as close as we desire
+ to the best answer; but making it too small results in slow convergence.
+\end_layout
+
+\begin_layout Remark*
+
+\series bold
+\emph on
+Comparison of the learning rules of percerptons and linear neurons
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The delta-rule converges only asymptotically, but converges regardless of
+ whether the training data are linearly separable.
+\end_layout
+
+\begin_layout Itemize
+The perceptron training rule converges after a finite number of iterations
+ to a hypothesis that perfectly classifies the training data, 
+\emph on
+provided 
+\emph default
+the training examples are linearly separable.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Deriving the delta rule
+\end_layout
+
+\begin_layout Standard
+We can define the 
+\series bold
+measure for training error
+\series default
+ (which is especially convenient when using the chain rule) as
+\begin_inset Formula 
+\begin{eqnarray*}
+E\left(\mathbf{w}\right) & = & \frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^{2}
+\end{eqnarray*}
+
+\end_inset
+
+(we characterise 
+\begin_inset Formula $E$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $\mathbf{w}$
+\end_inset
+
+ because the linear unit output 
+\begin_inset Formula $y$
+\end_inset
+
+ depends on this weight vector.).
+ Now the batch delta rule changes the weights in proportion to the (negative,
+ as we are decreasing to a minimum) error derivatives summed over all training
+ cases (
+\begin_inset Formula $d\in D$
+\end_inset
+
+); so 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{\partial E}{\partial w_{i}} & = & \frac{\partial}{\partial w_{i}}\left[\frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^{2}\right]\\
+ & = & \frac{1}{2}2\sum_{d\in D}\left(t_{d}-y_{d}\right)\frac{\partial}{\partial w_{i}}\left[\left(t_{d}-y_{d}\right)\right]\\
+ & = & \sum_{d\in D}\left(t_{d}-y_{d}\right)\frac{\partial}{\partial w_{i}}\left[\left(t_{d}-\mathbf{w}^{T}\mathbf{x}_{d}\right)\right]\\
+ & = & \sum_{d\in D}\left(t_{d}-y_{d}\right)\left(-\left(x_{i}\right)_{d}\right)\\
+\therefore\Delta w_{i} & \propto & -\frac{\partial E}{\partial w_{i}}\\
+\Rightarrow\Delta w_{i} & = & -\varepsilon\frac{\partial E}{\partial w_{i}}=\sum_{d\in D}\varepsilon\left(x_{i}\right)_{d}\left(t_{d}-y_{d}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The error surface for the weights of a linear neuron
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture3/Chapter6/quadratic-bowl-learning-linear-neurons.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Images/Lecture3/Chapter6/hypothesis-space-GD.png
+	lyxscale 10
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The error surface lies in a space with a horizontal axis for each weight,
+ and one vertical axis for the error.
+ For a linear neuron with a squared error, it is a quadratic bowl (i.e.
+ vertical cross-sections are parabolas, whilst horizontal cross-sections
+ are ellipses).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+WARNING: For multi-layer, non-linear nets the error surface is much more
+ complicated.
+\end_layout
+
+\begin_layout Subsection
+Online learning vs.
+ batch learning
+\end_layout
+
+\begin_layout Standard
+These two algorithms visit different sets of points during adaptation, however
+ they still both converge to the same minimum.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture3/Chapter6/online-vs-batch-learning.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Batch (aka.
+ offline) learning (left):
+\series default
+ Yields a more stable descent (namely steepest descent) to a local minimum,
+ since each update is performed based on all training cases; 
+\begin_inset Formula $\mathbf{w}\rightarrow\mathbf{w}+\Delta\mathbf{w}$
+\end_inset
+
+, where 
+\begin_inset Formula $\Delta\mathbf{w}=-\varepsilon\nabla E\left(\mathbf{w}\right)$
+\end_inset
+
+ for the step size 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Online learning (right)
+\series default
+: We change the weights according to each specific training case - from
+ the initial red dot, we move in a direction perpendicular to the constraint
+ from training case 1, then we move in a direction perpendicular to the
+ constraint from training case 2.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Why learning can be slow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture3/Chapter6/elongated-ellipse.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:6.3"
+
+\end_inset
+
+If the ellipse is very elongated, the direction of steepest descent is almost
+ perpendicular to the direction towards the minimum; the red gradient vector
+ has a large component along the short axis of the ellipse, and a small
+ component along the long axis of the ellipse (just the opposite to what
+ we want).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

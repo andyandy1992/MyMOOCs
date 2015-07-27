@@ -1,0 +1,377 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+theorems-sec-bytype
+theorems-ams-extended-bytype
+eqs-within-sections
+figs-within-sections
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf2
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{9}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The softmax output function
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+We 
+\end_layout
+
+\begin_layout Subsection
+Problems with squared error
+\end_layout
+
+\begin_layout Itemize
+If the target output is 1 and the actual output is 0.00000001, there's almost
+ no gradient for a logistic unit to fix up the error.
+ (It's way out on a plateau where the slope is almost exactly horizontal,
+ so it will take a very, very long time to change its weights, even though
+ it's making almost as big an error as it's possible to make.)
+\end_layout
+
+\begin_layout Itemize
+Also, if we're trying to assign probabilities to mutually exclusive class
+ labels, the output must sum to 1.
+ We ought to tell the network that information, (we shouldn't deprive it
+ of the knowledge that these are mutually exclusive answers).
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Is there a way of telling it that these are mutually exclusive by using
+ an appropriate cost function?
+\end_layout
+
+\begin_layout Standard
+What we need to do is force the outputs of the neural net to represent a
+ probability distribution across discrete alternatives, if that's what we
+ plan to use them for.
+\end_layout
+
+\begin_layout Subsection
+Softmax
+\end_layout
+
+\begin_layout Standard
+It's a kind of soft continuous version of the maximum function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/softmax.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A softmax group works by receiving some total input they've accumulated
+ from the layer below - namely 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ for the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ unit, and that's called the logit.
+ Thus they give an output 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ that doesn't just depend on their own 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+, it depends on the 
+\begin_inset Formula $z$
+\end_inset
+
+'s accumulated by their rivals as well.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particular,
+\begin_inset Formula 
+\[
+y_{i}=\frac{e^{z_{i}}}{\sum_{j\in\mbox{softmax group}}e^{z_{j}}}\Rightarrow\frac{\partial y_{i}}{\partial z_{i}}=y_{i}\left(1-y_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+The bottom line, 
+\begin_inset Formula $\sum_{j\in\mbox{group}}e^{z_{j}}$
+\end_inset
+
+ is the sum of the top line over all possibilities - so must equal 1.
+ Hence the sum of all the 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+'s must come to one, and the the 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+'s have to lie between 0 and 1 (since all strictly positive).
+ So we've forced the 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ to represent a probability distribution over 
+\emph on
+mutually exclusive alternatives
+\emph default
+ just by using the softmax equation.
+\end_layout
+
+\begin_layout Subsection
+Cross-entropy: the right cost function to use with softmax
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+If we're using a soft max group for the outputs, what's the right cost function?
+ 
+\end_layout
+
+\begin_layout Definition
+The 
+\series bold
+cross entropy
+\series default
+ 
+\series bold
+cost function 
+\series default
+is 
+\begin_inset Formula 
+\[
+C=-\sum_{j}t_{j}\log\left(y_{j}\right)\Rightarrow\frac{dC}{dz_{i}}=\sum_{j}\frac{\partial C}{\partial y_{j}}\frac{\partial y_{j}}{\partial z_{i}}=y_{i}-t_{i}
+\]
+
+\end_inset
+
+That is, we want to maximise the log probability of getting the answer right
+ - when one of the target values is a 1 and the remaining ones are 0, then
+ we simply sum of all possible answers putting 0 in front of all the wrong
+ answers, putting 1 in front of the right answer.
+\end_layout
+
+\begin_layout Remark
+The cross entropy cost function has a nice derivative that doesn't suffer
+ from the 
+\begin_inset Quotes eld
+\end_inset
+
+plateau problem; it has a nice property that it has a very big gradient
+ when the target value is 1 and the output is almost zero (i.e.
+ dividing by 0).
+\end_layout
+
+\begin_layout Remark
+So 
+\begin_inset Formula $C$
+\end_inset
+
+ has a
+\emph on
+ very steep derivative
+\emph default
+ when the answer is 
+\emph on
+very wrong
+\emph default
+.
+ In particular, steepness of 
+\begin_inset Formula $\frac{dC}{dy}$
+\end_inset
+
+ exactly balances the the flatness of 
+\begin_inset Formula $\frac{dy}{dz}$
+\end_inset
+
+.
+ Using the chain rule, the derivative is how fast the cost function changes
+ as you change the output of the unit times how fast the output of the unit
+ changes as you change 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ (notice we need to add up across all the 
+\begin_inset Formula $j$
+\end_inset
+
+, because when you change the 
+\begin_inset Formula $i$
+\end_inset
+
+, the output of all the different units changes).
+ The result is just the actual output minus the target output - you can
+ see that when the actual target outputs are very different, that has a
+ slope of 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ The slope is never bigger than 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ But the slope never gets small until the two things are pretty much the
+ same.
+\end_layout
+
+\begin_layout Remark
+In other words, you're getting pretty much the correct answer.
+\end_layout
+
+\end_body
+\end_document
