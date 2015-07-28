@@ -81,7 +81,8 @@
 },
 
 {"id":"FOLDER", "label":"Lecture3", "inode":true, "open":false, "icon":"folder", "branch": [
-{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture3/6.Linear_neurons-a_second_generation_neural_network.pdf", "label":"6.Linear neurons-a second generation neural network", "inode":false, "icon":"file"}
+{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture3/6.Linear_neurons-a_second_generation_neural_network.pdf", "label":"6.Linear neurons-a second generation neural network", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Neural_Networks_for_Machine_Learning/Lecture3/7.Logistic_neurons.pdf", "label":"7.Logistic neurons", "inode":false, "icon":"file"}
 ]
 },
 
