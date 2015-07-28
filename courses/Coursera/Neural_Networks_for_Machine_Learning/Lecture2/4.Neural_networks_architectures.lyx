@@ -212,9 +212,24 @@ deep
 \end_inset
 
  neural networks.
+ This are powerful:
 \end_layout
 
 \begin_deeper
+\begin_layout Itemize
+Intially, each neuron in the first hidden layer is making a decision by
+ weighing up the results from the inputs.
+ In this way, a neuron in the second layer can make a decision at a more
+ complex and more abstract level than neurons in the first layer.
+ And even more complex decisions can be made by neurons in the third layer.
+\end_layout
+
+\begin_layout Itemize
+In this way, a multi-layer network can engage in sophisticated decision
+ making.
+\end_layout
+
+\end_deeper
 \begin_layout Remark*
 Examples include:
 \end_layout
@@ -225,9 +240,17 @@ convolutional neural networks (typically used in image classification).
 \end_layout
 
 \end_deeper
-\end_deeper
 \begin_layout Subsection
 Recurrent neural networks (RNNs)
+\end_layout
+
+\begin_layout Standard
+The idea in these RNNs is to have neurons which fire for some limited duration
+ of time, before becoming inactive.
+ That firing can stimulate other neurons, which may fire a little while
+ later, also for a limited duration.
+ That causes still more neurons to fire, and so over time we get a cascade
+ of neurons firing.
 \end_layout
 
 \begin_layout Standard
@@ -270,12 +293,42 @@ RNNs
 
 \end_layout
 
-\begin_layout Remark*
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture2/Chapter4/rnn.gif
+	lyxscale 35
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 RNNs with multiple hidden layers are just a special case that has some of
  the hidden-to-hidden connections missing.
 \end_layout
 
-\begin_deeper
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Remark*
 These are much 
 \emph on
@@ -290,7 +343,6 @@ more biologically realistic
  them very difficult to train.
 \end_layout
 
-\end_deeper
 \begin_layout Subsubsection
 RNNs for modelling sequences
 \end_layout
@@ -399,6 +451,54 @@ Boltzmann machines
 Boltzmann machines are much more powerful models than Hopfield nets, but
  are less powerful than RNNs, and have a beautifully simple learning algorithm
  (these will be study later in the course).
+\end_layout
+
+\begin_layout Subsection
+Designing a neural network for learning
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://neuralnetworksanddeeplearning.com/chap1.html
+\backslash
+#the_architecture_of_neural_networks
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+While the design of the input and output layers of a neural network is often
+ straightforward, there can be quite an art to the design of the hidden
+ layers.
+\end_layout
+
+\begin_layout Itemize
+In particular, it is not possible to sum up the design process for the hidden
+ layers with a few simple rules of thumb.
+ Instead, neural networks researchers have developed many design heuristics
+ for the hidden layers, which help people get the behaviour they want out
+ of their nets.
+\end_layout
+
+\begin_layout Itemize
+For example, such heuristics can be used to help determine how to trade
+ off the number of hidden layers against the time required to train the
+ network.
+ We'll meet several such design heuristics later in the course.
+ 
 \end_layout
 
 \end_body

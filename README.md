@@ -9,12 +9,12 @@
  - [Machine Learning](https://www.coursera.org/learn/machine-learning)
  - [Neural Networks for Machine Learning](https://www.coursera.org/course/neuralnets)
 - Future:
+ - [Introduction to Data Science](https://www.coursera.org/course/datasci)
  - [Digital Signal Processing](https://www.coursera.org/course/dsp)
  - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
 - Interested in/useful resources:
- - [Medical Neuroscience](https://www.coursera.org/course/medicalneuro)
+# - [Medical Neuroscience](https://www.coursera.org/course/medicalneuro)
  - [Natural Language Processing](https://www.coursera.org/course/nlangp)
- - [Introduction to Data Science](https://www.coursera.org/course/datasci)
  - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics)
  - [Introduction to Logic](https://www.coursera.org/course/intrologic)
 

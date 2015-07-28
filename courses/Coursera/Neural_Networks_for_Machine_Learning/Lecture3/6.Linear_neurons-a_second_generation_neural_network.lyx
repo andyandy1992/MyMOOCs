@@ -172,6 +172,114 @@ target "http://andyandy1992.github.io/MyMOOCs/courses/Coursera/Machine_Learning/
 \end_layout
 
 \begin_layout Subsection
+The need for a new type of neuron
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://neuralnetworksanddeeplearning.com/chap1.html
+\backslash
+#sigmoid_neurons
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For more complicated networks, we want to make a small change in some weight
+ (or bias) to create only a small corresponding change in the output from
+ the network.
+\end_layout
+
+\begin_layout Itemize
+We could use this fact to modify the weights and biases to get our network
+ to behave more in the manner we want.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture3/Chapter6/Ideal-NN.png
+	lyxscale 35
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+We want small changes in weights to produce small changes in the output
+ of a neural network.
+ We can then change the weights and biases over and over to produce better
+ and better output; the network would be learning.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+
+\series bold
+\emph on
+Handwriting recognition
+\end_layout
+
+\begin_layout Example
+Suppose the network was mistakenly classifying an image as an "8" when it
+ should be a "9".
+ We could figure out how to make a small change in the weights and biases
+ so the network gets a little closer to classifying the image as a "9".
+ 
+\end_layout
+
+\begin_layout Example
+The problem is that this is 
+\series bold
+not
+\series default
+ what happens when our network contains perceptrons.
+ In fact, a small change in the weights or bias of any single perceptron
+ in the network can sometimes cause the output of that perceptron to completely
+ flip, say from 0 to 1.
+ That flip may then cause the behaviour of the rest of the network to completely
+ change in some very complicated way.
+ So while your "9" might now be classified correctly, the behaviour of the
+ network on all the other images is likely to have completely changed in
+ some hard-to-control way.
+ That makes it difficult to see how to gradually modify the weights and
+ biases so that the network gets closer to the desired behaviour.
+\end_layout
+
+\begin_layout Subsection
 Learning the weights of a linear neuron (aka.
  linear filters)
 \end_layout
@@ -299,11 +407,8 @@ Deriving the delta rule
 \end_layout
 
 \begin_layout Standard
-We can define the 
-\series bold
-measure for training error
-\series default
- (which is especially convenient when using the chain rule) as
+We can define a measure for training error (which is especially convenient
+ when using the chain rule) as
 \begin_inset Formula 
 \begin{eqnarray*}
 E\left(\mathbf{w}\right) & = & \frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^{2}
@@ -324,7 +429,40 @@ E\left(\mathbf{w}\right) & = & \frac{1}{2}\sum_{d\in D}\left(t_{d}-y_{d}\right)^
 \end_inset
 
  depends on this weight vector.).
- Now the batch delta rule changes the weights in proportion to the (negative,
+ Such an function is called a 
+\series bold
+cost 
+\series default
+( or 
+\series bold
+loss 
+\series default
+or 
+\series bold
+objective
+\series default
+) 
+\series bold
+function
+\series default
+, and this particular function is known as the 
+\series bold
+quadratic cost function 
+\series default
+(aka.
+ 
+\series bold
+mean squared error 
+\series default
+or 
+\series bold
+MSE
+\series default
+).
+\end_layout
+
+\begin_layout Standard
+Now the batch delta rule changes the weights in proportion to the (negative,
  as we are decreasing to a minimum) error derivatives summed over all training
  cases (
 \begin_inset Formula $d\in D$
@@ -490,8 +628,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../Images/Lecture3/Chapter6/elongated-ellipse.png
-	lyxscale 20
-	scale 20
+	lyxscale 15
+	scale 15
 
 \end_inset
 

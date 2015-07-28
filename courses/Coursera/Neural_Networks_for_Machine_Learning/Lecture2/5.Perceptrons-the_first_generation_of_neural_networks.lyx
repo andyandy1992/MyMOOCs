@@ -391,7 +391,7 @@ name "sub:5.2.2"
 
 \end_inset
 
-The perce0ptron convergence procedure: Training binary output neurons as
+The perceptron convergence procedure: Training binary output neurons as
  classifiers
 \end_layout
 
@@ -1137,7 +1137,7 @@ so the tricky part of pattern recognition must be solved by the hand-coded
 \begin_layout Remark*
 This illustrates that for neural networks to be powerful, we need them to
  be able to learn the feature detectors (it's not enough to just learn the
- weights of feature detectors) - hence second generation NNs.
+ weights of feature detectors) - hence second generation neural networks.
 \end_layout
 
 \end_body

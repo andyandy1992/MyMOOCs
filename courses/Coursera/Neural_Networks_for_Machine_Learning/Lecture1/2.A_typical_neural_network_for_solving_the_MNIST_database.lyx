@@ -114,6 +114,15 @@ setcounter{section}{1}
 A typical neural network for solving the MNIST database
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Abstract
 The MNIST database (Mixed National Institute of Standards and Technology
  database) is a large database of handwritten digits that is commonly used
@@ -150,6 +159,10 @@ target "https://en.wikipedia.org/wiki/MNIST_database"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Initial example
 \end_layout
 
 \begin_layout Standard
@@ -267,6 +280,379 @@ A graphical representation of the network described above, where
 \end_inset
 
  weights.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The number of neurons to use in the hidden layer is just a heuristic.
+\end_layout
+
+\begin_layout Subsection
+A more detailed example
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://neuralnetworksanddeeplearning.com/chap1.html
+\backslash
+#a_simple_network_to_classify_handwritten_digits
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Quotes eld
+\end_inset
+
+I have included this description here for consitency, but it includes more
+ technical details that can be found in the later sections of the course.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Setup
+\end_layout
+
+\begin_layout Standard
+We can split the problem of recognising handwritten digits into two sub-problems
+:
+\end_layout
+
+\begin_layout Enumerate
+First, we would like a way of breaking an image containing many digits into
+ a sequence of separate images, each containing a single digit.
+ Humans solve this segmentation problem with ease, but it's challenging
+ for a computer program to correctly break up the image.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../Images/Lecture1/Chapter2/Step1.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Once the image has been segmented, the program then needs to classify each
+ individual digit.
+\end_layout
+
+\begin_layout Standard
+We focus on the step 2 for the remaining of this subsection.
+\end_layout
+
+\begin_layout Standard
+Consider using the following neural network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture1/Chapter2/HandwritingClassificationNN.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+The input layer
+\series default
+ of the network contains neurons encoding the values of the input pixels.
+ As before, the input layer contains 
+\begin_inset Formula $784=28\times28$
+\end_inset
+
+ neurons (for simplicity we have omitted most of the 
+\begin_inset Formula $784$
+\end_inset
+
+ input neurons in the diagram).
+ The input pixels are greyscale, with a value of 0.0 representing white,
+ a value of 1.0 representing black, and in between values representing gradually
+ darkening shades of grey.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+The second (or hidden) layer
+\series default
+ contains any number of neurons 
+\begin_inset Formula $n$
+\end_inset
+
+, and we'll experiment with different values for 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ The example shown illustrates a small hidden layer, containing just 
+\begin_inset Formula $n=15$
+\end_inset
+
+ neurons.
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+The output layer
+\series default
+ of the network contains 
+\begin_inset Formula $10$
+\end_inset
+
+ neurons.
+ We number the output neurons from 
+\begin_inset Formula $0$
+\end_inset
+
+ through 
+\begin_inset Formula $9$
+\end_inset
+
+, and figure out which neuron has the 
+\emph on
+highest activation value
+\emph default
+ (indicating that the input has been classified by the algorithm as this).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\series bold
+Why use 10 output neurons?
+\end_layout
+
+\begin_layout Standard
+A seemingly natural way of doing this is to use just 4 output neurons, treating
+ each neuron as taking on a binary value, depending on whether the neuron's
+ output is closer to 0 or to 1.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+The ultimate justification is empirical: we can try out both network designs,
+ and it turns out that, for this particular problem, the network with 10
+ output neurons learns to recognise digits better than the network with
+ 4 output neurons.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To understand why we do this, it helps to think about what the neural network
+ is doing from first principles:
+\end_layout
+
+\begin_layout Itemize
+Consider first the case where we use 10 output neurons.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The first output neuron is trying to decide whether or not the digit is
+ a 0.
+\end_layout
+
+\begin_layout Itemize
+It does this by weighing up evidence from the hidden layer of neurons.
+\end_layout
+
+\begin_layout Itemize
+What are those hidden neurons doing? Well, just suppose for the sake of
+ argument that the first neuron in the hidden layer detects whether or not
+ an image like the following is present:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Images/Lecture1/Chapter2/mnist_top_left_feature.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+It can do this by 
+\emph on
+heavily weighting input pixels which overlap with the image
+\emph default
+, and only lightly weighting the other inputs.
+\end_layout
+
+\begin_layout Itemize
+In a similar way, suppose for the sake of argument that the second, third,
+ and fourth neurons in the hidden layer detect whether or not the following
+ images are present:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Images/Lecture1/Chapter2/mnist_other_features.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+These four images together make up the 0 image:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../Images/Lecture1/Chapter2/mnist_complete_zero.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+So if all four of these hidden neurons are firing then we can conclude that
+ the digit is a 0.
+\end_layout
+
+\end_deeper
+\begin_layout Note*
+That is not the only sort of evidence we can use to conclude that the image
+ was a 0 - we could legitimately get a 0 in many other ways (say, through
+ 
+\emph on
+translations 
+\emph default
+of the above images, or 
+\emph on
+slight distortions
+\emph default
+).
+\end_layout
+
+\begin_layout Remark*
+Supposing the neural network functions in this way, if we had 4 outputs,
+ then the first output neuron would be trying to decide what the most significan
+t bit of the digit was and there is no easy way to relate that most significant
+ bit to simple 
+\emph on
+shapes
+\emph default
+ like those shown above.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Images/Lecture1/Chapter2/HandwritingClassificationNN-binary.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+There is a way of determining the bitwise representation of a digit by adding
+ an extra layer to the three-layer network above.
+ The extra layer converts the output from the previous layer into a binary
+ representation.
 \end_layout
 
 \end_inset

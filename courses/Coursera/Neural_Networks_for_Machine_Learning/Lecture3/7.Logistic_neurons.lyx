@@ -130,7 +130,7 @@ To extending the learning rule for linear neurons to nonlinear multi-layer
 \emph on
  single nonlinear 
 \emph default
-neuron (we'll use logistic neurons, though any nonlinear neuron can be used).
+neuron (we use logistic neurons, though any nonlinear neuron can be used).
 \end_layout
 
 \begin_layout Abstract
@@ -221,7 +221,18 @@ status open
 \begin_layout Plain Layout
 Sigmoid neurons are non-linear, yet give a real-valued output that is a
  smooth and bounded function of their total input, and they also have nice
- derivatives - this makes learning easy.
+ derivatives (i.e.
+ they are a linear function on 
+\begin_inset Formula $\frac{\partial E}{\partial y_{n}}$
+\end_inset
+
+, noting 
+\begin_inset Formula $\frac{\partial y_{n}}{\partial w_{i}}$
+\end_inset
+
+ is fixed) - this makes learning easy (this linearity makes it easy to choose
+ small changes in the weights to achieve any desired small change in the
+ output).
  
 \end_layout
 

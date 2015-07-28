@@ -320,7 +320,11 @@ y=z
 
 \begin_layout Standard
 Simple, but computationally limited.
- The output 
+ The output (or 
+\series bold
+activation function
+\series default
+) 
 \begin_inset Formula $y$
 \end_inset
 
@@ -526,6 +530,11 @@ Sigmoid neurons give a real-valued output that is a smooth and bounded function
 \end_inset
 
 
+\end_layout
+
+\begin_layout Remark*
+A sigmoid neuron can be view as a smoothed out version of a binary threshold
+ neuron.
 \end_layout
 
 \begin_layout Subsubsection
