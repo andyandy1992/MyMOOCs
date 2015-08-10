@@ -23,6 +23,9 @@
 - Future:                        
  - [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
  - [Artificial Intelligence for Robotics](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
+ - [Software Testing](https://www.udacity.com/course/software-testing--cs258)
+- Interested in/useful resources:
+ - [Intro to Data Science](https://www.udacity.com/course/intro-to-data-science--ud359)
 
 ##edX
 - Interested in/useful resources:
