@@ -1,3 +1,14 @@
+#TOC
+- [Remarks:](#)
+- [Courses](#)
+	- [Coursera](#)
+	- [Udacity](#)
+	- [edX](#)
+	- [Other](#)
+- [License](#)
+- [Contact Me](#)
+- [Follow me on](#)
+
 #Remarks:
 - Notes are generally written with [LyX](http://www.lyx.org/), and compiled into PDF Documents. 
 - I have created a [github page](http://andyandy1992.github.io/MyMOOCs/) for easier viewing/navigation of my PDF notes.
