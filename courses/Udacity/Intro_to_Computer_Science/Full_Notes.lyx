@@ -2542,7 +2542,15 @@ Factorial
 \end_layout
 
 \begin_layout Standard
-The number of ways to order blocks.
+The number of ways to order 
+\begin_inset Quotes eld
+\end_inset
+
+things
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -5643,8 +5651,8 @@ Hash Function (Our's to understand)
 \end_layout
 
 \begin_layout Standard
-In creating our own hash function, we nee to be able to convert numbers
- in letter and visa versa:
+In creating our own hash function, we need to be able to convert numbers
+ into letter and visa versa:
 \end_layout
 
 \begin_layout Notation
@@ -5760,7 +5768,7 @@ and outputs a
 \end_layout
 
 \begin_layout Example*
-Bad has function:
+Bad hash function:
 \end_layout
 
 \begin_layout Example*
@@ -5844,6 +5852,87 @@ Testing Hash Functions
 \end_layout
 
 \begin_layout Standard
+We want our hash function to:
+\end_layout
+
+\begin_layout Enumerate
+Output a number between 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $b-1$
+\end_inset
+
+ (where 
+\begin_inset Formula $b:=\#\mbox{ buckets to use}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Map approximately 
+\begin_inset Formula $\frac{k}{b}$
+\end_inset
+
+ words to each bucket (where 
+\begin_inset Formula $k:=\#\mbox{ keywords}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+To ensure our hash function meets this requirements, we define the following
+ procedure that takes in:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+func
+\family default
+, the hash function we are testing (that takes in a keyword and the number
+ of buckets).
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+keys
+\family default
+, the list of keywords
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+size
+\family default
+, the number of buckets
+\end_layout
+
+\begin_layout Standard
+and returns 
+\family typewriter
+results
+\family default
+, the number of times each bucket is used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/test_hash_function.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Graphics
 	filename Images/Testing our new improved hash function.png
 
@@ -5853,8 +5942,35 @@ Testing Hash Functions
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Images/Graphs comparing bad_hash and better_hash.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The left (bash_hash_function) has created a hash table with too full (red)
+ and not full enough (blue) buckets.
+ We want this to be a fairly flat graph, distributing all of the words evenly
+ between the buckets.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -5995,18 +6111,34 @@ add (write)
 \end_layout
 
 \begin_layout Standard
+To prevent duplication (e.g.
+ with 
+\family typewriter
+hashtable_add
+\family default
+, we could have a bucket with 
+\family typewriter
+{'udacity':24, 'udacity':27}
+\family default
+) we create 
+\family typewriter
+hashtable_update
+\family default
+ which updates the bucket instead.
+ First we define a helper function 
+\family typewriter
+hashtable_lookup
+\family default
+ that returns the value associated with the key (if it exists):
+\end_layout
+
+\begin_layout Standard
 \begin_inset Graphics
 	filename Images/hashtable_lookup.png
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-To prevent duplication we use 
-\family typewriter
-hashtable_update:
 \end_layout
 
 \begin_layout Standard
@@ -6055,7 +6187,8 @@ immutable
 type
 \series default
 \emph default
-, and the 
+ (e.g.
+ a string), and the 
 \series bold
 values
 \series default
@@ -6091,6 +6224,17 @@ key:value
 \series default
  pairs are updated like in our update function for hash tables.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/str_vs_list_vs_dict.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -6268,7 +6412,112 @@ time
 \end_layout
 
 \begin_layout Subsection
-Changing Lookup (to work with dictionaries)
+Search Engine code to work with dictionaries
+\end_layout
+
+\begin_layout Subsubsection
+
+\family typewriter
+crawl_web(seed)
+\end_layout
+
+\begin_layout Standard
+Instead of starting 
+\family typewriter
+index 
+\family default
+with an empty list, we start with an empty dictionary:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/crawl_web.dict.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\family typewriter
+add_to_index(index, word, url)
+\end_layout
+
+\begin_layout Standard
+The great thing about the hash table is we 
+\series bold
+don't need to loop through anything now - the built-in 
+\family typewriter
+in 
+\family default
+operation determines whether the keyword is in the index or not
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/add_to_index.list.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/add_to_index.dict.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The left shows the old 
+\family typewriter
+add_to_index
+\family default
+ procedure based on the 
+\family typewriter
+index 
+\family default
+list, whilst the right illustrates the simplicity and efficiency of using
+ 
+\family typewriter
+index 
+\family default
+with the dictionary (hash table) type.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\family typewriter
+lookup(index, keyword)
 \end_layout
 
 \begin_layout Standard
@@ -6280,7 +6529,7 @@ Changing Lookup (to work with dictionaries)
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Conclusion
 \end_layout
 
