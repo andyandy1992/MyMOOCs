@@ -136,7 +136,213 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Abstract
-Information about this section
+We now switch from regression problems to classification problems.
+ Don't be confused by the name "Logistic Regression"; it is named that way
+ for historical reasons and is actually an approach to classification problems,
+ not regression problems.
+ We begin by studying 
+\series bold
+Binary Classification Problem
+\series default
+ where a machine learning algorithm classifies the inputs into one of two
+ possible the outputs, and 
+\series bold
+Multiclass Classification 
+\series default
+where there are many possible classes (this is just an extension of binary
+ classification).
+\end_layout
+
+\begin_layout Subsection
+Binary Classification Problem: Representation
+\end_layout
+
+\begin_layout Standard
+Now our output vector 
+\begin_inset Formula $y\in\left\{ 0,1\right\} $
+\end_inset
+
+ where 
+\begin_inset Formula $0$
+\end_inset
+
+ typically represents the 
+\begin_inset Quotes eld
+\end_inset
+
+negative
+\begin_inset Quotes erd
+\end_inset
+
+ class and 
+\begin_inset Formula $1$
+\end_inset
+
+ as the 
+\begin_inset Quotes eld
+\end_inset
+
+positive class
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+One method is to use linear regression:
+\end_layout
+
+\begin_layout Remark*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/Classifying_cancer.png
+	lyxscale 50
+	scale 505
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Linear regression can be used for classification, e.g.
+ in this example by maping all predictions 
+\begin_inset Formula $h_{x}\left(\boldsymbol{\theta}\right)\geq0.5$
+\end_inset
+
+ to 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{x}\left(\boldsymbol{\theta}\right)<0.5$
+\end_inset
+
+ to 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ This method doesn't work well because 
+\emph on
+classification is not actually a linear function
+\emph default
+ - what if we had a single 
+\series bold
+Yes 
+\series default
+with a very small tumour?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Hypothesis Representation
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $y\in\left\{ 0,1\right\} $
+\end_inset
+
+, our hypothesis should satisfy 
+\begin_inset Formula $0\leq h_{x}\left(\boldsymbol{\theta}\right)\leq1$
+\end_inset
+
+.
+ Using the 
+\series bold
+Sigmoid Function
+\series default
+ (or 
+\series bold
+Logistic Function
+\series default
+) on our linear regression hypothesis:
+\begin_inset Formula 
+\begin{eqnarray*}
+z & = & \boldsymbol{\theta}^{T}\mathbf{x}\\
+\therefore h_{\theta}\left(x\right) & = & \frac{1}{1+e^{-z}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/sigmoid-function.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The sigmoid function; this has aymptotes at 
+\begin_inset Formula $+1$
+\end_inset
+
+ and 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Binary Classification Problem: Evaluation
+\end_layout
+
+\begin_layout Subsection
+Binary Classification Problem: Optimisation
 \end_layout
 
 \begin_layout Standard
@@ -144,10 +350,6 @@ Information about this section
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-One-vs-all classification
 \end_layout
 
 \begin_layout Section
