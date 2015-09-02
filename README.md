@@ -17,7 +17,7 @@
 # Courses
 ##Coursera
 - In progress:
- - [Machine Learning](https://www.coursera.org/learn/machine-learning)
+ - [Machine Learning](https://www.coursera.org/learn/machine-learning) (a good set of notes can also be found [here](http://www.holehouse.org/mlclass/).)
  - [Neural Networks for Machine Learning](https://www.coursera.org/course/neuralnets)
 - Future:
  - [Introduction to Data Science](https://www.coursera.org/course/datasci)
