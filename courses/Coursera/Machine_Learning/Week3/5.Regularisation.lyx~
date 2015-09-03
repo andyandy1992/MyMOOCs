@@ -153,12 +153,10 @@ where there are many possible classes (this is just an extension of binary
  classification).
 \end_layout
 
-\begin_deeper
 \begin_layout Subsection
 Binary Classification Problem: Representation
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 Now our output vector 
 \begin_inset Formula $y\in\left\{ 0,1\right\} $
@@ -207,7 +205,7 @@ status open
 \begin_inset Graphics
 	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/Classifying_cancer.png
 	lyxscale 50
-	scale 50
+	scale 505
 
 \end_inset
 
@@ -302,8 +300,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/sigmoid-function.png
-	lyxscale 30
-	scale 30
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -613,16 +611,16 @@ status open
 \align center
 \begin_inset Graphics
 	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/cost-y=1.png
-	lyxscale 40
-	scale 40
+	lyxscale 50
+	scale 50
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/cost-y=0.png
-	lyxscale 40
-	scale 40
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -961,8 +959,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/binary_vs_mulitclass.png
-	lyxscale 40
-	scale 40
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -1135,6 +1133,10 @@ Crosses vs.
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
