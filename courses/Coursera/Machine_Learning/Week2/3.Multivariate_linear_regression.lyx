@@ -726,7 +726,7 @@ reference "fig:convergence-GD"
 \end_layout
 
 \begin_layout Subsubsection
-Choosing a suitable lesimplified arning rate 
+Choosing a suitable learning rate 
 \begin_inset Formula $\alpha$
 \end_inset
 
@@ -1122,5 +1122,58 @@ Too many features (e.g.
 \end_layout
 
 \end_deeper
+\begin_layout Subsection
+R Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week2/Chapter3/prestige-preparation.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week2/Chapter3/linear-regression_R.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Linear regression in 
+\series bold
+R 
+\series default
+on the prestige dataset.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

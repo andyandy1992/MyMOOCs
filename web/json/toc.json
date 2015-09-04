@@ -24,7 +24,8 @@
 },
 
 {"id":"FOLDER", "label":"Week3", "inode":true, "open":false, "icon":"folder", "branch": [
-{"id":"FOLDER", "label":"Chapter4", "inode":true, "open":false, "icon":"folder"}
+{"id":"FOLDER", "label":"Chapter4", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Chapter5", "inode":true, "open":false, "icon":"folder"}
 ]
 }
 
@@ -43,7 +44,8 @@
 },
 
 {"id":"FOLDER", "label":"Week3", "inode":true, "open":false, "icon":"folder", "branch": [
-{"id":"courses/Coursera/Machine_Learning/Week3/4.Logistic_regression.pdf", "label":"4.Logistic regression", "inode":false, "icon":"file"}
+{"id":"courses/Coursera/Machine_Learning/Week3/4.Logistic_regression.pdf", "label":"4.Logistic regression", "inode":false, "icon":"file"},
+{"id":"courses/Coursera/Machine_Learning/Week3/5.Regularisation.pdf", "label":"5.Regularisation", "inode":false, "icon":"file"}
 ]
 }
 

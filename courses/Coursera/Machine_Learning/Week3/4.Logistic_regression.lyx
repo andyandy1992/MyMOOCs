@@ -1143,5 +1143,62 @@ Crosses vs.
 
 \end_layout
 
+\begin_layout Subsection
+R Example
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/iris-preparation.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter4/logistic-regression_R.png
+	lyxscale 70
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logistic regression in 
+\series bold
+R
+\series default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

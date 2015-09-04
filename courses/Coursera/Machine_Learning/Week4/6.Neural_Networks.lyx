@@ -806,5 +806,51 @@ Cross-validation plot for
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Neural Networks.
+ 
+\end_layout
+
+\begin_layout Section
+Practical advice for applying learning algorithms: How to develop, debugging,
+ feature/model design, setting up experiment structure.
+ 
+\end_layout
+
+\begin_layout Section
+Support Vector Machines (SVMs) and the intuition behind them.
+ 
+\end_layout
+
+\begin_layout Section
+Unsupervised learning: clustering and dimensionality reduction.
+\end_layout
+
+\begin_layout Section
+Anomaly detection.
+ 
+\end_layout
+
+\begin_layout Section
+Recommender systems.
+ 
+\end_layout
+
+\begin_layout Section
+Large-scale machine learning.
+\end_layout
+
+\begin_layout Section
+An example of an application of machine learning.
+ 
+\end_layout
+
 \end_body
 \end_document
