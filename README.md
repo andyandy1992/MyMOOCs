@@ -1,21 +1,21 @@
 #TOC
-- [Remarks:](#)
-- [Courses](#)
-	- [Coursera](#)
-	- [Udacity](#)
-	- [edX](#)
-	- [Other](#)
-- [License](#)
-- [Contact Me](#)
-- [Follow me on](#)
+- [Remarks:](#remark)
+- [Courses](#courses)
+	- [Coursera](#coursera)
+	- [Udacity](#udacity)
+	- [edX](#edx)
+	- [Other](#other)
+- [License](#license)
+- [Contact Me](#contact-me)
+- [Follow me on](#follow-me-on)
 
-#Remarks:
+#<a name="remarks">Remarks</a>:
 - Notes are generally written with [LyX](http://www.lyx.org/), and compiled into PDF Documents. 
 - I have created a [github page](http://andyandy1992.github.io/MyMOOCs/) for easier viewing/navigation of my PDF notes.
 - Although the structure of my notes follow the course structure, additional notes have been added as I read books/papers about the topics - these are usually indicated by footnotes, referencing the sources I obtained such information from.
 
-# Courses
-##Coursera
+#<a name="courses">Courses</a>:
+##<a name="coursera">Coursera</a>:
 - In progress:
  - [Machine Learning](https://www.coursera.org/learn/machine-learning) (a good set of notes can also be found [here](http://www.holehouse.org/mlclass/).)
  - [Neural Networks for Machine Learning](https://www.coursera.org/course/neuralnets)
@@ -29,7 +29,7 @@
  - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics)
  - [Introduction to Logic](https://www.coursera.org/course/intrologic)
 
-## Udacity
+##<a name="udacity">Udacity</a>:
 - Completed;
  - [Intro to Computer Science](https://www.udacity.com/course/intro-to-computer-science--cs101)
 - Future:                        
@@ -39,23 +39,23 @@
 - Interested in/useful resources:
  - [Intro to Data Science](https://www.udacity.com/course/intro-to-data-science--ud359)
 
-##edX
+##<a name="edx">edX</a>:
 - Interested in/useful resources:
  - [Quantum Mechanics and Quantum Computation](https://www.edx.org/course/quantum-mechanics-quantum-computation-uc-berkeleyx-cs-191x)
 
-##Other
+##<a name="other">Other</a>:
 - [From NAND to Tetris: Building a Modern Computer From First Principles](http://www.nand2tetris.org/)
 
-#License
+#<a name="license">License</a>:
 This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.][by-nc-sa].
 
 [![Creative Commons License][by-nc-sa-img]][by-nc-sa]
 
-#Contact Me
+#<a name="contact-me">Contact Me</a>
 I welcome comments, suggestions, and corrections! Feel free to suggest changes directly in the [github repo](https://github.com/andyandy1992/MyMOOCs) or you can send me a message (see my links below).
 
 
-#Follow me on
+#<a name="follow-me-on">Follow me on</a>
 <!-- Please don't remove this: Grab your social icons from https://github.com/carlsednaoui/gitsocial -->
 
 <!-- display the social media buttons in your README -->
