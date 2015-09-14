@@ -114,7 +114,7 @@ status open
 
 
 \backslash
-setcounter{section}{4}
+setcounter{section}{5}
 \end_layout
 
 \end_inset
@@ -123,7 +123,7 @@ setcounter{section}{4}
 \end_layout
 
 \begin_layout Section
-Regularisation
+Neural Networks
 \end_layout
 
 \begin_layout Standard
@@ -136,56 +136,42 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Abstract
+This chapter introduces how we can dealing with non-linear hypotheses with
+ neural network.
+ Although because I have completed the dedicated course 
+\begin_inset Quotes eld
+\end_inset
 
-\emph on
-Regularisation is designed to address the problem of overfitting
-\emph default
-.
- 
-\series bold
-High bias 
-\series default
-or 
-\series bold
-underfitting 
-\series default
-is when the form of our hypothesis maps poorly to the trend of the data.
- It is usually caused by a function that is too simple or uses too few features
- (e.g.
- using a linear regression hypothesis when clearly the data appear quadratic).
+Neural networks for machine learning
+\begin_inset Quotes erd
+\end_inset
+
+ on Coursera, please see this course for more explicit details (to avoid
+ duplication).
+ This chapter predominately discusses neural networks for classification.
 \end_layout
 
-\begin_layout Abstract
-At the other extreme, 
-\series bold
-overfitting 
-\series default
-or 
-\series bold
-high variance 
-\series default
-is caused by a hypothesis function that fits the available data but does
- not generalize well to predict new data.
- It is usually caused by a complicated function that creates a lot of unnecessar
-y curves and angles unrelated to the data.
+\begin_layout Subsection
+Representation
 \end_layout
 
-\begin_layout Abstract
-This terminology is applied to both linear and logistic regression.
+\begin_layout Notation
+
+\series bold
+Activation units and vector representation of neural networks
 \end_layout
 
-\begin_layout Abstract
+\begin_layout Notation
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\paragraph_spacing onehalf
 \noindent
 \align center
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter5/underfiting-good_fit-overfitting.png
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/nn-notation.png
 	lyxscale 50
 	scale 50
 
@@ -198,330 +184,416 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Underfitting vs.
- 
-\begin_inset Quotes eld
+A network with 
+\begin_inset Formula $s_{j}$
 \end_inset
 
-a good fit
-\begin_inset Quotes erd
+ units in layer 
+\begin_inset Formula $j$
 \end_inset
 
- vs.
- Overfitting
-\end_layout
-
+, 
+\begin_inset Formula $s_{j+1}$
 \end_inset
 
-
-\end_layout
-
+ units in layer 
+\begin_inset Formula $j+1$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Abstract
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter5/UFvsGFvsOF-logistic_regression.png
-	lyxscale 40
-	scale 40
-
+, then 
+\begin_inset Formula $\Theta^{\left(j\right)}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Logistic regression: Underfitting vs.
- 
-\begin_inset Quotes eld
-\end_inset
-
-a good fit
-\begin_inset Quotes erd
-\end_inset
-
- vs.
- Overfitting
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Addressing the issue of overfitting
-\end_layout
-
-\begin_layout Standard
-There are 2 main options for addressing the issue of overfitting:
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-\emph on
-Reduce the number of features.
-
-\emph default
- 
-\series default
-Thi
-\emph on
-s 
-\emph default
-can be achieved by:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-M
-\emph on
-anually 
-\emph default
-selecting which features to keep.
-\end_layout
-
-\begin_layout Enumerate
-Using a model selection algorithm (studied later in the course).
-\end_layout
-
-\begin_layout Standard
-Of course, reducing the number of features ultimately results in losing
- some information (we ideally select those features which minimize data
- loss).
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-\emph on
-Regularization
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Keep all the features, but reduce the parameters 
-\begin_inset Formula $\theta_{j}$
+ will be of dimension 
+\begin_inset Formula $s_{j+1}\times\left(s_{j}+1\right)$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Enumerate
-This works well when we have a lot of features, each of which contributes
- a bit to predicting 
-\begin_inset Formula $y$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Regularisation works well when we have a lot of slightly useful features.
-\end_layout
-
-\begin_layout Subsection
-Cost function modification for regularisation
-\end_layout
-
-\begin_layout Standard
-To reduce the weights (or parameters) so that the following hypothesis function
- is more quadratic:
-\begin_inset Formula 
-\[
-\theta_{0}+\theta_{1}x+\theta_{2}x^{2}+\theta_{3}x^{3}+\theta_{4}x^{4}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-we can eliminate the influence of 
-\begin_inset Formula $\theta_{3}x^{3}$
-\end_inset
-
- and 
-\begin_inset Formula $\theta_{4}x^{4}$
-\end_inset
-
-, without actually getting rid of these features or changing the form of
- our hypothesis.
- We can instead modify our cost function:
-\begin_inset Formula 
-\[
-\min_{\theta}\frac{1}{2m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}+1000\theta_{3}^{2}+1000\theta_{4}^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter5/effect_of_modified_cost.png
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-This modification of our cost function help to penalise 
-\begin_inset Formula $\theta_{3}x^{3}$
-\end_inset
-
- and 
-\begin_inset Formula $\theta_{4}x^{4}$
-\end_inset
-
-, so here we end up with 
-\begin_inset Formula $\theta_{3}$
-\end_inset
-
- and 
-\begin_inset Formula $\theta_{4}$
-\end_inset
-
- being close to zero (because the constants are massive) - so we're basically
- left with a quadratic function.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-More generally, for regularisation we can modify the cost function:
-\end_layout
-
-\begin_layout Definition
-The regularised objective function is defined as
-\begin_inset Formula 
-\[
-\min_{\theta}\frac{1}{2m}\left[\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)^{2}+\lambda\sum_{j=1}^{n}\theta_{j}^{2}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-By convention we don't penalize 
-\begin_inset Formula $\theta_{0}$
-\end_inset
-
- - minimisation is from 
-\begin_inset Formula $\theta_{1}$
-\end_inset
-
- (but in practice including 
-\begin_inset Formula $\theta_{0}$
-\end_inset
-
- has negligible effect).
-\end_layout
-
-\begin_layout Definition
-\begin_inset Formula $\lambda$
-\end_inset
-
- is the 
+ The process of 
 \series bold
-regularisation parameter
-\series default
-, which determines how much the costs of our theta parameters are inflated.
+\emph on
+computing
+\emph default
  
+\begin_inset Formula $h_{\Theta}\left(x\right)$
+\end_inset
+
+ 
+\series default
+is called
+\series bold
+ forward propagation
+\series default
+ (since we must start with the activations of the input units, and then
+ we forward propagate these to compute the activations in the hidden layer
+ and so on).
+ 
+\emph on
+(c.f back propagation, where we are given 
+\begin_inset Formula $h_{\Theta}\left(x\right)$
+\end_inset
+
+ and want to learn the weights/parameters.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Remark*
-\begin_inset Formula $\lambda$
+Looking at how we compute each activation unit, 
+\begin_inset Formula $a_{i}^{\left(j\right)}$
 \end_inset
 
- controls a trade off between our two goals:
-\end_layout
+, we notice that what this neural network is just doing logistic regression
+ (with 
+\series bold
 
-\begin_deeper
-\begin_layout Enumerate
-Fitting the training set well; we can smooth/make less curvy the output
- of our hypothesis function to reduce overfitting.
-\end_layout
-
-\begin_layout Enumerate
-Keeping parameters small; WARNING: if 
-\begin_inset Formula $\lambda\gg1$
+\begin_inset Quotes eld
 \end_inset
 
- it may smooth out the function too much (i.e.
- effectively removing all terms) and cause underfitting.
+learned
+\begin_inset Quotes erd
+\end_inset
+
+ inputs
+\series default
+).
 \end_layout
 
-\end_deeper
 \begin_layout Standard
-We look at some automatic ways to select 
-\begin_inset Formula $\lambda$
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/nn-adding_complexity.png
+	lyxscale 50
+	scale 50
+
 \end_inset
 
- later in the course.
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Neural network are used to learn more complex functions with each layer.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
-Optimisation: Gradient descent for regularisation
+Multiple output units: One-vs-all
 \end_layout
 
 \begin_layout Standard
-Because the 
-\begin_inset Formula $\theta_{0}$
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/nn-one_vs_all.png
+	lyxscale 50
+	scale 50
+
 \end_inset
 
- term is excluded from regularisation, the algorithm is modified in the
- following (again using calculus):
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+In the one vs.
+ all (equal to 4 here) representation, instead of letting 
+\begin_inset Formula $y\in\left\{ 0,1\right\} $
+\end_inset
+
+, we let 
+\begin_inset Formula $y\in\left\{ \left[1,0,0,0\right]^{T},\left[0,1,0,0\right]^{T},\left[0,0,1,0\right]^{T},\left[0,0,0,1\right]^{T}\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Evaluation: Cost Function
+\end_layout
+
+\begin_layout Notation
+\begin_inset Formula $L:=$
+\end_inset
+
+total # layers in network.
+ 
+\begin_inset Formula $s_{l}=$
+\end_inset
+
+# units (excluding bias unit) in layer 
+\begin_inset Formula $l$
+\end_inset
+
+ (
+\begin_inset Formula $s_{1}:=$
+\end_inset
+
+# units in input layer, 
+\begin_inset Formula $s_{L}:=$
+\end_inset
+
+# units in output layer).
 \end_layout
 
 \begin_layout Standard
+The cost function for neural networks is a generalisation of the cost function
+ used from logistic regression (with regularisation); so 
+\begin_inset Formula $h_{\Theta}\left(x\right)\in\mathbb{R}^{K}$
+\end_inset
+
+ (i.e.
+ 
+\begin_inset Formula $\left(h_{\Theta}\left(x\right)\right)_{i}=$
+\end_inset
+
+probability that the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ output is 
+\begin_inset Formula $1$
+\end_inset
+
+), and we take the sum over these 
+\begin_inset Formula $K$
+\end_inset
+
+ output units in the cost function:
+\begin_inset Formula 
+\[
+J\left(\Theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}\sum_{k=1}^{K}y_{k}^{\left(i\right)}\log\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}+\left(1-y_{k}^{\left(i\right)}\right)\log\left(1-\left(h_{\Theta}\left(x^{\left(i\right)}\right)\right)_{k}\right)\right]+\frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_{l}}\sum_{j=1}^{s_{l+1}}\left(\Theta_{ji}^{\left(l\right)}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Optimisation: Backpropagation
+\end_layout
+
+\begin_layout Standard
+To find 
+\begin_inset Formula $\min_{\Theta}J\left(\Theta\right)$
+\end_inset
+
+ using gradient descent or one of the advanced optimisation algorithms,
+ we need to compute 
+\begin_inset Formula $J\left(\Theta\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)$
+\end_inset
+
+ (recall 
+\begin_inset Formula $\Theta_{ij}^{\left(l\right)}\in\mathbb{R}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection
+Gradient Computation for the case of one training example
+\end_layout
+
+\begin_layout Standard
+Computing the gradient in the case of one training example 
+\begin_inset Formula $\left(\mathbf{x},\mathbf{y}\right)$
+\end_inset
+
+, we see that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/gradient-computation-1-training-example.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Step 1 - Forward Propagation:
+\series default
+ Calculating the activations 
+\begin_inset Formula $\mathbf{a}^{\left(i\right)}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/backpropagation-1-training-example.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Step 2 - Backpropagation:
+\series default
+ Calculating the gradients 
+\begin_inset Formula $\boldsymbol{\mathbf{\delta}}^{\left(i\right)}$
+\end_inset
+
+.
+ Note the 
+\begin_inset Formula $.*$
+\end_inset
+
+ denotes element-wise multiplication and we do not calculate 
+\begin_inset Formula $\boldsymbol{\delta}^{\left(1\right)}$
+\end_inset
+
+ as the first layer does not have any error associated with it (it's just
+ the features we observed in our training set).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+When the cost function is 
+\series bold
+not 
+\series default
+regularised (i.e.
+ 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+), it can be shown that 
+\begin_inset Formula $\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=a_{j}^{\left(l\right)}\delta_{i}^{\left(l+1\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Gradient Computation for 
+\begin_inset Formula $m$
+\end_inset
+
+ training examples
+\end_layout
+
+\begin_layout Standard
+For a training set 
+\begin_inset Formula $\left\{ \left(x^{\left(1\right)},y^{\left(1\right)}\right),...,\left(x^{\left(m\right)},y^{\left(m\right)}\right)\right\} $
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
 \begin_inset Box Boxed
 position "t"
 hor_pos "c"
@@ -538,272 +610,186 @@ status open
 \begin_layout Algorithm
 
 \series bold
-Gradient Descent for 
-\series default
-regularisation
+Backpropagation Algorithm
 \end_layout
 
 \begin_layout Algorithm
-repeat until convergence {
-\end_layout
-
-\begin_layout Algorithm
-\begin_inset Formula $\theta_{0}:=\theta_{0}-\frac{\alpha}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)x_{0}^{\left(i\right)}$
+Set 
+\begin_inset Formula $\Delta_{ij}^{\left(l\right)}=0$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Algorithm
-
-\emph on
-\begin_inset Formula $\theta_{j}:=\theta_{j}-\frac{\alpha}{m}\left[\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)x_{j}^{\left(i\right)}+\lambda\theta_{j}\right],\ \mbox{for }j=1,2,...,n$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Algorithm
-
-\emph on
-}
-\end_layout
-
-\begin_layout Algorithm
-
-\shape up
-\emph on
-for 
-\begin_inset Formula $\alpha$
-\end_inset
-
- some (positive) 
-\series bold
-learning
-\series default
- 
-\series bold
-rate
-\series default
- (aka.
- step size) and some initial guess for 
-\begin_inset Formula $\boldsymbol{\theta}$
+, 
+\begin_inset Formula $\forall l,i,j$
 \end_inset
 
 .
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Remark*
-Grouping the 
-\begin_inset Formula $\theta_{j}$
-\end_inset
-
- terms, we see that 
-\begin_inset Formula 
-\[
-\theta_{j}=\theta_{j}\left(1-\alpha\frac{\lambda}{m}\right)-\frac{\alpha}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)x_{j}^{\left(i\right)}
-\]
-
-\end_inset
-
-
-\begin_inset Formula $\frac{\alpha}{m}\sum_{i=1}^{m}\left(h_{\theta}\left(x^{\left(i\right)}\right)-y^{\left(i\right)}\right)x_{j}^{\left(i\right)}$
-\end_inset
-
- is exactly the same as the original gradient descent; the term 
-\begin_inset Formula $\frac{\lambda\theta_{j}}{m}$
-\end_inset
-
- performs our regularisation.
- Noting that 
-\begin_inset Formula $\alpha$
-\end_inset
-
- is small and 
-\begin_inset Formula $m$
-\end_inset
-
- is large, we see that typically 
-\begin_inset Formula $\left(1-\alpha\frac{\lambda}{m}\right)<1$
-\end_inset
-
-, in particular 
-\begin_inset Formula $0.95\leq\left(1-\alpha\frac{\lambda}{m}\right)\leq0.99$
-\end_inset
-
-.
- Thus, this in effect means 
-\begin_inset Formula $\theta_{j}$
-\end_inset
-
- gets multiplied by 
-\begin_inset Formula $0.99$
-\end_inset
-
- (reducing the value of 
-\begin_inset Formula $\theta_{j}$
-\end_inset
-
- by some amount on every update).
-\end_layout
-
-\begin_layout Subsection
-Optimisation: Normal equations for regularisation
-\end_layout
-
-\begin_layout Standard
-To add in regularisation to our normal equations, we use:
-\begin_inset Formula 
-\[
-\boldsymbol{\theta}=\left(X^{T}X+{\color{red}\lambda L}\right)^{-1}X^{T}\mathbf{y}\mbox{, where }L=\left[\begin{array}{cccc}
-0\\
- & 1\\
- &  & \ddots\\
- &  &  & 1
-\end{array}\right]\in\mathbb{R}^{\left(n+1\right)\times\left(n+1\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Remark*
-Intuitively, 
-\begin_inset Formula $L$
-\end_inset
-
- is essentially the identity matrix multiplied by a single real number 
-\begin_inset Formula $\lambda$
-\end_inset
-
- (not including 
-\begin_inset Formula $x_{0}$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Subsection
-R Example
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter5/prestige-preparation.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter5/regularisation_R.png
-	lyxscale 70
-	scale 70
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Regularisation in 
-\series bold
-R
-\series default
-.
- Note the second line reads 
-\family typewriter
-> cv.fit <- cv.glmnet(as.matrix(prestige_train[,c(-4, -6)]), as.vector(prestige_trai
-n[,4]), nlambda=100, alpha=0.7, family="gaussian")
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The 
-\family typewriter
-glmnet
-\family default
- library provides a cross-validation test to automatically choose the better
- 
-\begin_inset Formula $\lambda$
+\begin_layout Algorithm
+For 
+\begin_inset Formula $i=1,...,m$
 \end_inset
 
 :
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week3/Chapter5/cv-lamba.png
-	lyxscale 50
-	scale 50
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Set 
+\begin_inset Formula $a^{\left(1\right)}=x^{\left(i\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Perform forward propagation to computer 
+\begin_inset Formula $a^{\left(l\right)}$
+\end_inset
+
+ for 
+\begin_inset Formula $l=2,3,...,L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Using 
+\begin_inset Formula $y^{\left(i\right)}$
+\end_inset
+
+, compute 
+\begin_inset Formula $\delta^{\left(L\right)}=a^{\left(L\right)}-y^{\left(i\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Compute 
+\begin_inset Formula $\delta^{\left(L-1\right)}$
+\end_inset
+
+,
+\begin_inset Formula $\delta^{\left(L-2\right)}$
+\end_inset
+
+,...,
+\begin_inset Formula $\delta^{\left(2\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\Delta_{ij}^{\left(l\right)}:=\Delta_{ij}^{\left(l\right)}+a_{j}^{\left(l\right)}\delta_{i}^{\left(l+1\right)}$
+\end_inset
+
+ (or vectorised form 
+\begin_inset Formula $\boldsymbol{\Delta}^{\left(l\right)}:=\boldsymbol{\Delta}^{\left(l\right)}+\delta^{\left(l+1\right)}\left(a^{\left(l\right)}\right)^{T}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Algorithm
+\begin_inset Formula $D_{ij}^{\left(l\right)}:=\begin{cases}
+\frac{1}{m}\Delta_{ij}^{\left(l\right)}+\lambda\Theta_{ij}^{\left(l\right)} & \mbox{ if }j\neq0\\
+\frac{1}{m}\Delta_{ij}^{\left(l\right)} & \mbox{ if }j=0
+\end{cases}$
+\end_inset
+
+ 
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Cross-validation plot for 
-\begin_inset Formula $\lambda$
+\begin_layout Remark*
+For quite a complicate proof, it can be shown that the partial derivatives
+ 
+\begin_inset Formula $\frac{\partial}{\partial\Theta_{ij}^{\left(l\right)}}J\left(\Theta\right)=D_{ij}^{\left(l\right)}$
 \end_inset
 
 .
- It shows the best 
-\begin_inset Formula $\lambda$
-\end_inset
-
- with minimal-root, mean-square error.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -811,11 +797,6 @@ Cross-validation plot for
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Neural Networks.
- 
 \end_layout
 
 \begin_layout Section

@@ -1068,12 +1068,17 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-This set of training examples is not 
+
+\series bold
+Boolean function AND
+\series default
+: This set of training examples is not 
 \series bold
 linearly separable 
 \series default
 (the green points cannot be separated from the red points by a straight
- line) - thus the Boolean function XOR cannot be represented by perceptrons.
+ line) - thus the Boolean function AND can also not be represented by perceptron
+s.
 \end_layout
 
 \end_inset
