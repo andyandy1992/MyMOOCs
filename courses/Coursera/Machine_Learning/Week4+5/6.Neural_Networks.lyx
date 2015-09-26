@@ -152,6 +152,44 @@ Neural networks for machine learning
 \end_layout
 
 \begin_layout Subsection
+Key Remarks 
+\end_layout
+
+\begin_layout Enumerate
+Neural networks are one of a few ML algorithms where we continue to improve
+ our prediction accuracy as we increase the number of training examples
+ (most others tend to level off even if we increase the data by a significant
+ amount).
+\end_layout
+
+\begin_layout Enumerate
+Build models that use hardware as efficiently as possible (that way when
+ hardware improves your learning speeds up essentially for free).
+\end_layout
+
+\begin_layout Enumerate
+Set a baseline as the fastest your code can ever run, i.e.
+ the speed of light, or in speech recognition it's 0% WER (improving speed
+ by 10x on already badly written code is not an effective way to analyse
+ this).
+\end_layout
+
+\begin_layout Enumerate
+As discussed at 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://youtu.be/MVyauNNinC0?t=36m18s
+\end_layout
+
+\end_inset
+
+, one of the best ways to train a DNN is to try to fool/trick them.
+\end_layout
+
+\begin_layout Subsection
 Representation
 \end_layout
 
@@ -171,7 +209,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/nn-notation.png
+	filename ../Images/Week4+5/Chapter6/nn-notation.png
 	lyxscale 50
 	scale 50
 
@@ -246,6 +284,38 @@ is called
 
 \end_layout
 
+\begin_layout Note*
+There is a 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ matrix for each layer 
+\begin_inset Formula $l$
+\end_inset
+
+ in the network, with 
+\begin_inset Formula $\Theta_{a_{l},a_{l-1}}^{(l-1)}$
+\end_inset
+
+ (
+\begin_inset Formula $a_{l}:=$
+\end_inset
+
+index of activation node in layer 
+\begin_inset Formula $l$
+\end_inset
+
+ being computer, 
+\begin_inset Formula $a_{l-1}:=$
+\end_inset
+
+index of activation node in layer 
+\begin_inset Formula $l-1$
+\end_inset
+
+ being multiplied by).
+\end_layout
+
 \begin_layout Remark*
 Looking at how we compute each activation unit, 
 \begin_inset Formula $a_{i}^{\left(j\right)}$
@@ -277,7 +347,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/nn-adding_complexity.png
+	filename ../Images/Week4+5/Chapter6/nn-adding_complexity.png
 	lyxscale 50
 	scale 50
 
@@ -321,7 +391,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/nn-one_vs_all.png
+	filename ../Images/Week4+5/Chapter6/nn-one_vs_all.png
 	lyxscale 50
 	scale 50
 
@@ -366,27 +436,27 @@ Evaluation: Cost Function
 \end_layout
 
 \begin_layout Notation
-\begin_inset Formula $L:=$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
-total # layers in network.
- 
-\begin_inset Formula $s_{l}=$
+
+\begin_inset Formula 
+\begin{eqnarray*}
+L & := & \mbox{total \# layers in net work}\\
+s_{l} & := & \mbox{\# units (excluding bias unit) in layer }l\\
+s_{L} & := & \mbox{\# units in output layer}\\
+K & := & \#\mbox{ output units/classes}
+\end{eqnarray*}
+
 \end_inset
 
-# units (excluding bias unit) in layer 
-\begin_inset Formula $l$
-\end_inset
 
- (
-\begin_inset Formula $s_{1}:=$
-\end_inset
-
-# units in input layer, 
-\begin_inset Formula $s_{L}:=$
-\end_inset
-
-# units in output layer).
 \end_layout
 
 \begin_layout Standard
@@ -423,8 +493,37 @@ J\left(\Theta\right)=-\frac{1}{m}\left[\sum_{i=1}^{m}\sum_{k=1}^{K}y_{k}^{\left(
 
 \end_layout
 
+\begin_layout Remark*
+The first half of the cost function is saying (
+\begin_inset Quotes eld
+\end_inset
+
+average sum of logistic regression
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For each training data example (
+\begin_inset Formula $1,...,m$
+\end_inset
+
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Some for each position in the output vector.
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Subsection
-Optimisation: Backpropagation
+Optimisation: Stochastic gradient descent using backpropagation to compute
+ the gradient.
 \end_layout
 
 \begin_layout Standard
@@ -470,7 +569,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/gradient-computation-1-training-example.png
+	filename ../Images/Week4+5/Chapter6/gradient-computation-1-training-example.png
 	lyxscale 50
 	scale 50
 
@@ -485,13 +584,22 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Step 1 - Forward Propagation:
+Step 1 - Forward Propagation
 \series default
- Calculating the activations 
+ 
+\series bold
+(Calculating the activations 
 \begin_inset Formula $\mathbf{a}^{\left(i\right)}$
 \end_inset
 
-.
+)
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+This algorithm takes the initial input into that network and pushes the
+ input through the network to the generation of an output hypothesis.
 \end_layout
 
 \end_inset
@@ -514,7 +622,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4/Chapter6/backpropagation-1-training-example.png
+	filename ../Images/Week4+5/Chapter6/backpropagation-1-training-example.png
 	lyxscale 50
 	scale 50
 
@@ -529,18 +637,59 @@ status open
 \begin_layout Plain Layout
 
 \series bold
-Step 2 - Backpropagation:
+Step 2 - Backpropagation (
 \series default
- Calculating the gradients 
+Calculating the gradients 
 \begin_inset Formula $\boldsymbol{\mathbf{\delta}}^{\left(i\right)}$
 \end_inset
 
-.
- Note the 
+)
+\begin_inset Newline newline
+\end_inset
+
+This algorithm takes the output you got from your network, compares it to
+ the real value 
+\series bold
+
+\begin_inset Formula $y$
+\end_inset
+
+
+\series default
+ and calculates how wrong the network was (i.e.
+ how wrong the parameters were) It then, using the error you've just calculated,
+ back-calculates the error associated with each unit from the preceding
+ layer (i.e.
+ layer 
+\begin_inset Formula $L-1$
+\end_inset
+
+).
+ These "error" measurements for each unit can be used to calculate the partial
+ derivatives, which can then be used to calculate the partial derivative
+ for gradient descent.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Note*
+The 
 \begin_inset Formula $.*$
 \end_inset
 
- denotes element-wise multiplication and we do not calculate 
+ denotes element-wise multiplication.
+\end_layout
+
+\begin_layout Remark*
+We do not calculate 
 \begin_inset Formula $\boldsymbol{\delta}^{\left(1\right)}$
 \end_inset
 
@@ -548,16 +697,7 @@ Step 2 - Backpropagation:
  the features we observed in our training set).
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\begin_deeper
 \begin_layout Remark*
 When the cost function is 
 \series bold
@@ -575,6 +715,7 @@ regularised (i.e.
 .
 \end_layout
 
+\end_deeper
 \begin_layout Subsubsection
 Gradient Computation for 
 \begin_inset Formula $m$
@@ -622,6 +763,12 @@ Set
 \begin_inset Formula $\forall l,i,j$
 \end_inset
 
+ 
+\shape up
+(i.e.
+ this has each node as one dimension and each training data example as the
+ other)
+\shape default
 .
 \end_layout
 
@@ -672,7 +819,7 @@ Set
 \begin_inset space ~
 \end_inset
 
-Perform forward propagation to computer 
+Perform forward propagation to compute 
 \begin_inset Formula $a^{\left(l\right)}$
 \end_inset
 
@@ -792,46 +939,430 @@ For quite a complicate proof, it can be shown that the partial derivatives
 .
 \end_layout
 
+\begin_layout Subsection
+Backpropagation in practice
+\end_layout
+
+\begin_layout Subsubsection
+Unrolling parameters
+\end_layout
+
 \begin_layout Standard
-\begin_inset Newpage newpage
+With neural networks, we are working with sets of matrices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Theta_{1},\Theta_{2},\Theta_{3},...;D_{1},D_{2},D_{3},...
+\]
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Section
-Practical advice for applying learning algorithms: How to develop, debugging,
- feature/model design, setting up experiment structure.
+\begin_layout Standard
+In order to use optimizing functions such as 
+\family typewriter
+fminunc()
+\family default
+, we need to "unroll" all the elements and put them into one long vector
+ (MATLAB):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+thetaVector = [ Theta1(:); Theta2(:); Theta3(:) ];
+\end_layout
+
+\begin_layout Plain Layout
+
+deltaVector = [ D1(:); D2(:); D3(:) ];
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Gradient checking
+\end_layout
+
+\begin_layout Standard
+Backpropagation has a lot of details.
+ Small bugs can easily creep in so that it looks like 
+\begin_inset Formula $J\left(\Theta\right)$
+\end_inset
+
+ is decreasing, but in reality it may not be decreasing by as much as it
+ should.
+\end_layout
+
+\begin_layout Standard
+We can approximate the derivative of our cost function, for some small 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, as
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\Theta}J\left(\Theta\right)\approx\frac{J\left(\Theta+\varepsilon\right)-J\left(\Theta-\varepsilon\right)}{2\varepsilon}
+\]
+
+\end_inset
+
+and for multiple theta matrices, we can approximate the derivative w.r.t.
+ 
+\begin_inset Formula $\Theta_{j}$
+\end_inset
+
+ as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\Theta_{j}}J\left(\Theta\right)\approx\frac{J\left(\Theta_{1},...\Theta_{j-1},\Theta_{j}+\varepsilon,\Theta_{j+1},...,\Theta_{n}\right)-J\left(\Theta_{1},...\Theta_{j-1},\Theta_{j}-\varepsilon,\Theta_{j+1},...,\Theta_{n}\right)}{2\varepsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Andrew Ng typically uses 
+\begin_inset Formula $\varepsilon=10^{-4}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Finally check that gradApprox 
+\begin_inset Formula $\approx$
+\end_inset
+
+ deltaVector.
+\end_layout
+
+\begin_layout Note*
+Once you've verified once that your backpropagation algorithm is correct,
+ then you don't need to compute gradApprox again.
+ The code to compute gradApprox is very slow.
+\end_layout
+
+\begin_layout Subsubsection
+Random initialisation
+\end_layout
+
+\begin_layout Standard
+Initializing all theta weights to 
+\begin_inset Formula $0$
+\end_inset
+
+ does not work with neural networks.
+ When we backpropagate, all nodes will update to the same value repeatedly.
+ Thus we use 
+\series bold
+random initialization
+\series default
+, which serves the purpose of symmetry breaking.
+\end_layout
+
+\begin_layout Standard
+Initialise each 
+\begin_inset Formula $\Theta^{\left(l\right)}\in\mathbb{R}^{n_{l-1},n_{l}}$
+\end_inset
+
+ (where 
+\begin_inset Formula $n_{l}:=$
+\end_inset
+
+# neurons in layer 
+\begin_inset Formula $l$
+\end_inset
+
+ (I WORKED THIS OUT LATE - CHECK)) to a random value between 
+\begin_inset Formula $\left[-\varepsilon,\varepsilon\right]$
+\end_inset
+
+ with
+\begin_inset Formula 
+\[
+\varepsilon=\frac{\sqrt{6}}{\sqrt{n_{l}+n_{l-1}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+E.g.
+ 
+\begin_inset Formula $\Theta^{\left(1\right)}=\mathtt{rand}\left(n_{l-1},n_{l}\right)*2\varepsilon-\varepsilon\in\mathbb{R}^{n_{l-1},n_{l}}$
+\end_inset
+
+ (where the 
+\family typewriter
+rand
+\family default
+ function produces a 
+\begin_inset Formula $n_{l-1}\times n_{l}$
+\end_inset
+
+ matrix).
+\end_layout
+
+\begin_layout Subsection
+Implementation summary and some best practices of using neural networks
+ for machine learning
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\bar under
+REPRESENTATION:
+\series default
+\bar default
+ Pick a network architecture, including how many hidden units there are
+ in each layer and how many layers in total.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The higher the 
+\begin_inset Formula $\#\mbox{ hidden units per layer}$
+\end_inset
+
+is usually produces more accurate results, but we must take into account
+ the computation cost.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+\begin_inset Formula $\#\mbox{ hidden layers}:$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+1 hidden layer is sufficient for the large majority of problems
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If the data
+\series bold
+ linearly separable
+\series default
+, then you 
+\series bold
+don't need any hidden 
+\series default
+layers at all.
+\end_layout
+
+\begin_layout Enumerate
+DNN
+\begin_inset Formula $=$
+\end_inset
+
+more than 3; most papers on deep learning use networks with 5-7 layers.
+\end_layout
+
+\begin_layout Enumerate
+Geoff Hinton: "Add layers until you overfit.
+ Then add dropout or another regularization method."
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\#\mbox{ neurons for each layer:}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Roughly same for all hidden layers and usually at 1 to 3 times the input
+ variables (or mean of the # input and # output nodes).
+\end_layout
+
+\begin_layout Enumerate
+Yoshia Bengio: "It is a hyper-parameter to be optimized, as usual."
+\end_layout
+
+\begin_layout Enumerate
+WARNINGS:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Too few nodes
+\series default
+ will lead to high error for your system as the predictive factors might
+ be too complex for a small number of nodes to capture.
  
 \end_layout
 
-\begin_layout Section
-Support Vector Machines (SVMs) and the intuition behind them.
- 
+\begin_layout Enumerate
+
+\series bold
+Too many nodes
+\series default
+ will overfit to your training data and not generalise well.
 \end_layout
 
-\begin_layout Section
-Unsupervised learning: clustering and dimensionality reduction.
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\#\mbox{ input units}=\mbox{dimension of features }x^{\left(i\right)}$
+\end_inset
+
+; 
+\begin_inset Formula $\#\mbox{ output units}=\#\mbox{ classes}$
+\end_inset
+
+
 \end_layout
 
-\begin_layout Section
-Anomaly detection.
- 
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+\bar under
+EVALUATION:
+\series default
+\bar default
+ Randomly initialise the weights (as discussed above).
 \end_layout
 
-\begin_layout Section
-Recommender systems.
- 
+\begin_layout Enumerate
+
+\series bold
+\bar under
+EVALUATION:
+\series default
+\bar default
+ Implement forward propagation to get 
+\begin_inset Formula $h_{\theta}\left(x^{\left(i\right)}\right)$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Section
-Large-scale machine learning.
+\begin_layout Enumerate
+
+\series bold
+\bar under
+EVALUATION:
+\series default
+\bar default
+ Compute the cost function
 \end_layout
 
-\begin_layout Section
-An example of an application of machine learning.
- 
+\begin_layout Enumerate
+
+\series bold
+\bar under
+EVALUATION:
+\series default
+\bar default
+ Implement back propagation to compute partial derivatives.
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/andyandy/Desktop/Git/MyMOOCs/courses/Coursera/Machine_Learning/Images/Week4+5/Chapter6/backprop-summary.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Backpropagation is usually done with a for loop over training examples,
+ like above.
+ It can be done without a for loop, but this is much more complicated way
+ of doing things.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Use gradient checking to confirm your back propagation works.
+ Then disable gradient checking.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+\bar under
+OPTIMISATION:
+\series default
+\bar default
+ Use gradient descent or a built-in optimization function to minimize the
+ cost function with the weights in theta.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If 
+\begin_inset Formula $J\left(\Theta\right)$
+\end_inset
+
+ is not convex, then some algorithms can be susceptible to local minimum.
+ In practice this is not usually a huge problem, but we can't guarantee
+ programs with find global optimum should find good local optimum at least.
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
