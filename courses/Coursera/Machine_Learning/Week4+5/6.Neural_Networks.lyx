@@ -1192,7 +1192,8 @@ more than 3; most papers on deep learning use networks with 5-7 layers.
 \end_layout
 
 \begin_layout Enumerate
-Geoff Hinton: "Add layers until you overfit.
+Geoff Hinton: "Add layers until you overfit (if you’re not overfitting,
+ your network isn’t big enough.).
  Then add dropout or another regularization method."
 \end_layout
 
@@ -1364,5 +1365,16 @@ If
 \end_layout
 
 \end_deeper
+\begin_layout Subsubsection
+Dealing with overfitting
+\end_layout
+
+\begin_layout Itemize
+The easiest and most common method to reduce overfitting on image data is
+ to artificially enlarge the dataset using label-preserving transformations
+ (e.g.
+ by flipping the image, rotating it slightly, removing some of the image).
+\end_layout
+
 \end_body
 \end_document
