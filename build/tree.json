@@ -27,6 +27,11 @@
 {"id":"FOLDER", "label":"Chapter4", "inode":true, "open":false, "icon":"folder"},
 {"id":"FOLDER", "label":"Chapter5", "inode":true, "open":false, "icon":"folder"}
 ]
+},
+
+{"id":"FOLDER", "label":"Week4+5", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Chapter6", "inode":true, "open":false, "icon":"folder"}
+]
 }
 
 ]
@@ -47,8 +52,14 @@
 {"id":"courses/Coursera/Machine_Learning/Week3/4.Logistic_regression.pdf", "label":"4.Logistic regression", "inode":false, "icon":"file"},
 {"id":"courses/Coursera/Machine_Learning/Week3/5.Regularisation.pdf", "label":"5.Regularisation", "inode":false, "icon":"file"}
 ]
-}
+},
 
+{"id":"FOLDER", "label":"Week4+5", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"courses/Coursera/Machine_Learning/Week4+5/6.Neural_Networks.pdf", "label":"6.Neural Networks", "inode":false, "icon":"file"}
+]
+},
+
+{"id":"FOLDER", "label":"Week6", "inode":true, "open":false, "icon":"folder"}
 ]
 },
 
@@ -318,6 +329,33 @@
 {"id":"courses/Udacity/Intro_to_Computer_Science/Full_Notes.pdf", "label":"Full Notes", "inode":false, "icon":"file"},
 {"id":"courses/Udacity/Intro_to_Computer_Science/Intro_to_Computer_Science.certificate.pdf", "label":"Intro to Computer Science.certificate", "inode":false, "icon":"file"},
 {"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder"}
+]
+},
+
+{"id":"FOLDER", "label":"Intro to Data Science", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Code", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Lesson1", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson2", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson3", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson4", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson5", "inode":true, "open":false, "icon":"folder"}
+]
+},
+
+{"id":"FOLDER", "label":"Images", "inode":true, "open":false, "icon":"folder", "branch": [
+{"id":"FOLDER", "label":"Lesson1", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson2", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson3", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson4", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson5", "inode":true, "open":false, "icon":"folder"}
+]
+},
+
+{"id":"FOLDER", "label":"Lesson1", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson2", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson3", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson4", "inode":true, "open":false, "icon":"folder"},
+{"id":"FOLDER", "label":"Lesson5", "inode":true, "open":false, "icon":"folder"}
 ]
 }
 

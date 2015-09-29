@@ -1122,6 +1122,39 @@ rand
  matrix).
 \end_layout
 
+\begin_layout Subsubsection
+Momemtum 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://stats.stackexchange.com/a/70146/75092
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Momentum changes the path you take to the optimum.
+\end_layout
+
+\begin_layout Standard
+Once you have an objective function, you have to decide how to move around
+ on it.
+ Steepest descent on the gradient is the simplest approach, but you're right
+ that fluctuations can be a big problem.
+ Adding momentum helps solve that problem.
+ If you're working with batch updates (which is usually a bad idea with
+ neural networks) Newton-type steps are another option.
+ The new "hot" approaches are based on Nesterov's accelerated gradient and
+ so-called "Hessian-Free" optimization.
+ 
+\end_layout
+
 \begin_layout Subsection
 Implementation summary and some best practices of using neural networks
  for machine learning
@@ -1369,11 +1402,80 @@ If
 Dealing with overfitting
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+
+\series bold
+Data Augmentation
+\end_layout
+
+\begin_layout Standard
 The easiest and most common method to reduce overfitting on image data is
  to artificially enlarge the dataset using label-preserving transformations
  (e.g.
- by flipping the image, rotating it slightly, removing some of the image).
+ by flipping the image, rotating it slightly, translating the image, altering
+ the intesites of pixels).
+ From Krizhevsky et al.’s seminal 2012 paper on ImageNet classification (http://w
+ww.cs.toronto.edu/~fritz/absps/imagenet.pdf):
+\end_layout
+
+\begin_layout Itemize
+The first form of data augmentation consists of generating image translations
+ and horizontal reflections.
+ We do this by extracting random 
+\begin_inset Formula $224\times224$
+\end_inset
+
+ patches (and their horizontal reflections) from the 
+\begin_inset Formula $256\times256$
+\end_inset
+
+ images and training our network on these extracted patches.
+ This increases the size of our training set by a factor of 2048, though
+ the resulting training examples are, of course, highly interdependent [meaning
+ highly dependent on each other].
+ Without this scheme, our network suffers from substantial overfitting,
+ which would have forced us to use much smaller networks.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Dropout
+\end_layout
+
+\begin_layout Standard
+[c.f.
+ random forests; "averages noisy models to create a model with low variance."]
+\end_layout
+
+\begin_layout Standard
+This technique consists of setting to zero the output of each hidden neuron
+ with probability 0.5.
+ The neurons which are “dropped out” in this way do not contribute to the
+ forward pass and do not participate in back- propagation.
+ So every time an input is presented, the neural network samples a different
+ architecture, but all these architectures share weights.
+\end_layout
+
+\begin_layout Standard
+This technique reduces complex co-adaptations of neurons, since a neuron
+ cannot rely on the presence of particular other neurons.
+ It is, therefore, forced to learn more robust features that are useful
+ in conjunction with many different random subsets of the other neurons.
+ 
+\end_layout
+
+\begin_layout Remark*
+From Krizhevsky again: 
+\begin_inset Quotes eld
+\end_inset
+
+Without dropout, our network ex- hibits substantial overfitting.
+ Dropout roughly doubles the number of iterations required to converge.
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \end_body
