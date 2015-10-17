@@ -25,6 +25,7 @@
  - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
  - [Natural Language Processing](https://www.coursera.org/course/nlangp)
 - Interested in/useful resources:
+ - [Getting and Cleaning Data](https://www.coursera.org/course/getdata)
  - [Crafting Quality Code](https://www.coursera.org/course/programming2)
  - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics)
  - [Introduction to Logic](https://www.coursera.org/course/intrologic)
