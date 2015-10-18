@@ -25,9 +25,9 @@
  - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
  - [Natural Language Processing](https://www.coursera.org/course/nlangp)
 - Interested in/useful resources:
- - [Getting and Cleaning Data](https://www.coursera.org/course/getdata)
+ - [Getting and Cleaning Data](https://www.coursera.org/course/getdata) - "has a couple of useful videos introducing RegEx"
  - [Crafting Quality Code](https://www.coursera.org/course/programming2)
- - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics)
+ - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics) - "the very last video presents a useful example of how the Frequentist and Bayesian approach to hypothesis testing compare."
  - [Introduction to Logic](https://www.coursera.org/course/intrologic)
 
 ##<a name="udacity">Udacity</a>:
