@@ -25,7 +25,9 @@
  - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
  - [Natural Language Processing](https://www.coursera.org/course/nlangp)
 - Interested in/useful resources:
+ - [Practical Machine Learning](https://www.coursera.org/course/predmachlearn)
  - [Getting and Cleaning Data](https://www.coursera.org/course/getdata) - "has a couple of useful videos introducing RegEx"
+ - [Introduction to Data Science](https://www.coursera.org/course/datasci)
  - [Crafting Quality Code](https://www.coursera.org/course/programming2)
  - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics) - "the very last video presents a useful example of how the Frequentist and Bayesian approach to hypothesis testing compare."
  - [Introduction to Logic](https://www.coursera.org/course/intrologic)
@@ -35,10 +37,10 @@
  - [Intro to Computer Science](https://www.udacity.com/course/intro-to-computer-science--cs101)
 - Future:                        
  - [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
- - [Artificial Intelligence for Robotics](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
- - [Software Testing](https://www.udacity.com/course/software-testing--cs258)
 - Interested in/useful resources:
  - [Intro to Data Science](https://www.udacity.com/course/intro-to-data-science--ud359)
+ - [Artificial Intelligence for Robotics](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
+ - [Software Testing](https://www.udacity.com/course/software-testing--cs258)
 
 ##<a name="edx">edX</a>:
 - Interested in/useful resources:
