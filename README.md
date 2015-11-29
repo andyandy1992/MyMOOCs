@@ -21,7 +21,6 @@
  - [Neural Networks for Machine Learning](https://www.coursera.org/course/neuralnets)
 - Future:
  - [Introduction to Data Science](https://www.coursera.org/course/datasci)
- - [Digital Signal Processing](https://www.coursera.org/course/dsp)
  - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
  - [Natural Language Processing](https://www.coursera.org/course/nlangp)
 - Interested in/useful resources:
@@ -31,6 +30,7 @@
  - [Crafting Quality Code](https://www.coursera.org/course/programming2)
  - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics) - "the very last video presents a useful example of how the Frequentist and Bayesian approach to hypothesis testing compare."
  - [Introduction to Logic](https://www.coursera.org/course/intrologic)
+ - [Introduction to Mathematical Thinking](https://www.coursera.org/course/maththink)
 
 ##<a name="udacity">Udacity</a>:
 - Completed;
