@@ -44,6 +44,7 @@
 
 ##<a name="edx">edX</a>:
 - Interested in/useful resources:
+ - [Statistical Thinking for Data Science and Analytics](https://www.edx.org/course/statistical-thinking-data-science-columbiax-ds101x) - "interesting examples of Bayesian modeling in practice (unit 5) from Andrew Gelman"
  - [Quantum Mechanics and Quantum Computation](https://www.edx.org/course/quantum-mechanics-quantum-computation-uc-berkeleyx-cs-191x)
 
 ##<a name="other">Other</a>:
