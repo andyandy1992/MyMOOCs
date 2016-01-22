@@ -33,10 +33,12 @@
  - [Introduction to Mathematical Thinking](https://www.coursera.org/course/maththink)
 
 ##<a name="udacity">Udacity</a>:
+- In progress:
+ - [Deep Learning](https://www.udacity.com/course/deep-learning--ud730)
+- - Future:                        
+ - [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
 - Completed;
  - [Intro to Computer Science](https://www.udacity.com/course/intro-to-computer-science--cs101)
-- Future:                        
- - [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
 - Interested in/useful resources:
  - [Intro to Data Science](https://www.udacity.com/course/intro-to-data-science--ud359)
  - [Artificial Intelligence for Robotics](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
