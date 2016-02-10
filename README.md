@@ -24,20 +24,20 @@
 - [Natural Language Understanding with Distributed Representations](http://www.kyunghyuncho.me/home/courses/ds-ga-3001-fall-2015) and [notes](http://arxiv.org/pdf/1511.07916v1.pdf)
 
 ##<a name="future">Future</a>:
- - [Introduction to Data Science](https://www.coursera.org/course/datasci)
  - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
  - [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
  
 ##<a name="#useful-resources-completed">Useful resources/Completed</a>
 ###<a name="machine-learning-data-science">Machine Learning/Data Science</a>
  - [Getting and Cleaning Data](https://www.coursera.org/course/getdata) - "has a couple of useful videos introducing RegEx"
- - [0](https://class.coursera.org/exdata-033/lecture) "has some useful tutorials on ggplot2"
+ - [Exploratory Data Analysis](https://class.coursera.org/exdata-033/lecture) "has some useful tutorials on ggplot2"
  - [Introduction to Data Science](https://www.coursera.org/course/datasci)
  - [Intro to Data Science](https://www.udacity.com/course/intro-to-data-science--ud359)
  - [Model Building and Validation](https://www.udacity.com/course/viewer#!/c-ud919/l-3101638665/m-3074268844)
  - [Artificial Intelligence for Robotics](https://www.udacity.com/course/artificial-intelligence-for-robotics--cs373)
  - [Data Analysis and Statistical Inference](https://www.coursera.org/course/statistics) - "the very last video presents a useful example of how the Frequentist and Bayesian approach to hypothesis testing compare."
  - [Statistical Thinking for Data Science and Analytics](https://www.edx.org/course/statistical-thinking-data-science-columbiax-ds101x) - "interesting examples of Bayesian modeling in practice (unit 5) from Andrew Gelman"
+
 ###<a name="computer-science">Computer Science</a>
  - [Using Databases with Python](https://www.coursera.org/learn/python-databases)
  - [Data structures: Measuring and Optimizing Performanc](https://www.coursera.org/learn/data-structures-optimizing-performance)
