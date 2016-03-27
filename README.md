@@ -29,6 +29,7 @@
  
 ##<a name="#useful-resources-completed">Useful resources/Completed</a>
 ###<a name="machine-learning-data-science">Machine Learning/Data Science</a>
+ - [Intro to Hadoop and MapReduce](https://www.udacity.com/wiki/ud617)
  - [Getting and Cleaning Data](https://www.coursera.org/course/getdata) - "has a couple of useful videos introducing RegEx"
  - [Exploratory Data Analysis](https://class.coursera.org/exdata-033/lecture) "has some useful tutorials on ggplot2"
  - [Introduction to Data Science](https://www.coursera.org/course/datasci)
