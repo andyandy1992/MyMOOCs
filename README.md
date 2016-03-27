@@ -8,8 +8,6 @@
 		- [Computer Science](#computer-science)
 		- [Mathematics](#mathematics)
 - [License](#license)
-- [Contact Me](#contact-me)
-- [Follow me on](#follow-me-on)
 
 #<a name="remarks">Remarks</a>:
 - Notes are generally written with [LyX](http://www.lyx.org/), and compiled into PDF Documents. Code is generally omitted (following "honor code" agreements).
