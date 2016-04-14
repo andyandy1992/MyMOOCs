@@ -20,7 +20,6 @@ Reference of my favourite MOOCs and some of my notes.
 - [Deep Learning](https://www.udacity.com/course/deep-learning--ud730)
 - [Natural Language Understanding with Distributed Representations](http://www.kyunghyuncho.me/home/courses/ds-ga-3001-fall-2015) and [notes](http://arxiv.org/pdf/1511.07916v1.pdf); [Stanford's CS224d](http://cs224d.stanford.edu/) and [Student Projects](http://cs224d.stanford.edu/reports.html) also useful.
 - [Computational Neuroscience](https://www.coursera.org/course/compneuro)
-- [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
 - [Intro to Hadoop and MapReduce](https://www.udacity.com/course/intro-to-hadoop-and-mapreduce--ud617)
 - [Getting and Cleaning Data](https://www.coursera.org/course/getdata) - "has a couple of useful videos introducing RegEx"
 - [Exploratory Data Analysis](https://class.coursera.org/exdata-033/lecture) "has some useful tutorials on ggplot2"
@@ -32,6 +31,7 @@ Reference of my favourite MOOCs and some of my notes.
 - [Statistical Thinking for Data Science and Analytics](https://www.edx.org/course/statistical-thinking-data-science-columbiax-ds101x) - "interesting examples of Bayesian modeling in practice (unit 5) from Andrew Gelman"
 
 ##<a name="computer-science">Computer Science</a>
+- [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
 - [Using Databases with Python](https://www.coursera.org/learn/python-databases)
 - [Data structures: Measuring and Optimizing Performanc](https://www.coursera.org/learn/data-structures-optimizing-performance)
 - [Principles of Computing (Part 2)](https://class.coursera.org/principlescomputing2-004/lecture)
